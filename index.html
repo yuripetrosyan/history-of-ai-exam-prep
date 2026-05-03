@@ -1,0 +1,2205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>History of AI — Exam Prep</title>
+<style>
+  :root {
+    --bg: #0f1216;
+    --bg-alt: #161a21;
+    --bg-card: #1c222b;
+    --border: #2a313d;
+    --text: #e8ecef;
+    --text-dim: #9aa3af;
+    --accent: #6ee7b7;
+    --accent-2: #93c5fd;
+    --tier1: #ef4444;
+    --tier2: #f59e0b;
+    --tier3: #3b82f6;
+    --tier4: #a78bfa;
+    --shadow: 0 6px 24px rgba(0,0,0,.25);
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent-2); }
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(15,18,22,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 14px 22px;
+    display: flex; flex-wrap: wrap; gap: 14px;
+    align-items: center; justify-content: space-between;
+  }
+  .brand { font-size: 1.05rem; font-weight: 600; letter-spacing: 0.2px; }
+  .brand small { color: var(--text-dim); font-weight: 400; margin-left: 8px; font-size: 0.8em;}
+  .top-tabs { display:flex; gap: 4px; }
+  .top-tabs button {
+    background: transparent; border: 1px solid var(--border);
+    color: var(--text-dim); padding: 8px 14px;
+    border-radius: 999px; cursor: pointer; font-size: 0.92rem;
+    transition: all 0.18s ease;
+  }
+  .top-tabs button.active {
+    background: var(--text); color: #0f1216; border-color: var(--text);
+    font-weight: 600;
+  }
+  .top-tabs button:hover:not(.active) { color: var(--text); border-color: var(--text-dim); }
+
+  main {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 28px 22px 60px;
+  }
+
+  /* Lecture switcher */
+  .lecture-bar {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px;
+  }
+  .lecture-bar button {
+    background: var(--bg-alt); border: 1px solid var(--border);
+    color: var(--text); padding: 8px 14px; border-radius: 10px;
+    cursor: pointer; font-size: 0.9rem;
+    transition: all 0.15s ease;
+  }
+  .lecture-bar button.active {
+    background: var(--accent); color: #0a1810; border-color: var(--accent);
+    font-weight: 600;
+  }
+  .lecture-bar button.disabled { opacity: 0.45; cursor: not-allowed; }
+  .lecture-bar button:hover:not(.active):not(.disabled) { border-color: var(--accent); }
+
+  .lecture-header { margin-bottom: 6px; }
+  .lecture-header h1 { margin: 6px 0 4px; font-size: 1.7rem; }
+  .lecture-header p { color: var(--text-dim); margin: 0; }
+
+  .controls {
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+    margin: 16px 0 22px; padding: 12px 14px;
+    background: var(--bg-alt); border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+  .controls label { font-size: 0.9rem; color: var(--text-dim); cursor:pointer; user-select: none;}
+  .controls .toggle {
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .controls .toggle input { accent-color: var(--accent);}
+  .controls button {
+    background: transparent; border: 1px solid var(--border);
+    color: var(--text-dim); padding: 6px 12px; border-radius: 8px;
+    font-size: 0.85rem; cursor: pointer;
+  }
+  .controls button:hover { color: var(--text); border-color: var(--text-dim); }
+
+  .tier-section { margin-bottom: 26px; }
+  .tier-heading {
+    display: flex; align-items: center; gap: 10px;
+    margin: 4px 0 10px; padding-bottom: 6px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .tier-heading h2 {
+    font-size: 1.05rem; margin: 0; color: var(--text);
+  }
+  .tier-badge {
+    padding: 3px 10px; border-radius: 999px; font-size: 0.72rem;
+    font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase;
+  }
+  .tier-1 .tier-badge { background: var(--tier1); color: white; }
+  .tier-2 .tier-badge { background: var(--tier2); color: #1a1300; }
+  .tier-3 .tier-badge { background: var(--tier3); color: white; }
+  .tier-4 .tier-badge { background: var(--tier4); color: #1c0d40; }
+  .tier-meta { color: var(--text-dim); font-size: 0.85rem; margin-left: auto; }
+
+  .question-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+  .question-card:hover { border-color: var(--text-dim); }
+  .question-card.open { border-color: var(--accent); }
+  .question-header {
+    display: flex; gap: 12px;
+    padding: 14px 18px; cursor: pointer;
+    align-items: flex-start;
+  }
+  .q-number {
+    flex-shrink: 0;
+    width: 28px; height: 28px; border-radius: 8px;
+    background: var(--bg-alt); color: var(--text-dim);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.85rem;
+  }
+  .question-card.open .q-number { background: var(--accent); color: #0a1810; }
+  .q-title-wrap { flex: 1; }
+  .q-title {
+    font-size: 0.97rem; font-weight: 500; line-height: 1.5;
+    color: var(--text);
+  }
+  .q-hint {
+    margin-top: 4px; color: var(--text-dim); font-size: 0.83rem; font-style: italic;
+  }
+  .q-toggle {
+    flex-shrink: 0; align-self: center;
+    color: var(--text-dim); font-size: 1.4rem; line-height: 1;
+    transition: transform 0.2s ease;
+  }
+  .question-card.open .q-toggle { transform: rotate(45deg); color: var(--accent);}
+
+  .essay {
+    border-top: 1px solid var(--border);
+    padding: 18px 22px 22px;
+    background: var(--bg-alt);
+    display: none;
+  }
+  .question-card.open .essay { display: block; }
+  body.study-mode .essay { display: none !important; }
+  body.study-mode .q-hint { display: none; }
+  body.study-mode .q-toggle::before { content: "🔒"; font-size: 0.85rem; }
+
+  .essay h3 {
+    margin: 18px 0 6px; font-size: 0.95rem; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;
+  }
+  .essay h3:first-child { margin-top: 0; }
+  .essay p { margin: 8px 0; color: var(--text); }
+  .essay ul { padding-left: 22px; margin: 8px 0; }
+  .essay li { margin: 4px 0; }
+  .essay .note {
+    margin-top: 14px; padding: 10px 14px;
+    background: rgba(110, 231, 183, 0.07);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    font-size: 0.88rem; color: var(--text-dim);
+  }
+
+  /* Toolkit */
+  .toolkit { display: none; }
+  .toolkit.active { display: block; }
+  .lectures-view { display: none; }
+  .lectures-view.active { display: block; }
+  .essentials-view { display: none; }
+  .essentials-view.active { display: block; }
+
+  /* Essentials styling */
+  .essentials-banner {
+    background: linear-gradient(135deg, rgba(110,231,183,0.12), rgba(147,197,253,0.10));
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    margin-bottom: 28px;
+  }
+  .essentials-banner h1 {
+    margin: 0 0 8px; font-size: 1.7rem; color: var(--accent);
+  }
+  .essentials-banner p {
+    margin: 0; color: var(--text); font-size: 0.97rem;
+  }
+
+  .ess-section { margin-bottom: 32px; }
+  .ess-section h2 {
+    font-size: 1.15rem; margin: 0 0 4px; color: var(--text);
+  }
+  .ess-subtitle {
+    color: var(--text-dim); font-size: 0.9rem; margin: 0 0 14px;
+  }
+
+  .ess-people { display: grid; gap: 12px; }
+  .ess-person {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    border-left: 3px solid var(--accent);
+  }
+  .ess-person-name {
+    font-weight: 600; font-size: 1.05rem; margin-bottom: 8px;
+  }
+  .ess-tag {
+    display: inline-block;
+    background: rgba(110,231,183,0.15);
+    color: var(--accent);
+    font-size: 0.78rem;
+    padding: 2px 9px; border-radius: 999px;
+    margin-left: 8px; font-weight: 400;
+  }
+  .ess-person-did, .ess-person-use {
+    font-size: 0.92rem; margin: 6px 0; color: var(--text);
+  }
+  .ess-person-use { color: var(--text-dim); }
+  .ess-person-use strong { color: var(--accent); }
+
+  .ess-dates {
+    display: grid; gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+  .ess-date {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    text-align: center;
+  }
+  .ess-year {
+    font-size: 2.4rem; font-weight: 700;
+    color: var(--accent-2); letter-spacing: -1px;
+    margin-bottom: 4px;
+  }
+  .ess-event {
+    font-size: 0.92rem; line-height: 1.5;
+    color: var(--text);
+  }
+
+  .ess-traditions {
+    display: grid; gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .ess-trad {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+  .ess-trad-name {
+    font-size: 1.02rem; font-weight: 600;
+    color: var(--accent); margin-bottom: 6px;
+  }
+  .ess-trad-desc {
+    font-size: 0.9rem; color: var(--text); margin-bottom: 10px;
+  }
+  .ess-trad-anchor {
+    font-size: 0.85rem; color: var(--text-dim);
+    padding-top: 8px; border-top: 1px dashed var(--border);
+  }
+  .ess-trad-anchor strong { color: var(--text); }
+
+  .ess-args { display: grid; gap: 12px; }
+  .ess-arg {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    border-left: 3px solid var(--accent-2);
+  }
+  .ess-arg-title {
+    font-weight: 600; color: var(--accent-2);
+    margin-bottom: 8px; font-size: 0.98rem;
+  }
+  .ess-arg-body { font-size: 0.92rem; }
+
+  .ess-sentences {
+    list-style: none; padding: 0; margin: 0;
+  }
+  .ess-sentences li {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    font-size: 0.93rem;
+    line-height: 1.5;
+    font-style: italic;
+    position: relative;
+    padding-left: 36px;
+  }
+  .ess-sentences li::before {
+    content: "“";
+    position: absolute;
+    left: 12px; top: 8px;
+    font-size: 1.8rem;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .ess-final {
+    background: var(--bg-alt);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+  }
+  .ess-final h2 { margin-top: 0; }
+  .ess-final p { font-size: 0.92rem; color: var(--text-dim); margin: 8px 0 0;}
+  .ess-final p strong { color: var(--text); }
+
+  .toolkit h1 { font-size: 1.7rem; margin: 0 0 6px; }
+  .toolkit > p.sub { color: var(--text-dim); margin: 0 0 26px; }
+
+  .tk-grid {
+    display: grid; gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+  .tk-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+  .tk-card h3 {
+    margin: 0 0 10px; font-size: 1.02rem;
+    color: var(--accent); display: flex; gap: 10px; align-items: center;
+  }
+  .tk-card h3 .emoji { font-size: 1.2rem; }
+  .tk-card p { margin: 8px 0; font-size: 0.92rem; }
+  .tk-card ul { padding-left: 20px; margin: 8px 0; font-size: 0.92rem;}
+  .tk-card li { margin: 5px 0; }
+  .tk-card code, .phrase {
+    background: rgba(110,231,183,0.1);
+    color: var(--accent);
+    padding: 1px 6px; border-radius: 4px;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.86em;
+  }
+  .tk-card .small { font-size: 0.82rem; color: var(--text-dim); }
+
+  .placeholder {
+    background: var(--bg-card); border: 1px dashed var(--border);
+    border-radius: var(--radius); padding: 30px;
+    text-align: center; color: var(--text-dim);
+  }
+  .placeholder strong { color: var(--text); display: block; margin-bottom: 4px; }
+
+  .anchor-table {
+    width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-top: 8px;
+  }
+  .anchor-table th, .anchor-table td {
+    padding: 6px 8px; text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .anchor-table th { color: var(--text-dim); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.3px;}
+
+  .footer {
+    text-align: center; color: var(--text-dim);
+    font-size: 0.82rem; margin-top: 40px; padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    .header-inner { flex-direction: column; align-items: flex-start; }
+    .top-tabs { width: 100%; }
+    .top-tabs button { flex: 1; }
+    .lecture-header h1 { font-size: 1.35rem; }
+    main { padding: 20px 14px 50px; }
+    .question-header { padding: 12px 14px; }
+    .essay { padding: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">History of AI <small>VU exam prep</small></div>
+    <div class="top-tabs" role="tablist">
+      <button id="tab-essentials" class="active" onclick="switchView('essentials')">🎯 Essentials</button>
+      <button id="tab-lectures" onclick="switchView('lectures')">📚 Lectures</button>
+      <button id="tab-toolkit" onclick="switchView('toolkit')">✍️ Writing Toolkit</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ============ ESSENTIALS VIEW ============ -->
+  <section id="view-essentials" class="essentials-view active">
+    <div class="lecture-bar" id="essLectureBar"></div>
+    <div id="essentialsContent"></div>
+  </section>
+
+  <!-- ============ LECTURES VIEW ============ -->
+  <section id="view-lectures" class="lectures-view">
+    <div class="lecture-bar" id="lectureBar"></div>
+
+    <div class="lecture-header" id="lectureHeader"></div>
+
+    <div class="controls">
+      <span class="toggle">
+        <input type="checkbox" id="studyMode" onchange="toggleStudyMode()" />
+        <label for="studyMode">🔒 Study mode (hide answers — try to write yours first)</label>
+      </span>
+      <button onclick="expandAll()">Expand all</button>
+      <button onclick="collapseAll()">Collapse all</button>
+    </div>
+
+    <div id="questionList"></div>
+  </section>
+
+  <!-- ============ TOOLKIT VIEW ============ -->
+  <section id="view-toolkit" class="toolkit">
+    <h1>Writing Toolkit</h1>
+    <p class="sub">Phrases, hooks, and structure that work in almost any History of AI essay. Use these to write smoother answers and to extend word count without padding.</p>
+
+    <div class="tk-grid">
+
+      <div class="tk-card">
+        <h3><span class="emoji">🎯</span> The prof's body structure</h3>
+        <p>From the seminar PDF — this is the actual essay template the lecturer uses to teach you.</p>
+        <p>For any question, decompose the prompt into clauses (a, b, c, d…) and answer each in turn. Example with the ENIAC question:</p>
+        <ul>
+          <li><strong>a)</strong> ENIAC is an obvious starting point because…</li>
+          <li><strong>b)</strong> An alternative starting point would be…</li>
+          <li><strong>c)</strong> It counts as an alternative because…</li>
+          <li><strong>d)</strong> It was passed by because…</li>
+        </ul>
+        <p class="small">Always re-read the question and break it into pieces before you start the body.</p>
+      </div>
+
+      <div class="tk-card">
+        <h3><span class="emoji">🪝</span> Opening hooks (pick one)</h3>
+        <ul>
+          <li>"When we look back at <span class="phrase">[X]</span>, it's tempting to imagine a single straight line — but the real story is messier."</li>
+          <li>"<span class="phrase">[X]</span> is often called <span class="phrase">[Y]</span>. The label is convenient, but the story behind it is more interesting."</li>
+          <li>"It seems strange to say that <span class="phrase">[counter-intuitive claim]</span>, but on closer inspection..."</li>
+          <li>"In <span class="phrase">[year]</span>, <span class="phrase">[event]</span>. With this, <span class="phrase">[thing]</span> began — but the story behind it stretches back much further."</li>
+          <li>"<span class="phrase">[X]</span> looks like a recent phenomenon. Its roots reach back to <span class="phrase">[period]</span>."</li>
+        </ul>
+        <p class="small">Avoid clichés like "Throughout history…" or "Since the dawn of time…"</p>
+      </div>
+
+      <div class="tk-card">
+        <h3><span class="emoji">🔗</span> Transition phrases</h3>
+        <p>Use these to glue paragraphs together so your essay flows.</p>
+        <ul>
+          <li><span class="phrase">By contrast,</span> / <span class="phrase">However,</span></li>
+          <li><span class="phrase">Crucially,</span> / <span class="phrase">More importantly,</span></li>
+          <li><span class="phrase">What this reveals is…</span></li>
+          <li><span class="phrase">The deeper question is…</span></li>
+          <li><span class="phrase">Equally important,</span></li>
+          <li><span class="phrase">It is significant that…</span></li>
+          <li><span class="phrase">This is not to say that…</span></li>
+        </ul>
+      </div>
+
+      <div class="tk-card">
+        <h3><span class="emoji">🔍</span> Concrete-example phrases</h3>
+        <p>Graders reward <em>specific</em> evidence — names, dates, places. Lead in with these:</p>
+        <ul>
+          <li><span class="phrase">Consider the case of</span> ___ in ___ (year).</li>
+          <li><span class="phrase">A telling instance is</span> ___.</li>
+          <li><span class="phrase">Take, for example,</span> ___.</li>
+          <li><span class="phrase">An illustrative case is</span> ___.</li>
+          <li><span class="phrase">The clearest example is</span> ___.</li>
+        </ul>
+        <p class="small">Two specific examples beat five vague ones.</p>
+      </div>
+
+      <div class="tk-card">
+        <h3><span class="emoji">💭</span> Reflective phrases (the prof loves these)</h3>
+        <p>The course is "not prescriptive but reflective." Use phrasing that thinks <em>about</em> history, not just describes it.</p>
+        <ul>
+          <li><span class="phrase">This raises the question of…</span></li>
+          <li><span class="phrase">From a sociological angle,…</span></li>
+          <li><span class="phrase">Read this way,</span> the technology is not just…</li>
+          <li><span class="phrase">The implication is that…</span></li>
+          <li><span class="phrase">This is not just a technical change but a cultural one.</span></li>
+          <li><span class="phrase">Knowing this changes how we read</span> [present-day phenomenon].</li>
+        </ul>
+      </div>
+
+      <div class="tk-card">
+        <h3><span class="emoji">🎬</span> Conclusion templates</h3>
+        <ul>
+          <li>"Taken together, <span class="phrase">[evidence]</span> shows that <span class="phrase">[argument]</span>. The deeper lesson is <span class="phrase">[reflective point]</span>."</li>
+          <li>"<span class="phrase">[X]</span> is best understood not as <span class="phrase">[simple framing]</span> but as <span class="phrase">[complex framing]</span>."</li>
+          <li>"Knowing this history changes how we read <span class="phrase">[present-day technology]</span> today."</li>
+          <li>"The lesson is that <span class="phrase">[X]</span> was never just <span class="phrase">[surface description]</span> — it was always also <span class="phrase">[deeper claim]</span>."</li>
+        </ul>
+        <p class="small">A good conclusion always says something the intro didn't — adds, not just repeats.</p>
+      </div>
+
+      <div class="tk-card">
+        <h3><span class="emoji">🏛️</span> The Three Traditions hook</h3>
+        <p>The prof's signature framework. Drop it into any computing-history question and you can usually add 100 words plus look like you understood the lecture.</p>
+        <ul>
+          <li><strong>Administration</strong> → money, urgency, paperwork. Hollerith, IBM, NCR, typewriters.</li>
+          <li><strong>Process control</strong> → analogue tech, industrial outlines. Shell 1935, Edison 1898, DSM 1956.</li>
+          <li><strong>Science &amp; engineering</strong> → concepts, calculations. Babbage, Bush 1934, Hartree, Tinbergen, Manhattan.</li>
+        </ul>
+        <p class="small">Phrase: "From the <em>administrative</em> tradition, …" / "The <em>science and engineering</em> tradition meanwhile…" — instantly adds structure.</p>
+      </div>
+
+      <div class="tk-card">
+        <h3><span class="emoji">🧠</span> The two AI prehistory threads</h3>
+        <p>Use these whenever a question is about AI's origins:</p>
+        <ul>
+          <li><strong>Logic / Language</strong> → Boole 1854 → Frege 1879 → Russell &amp; Whitehead 1910–13 → Hilbert 1928 → Gödel 1931 → Church &amp; Turing 1936.</li>
+          <li><strong>Human thinking &amp; behaviour</strong> → Descartes → Jevons → Torres Quevedo (chess 1912) → fiction (Frankenstein 1818, RUR 1920, Metropolis 1927) → cybernetics.</li>
+        </ul>
+        <p class="small">Both threads predate ENIAC (1946). That's why "AI is older than computing."</p>
+      </div>
+
+      <div class="tk-card">
+        <h3><span class="emoji">📏</span> Word-count extension (without padding)</h3>
+        <p>Stuck at 200 words? Add depth, not filler. Try one of these:</p>
+        <ul>
+          <li><strong>Counter-point.</strong> "One might object that… However, …"</li>
+          <li><strong>Specify date + place.</strong> "In 1890, in Washington, …" beats "Eventually…"</li>
+          <li><strong>Add a "so what".</strong> After every example, write one sentence on why it matters.</li>
+          <li><strong>European angle.</strong> The book is American; the prof loves a European parallel (Babbage, Turing, Boole, Frege, Bletchley, Zuse, Esperanto, Welby, Klavarscribo).</li>
+          <li><strong>Quote or paraphrase.</strong> "As Babbage wrote in 1832, computing was 'the division of mental labor.'"</li>
+          <li><strong>Connect to today.</strong> One sentence at the end linking the history to a present-day phenomenon.</li>
+        </ul>
+      </div>
+
+      <div class="tk-card">
+        <h3><span class="emoji">🚫</span> Words and phrases to avoid</h3>
+        <ul>
+          <li>"In conclusion" — try "Taken together" or "What this shows is".</li>
+          <li>"Throughout history" — too vague.</li>
+          <li>"Many people believe" — who?</li>
+          <li>"Since the dawn of time" — never.</li>
+          <li>"A lot of" — say "many" or, better, give a number.</li>
+          <li>"Things" / "stuff" — be specific.</li>
+          <li>"Very important" — show, don't tell.</li>
+        </ul>
+      </div>
+
+      <div class="tk-card">
+        <h3><span class="emoji">📌</span> Anchor facts to memorise</h3>
+        <p class="small">If you can drop these into any answer, the grader knows you know the material.</p>
+        <table class="anchor-table">
+          <tr><th>Year</th><th>What</th></tr>
+          <tr><td>1766</td><td>Nautical Almanac (UK) — first permanent table-making project</td></tr>
+          <tr><td>1790s</td><td>de Prony's <em>tables du cadastre</em> (France)</td></tr>
+          <tr><td>1822</td><td>Babbage proposes Difference Engine</td></tr>
+          <tr><td>1832</td><td>Babbage, <em>Economy of Machinery and Manufactures</em></td></tr>
+          <tr><td>1854</td><td>Boole, <em>Investigation of the Laws of Thought</em></td></tr>
+          <tr><td>1874</td><td>Remington typewriter (QWERTY)</td></tr>
+          <tr><td>1879</td><td>Frege, <em>Begriffsschrift</em></td></tr>
+          <tr><td>1880s</td><td>Volapük; 1887 Esperanto; 1894 Ido</td></tr>
+          <tr><td>1890</td><td>US Census — Hollerith punched-card system</td></tr>
+          <tr><td>1903–11</td><td>Taylor, scientific management</td></tr>
+          <tr><td>1910–13</td><td>Russell &amp; Whitehead, <em>Principia Mathematica</em></td></tr>
+          <tr><td>1924</td><td>IBM founded (from CTR)</td></tr>
+          <tr><td>1928</td><td>Hilbert's Entscheidungsproblem</td></tr>
+          <tr><td>1931</td><td>Gödel's incompleteness theorems</td></tr>
+          <tr><td>1934</td><td>Bush's differential analyser</td></tr>
+          <tr><td>1936</td><td>Turing, <em>On Computable Numbers</em>; Church, lambda calculus</td></tr>
+          <tr><td>1937</td><td>Comrie's Scientific Computing Service</td></tr>
+          <tr><td>1937–44</td><td>Harvard Mark I (Aiken + IBM)</td></tr>
+          <tr><td>1946</td><td>ENIAC unveiled</td></tr>
+        </table>
+      </div>
+
+      <div class="tk-card">
+        <h3><span class="emoji">📐</span> Essay scaffold (copy this)</h3>
+        <p><strong>Intro (~50–80 words).</strong></p>
+        <ul>
+          <li>One-sentence hook.</li>
+          <li>One-sentence summary of your argument.</li>
+          <li>Optional: signpost ("I'll do this in three parts…").</li>
+        </ul>
+        <p><strong>Body (~150–350 words).</strong></p>
+        <ul>
+          <li>Decompose question into clauses.</li>
+          <li>One paragraph per clause.</li>
+          <li>Each paragraph: claim → concrete example (name + year) → "so what".</li>
+        </ul>
+        <p><strong>Conclusion (~40–70 words).</strong></p>
+        <ul>
+          <li>Don't repeat — synthesise.</li>
+          <li>One reflective sentence (philosophical / sociological angle).</li>
+          <li>Optional: connect to today.</li>
+        </ul>
+      </div>
+
+      <div class="tk-card">
+        <h3><span class="emoji">⚠️</span> Common traps</h3>
+        <ul>
+          <li><strong>Narrating ≠ arguing.</strong> Don't just list events — say what they <em>mean</em>.</li>
+          <li><strong>Generic claims.</strong> "Computers changed everything" — say what, when, for whom.</li>
+          <li><strong>Ignoring half the prompt.</strong> If the question has two parts, answer both. Reread the prompt before submitting.</li>
+          <li><strong>Going past 500 words.</strong> The seminar set a hard cap — don't overrun.</li>
+          <li><strong>Over-cited names without context.</strong> Don't list "Boole, Frege, Hilbert, Gödel, Turing" without saying what each contributed.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<div class="footer">
+  Built for L1 (Chapters 1–3). Add L2–L4 content as your lectures continue.
+</div>
+
+<script>
+// ============================================================
+// DATA: Per-lecture essentials (the bare minimum)
+// ============================================================
+const essentials = {
+  L1: {
+    title: "Lecture 1 — A Prehistory of Computing & AI",
+    intro: "If you memorise only what's on this page, you can answer almost any L1 exam question. Everything else is bonus dressing. Five people. Three dates. Three traditions. Two arguments. That's the whole kit.",
+    people: [
+      {
+        name: "Charles Babbage",
+        when: "early 1800s, England",
+        did: "Designed the first programmable computer (Analytical Engine) on paper. Never built it — Britain pulled funding, the engineering was beyond Victorian manufacturing, and he was a difficult manager.",
+        useFor: "the science tradition, computing's deep roots, 'ideas vs. working machines,' failed visions."
+      },
+      {
+        name: "Herman Hollerith",
+        when: "1890, USA",
+        did: "Invented punched-card tabulation for the 1890 US Census. His company eventually became IBM.",
+        useFor: "the administration tradition, government as customer, mass-data processing, the feminisation of clerical work."
+      },
+      {
+        name: "Alan Turing",
+        when: "1936, UK",
+        did: "Wrote the paper that defined the 'Turing machine' — the theoretical model of any computer. Later broke German codes at Bletchley Park during WWII.",
+        useFor: "AI's logical foundations, 'thinking as computation,' European history, the prehistory of AI."
+      },
+      {
+        name: "George Boole",
+        when: "mid-1800s, UK/Ireland",
+        did: "Wrote The Laws of Thought. Turned logic into algebra — calculating with truth and false. The seed of formal logic and digital circuits.",
+        useFor: "'AI is older than computing,' the logic-and-language thread, artificial languages."
+      },
+      {
+        name: "Gaspard de Prony",
+        when: "1790s, France",
+        did: "Organised dozens of unemployed hairdressers (post-Revolution, no aristocracy left to coif) into a 'table-making factory' — three layers: mathematicians, organisers, human computers. Adam Smith's division of labor applied to mental work.",
+        useFor: "human computers, division of labor, computing-as-organisation."
+      }
+    ],
+    dates: [
+      { year: "1890", event: "<strong>Hollerith's US Census.</strong> The administrative tradition arrives. Punched cards. Birth of the IBM lineage." },
+      { year: "1936", event: "<strong>Turing's 'On Computable Numbers.'</strong> AI's logical foundation — a decade before any electronic computer existed." },
+      { year: "1946", event: "<strong>ENIAC unveiled.</strong> The convergence: science, administration, and process control finally meet in one machine." }
+    ],
+    traditions: [
+      { name: "Administration", desc: "Paperwork, money, urgency. Office machines.", anchor: "<strong>Hollerith, 1890</strong>" },
+      { name: "Process control", desc: "Industrial machines that regulate physical processes.", anchor: "<strong>Factory control systems</strong> (think: refineries, steel plants)" },
+      { name: "Science & engineering", desc: "Fast, accurate calculation. Tables, ballistics, weather.", anchor: "<strong>Babbage</strong> (and de Prony before him)" }
+    ],
+    arguments: [
+      { title: "Argument A — \"Computing has multiple histories, not one.\"", body: "Use the Three Traditions framework. Each had different drivers (money / industry / calculation). They barely talked to each other for a century. The modern computer is where they finally converge (ENIAC, 1946). Plug in: Hollerith for administration, Babbage for science, 'factory control' for process." },
+      { title: "Argument B — \"AI is older than computing.\"", body: "Two threads predate ENIAC. (1) <strong>Logic / language</strong>: Boole turned thinking into algebra (1850s); Turing showed thinking could be done by a universal machine (1936). Both before any computer existed. (2) <strong>Imagination</strong>: Frankenstein (1818), R.U.R. ('robot,' 1920), Metropolis (1927). Computers gave AI its medium; the questions are centuries older." }
+    ],
+    sentences: [
+      "Take Charles Babbage, who designed a programmable computer in the early nineteenth century but never built it — the engineering was too immature, and his backers lost faith.",
+      "Hollerith's punched-card system for the 1890 US Census founded what would later become IBM, and set the pattern for mass data processing for a century.",
+      "Turing's 1936 paper showed that thinking could, in principle, be reduced to formal symbol manipulation — a decade before the first electronic computer existed.",
+      "By the time ENIAC was unveiled in 1946, the three traditions of automation — administration, process control, and science — had finally converged in a single machine.",
+      "This is not just a technical change but a cultural one — and reading it historically helps us see what's at stake today."
+    ],
+    finalNote: "Other names like Frege, Gödel, Russell, Whitehead, Hilbert, Aiken, Comrie, Čapek, and Lang appear in the model essays. They're useful if they come back to you on exam day, but don't stress about memorising all of them. The 5 people above will carry you."
+  },
+
+  L2: {
+    title: "Lecture 2 — Creating Computers (Chapters 4–5)",
+    intro: "L2 is about how the modern computer actually got built — wartime ballistics, the Moore School at Penn, and the chain that brought stored-program computing to Europe (and to the Dutch). Five people. Three dates. One framework. Two arguments. That's the whole kit.",
+    people: [
+      {
+        name: "Mauchly &amp; Eckert",
+        when: "1943–46, Moore School (USA)",
+        did: "Designed and built ENIAC at the Moore School of Electrical Engineering, U Penn. Mauchly was the visionary; Eckert was the engineer. Later founded the company that built UNIVAC (1951), the first business computer.",
+        useFor: "the Moore School question, the 'first computer' question, computing-as-business, the story behind ENIAC."
+      },
+      {
+        name: "John von Neumann",
+        when: "1945, Princeton (USA, Hungarian-born)",
+        did: "Wrote the <em>First Draft of a Report on the EDVAC</em> (June 1945), which laid out the stored-program architecture every modern computer uses. Mathematician, advisor to the Manhattan Project. The 'von Neumann architecture' is named after him — but it was actually a team effort.",
+        useFor: "the Moore School question, the stored-program concept, why credit gets attached to one name unfairly."
+      },
+      {
+        name: "Alan Turing",
+        when: "1936 paper + 1948–50 (UK)",
+        did: "Wrote <em>Computing Machinery and Intelligence</em> (1950) introducing the 'imitation game' (Turing test). Worked on code-breaking at Bletchley Park during WWII. His 1936 'On Computable Numbers' is the theoretical foundation.",
+        useFor: "the Turing question, AI prehistory, 'father of AI?' debate, European angle."
+      },
+      {
+        name: "Aad van Wijngaarden",
+        when: "1947–87, Amsterdam (Netherlands)",
+        did: "Director of the computing department at the Mathematisch Centrum from 1947. Drove the building of ARRA (1952) — the first Dutch computer attempt — and the X1 via spin-off Electrologica (1956). Later co-developed ALGOL 60.",
+        useFor: "the Dutch dinosaurs question, post-war European computing, the Moore School's reach into Europe."
+      },
+      {
+        name: "Willem van der Poel",
+        when: "1950s, Delft (Netherlands)",
+        did: "Built ZEBRA (Zeer Eenvoudig Binair Reken Apparaat — 'very simple binary calculator'), 1955. Earlier: ARCO/Testudo (1950), ZERO (1951), PTERA (1953). ZEBRA went into production with the British company STANTEC in 1957.",
+        useFor: "the Dutch dinosaurs question, the funny acronym tradition, Dutch pragmatism in early computing."
+      }
+    ],
+    dates: [
+      { year: "1945", event: "<strong>Von Neumann's First Draft of a Report on the EDVAC.</strong> The stored-program concept written down. Every modern computer architecture descends from this 101-page document." },
+      { year: "1946", event: "<strong>ENIAC unveiled + Moore School Lectures (8 weeks, summer).</strong> The lectures trained Wilkes (→ EDSAC), Newman/Williams (→ Manchester Baby), and others — the gateway through which stored-program computing reached Europe." },
+      { year: "1956", event: "<strong>Dartmouth conference.</strong> The summer workshop at Dartmouth College where 'artificial intelligence' was named as a research field, narrowing the much broader cybernetics conversation." }
+    ],
+    traditions: [
+      { name: "Pre-war Moore School", desc: "Home of Vannevar Bush's differential analyser; routine ballistics calculations.", anchor: "<strong>Differential analyser, BRL contract</strong>" },
+      { name: "War Moore School", desc: "Mauchly + Eckert + Goldstine build ENIAC for army ballistics tables.", anchor: "<strong>ENIAC project (1943–46)</strong>" },
+      { name: "Post-war Moore School", desc: "Stored-program design (EDVAC, von Neumann's First Draft 1945), and the 1946 Moore School Lectures that taught the world.", anchor: "<strong>EDVAC + Moore School Lectures</strong>" }
+    ],
+    arguments: [
+      { title: "Argument A — \"WWII created the computer.\"", body: "Computing was driven by need, not luck. Ballistics tables (BRL/Aberdeen), code-breaking (Bletchley Park, Colossus 1943), the Manhattan Project (von Neumann's implosion equations), and radar (MIT Radiation Lab) all demanded calculation at a scale humans couldn't deliver. The Moore School built ENIAC to solve a war problem. The post-war push for scientific calculation (NASA, atomic power, Cold War) kept the demand going." },
+      { title: "Argument B — \"The 'first computer' question is political.\"", body: "Multiple candidates exist: Z1 (Zuse, Germany 1938), ABC (Atanasoff–Berry, 1939), Colossus (Bletchley 1943, secret until the 1970s), ENIAC (Penn 1946), Manchester Baby (1948, first stored-program), Yamashita statistical machine (Japan 1944). The simple stories — 'computers made our lives easier,' 'computers were trusted from the beginning' — are wrong. Which machine counts as 'first' depends on what counts as a computer, and that depends on who's writing the history." }
+    ],
+    sentences: [
+      "The Moore School at the University of Pennsylvania, where Mauchly and Eckert built ENIAC, became the gateway through which stored-program computing reached Britain and Europe via the 1946 Moore School Lectures.",
+      "Von Neumann's 1945 First Draft of a Report on the EDVAC laid out the stored-program architecture that virtually every computer since has used — even though the design was a team effort.",
+      "The Manchester Baby, which ran the first stored-program in June 1948, showed that war-trodden Europe was ready for the computer age.",
+      "Dutch computing began at the Mathematisch Centrum in Amsterdam under Aad van Wijngaarden, whose team famously 'bluffed their way into the computer age' (Gerard Alberts) by building the ARRA in 1952.",
+      "AI as a field was named at Dartmouth in 1956, but its real intellectual home was the broader and older field of cybernetics — psychology, language, biology, philosophy — which gave scientists their reasons to enter computing in the first place."
+    ],
+    finalNote: "Other names you'll see in the essays — Goldstine, Atanasoff, Berry, Wilkes, Newman, Williams, Norbert Wiener, Margaret Mead, Margaret Masterman, Konrad Zuse, Wim Nijenhuis, Johan van Veen — are useful if they stick, but the 5 above will carry almost any L2 essay. The Mauchly+Eckert pairing, von Neumann, Turing, and the two Dutch pioneers are the essentials."
+  },
+
+  L3: {
+    title: "Lecture 3 — The Sound of Software (Chapters 6–7)",
+    intro: "L3 is about computers <em>after</em> they were invented — when they started making noise, getting metaphors, going real-time, and showing up in sci-fi. Five anchors. Three dates. One easy chain to remember. Two reusable arguments. That's the kit.",
+    people: [
+      {
+        name: "Jay Forrester",
+        when: "MIT, 1944 onwards",
+        did: "Started Project Whirlwind (an aircraft trainer) at MIT in 1944. With Bill Papian, invented core memory in 1951. Whirlwind became SAGE — the Cold War air-defence system. Later wrote <em>World Dynamics</em> (1971), an early systems-thinking book.",
+        useFor: "real-time computing, the military → business chain, systems thinking."
+      },
+      {
+        name: "IBM (Watson Jr. + 1401 + System/360)",
+        when: "1959–1964",
+        did: "The IBM 1401 (1959) was 'Big Blue' — sold 12,000 against a forecast of 1,000. The System/360 (1964) was a 'bet-the-company' $5 billion gamble — IBM replaced its entire range with one compatible family. It worked. By the late 1960s IBM had ~75% of the market.",
+        useFor: "the seven dwarves question, IBM dominance, the mainframe age."
+      },
+      {
+        name: "Christopher Strachey",
+        when: "1951, Cambridge",
+        did: "Sent a punched-card tape to Wilkes' EDSAC at Cambridge. The program made the machine hum 'God Save the Queen.' The same trick was performed on the Dutch MIRACLE (national anthem). The cute anchor for 'computing sounds.'",
+        useFor: "the computing sounds question, the human-machine relationship in early computing."
+      },
+      {
+        name: "Stafford Beer",
+        when: "1960s–70s, UK",
+        did: "British cybernetician. Argued companies should be modelled as systems with feedback loops. Wrote the Viable Systems Model (1972). Most famously, ran <strong>Cybersyn</strong> for Allende's Chile (1971–73) — a real-time cybernetic management system for an entire country, until the 1973 coup.",
+        useFor: "the UPC question, cybernetics in business, systems thinking, the link from cybernetics to AI."
+      },
+      {
+        name: "Isaac Asimov + George Orwell",
+        when: "1948–1968 (Sci-fi Golden Age)",
+        did: "Asimov: <em>I, Robot</em> (1950), the 'Three Laws of Robotics,' Foundation series. Orwell: <em>1984</em> (1948) — surveillance, totalitarianism, systems thinking. Together they shaped the public's emotional response to computers and AI: hope (Asimov) and dread (Orwell).",
+        useFor: "the public-perception question, science fiction's role in AI's cultural reception."
+      }
+    ],
+    dates: [
+      { year: "1949", event: "<strong>EDSAC sings 'God Save the Queen.'</strong> Strachey's program at Cambridge. The first time a computer was heard, not just operated. Beginning of the 'computing sounds' tradition." },
+      { year: "1964", event: "<strong>IBM System/360 announced.</strong> $5 billion gamble, larger than the Manhattan Project in civilian R&amp;D. One compatible family of computers replaces IBM's entire previous range. IBM's complete victory over the seven dwarves." },
+      { year: "1973", event: "<strong>UPC adopted.</strong> The barcode arrives at the supermarket. McKinsey + IBM + a coalition of vendors and manufacturers. As Campbell-Kelly says: 'as much a political feat as a technical one.'" }
+    ],
+    traditions: [
+      { name: "Computing sounds", desc: "Speakers attached to 1950s machines for monitoring, navigation, and external control.", anchor: "<strong>EDSAC + 'God Save the Queen' (1949)</strong>" },
+      { name: "Real-time computing", desc: "Military research (Whirlwind → SAGE) blended with business (SABRE, Barclays, UPC).", anchor: "<strong>Whirlwind → SAGE → SABRE → UPC</strong>" },
+      { name: "Cybernetics in business", desc: "Companies as feedback systems. Stafford Beer's Cybersyn for Allende's Chile is the most ambitious example.", anchor: "<strong>Stafford Beer + Cybersyn (1971–73)</strong>" }
+    ],
+    arguments: [
+      { title: "Argument A — \"Computers were never just calculators.\"", body: "1950s machines made noise (EDSAC's anthem, ARRA II's speaker, UNIVAC's 'stall speaker' button). Programmers borrowed metaphors ('memory,' 'electronic brain,' 'educating a machine'). Sci-fi shaped what the public expected. Computers became cultural objects — listened to, talked about, and dramatised — long before they became invisible." },
+      { title: "Argument B — \"Real-time computing was made by war + business together.\"", body: "Campbell-Kelly's 'successful blending' line. Military research at MIT (Whirlwind, 1944) became SAGE — a Cold War air-defence system that was almost obsolete on arrival. But SAGE's technology and engineers gave us SABRE (American Airlines + IBM, 1957–64), Barclays' real-time banking (1965–69), Visa's authorisation network (1973), and the UPC (1973). Without military funding for risky R&amp;D, business couldn't have made real-time work. Without business deployment, the military investment would have wasted." }
+    ],
+    sentences: [
+      "In 1949, Christopher Strachey programmed Maurice Wilkes' EDSAC to hum 'God Save the Queen' — the first time a computer was made to sing.",
+      "Project Whirlwind at MIT, started by Jay Forrester in 1944 as an aircraft trainer, evolved into SAGE: the Cold War air-defence system that gave us core memory and trained a generation of computer engineers.",
+      "SABRE (American Airlines + IBM, 1957–64) had 1,100 terminals in 50 cities — and used the same architecture as SAGE, transferring real-time computing from war to business.",
+      "The IBM 1401 (1959) sold 12,000 units against a forecast of 1,000, earning IBM the nickname 'Big Blue' and ~75% market share by the late 1960s.",
+      "The Universal Product Code (1973) was 'as much a political feat as a technical one' (Campbell-Kelly): McKinsey, IBM, and an industry coalition spent years getting manufacturers, distributors, and retailers to agree on a single standard."
+    ],
+    finalNote: "Other names you'll see — Wilkes (EDSAC), Hopper, Dijkstra, Watson Jr., Eliot Noyes (1401 designer), Bill Papian (core memory), Perry Crawford (Whirlwind→SABRE), Dee Hock (Visa), William Grey Walter, Karl Lashley, Berkeley, Philip K. Dick, Kubrick — are bonus dressing. The 5 above (Forrester, IBM, Strachey, Beer, Asimov+Orwell) will carry any L3 essay."
+  }
+};
+
+// ============================================================
+// DATA: Lectures, tiers, questions, model essays (SIMPLIFIED L1)
+// ============================================================
+const lectures = [
+  {
+    id: "L1",
+    label: "L1",
+    title: "Lecture 1 — A Prehistory of Computing & AI",
+    chapters: "Campbell-Kelly chapters 1–3",
+    enabled: true,
+    tiers: [
+      {
+        tier: 1,
+        label: "Almost Certain",
+        meta: "Direct reframings of your assignment",
+        questions: [
+          {
+            q: "The 'prehistory' of computing cannot be understood as one history. Several histories — sometimes (but hardly) intersecting — have to be taken into account to understand where the computer actually had its origins. Explain this statement.",
+            hint: "Use the Three Traditions framework as your skeleton.",
+            essay: `
+              <h3>Intro</h3>
+              <p>It is tempting to imagine a single straight line from the abacus to the laptop. The real history of computing is messier. Three separate worlds were each developing their own kind of automation in the 1800s, and they barely talked to each other. The modern computer is where they finally meet.</p>
+
+              <h3>Body</h3>
+              <p><strong>The administrative tradition</strong> came from the explosion of paperwork in 19th-century offices and governments. The clearest example is Herman Hollerith's punched-card system for the 1890 US Census. It processed 62 million cards in 2.5 years instead of seven. His company eventually became IBM.</p>
+
+              <p><strong>The process-control tradition</strong> came from heavy industry. Factories needed machines to monitor and adjust temperatures, pressures, and flows in real time. The legacy was the idea that a machine could continuously regulate a real-world process — a thread that survives in modern embedded computing today.</p>
+
+              <p><strong>The science and engineering tradition</strong> was driven by the demand for fast, accurate calculation. Astronomers needed star tables; navies needed gunnery tables. The story goes back to de Prony in the 1790s, who organised dozens of unemployed hairdressers in Paris to compute decimal tables by hand. Charles Babbage in the 1830s tried to build a machine to do the same job — the Analytical Engine — but never succeeded.</p>
+
+              <h3>Conclusion</h3>
+              <p>By the time ENIAC was unveiled in 1946, all three streams had finally come together in a single machine. That is why it's often called the first computer — not because it was technically unique, but because it pulled three different histories into one place. Calling computing 'one history' hides how unlikely the convergence really was.</p>
+
+              <div class="note"><strong>Word count: ~290.</strong> Names used: Hollerith, IBM, de Prony, Babbage, ENIAC. Five anchors — that's all you need.</div>
+            `
+          },
+          {
+            q: "In the lecture, it was suggested that the history of AI is older than the history of computing. Explain the line of thought.",
+            hint: "Two threads predating ENIAC: logic and imagination.",
+            essay: `
+              <h3>Intro</h3>
+              <p>It seems strange to say AI predates computers, since AI is software running on computers. But the questions AI tries to answer — can a machine think? can it imitate a human? — were being asked long before electronics existed. The lecture sketched two threads.</p>
+
+              <h3>Body</h3>
+              <p><strong>The first thread is logic and language.</strong> George Boole's <em>Laws of Thought</em> (1854) tried to turn thinking into algebra: calculations with truth and false. Decades later, Alan Turing built on this in 1936. He described what we now call the 'Turing machine' — a theoretical device with a tape and a reader that could compute anything computable. Both Boole and Turing were asking: can thought be reduced to formal symbol manipulation? They were doing AI prehistory in pure mathematics, before any computer was built.</p>
+
+              <p><strong>The second thread is imagining artificial humans.</strong> Mary Shelley's <em>Frankenstein</em> (1818) gave us the first modern story of a created mind. The Czech play <em>R.U.R.</em> (1920) coined the word 'robot' for mass-produced artificial workers. Fritz Lang's film <em>Metropolis</em> (1927) showed a robot double of a real woman. None of these required a computer to exist — they're a cultural prehistory of AI.</p>
+
+              <h3>Conclusion</h3>
+              <p>Computers gave AI its medium. But the questions of AI — what is mind? can it be mechanised? — are centuries older. AI is the inheritor of a long conversation, not a brand new field. When people today feel anxious about ChatGPT, they're partly reacting through Frankenstein and R.U.R.</p>
+
+              <div class="note"><strong>Word count: ~280.</strong> Names used: Boole, Turing, Shelley, Čapek (R.U.R.), Lang. The two-thread structure (logic + imagination) is reusable.</div>
+            `
+          },
+          {
+            q: "During the early 20th century various artificial languages were developed, all from rather different perspectives. Give two examples and explain their relevance in the history of AI.",
+            hint: "Pick two with different perspectives — Boole's logic + Esperanto works well.",
+            essay: `
+              <h3>Intro</h3>
+              <p>In the late 1800s, several people tried to design 'perfect' languages — each from a different motivation. Two examples that mattered for AI are George Boole's algebra of logic (1854) and Esperanto (created by Zamenhof in 1887). They came from completely different worlds, but both asked the same underlying question: can language be made systematic enough that a machine — or all of humanity — can use it without ambiguity?</p>
+
+              <h3>Body</h3>
+              <p><strong>Boolean logic</strong> came from mathematics. Boole wrote a book called <em>The Laws of Thought</em>. He tried to express thought in formulae and calculate with truth and false. He believed he was modelling the human mind. Eventually, Boolean algebra became the basis for digital circuits and for symbolic AI. The relevance for AI is direct: if reasoning can be reduced to a formal language, then a machine that manipulates that language is, in a precise sense, reasoning.</p>
+
+              <p><strong>Esperanto</strong> came from a totally different perspective: the peace movement. Zamenhof, a Polish doctor, designed Esperanto in 1887 as a politically neutral universal language. The hope was that if everyone shared a tongue, ethnic conflict would shrink. The Esperanto movement believed you could engineer thought through engineered language. The relevance for AI here is more indirect but important. The dream of a clear, machine-friendly, ambiguity-free language was already part of European culture before computers existed. The same dream reappears in formal grammars, programming languages, and natural language processing today.</p>
+
+              <h3>Conclusion</h3>
+              <p>Boole succeeded narrowly — for logic. Esperanto failed as a universal tongue, but the cultural moment matters. Long before AI existed as a field, people were already trying to make language calculable. Modern AI's interest in formal grammars and unambiguous communication is the technical heir of these earlier experiments.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> Pick examples with <em>different perspectives</em> — that's literally what the question asks. Boole = mathematical perspective; Esperanto = political/peace perspective.</div>
+            `
+          },
+          {
+            q: "During the course the notion of digital culture was introduced as a defining characteristic of modern culture. Give an example from your own profession or experience where digital culture is fitting to describe the change in an existing habit. Explain how (or in what way) computer technology actually changed the situation. Discuss the positive and negative implications of this change.",
+            hint: "Personal essay — pick ONE habit from your own life and run with it.",
+            essay: `
+              <h3>Intro</h3>
+              <p>'Digital culture' doesn't just mean doing the same things online. It means a transformation in the texture of an existing habit — how we coordinate, what we expect, what skills we keep and lose. I'll use the example of how being a university student has changed in my own generation.</p>
+
+              <h3>Body</h3>
+              <p>Until recently, studying was overwhelmingly physical. You went to the library to find a book. You took notes by hand. You studied with classmates by sitting in a room together. The information environment was scarce, slow, and shared.</p>
+
+              <p>Computer technology has rebuilt every part of this. Lecture recordings make attendance optional. Notion and iPad note apps replaced paper. Search engines and Wikipedia replaced reference works. Group chats coordinate everything. AI assistants — like the one helping with this essay — change what 'looking something up' even means. The act of studying itself has been redefined: it is now distributed, asynchronous, and continuously online.</p>
+
+              <p><strong>Positive implications.</strong> Speed and reach are real. Students can access materials that used to require expensive institutional access. Collaboration is easier across time zones. Learning is more individualised: you can watch lectures at 1.5×, pause, rewind.</p>
+
+              <p><strong>Negative implications.</strong> Memorisation has become shallower; we trust we can always look things up. Attention is fragmented by constant notifications. Platforms harvest our learning data — what we read, how long, where we struggle. There's a deskilling risk: we don't remember phone numbers because the phone does. The same may happen with reasoning if AI tools become primary thinking tools rather than supports.</p>
+
+              <h3>Conclusion</h3>
+              <p>This is what makes the change a <em>cultural</em> one rather than just a technical one. Studying with computers would be a small change. Studying-as-such being redefined — that's digital culture. The positives are obvious; the negatives only show up over years, which is exactly why a historical perspective matters.</p>
+
+              <div class="note"><strong>Word count: ~340.</strong> Personal essays still need analytical structure. Always discuss positives <em>and</em> negatives — the prompt asks for both. End with a 'reflective' framing.</div>
+            `
+          }
+        ]
+      },
+      {
+        tier: 2,
+        label: "Very Likely",
+        meta: "The prof's worked example + obvious adjacent prompts",
+        questions: [
+          {
+            q: "ENIAC (1946) is the book's starting point for the history of computing. The starting point is contested. Explain why ENIAC is an obvious starting point, mention an alternative, explain why it could count as one, and why it was passed by.",
+            hint: "This is the seminar's example essay. The body has 4 sub-clauses.",
+            essay: `
+              <h3>Intro</h3>
+              <p>ENIAC, unveiled in the United States in 1946, is the symbolic starting point for the history of the modern computer. There is good reason to call it that — and good reason to question it. The way the question is contested tells us a lot about how history of technology gets written.</p>
+
+              <h3>Body — four parts</h3>
+              <p><strong>(a) Why ENIAC is an obvious starting point.</strong> It was the first general-purpose, fully electronic, programmable computer that actually worked at scale. It was built for a real purpose (US Army ballistics tables) and it captured the public imagination immediately. The people who built it went on to design the next generation of computers and shape the field.</p>
+
+              <p><strong>(b) An alternative starting point: Babbage's Analytical Engine.</strong> Designed in the 1830s in England. It had separate arithmetic and storage, conditional branching, and was programmable via punched cards. In design, it was already a modern computer.</p>
+
+              <p><strong>(c) Why the Analytical Engine could count.</strong> Conceptually, it is the first general-purpose computer. If you measure history by <em>ideas</em> rather than working machines, Babbage is unambiguously first. Howard Aiken in 1944 explicitly said his Harvard Mark I was 'Babbage's dream come true.'</p>
+
+              <p><strong>(d) Why it was passed by.</strong> It was never built. Babbage's funding ran out, the engineering was beyond Victorian manufacturing, and he was a difficult manager. His blueprints sat unread in his notebooks for decades. ENIAC, by contrast, ran, taught, and inspired. It also benefited from being American and on the winning side of WWII — Britain's wartime computer Colossus was kept secret for decades.</p>
+
+              <h3>Conclusion</h3>
+              <p>ENIAC is 'obvious' not for technical reasons alone but because it worked, was public, and was on the right side of history. Babbage's Analytical Engine is arguably first in concept. The difference is whether we measure history in ideas or in working machines.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> The seminar literally taught this answer with the (a)(b)(c)(d) structure. Reuse it.</div>
+            `
+          },
+          {
+            q: "Compare and contrast the three traditions of automation (administration, process control, science & engineering) and explain how they each fed into the modern computer.",
+            hint: "Same skeleton as Q1 but flipped to focus on convergence.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The lecture introduced three traditions of automation that fed into the modern computer: administration, process control, and science &amp; engineering. They differ in what motivated them, what tools they used, and what legacies they left. The modern computer is the rare technology where all three streams flow into one machine.</p>
+
+              <h3>Body</h3>
+              <p><strong>Administration</strong> was driven by money, urgency, and the explosion of paperwork in late-1800s offices and governments. Tools: typewriters, calculators, punched cards. The clearest example is Herman Hollerith's 1890 US Census, which became the seed of IBM. The legacy was the practice of organising large amounts of clerical labor — usually with mostly female operators.</p>
+
+              <p><strong>Process control</strong> was driven by industrial production. Tools: analogue control systems mapped to physical processes — temperatures, pressures, flow rates in factories. The legacy was the idea that a machine could continuously regulate a real-world process. This thread survives in modern embedded computing.</p>
+
+              <p><strong>Science and engineering</strong> was driven by the demand for fast, accurate calculation. The story runs from de Prony's hand-organised computing rooms in the 1790s, through Charles Babbage's mechanical engines in the 1830s, to wartime ballistics work. The legacy was the idea of a 'general-purpose' calculator — one machine for any computation.</p>
+
+              <h3>Convergence</h3>
+              <p>ENIAC (1946) was technically a science-and-engineering project (ballistics calculations). Within years, the same architecture was being sold to administration (the next census, business accounting). Process control eventually merged in via real-time computing. The same machine could now be a bookkeeper, a controller, and a thinking aid all at once.</p>
+
+              <h3>Conclusion</h3>
+              <p>Treating computing as a single story flattens these three motivations. Knowing the three traditions explains why the modern computer can do so many different jobs — it inherited each of them from a different past.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> Names used: Hollerith, IBM, de Prony, Babbage, ENIAC. Same five anchors as Q1.</div>
+            `
+          },
+          {
+            q: "Why did Babbage fail to build his Analytical Engine, and what does that failure reveal about the relationship between vision, technology, and institutions?",
+            hint: "Don't blame the government alone — give a multi-causal answer.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Charles Babbage imagined a programmable computer a century before one was built. His failure to finish his Analytical Engine is often blamed on government short-sightedness. The truth is more interesting and tells us something about how invention actually works.</p>
+
+              <h3>Body</h3>
+              <p><strong>The vision was clear and ahead of its time.</strong> Babbage's notebooks contain thousands of pages of mechanical drawings. The Difference Engine prototype of 1833 still works perfectly today. His later Analytical Engine had separate arithmetic and storage, conditional branching, and was programmable via punched cards. In design, it was a modern computer.</p>
+
+              <p><strong>The technology was at the cutting edge — too far.</strong> Babbage was paying the cost of being a first mover. Steam engines and power looms existed, but the precision engineering needed for thousands of identical interlocking parts at fine tolerances did not. By the 1850s such manufacturing was routine; in the 1830s it was nearly impossible.</p>
+
+              <p><strong>The institutions failed him — but partly through his own fault.</strong> Babbage received about £17,000 from the British government — a vast sum at the time. He lost their confidence when, mid-project, he announced he was abandoning the Difference Engine for the more ambitious Analytical Engine. He fell out with his chief engineer and never completed either.</p>
+
+              <h3>Conclusion</h3>
+              <p>Babbage failed not from lack of ideas but from a combination of immature manufacturing, weak project management, and political miscalculation. The lesson is that an invention is never just a design: it requires craft, capital, and coalition. Howard Aiken at Harvard, succeeding a century later with a similar idea, did not have a better mind than Babbage — he had a better world.</p>
+
+              <div class="note"><strong>Word count: ~280.</strong> Names used: Babbage, Aiken (briefly). The vision/technology/institutions tri-frame mirrors the question wording.</div>
+            `
+          },
+          {
+            q: "Compare Babbage and Aiken (Harvard Mark I): two attempts at the same dream a century apart. What changed in the meantime to make Aiken's project possible?",
+            hint: "List specific structural changes — not just 'technology improved'.",
+            essay: `
+              <h3>Intro</h3>
+              <p>When Howard Aiken proposed the Harvard Mark I in 1937, he was, knowingly or not, finishing what Babbage had started a century earlier. The two attempts at the same dream — a fully automatic, programmable digital calculator — show what changed in between.</p>
+
+              <h3>Body</h3>
+              <p><strong>Babbage</strong> worked alone in 1830s England with one chief engineer. The Analytical Engine was all-mechanical. Funding came from the British government in instalments — generous in absolute terms, but never enough for an open-ended R&amp;D project. He was at the limit of Victorian precision engineering and beyond it.</p>
+
+              <p><strong>Aiken</strong> had a research-department-sized team. The Harvard Mark I (built between 1937 and 1944) was electromechanical, with about 750,000 components. It was funded and built by IBM in partnership with Harvard, with a workforce of trained engineers and clear deliverables.</p>
+
+              <p><strong>What changed in the century in between?</strong> Four things, none of them just 'technology improved':</p>
+              <ul>
+                <li><strong>Manufacturing matured.</strong> Hundreds of thousands of identical precision parts at scale became routine — what Babbage had to invent each time, Aiken could buy.</li>
+                <li><strong>Corporate sponsorship replaced solo entrepreneurship.</strong> IBM's resources, sales force, and patience dwarfed anything an individual inventor could marshal.</li>
+                <li><strong>The user base existed.</strong> Scientific computing now had real demand — ballistics, astronomy, atomic weapons — and a clear customer (the US government).</li>
+                <li><strong>Knowledge had accumulated.</strong> Hollerith's punched cards and other earlier projects had all proved that mechanised computing was practical.</li>
+              </ul>
+
+              <h3>Conclusion</h3>
+              <p>Aiken did not have a better idea than Babbage. He had a better world. The Analytical Engine was not waiting for genius — it was waiting for industrial-scale manufacturing, corporate funding, established demand, and a century of accumulated technique. Aiken himself called the Mark I 'Babbage's dream come true,' and he was right — but it was the world that had changed, more than the dreamers.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> Listing four specific structural changes (not just 'technology') is what gets you the high marks. The closing line is reusable.</div>
+            `
+          }
+        ]
+      },
+      {
+        tier: 3,
+        label: "Likely Themes",
+        meta: "Recurring framings the prof highlighted",
+        questions: [
+          {
+            q: "'Computing started with people, not machines.' Discuss the role of human computers in the history of computing.",
+            hint: "de Prony, plus WWII women.",
+            essay: `
+              <h3>Intro</h3>
+              <p>For most of the history of computing, 'computer' meant a person. Long before electronic machines, men and women worked as human computers — calculating tables by hand, often in large organised groups. Recovering their role tells us where the modern computer came from.</p>
+
+              <h3>Body</h3>
+              <p><strong>de Prony (1790s, France).</strong> Used Adam Smith's <em>Wealth of Nations</em> (1776) division of labor to organise 60–80 unemployed hairdressers (no aristocracy left to coif after the Revolution) into a three-tier table-making 'factory': top-tier mathematicians decided formulas, middle managers organised the work, and human computers did the arithmetic. This is arguably the first time information processing was industrialised.</p>
+
+              <p><strong>The Nautical Almanac (Britain, from 1766).</strong> Britain's first permanent table-making project. Calculations were done by freelance human computers — often retired clergy — at home. Each calculation was performed twice independently and checked by a third 'comparator.' This system survived essentially unchanged for 150 years.</p>
+
+              <p><strong>WWII (US, UK).</strong> Hundreds of women computed ballistics tables, radar calculations, and code-breaking material. At Bletchley Park, the Wrens operated the bombes used against German codes. The original ENIAC programmers were six women. Their work was, in the book's words, 'vital to the entire research effort, but remained largely invisible.'</p>
+
+              <h3>Conclusion</h3>
+              <p>The transition from 'computer = person' to 'computer = machine' is more than terminology. Electronic computers replaced an existing labor force that was mostly female and mostly invisible. Forgetting this hides both who built modern computing and what their replacement actually meant. The 'first computer' is a deeply political claim — it depends on whether you count the people or only the machines.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> Emphasising gender (mostly female labour) is a sociological angle the prof loves.</div>
+            `
+          },
+          {
+            q: "The introduction of the typewriter, telegraph, and tabulating machine reshaped office work and gender relations. Discuss with examples.",
+            hint: "Gendered labour as a recurring pattern, not an accident.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Before about 1870, the office was almost entirely male. By 1920, most clerical workers were women. The typewriter, telegraph, and tabulating machine each played a role.</p>
+
+              <h3>Body</h3>
+              <p><strong>The typewriter (Remington, 1874).</strong> The first office machine to require a new specialised labor force. The word 'typewriter' originally referred to the operator, not the machine. Hiring young women was cheaper than retraining male clerks. By 1900 the typist-secretary had become a recognised — and recognisably female — occupation.</p>
+
+              <p><strong>The telegraph (Britain, 1860s+).</strong> By the mid-1870s, Britain's Central Telegraph Office employed 1,200 telegraphists, of whom 740 were women. The reasoning at the time was that women had 'more dexterity than men' — like seamstresses with sewing machines. The reality was that they were paid less.</p>
+
+              <p><strong>The tabulating machine (Hollerith, 1890 US Census).</strong> Around 80 operators worked the punched-card machines. Female card-punch operators worked six-and-a-half-hour days. The work was deskilled — the operator did not need to know what was being counted.</p>
+
+              <p><strong>The pattern.</strong> Each machine did not just speed up office work. It created a new, gendered, deskilled labor category. Women were brought in because they were cheaper and considered more docile. The narrative of 'office automation' usually celebrates productivity. The other side of the same story is the feminisation and devaluation of clerical work.</p>
+
+              <h3>Conclusion</h3>
+              <p>To say these machines 'reshaped' office work understates the point. They created the modern white-collar workforce — and they encoded gender into it. Reading machines this way reminds us that technology never arrives socially neutral.</p>
+
+              <div class="note"><strong>Word count: ~290.</strong> Names: Remington, Hollerith. The 'pattern' paragraph is the analytical core.</div>
+            `
+          },
+          {
+            q: "Discuss the role of government funding (or its absence) in shaping the prehistory of computing.",
+            hint: "Babbage, US 1890 census, WWII — pick three.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The history of computing is, to a large extent, the history of government cheques. Far from being a private innovation story, computing's prehistory is dominated by states — censuses, militaries, welfare bureaucracies — paying for the technology to exist.</p>
+
+              <h3>Body</h3>
+              <p><strong>Babbage and Britain (1820s–1830s).</strong> Babbage received about £17,000 from the British government for the Difference Engine — a vast sum. His failure to deliver, and his pivot mid-project to the more ambitious Analytical Engine, broke government confidence. No more Babbage. The lesson: ambitious tech needs <em>sustained</em> support, not just generous support, plus a project manager who can deliver milestones.</p>
+
+              <p><strong>The US 1890 Census.</strong> The federal government's need for a count drove Hollerith's punched-card system into existence. After Hollerith's success, the government became the steady customer that built the punched-card industry — the lineage that became IBM.</p>
+
+              <p><strong>World War II.</strong> Britain (Bletchley Park's Colossus, 1943, code-breaking), the US (Manhattan Project calculations; ENIAC 1946 for ballistics), Germany (Zuse Z3, 1941): every belligerent funded computing as a war asset. Without WWII, there is simply no electronic computer in 1946 — at least not at that scale.</p>
+
+              <h3>Conclusion</h3>
+              <p>Computing is often told as a Silicon Valley garage story. The longer history shows that until at least the 1960s, governments — by paying for censuses, welfare records, and weapons calculations — were the customers that paid for the technology to exist. Take the state away, and most of computing's prehistory disappears. This matters today too: the AI boom is again largely built on government-derived datasets, public infrastructure, and military research budgets.</p>
+
+              <div class="note"><strong>Word count: ~290.</strong> Three case studies (Babbage, Hollerith, WWII). Closing connection to today shows reflective thinking.</div>
+            `
+          },
+          {
+            q: "Explain the line of development from Boolean logic to Turing's universal machine. Why are these mathematical/logical developments part of the prehistory of AI rather than just of mathematics?",
+            hint: "Two main names — Boole and Turing. Others are decoration.",
+            essay: `
+              <h3>Intro</h3>
+              <p>A century-long arc from George Boole to Alan Turing turned thinking into something a machine could in principle do. Each step was driven by a question about mathematics — but the cumulative output was the foundation of AI.</p>
+
+              <h3>Body</h3>
+              <p><strong>Boole (1854) — <em>The Laws of Thought</em>.</strong> Boole tried to express thinking as algebra. He believed he was modelling the human mind, not designing circuits. Boolean logic was the seed.</p>
+
+              <p><strong>Turing (1936) — <em>On Computable Numbers</em>.</strong> Turing's paper introduced what we now call the Turing machine: a theoretical device with a tape and a reader that could compute anything computable. He showed that a single universal machine could in principle do any computation that any specialised machine could do. He also showed that some problems can never be solved by any machine.</p>
+
+              <p>Between Boole and Turing, several mathematicians worked on the same question — <em>can mathematics be reduced to formal symbol manipulation?</em> The details aren't essential to memorise. What matters is the chain of question.</p>
+
+              <h3>Why this is AI prehistory, not just mathematics</h3>
+              <p>Each thinker was implicitly asking: <em>can thought be reduced to symbol manipulation?</em> Boole gave a yes-but-only-for-logic answer. Turing universalised it: a single mechanical device, given enough time, could compute anything computable. Without this work, the idea that machines could 'think' — the foundation claim of AI — would have no foundation at all.</p>
+
+              <h3>Conclusion</h3>
+              <p>AI is not waiting for hardware. It is the inheritor of a 100-year project of formal logic. When AI researchers in the 1950s sat down to build 'thinking machines,' they were finishing a job Boole began in 1854.</p>
+
+              <div class="note"><strong>Word count: ~290.</strong> Names used: Boole, Turing. The middle paragraph waves at others without forcing you to memorise them.</div>
+            `
+          },
+          {
+            q: "In what sense can fictional and philosophical 'humans' (Frankenstein, R.U.R., Metropolis) be considered part of the prehistory of AI? Does AI exist without computers?",
+            hint: "The prof literally posed this question on a slide.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Long before computers existed, people were already imagining artificial humans. The lecture asked the provocative question: <em>does AI exist without computers?</em> The fictional record suggests that, in an important sense, yes — AI exists culturally before it exists technologically.</p>
+
+              <h3>Body</h3>
+              <p><strong>Mary Shelley, <em>Frankenstein</em> (1818).</strong> The first major modern story of an artificial being. Not a thinking machine — a synthesised body with a mind — but the question is the same: what is owed to a created intelligence? Frankenstein still sits behind every public reaction to AI.</p>
+
+              <p><strong>Karel Čapek, <em>R.U.R.</em> (1920).</strong> Coined the word 'robot' (from Czech <em>robota</em>, forced labor). Mass-produced artificial workers who eventually rebel. Already in 1920, the cultural script for AI included the 'robots take over' plot.</p>
+
+              <p><strong>Fritz Lang, <em>Metropolis</em> (1927).</strong> Maria's robot double; the city as a machine. Anxieties about industrial labor projected onto an artificial woman. The aesthetics of 'the robot' enter the visual canon.</p>
+
+              <h3>Does AI exist without computers?</h3>
+              <p>As a technical field, AI requires computers — the hardware to run learning algorithms and large models. As an <em>imagination</em>, AI is centuries older. The fiction does practical work: it sets the cultural script that shapes how the public reacts when actual AI arrives. When people in the 2020s feel anxious about ChatGPT, they aren't reacting purely to 2020s technology — they are reacting through Frankenstein and R.U.R.</p>
+
+              <h3>Conclusion</h3>
+              <p>AI exists without computers in the same way music existed before recorded sound: as a cultural and philosophical tradition awaiting its technological medium. The medium changes the practice, but the questions — what is mind? what is owed to artificial beings? — are old questions. Computers gave them sharper teeth.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> Three works of fiction is enough — don't sprawl. The music analogy at the end is reusable.</div>
+            `
+          },
+          {
+            q: "Discuss Babbage's 'On the Economy of Machinery and Manufactures' (1832) and its connection to scientific management (Taylor, Ford). What does this tell us about computing's roots in industrial organisation rather than just mathematics?",
+            hint: "Babbage was an economist as much as a mathematician.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Babbage is remembered as a computing pioneer. But in his own time, he was equally famous as an economist. His <em>On the Economy of Machinery and Manufactures</em> (1832) was a major book of its day. It connects Babbage to a much bigger story: the rise of industrial organisation that produced both the assembly line and, eventually, the modern computer.</p>
+
+              <h3>Body</h3>
+              <p><strong>Adam Smith (1776).</strong> The famous pin factory illustration in <em>The Wealth of Nations</em>: division of labor multiplies output by specialising workers in single steps. Smith provided the principle.</p>
+
+              <p><strong>de Prony (1790s).</strong> Applied Smith's principle to <em>information</em> for the first time: divide computation into specialised steps so unskilled workers can do it. Three layers — mathematicians, organisers, computers. This is industrial organisation applied to mental labor.</p>
+
+              <p><strong>Babbage (1832).</strong> Asked: if you can divide labor among workers, can you divide labor among machines? His Difference Engine was the answer — a machine where each part specialised in one task. He spent the 1820s touring the factories of Europe.</p>
+
+              <p><strong>Frederick Taylor (early 1900s).</strong> 'Scientific management': stopwatch in hand, decompose each motion of a worker. The factory becomes an algorithm.</p>
+
+              <p><strong>Ford (1913).</strong> The moving assembly line: Taylor's principles plus electrical motors plus interchangeable parts. The Model T was a cultural artefact built by an information system as much as by metal.</p>
+
+              <h3>Conclusion</h3>
+              <p>Computing's lineage is not just mathematical. It is industrial-organisational. Babbage saw clearly that what he was building was an extension of factory thinking. Today's algorithm-driven gig work — Uber drivers ranked by app, Amazon warehouse pickers timed to the second — is the same principle at higher resolution. 'Automation' did not begin with computers; computers are the latest tool of an older project.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> The Smith → de Prony → Babbage → Taylor → Ford chain is a powerful argument. The Uber/Amazon ending lands the reflective frame.</div>
+            `
+          },
+          {
+            q: "Hollerith and the 1890 US Census: why was this a turning point, and what made it possible?",
+            hint: "Five-paragraph structure: problem / idea / competition / execution / significance.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The 1890 US Census was a turning point in the prehistory of computing. It was the first time mechanised information processing was used at national scale, and it produced the company that — via the Watson family and IBM — would dominate computing for a century.</p>
+
+              <h3>Body</h3>
+              <p><strong>The problem.</strong> The 1880 census had taken seven years to process. With population growth, the 1890 census risked never finishing in time for the next one. The bureaucratic system could no longer keep up.</p>
+
+              <p><strong>Hollerith's idea.</strong> Record each census return as a pattern of holes punched on a card. A 'press' of spring-loaded pins reads each card; pins through holes complete electrical circuits that increment counters and trigger sorting bins.</p>
+
+              <p><strong>The competition (1889).</strong> Three inventors competed by processing 1880 St. Louis returns. Hollerith was not faster at recording but ten times faster at <em>tabulating</em> — and the more tabulations you wanted, the more cost-effective his system became. The commission was unanimous in his favor.</p>
+
+              <p><strong>The execution.</strong> 62 million cards punched (one per citizen), processed by ~80 operators on 100 machines, in 2.5 years rather than seven. Female labor was used at scale for the first time.</p>
+
+              <p><strong>The significance.</strong> Three things. (1) Organisationally — Hollerith showed that mechanised data processing was possible at the scale of a nation-state. (2) Commercially — his Tabulating Machine Company eventually became IBM, and the punched-card lineage shaped the office of the twentieth century. (3) Methodologically — the 1890 census proved that 'administrative' automation could outperform manual labor not just on speed but on flexibility.</p>
+
+              <h3>Conclusion</h3>
+              <p>1890 is when 'data' became a mass-produced commodity. The technology was modest. But the social and organisational pattern — large data operations run by mostly female operators on machines rented from a single dominant supplier — would define information processing for a century, all the way to the cloud.</p>
+
+              <div class="note"><strong>Word count: ~320.</strong> Five-paragraph structure (problem / idea / competition / execution / significance) is reusable for any 'explain X turning point' question.</div>
+            `
+          }
+        ]
+      },
+      {
+        tier: 4,
+        label: "Possible Reflective",
+        meta: "Philosophical / sociological angles — outline only",
+        questions: [
+          {
+            q: "The course frames itself as 'not prescriptive but reflective.' Using a historical example from the prehistory of computing, show how reflecting on history changes how we understand a present-day technology.",
+            hint: "Pick ONE example and run with it.",
+            essay: `
+              <h3>Outline</h3>
+              <p>This is a 'show your method' question. Pick a present-day technology you find interesting (e.g., AI, smartphones, social media), then a historical parallel (e.g., 1890 Census, Hollerith), and show what the historical case <em>changes</em> in your understanding.</p>
+
+              <h3>Suggested example: Hollerith → modern data platforms</h3>
+              <p>The prescriptive framing of 'data is the new oil' treats data as a neutral resource to be extracted and refined.</p>
+              <p>A reflective framing using the 1890 Census shows that data was never neutral. Hollerith's contracts gave him commercial rights to government-collected information. Female card-punch operators were paid less than male clerks. The 'system' was shaped by who paid, who worked, and who watched. Modern data platforms inherit the same structure: extraction by a dominant supplier, deskilled labor, and government cooperation. Recognising this changes how we read tech-company claims that data is just 'exhaust.'</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>Knowing the history doesn't tell us what to do — that's why the course is reflective rather than prescriptive — but it does change which questions we think to ask.</p>
+              <div class="note">Aim for ~300 words on exam day. Pick ONE historical case and ONE present-day technology — don't sprawl.</div>
+            `
+          },
+          {
+            q: "'Algorithms determine our lives.' Discuss this claim using historical examples.",
+            hint: "Algorithms are not new — only their pervasiveness is.",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>Claim.</strong> Algorithms in the prescriptive sense (rules a worker or process must follow) are not new. de Prony's hairdresser-computers worked to a strict algorithm. Hollerith's operators followed a rigid procedure. Taylor turned worker motion into algorithm. Ford's assembly line made the algorithm physical.</p>
+
+              <p><strong>What's new is not algorithms but their pervasiveness, opacity, and speed.</strong> Modern algorithms run continuously, are not visible to the people they govern, and can adjust in real time. Hollerith's operators knew what the procedure was. Uber drivers don't.</p>
+
+              <p><strong>The reflective move.</strong> The phrase 'algorithms determine our lives' is half right and half misleading. Half right: rule-bound systems have shaped lives since at least the 1790s. Half misleading: the digital scale and opacity are genuinely new and worth attending to.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>Digital culture has not introduced algorithms; it has scaled and hidden them.</p>
+              <div class="note">Strong opening claim, three concrete historical examples, then 'what's new' paragraph. ~280 words.</div>
+            `
+          },
+          {
+            q: "Why does the lecturer emphasise the European side of the history of computing/AI when the textbook tells a largely American story? What is missed if we only know the American narrative?",
+            hint: "List the European figures and traditions the book under-covers.",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>The American narrative</strong> centres on ENIAC, IBM, and Silicon Valley. It is mostly post-WWII, mostly corporate, and mostly hardware-focused.</p>
+
+              <p><strong>The European story is older and broader.</strong></p>
+              <ul>
+                <li><strong>Logic.</strong> Boole (Ireland/UK), Turing (UK), and others built the theoretical foundation in Europe.</li>
+                <li><strong>Engineering.</strong> Babbage and Ada Lovelace (UK), Konrad Zuse's Z3 (Germany, 1941), Colossus at Bletchley Park (UK, 1943).</li>
+                <li><strong>Linguistic ambition.</strong> Esperanto (Poland, 1887), the Boolean logic tradition.</li>
+                <li><strong>Code-breaking.</strong> Bletchley Park ran on European mathematical talent; Turing's contribution there is incalculable.</li>
+              </ul>
+
+              <p><strong>What gets missed without Europe?</strong></p>
+              <p>(1) The whole logical foundation of AI — the Turing machine is a European thought experiment. (2) The cultural script — Frankenstein (UK), R.U.R. (Czech), Metropolis (German) all shape what AI <em>means</em>. (3) The earliest systems thinking — Babbage and de Prony predate American developments by half a century. (4) Wartime computing — Colossus arguably preceded ENIAC, but was kept secret until the 1970s.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>The American story is one tradition; the European story is the foundation. Without the latter, the modern computer would not have its theoretical basis or its cultural meaning.</p>
+              <div class="note">List-heavy answer. Lots of European names to drop in. ~300 words.</div>
+            `
+          }
+        ]
+      }
+    ]
+  },
+  // Placeholders for L2-L7 - to be filled when we work through them
+  {
+    id: "L2",
+    label: "L2",
+    title: "Lecture 2 — Creating Computers (Chapters 4–5)",
+    chapters: "Campbell-Kelly chapters 4–5",
+    enabled: true,
+    tiers: [
+      {
+        tier: 1,
+        label: "Almost Certain",
+        meta: "Direct from your assignment (4 questions)",
+        questions: [
+          {
+            q: "In the lecture, AI was presented as one of the main drives for scientists to enter the field of computing. Explain the line of thought.",
+            hint: "AI / cybernetics gave scientists their reasons to take computers seriously.",
+            essay: `
+              <h3>Intro</h3>
+              <p>It might seem strange that AI would motivate scientists to build computers, since the usual story is that computers came first and AI followed. The lecture argued the reverse: scientists from many fields were already asking what a thinking machine could do — and that broader project, called cybernetics, gave them their reason to take the new computers seriously.</p>
+
+              <h3>Body</h3>
+              <p>Cybernetics was much wider than what we now call AI. The Macy conferences (1946–53), led by figures like Margaret Mead and Norbert Wiener, brought together psychologists, biologists, anthropologists, mathematicians, and engineers around one question: how do feedback, information, and control work in living systems and machines?</p>
+
+              <p>Each discipline saw something useful in computers. Psychologists wanted to model decision-making. Linguists wanted automatic translation (an early Cold War priority). Biologists wanted to model populations and animal behaviour. Mathematicians and logicians — Alan Turing chief among them — wanted to formalise reasoning.</p>
+
+              <p>So when Mauchly and Eckert built ENIAC in 1946, the scientists who got most excited about it were not just engineers but cyberneticians who saw a tool to test centuries-old questions. Turing's 1950 paper <em>Computing Machinery and Intelligence</em> framed the computer as something that might soon imitate a human in conversation. The 1956 Dartmouth conference, where 'AI' was named as a discipline, was a narrowing of this much broader cybernetic conversation.</p>
+
+              <h3>Conclusion</h3>
+              <p>Scientists needed computers because they had questions about thinking, learning, and language that only a programmable machine could test. AI / cybernetics gave computing its scientific motivation. Without those questions, the computer might have stayed a calculator. The line of thought is: the science of mind drove the invention of the machine, not the other way around.</p>
+
+              <div class="note"><strong>Word count: ~290.</strong> Names used: Mauchly, Eckert, Turing, Mead, Wiener. Cybernetics > AI is the spine.</div>
+            `
+          },
+          {
+            q: "In what ways was Moore school relevant in the history of computing? Distinguish between the pre-war, war and post-war period.",
+            hint: "Three distinct stages — and the post-war story is the global one.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The Moore School of Electrical Engineering at the University of Pennsylvania is one of the central institutions in the history of computing. It mattered before, during, and after WWII — but in three very different ways.</p>
+
+              <h3>Pre-war</h3>
+              <p>The Moore School was a respectable but second-tier electrical engineering school, definitely behind MIT in prestige. Its key asset was a copy of Vannevar Bush's differential analyser — an analogue machine for solving differential equations. This brought the Ballistics Research Laboratory (BRL) at the Aberdeen Proving Ground into close working contact with the school for routine ballistics calculations.</p>
+
+              <h3>War</h3>
+              <p>In 1942, John Mauchly proposed building an electronic computer to break the calculation bottleneck for army firing tables. With Lt. Herman Goldstine pushing the proposal forward and Presper Eckert as chief engineer, 'Project PX' was approved in April 1943 — and ENIAC was the result. Completed in late 1945, it was an 18,000-tube machine that performed 5,000 operations per second. Two hundred women, many trained by Mauchly's wife, were already doing ballistics calculations by hand at the school in parallel.</p>
+
+              <h3>Post-war</h3>
+              <p>This is where the Moore School became globally important. Von Neumann joined the team in 1944 and wrote the <em>First Draft of a Report on the EDVAC</em> (June 1945) — the foundational document of the stored-program computer. Then in summer 1946, Dean Pender organised the Moore School Lectures: an eight-week course that taught the next generation of computer builders. Maurice Wilkes (Cambridge → EDSAC), Newman and Williams (Manchester → Manchester Baby), and many others learned the stored-program concept here and brought it home to Europe.</p>
+
+              <h3>Conclusion</h3>
+              <p>The Moore School was a third-rank engineering school that, because of an analogue machine, a young physicist with an idea, a Hungarian mathematician, and one well-organised summer school, became the place where modern computing was born and exported. The pre-war / war / post-war story is the story of how a wartime project became a global standard.</p>
+
+              <div class="note"><strong>Word count: ~330.</strong> The question literally asks for three periods — give them three labelled paragraphs.</div>
+            `
+          },
+          {
+            q: "Name two Dutch computer pioneers and elaborate on their achievements. In what way(s) were these pioneers representative for early Dutch computing?",
+            hint: "Pick two of: van Wijngaarden, van der Poel, Nijenhuis. Note the funny acronyms!",
+            essay: `
+              <h3>Intro</h3>
+              <p>Early Dutch computing was distinctive: small budgets, funny acronyms, and what historian Gerard Alberts called 'bluffing their way into the computer age.' Two pioneers stand out: Aad van Wijngaarden in Amsterdam and Willem van der Poel in Delft. Together they show what early Dutch computing was like.</p>
+
+              <h3>Body — van Wijngaarden and the ARRA</h3>
+              <p>Aad van Wijngaarden became director of the computing department of the Mathematisch Centrum in Amsterdam in 1947, just after a 1946 visit to the Moore School. With his team he built ARRA (Automatische Relais Rekenmachine Amsterdam) — unveiled on 21 June 1952. The first ARRA was, by most accounts, a flop; ARRA II (March 1954) worked better. Out of this effort came the spin-off company Electrologica in 1956, whose machine X1 was eventually bought back by the Mathematisch Centrum.</p>
+
+              <h3>Body — van der Poel and ZEBRA</h3>
+              <p>Willem van der Poel worked in Delft on a series of machines, each with a Dutch acronym: ARCO/Testudo (1950, optical problems), ZERO (Zeer Eenvoudig Reken Orgaan, 1951), PTERA (PTT Electronische Reken Automaat, 1953), and finally ZEBRA (Zeer Eenvoudig Binair Reken Apparaat, 1955). ZEBRA went into commercial production in 1957 with the British firm STANTEC.</p>
+
+              <h3>Why these are representative</h3>
+              <p>Three things. First, scale: small teams, small budgets — nothing like IBM. Second, the funny acronyms reflect a tinkering, almost ironic culture. Third, the Dutch pioneers were tightly networked: van Wijngaarden, van der Poel, Wim Nijenhuis at Philips (PETER, 1953–56), and many others met at the 'Colloquium Moderne Rekenmachines' from 1952 onwards, and later collaborated on the international programming language ALGOL 60.</p>
+
+              <h3>Conclusion</h3>
+              <p>Early Dutch computing was a story of clever pragmatism in tight conditions. These two pioneers show how a small country with no IBM-scale resources produced computers anyway — and why 'bluffing their way in' is fitting praise.</p>
+
+              <div class="note"><strong>Word count: ~330.</strong> Names: van Wijngaarden, van der Poel, Nijenhuis, Alberts. The acronym detail (ZEBRA, PTERA) is gold — it shows you actually attended.</div>
+            `
+          },
+          {
+            q: "To what extent may Alan Turing be regarded as the father of AI?",
+            hint: "'To what extent' — answer should be partial. Argue both sides, then place yourself.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Alan Turing is often called the father of AI. The honest answer is: yes, but only partly. The 'to what extent' framing matters here. Three things he did make him a strong claimant; three things make him a partial one.</p>
+
+              <h3>Body — yes, in three senses</h3>
+              <p><strong>Theoretically.</strong> His 1936 paper <em>On Computable Numbers</em> introduced the universal Turing machine — the abstract model of any computer. Without this, the very idea of a 'thinking machine' has no formal meaning.</p>
+
+              <p><strong>The imitation game.</strong> His 1950 paper <em>Computing Machinery and Intelligence</em> introduced what we now call the Turing test. He framed the question — can a machine convincingly imitate a human? — that AI has been working on ever since.</p>
+
+              <p><strong>Hands-on contribution.</strong> At Bletchley Park during WWII, Turing helped break German codes using the bombe — a real machine doing what looked like reasoning. He was one of the few who actually built thinking-adjacent machines.</p>
+
+              <h3>Body — but only partly</h3>
+              <p><strong>The field is dated to 1956, after his death.</strong> AI as a discipline was named at the Dartmouth conference, four years after Turing's suicide in 1954. The Americans — McCarthy, Minsky, Newell, Simon — are the ones who actually founded the discipline.</p>
+
+              <p><strong>Cybernetics is the broader parent.</strong> Norbert Wiener, the Macy conferences, and various non-Turing thinkers shaped the early conversation. Turing was an important voice but not the central one in 1940s–50s cybernetics.</p>
+
+              <p><strong>Specific techniques came from elsewhere.</strong> Symbolic AI (Newell &amp; Simon), neural networks (Rosenblatt), and search built more on others than on Turing's specific work.</p>
+
+              <h3>Conclusion</h3>
+              <p>To what extent is Turing the father of AI? Strongly so philosophically and theoretically — he set the question and built the conceptual machine. Less so as a research-program founder, since the field was named and shaped after his death by others. The honest answer falls in the middle. He is <em>a</em> father — but not <em>the</em> father.</p>
+
+              <div class="note"><strong>Word count: ~340.</strong> 'To what extent' questions reward a balanced answer that places yourself between two extremes — exactly what the seminar's diagram showed.</div>
+            `
+          }
+        ]
+      },
+      {
+        tier: 2,
+        label: "Very Likely",
+        meta: "Adjacent reformulations of the lecture's main themes",
+        questions: [
+          {
+            q: "Which one was the first computer? Discuss with at least three candidates and the criteria you would use.",
+            hint: "The lecture's central provocation. There is no single answer.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The lecture's central provocation was: which one was the first computer? The honest answer is that there is no single answer, and the question itself reveals more about how histories get written than about any particular machine.</p>
+
+              <h3>Body — at least five candidates</h3>
+              <p><strong>Konrad Zuse's Z1 (Germany, 1938) and Z3 (1941):</strong> programmable, used binary, and predate ENIAC — but used relays, and were destroyed in the war.</p>
+              <p><strong>The Atanasoff-Berry Computer (Iowa, 1939–42):</strong> electronic and binary, but never fully completed. In a 1973 patent ruling it was held to have anticipated ENIAC.</p>
+              <p><strong>Britain's Colossus (Bletchley, 1943):</strong> electronic and worked — but kept secret until the 1970s, so had no historical influence at the time.</p>
+              <p><strong>ENIAC (Penn, 1946):</strong> electronic, programmable, and worked at scale — but had no stored programs.</p>
+              <p><strong>The Manchester Baby (June 1948):</strong> first to run a stored program — making it arguably the first 'modern' computer.</p>
+
+              <h3>Why ENIAC tends to 'win'</h3>
+              <p>Three accidents. (1) It worked publicly. (2) It was American. (3) It led directly to EDVAC and von Neumann's First Draft, which set the architecture for everyone after. Colossus was secret. Z3 was destroyed. ABC was obscure. The Manchester Baby was just behind on calendar.</p>
+
+              <h3>The deeper point</h3>
+              <p>The simple stories about computing — that it was invented because it made our lives easier, that it was trusted from the beginning — are wrong. Even Campbell-Kelly's framing of 'Britain was the only country other than the US not so devastated by war' is itself biased. The 'first computer' is a political claim: it depends on what counts as a computer, and that depends on who is telling the story.</p>
+
+              <h3>Conclusion</h3>
+              <p>There is no objective first computer. Asking which is first is less interesting than asking why we ask the question, and what each candidate machine reveals about the war, the secrecy, and the writing of history.</p>
+
+              <div class="note"><strong>Word count: ~340.</strong> Five candidates is plenty. The 'why we ask the question' framing wins reflective marks.</div>
+            `
+          },
+          {
+            q: "Explain the path from ENIAC to the stored-program computer (EDVAC), and why von Neumann gets sole credit despite being a team effort.",
+            hint: "ENIAC's reprogramming problem → EDVAC → First Draft → credit controversy.",
+            essay: `
+              <h3>Intro</h3>
+              <p>ENIAC was the first electronic, general-purpose, programmable computer to work at scale. But it had a fundamental problem: reprogramming it took days. Solving that problem produced the stored-program concept — and a controversy about who deserves credit.</p>
+
+              <h3>Body</h3>
+              <p>ENIAC (Penn, 1943–46) had 18,000 vacuum tubes and could do 5,000 operations per second. To run a new program, engineers had to physically rewire the entire machine. By summer 1944, von Neumann joined the project as a consultant. He, Eckert, Mauchly, Goldstine, and Burks worked out a successor — the EDVAC — in which both data and instructions would be stored in the same memory. This was the stored-program concept.</p>
+
+              <h3>The First Draft</h3>
+              <p>In June 1945, von Neumann wrote up the design as the <em>First Draft of a Report on the EDVAC</em> — a 101-page document. Twenty-four copies were distributed, then more, and the design quickly became the world standard. Maurice Wilkes at Cambridge read it overnight in May 1946 and built EDSAC; Newman and Williams at Manchester built the Manchester Baby. This is what made the Moore School globally important.</p>
+
+              <h3>The credit problem</h3>
+              <p>Von Neumann was the only author. But Eckert had invented the delay-line memory that made the design feasible; Mauchly had pushed the architecture; Goldstine had organised the project. Eckert in particular felt cheated when 'the von Neumann architecture' became standard usage. The breakup of the Moore School group followed: Eckert and Mauchly left to start their own company (which built UNIVAC); von Neumann and Goldstine went to Princeton.</p>
+
+              <h3>Conclusion</h3>
+              <p>The stored-program concept emerged from a team — but the document that defined it carried one name. This is why we now talk about 'von Neumann architecture' instead of 'Eckert-Mauchly-von Neumann-Goldstine-Burks architecture.' The history reminds us that authorship and invention are not the same thing, and that institutional dynamics shape what we remember.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> Names: Eckert, Mauchly, von Neumann, Goldstine, Wilkes. The credit-vs-invention closing is reusable.</div>
+            `
+          },
+          {
+            q: "What was the relationship between the Cold War and the development of computing? Use European examples.",
+            hint: "WWII created demand; Cold War sustained it; Europe lagged for specific reasons.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Computing emerged from war and grew up in the Cold War. The question is: what made post-WWII Europe ready to build computers, and why did the continental countries lag the US and Britain?</p>
+
+              <h3>Body — the demand</h3>
+              <p>WWII created the demand. Manhattan Project (atomic bomb), ballistics calculations, code-breaking (Bletchley Park's Colossus), radar, and supplying troops all needed mathematical computation at unprecedented scale. After WWII the demand exploded — NASA, atomic power, military rockets, and the broader Cold War need for fast scientific calculation.</p>
+
+              <h3>Europe</h3>
+              <p>The Marshall Plan rebuilt Western Europe with American money, mixing fatalism with optimism. Servan-Schreiber's <em>Le défi américain</em> (1968) captured the European anxiety about American technological dominance. War-trodden Germany was paradoxically well-positioned: relays and radio tubes were cheap because of war surplus, and Konrad Zuse continued building computers (Zuse KG, founded 1949). Britain's Manchester Baby (June 1948) was the first stored-program computer to work, partly because British budgets were low enough that they had to keep designs simple.</p>
+
+              <h3>Why continental Europe lagged</h3>
+              <p>Campbell-Kelly observes that Germany, France, Holland, and Italy were 'so ravaged by World War II that they would not be capable of entering the computer race until the 1960s.' Through the 1950s, US firms had the biggest market — themselves — to themselves. National 'dwarfs' emerged later: Electrologica (Dutch, 1956), Regnecentralen (Danish, 1955), Bull (French, founded 1931 but slow to electronics), LEO (British, 1949).</p>
+
+              <h3>Conclusion</h3>
+              <p>The Cold War didn't just fund computing — it shaped the geography of computing. The US-UK axis was set early; continental Europe came in a decade later, with smaller national efforts. America being central to computing history isn't an accident of genius; it's an accident of geography and war damage.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> The 'geography &amp; war damage' line is the reflective punch.</div>
+            `
+          },
+          {
+            q: "How did the computer become a business machine in the 1950s? Discuss IBM's late-but-decisive entry.",
+            hint: "UNIVAC first; IBM caught up via marketing, service, and modular design.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Until 1951, the computer was a scientific instrument. By 1958, it was a business machine. This transformation, told in Chapter 5 of the textbook, is the story of how IBM caught up — late but decisively — with Eckert and Mauchly's UNIVAC.</p>
+
+              <h3>UNIVAC (1951)</h3>
+              <p>Eckert and Mauchly, after leaving the Moore School in 1946, set up a company to build a commercial computer. They signed a contract with the US Census Bureau and delivered UNIVAC in 1951. The publicity coup: in November 1952, UNIVAC predicted Eisenhower's victory over Stevenson on television before all the votes were counted. UNIVAC became the public face of 'computer.'</p>
+
+              <h3>IBM's slow start</h3>
+              <p>IBM's CEO Thomas Watson Sr. is rumoured to have said in 1949 that there was a market for 'no more than a dozen computers.' His son Watson Jr. disagreed. Initially IBM moved cautiously: the Defense Calculator (1952, → Model 701) was for science; the Tape Processing Machine (→ Model 702) was for data processing.</p>
+
+              <h3>IBM's catch-up (1953–58)</h3>
+              <p>IBM had three things UNIVAC didn't. <strong>Marketing</strong>: universities got 60% discounts on the Model 650 if they taught computing courses. <strong>Service</strong>: IBM service engineers were legendary. <strong>Modular design</strong>: UNIVAC was a monolith — it couldn't fit through doors. By 1955, IBM was outselling UNIVAC. By 1958, the industry was called 'IBM and the seven dwarfs.'</p>
+
+              <h3>Conclusion</h3>
+              <p>The transition from 'computer = scientific' to 'computer = business' was the real revolution of the 1950s. UNIVAC pioneered it but Remington Rand, in Herb Grosch's phrase, 'snatched defeat from the jaws of victory.' IBM, late but disciplined, won the race. The lesson: in technology markets, being first is less important than being best supported.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> Names: Eckert, Mauchly, Watson Sr/Jr. The 'first vs. best supported' closing is reusable.</div>
+            `
+          }
+        ]
+      },
+      {
+        tier: 3,
+        label: "Likely Themes",
+        meta: "Recurring framings the prof highlighted",
+        questions: [
+          {
+            q: "Why does the lecturer say the 'simple stories' about why computers were invented are wrong?",
+            hint: "The prof literally listed five wrong stories on a slide.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The lecturer presented a list of 'simple stories' about why computers were invented and rejected each one as based on prejudice. They are worth knowing because the right answer often sits opposite to the simple story.</p>
+
+              <h3>Body — the five wrong stories</h3>
+              <ul>
+                <li><strong>'Computers were invented because they made our lives easier.'</strong> Wrong — they were invented because of war calculation needs (ballistics, atomic implosion, code-breaking). They made some lives easier; they made many obsolete.</li>
+                <li><strong>'Computers made things more efficient.'</strong> Wrong — early computers were slow, unreliable, and often more expensive than the human-computer teams they replaced. They were trusted on faith, not evidence.</li>
+                <li><strong>'Computers were invented by computer scientists.'</strong> Wrong — there was no field called computer science when ENIAC was built. The inventors were physicists (Mauchly), engineers (Eckert), mathematicians (von Neumann), and military officers (Goldstine).</li>
+                <li><strong>'Computers were trusted from the beginning.'</strong> Wrong — the NDRC was hostile to ENIAC at first; UNIVAC's election prediction in 1952 was treated as a stunt, not science.</li>
+                <li><strong>'Computers soon became a necessity.'</strong> Wrong — in continental Europe the 1950s saw cautious adoption; UK businesses bought computers slowly. Necessity arrived in waves and via different industries.</li>
+              </ul>
+
+              <h3>Conclusion</h3>
+              <p>The point is not just to list errors. It is to show that the actual history is shaped by war, ideology, prejudice, and the hard work of scientists pushing what looked like an unreliable technology onto the world. People built computers <em>despite</em> — not because of — evidence they would work. Faith in the machine came first; the evidence followed.</p>
+
+              <div class="note"><strong>Word count: ~290.</strong> Direct echo of the prof's slide. Memorise the five — they appear together.</div>
+            `
+          },
+          {
+            q: "Discuss the Moore School Lectures (1946) and their impact on European computing.",
+            hint: "Eight weeks. Wilkes, Newman, Williams. They changed Europe.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The 1946 Moore School Lectures — an eight-week summer school in Philadelphia — turned a wartime project into a global standard. Without them, the stored-program computer would have stayed at U Penn for years.</p>
+
+              <h3>Body</h3>
+              <p>After ENIAC was unveiled in February 1946, the Moore School was overwhelmed with visitors. Dean Pender organised the lectures (8 July to 31 August 1946) for 30–40 invitation-only attendees. Lecturers included von Neumann, Howard Aiken, Eckert, Mauchly, Goldstine, and Burks.</p>
+
+              <h3>The British attendees who changed Europe</h3>
+              <p>Three are crucial. <strong>Maurice Wilkes</strong> (Cambridge), arriving late from a wartime ship hold-up, took the principles back and built EDSAC — operational May 1949. <strong>Max Newman</strong> and <strong>F. C. Williams</strong> (Manchester), drawing on the lecture notes via Comrie, built the Manchester Baby — operational June 1948, the first stored-program computer to actually run. Others returned to MIT, Bell Labs, and government labs across the US.</p>
+
+              <p>Aad van Wijngaarden was also influenced — he had visited the Moore School separately in 1946. Through him, the design ideas reached the Dutch Mathematisch Centrum, eventually producing the ARRA in 1952.</p>
+
+              <h3>Conclusion</h3>
+              <p>The Moore School Lectures are the first example of computing's now-familiar pattern: an academic institution, a key publication (the EDVAC First Draft), a summer school that trains the next generation, and a diaspora that rebuilds the technology elsewhere. They are why the modern computer became a global, not just American, technology.</p>
+
+              <div class="note"><strong>Word count: ~270.</strong> Wilkes / Newman / Williams = the three you must mention.</div>
+            `
+          },
+          {
+            q: "What were the 'European dwarfs' and how did they differ from IBM?",
+            hint: "Five small national computer companies. Why each existed, what they couldn't do.",
+            essay: `
+              <h3>Intro</h3>
+              <p>While IBM dominated the US market, European countries each built their own national computer companies — small, scrappy, and unable to compete with IBM at scale. The lecturer called them 'European dwarfs.'</p>
+
+              <h3>Body — the five most cited</h3>
+              <ul>
+                <li><strong>Bull</strong> (France, founded 1931): originally punched-card machines, slow to electronics.</li>
+                <li><strong>Zuse KG</strong> (Germany, 1949): Konrad Zuse's company, built on his pre-war Z-series.</li>
+                <li><strong>LEO</strong> (Britain, 1949): 'Lyons Electronic Office,' built by the Lyons tea-shop chain — the world's first business computer.</li>
+                <li><strong>Regnecentralen</strong> (Denmark, 1955): from the Danish Academy of Sciences.</li>
+                <li><strong>Electrologica</strong> (Netherlands, 1956): spin-off of the Mathematisch Centrum.</li>
+              </ul>
+
+              <h3>How they differed from IBM</h3>
+              <p>Smaller R&amp;D budgets. Smaller home markets. Often state-supported rather than profitable. Limited international reach. Built for local industries (telephones, banking, shipping, tea-shops!) rather than for general business. None of them could match IBM's combination of marketing, service, and modular design.</p>
+
+              <h3>Why this matters</h3>
+              <p>The European dwarfs are the 'minority report' of computing history. They show that the post-WWII landscape required national-scale funding to build a computer industry — and that no European country could match the US's combination of market, capital, and military demand. By the 1970s most had been absorbed (Bull → Honeywell-Bull; Electrologica → Philips).</p>
+
+              <h3>Conclusion</h3>
+              <p>The dwarfs are reminders that computing's American dominance was not inevitable. Europe did build computers — just at a smaller scale, and under the constant pressure of being technologically behind. That pressure, captured in Servan-Schreiber's <em>Le défi américain</em> (1968), shaped European computing policy for decades.</p>
+
+              <div class="note"><strong>Word count: ~290.</strong> The five-name list is memorable. Servan-Schreiber's title is a useful European reference.</div>
+            `
+          },
+          {
+            q: "The Manchester Baby (June 1948) is sometimes called the first 'modern' computer. Argue for or against.",
+            hint: "Definitions matter — first stored-program ≠ first useful.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The 'Manchester Baby' — properly the Small-Scale Experimental Machine — ran its first stored program on 21 June 1948 at Manchester University. Whether it counts as the 'first modern computer' depends on how you define modern.</p>
+
+              <h3>Body — yes</h3>
+              <p>It was the first machine to run a stored program — instructions and data in the same memory, the architecture every modern computer uses. ENIAC (1946) was electronic but had no stored programs. The Harvard Mark I (1944) was electromechanical. The Baby's Williams-tube CRT memory was a real engineering breakthrough. Britain's design budget was tiny — which forced a simple, elegant architecture that scaled into the larger Manchester Mark I (1949) and the commercial Ferranti Mark I (February 1951, the world's first computer on the open market).</p>
+
+              <h3>Body — no</h3>
+              <p>The Baby was tiny — 32 words of memory, no real input/output. It ran a single program (find the largest factor of a small number) for demonstration. EDSAC (Cambridge, May 1949) was a more practical stored-program machine and is sometimes preferred. UNIVAC (1951) was the first full business machine. Some historians prefer the broader claim that 'the modern computer' emerged from the Moore School and was implemented in the late 1940s by several teams — not from one machine on one date.</p>
+
+              <h3>Conclusion</h3>
+              <p>The Baby is the earliest stored-program computer to actually run code. That makes it a strong candidate for 'first modern computer' by one definition. But 'modern' can also mean useful, programmable in practice, or commercially viable — and by those definitions other machines come first. The honest answer is: it depends what you measure.</p>
+
+              <div class="note"><strong>Word count: ~290.</strong> Argue both sides — the question allows it. The 'depends what you measure' closing is reusable.</div>
+            `
+          },
+          {
+            q: "Discuss the role of women in the Moore School / ENIAC project, and why this is part of the prehistory of programming.",
+            hint: "200 human computers + the 'ENIAC Six' programmers.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Women were essential to the development of early computing — and almost completely written out of the standard history. Recovering their role tells us what really happened at the Moore School.</p>
+
+              <h3>Body</h3>
+              <p>At the Moore School during WWII, around 200 women worked as human computers, doing the ballistics calculations the differential analyser couldn't keep up with. They were trained by Mary Mauchly, John Mauchly's wife. Two classrooms full of women using desk calculators, day after day — that was the everyday reality of the school in 1942–43.</p>
+
+              <p>When ENIAC was built, six women — known later as the 'ENIAC Six' — were assigned to operate and program it. They were Kathleen McNulty, Frances Bilas, Betty Jean Jennings, Ruth Lichterman, Marlyn Wescoff, and Frances Snyder. They figured out how to wire ENIAC to solve specific problems — they were, in effect, the first programmers. Their names appeared in no contemporary press coverage, and they were not invited to the celebration dinner when ENIAC was unveiled in February 1946.</p>
+
+              <p>The 1951 Paris cybernetics conference — sometimes called 'a missed opportunity' — had 'a lot of female computers' among its 270 participants. Margaret Masterman (1910–1986) was a key cybernetics thinker. Margaret Mead helped lead the Macy conferences. None of these women feature in the standard 'great men of computing' narrative.</p>
+
+              <h3>Conclusion</h3>
+              <p>The standard story of computing — Mauchly, Eckert, von Neumann, Aiken — is a story about who got credit, not who did the work. Recovering the women's role isn't a side topic; it's a correction to a fundamentally biased history. It also matters today: programming is a female-coded job that became male-coded as it gained prestige. Knowing the original gender of the work helps us see why.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> Don't try to memorise all six names — even two is enough. The 'female-coded → male-coded' framing is the reflective punch.</div>
+            `
+          }
+        ]
+      },
+      {
+        tier: 4,
+        label: "Possible Reflective",
+        meta: "Philosophical / sociological angles — outline only",
+        questions: [
+          {
+            q: "The 1951 Paris cybernetics conference has been called 'a missed opportunity.' Discuss what was missed.",
+            hint: "Who was there, who wasn't, what could have happened.",
+            essay: `
+              <h3>Outline</h3>
+              <p>The January 1951 Paris conference 'Les machines à calculer et la pensée humaine' gathered the leading European thinkers on computing and AI.</p>
+
+              <p><strong>Notably absent:</strong> Alan Turing and Margaret Masterman.</p>
+
+              <p><strong>Present:</strong> Norbert Wiener, Howard Aiken, Maurice Wilkes, Alwin Walther (Darmstadt), Aad van Wijngaarden, J. Grey Walter (<em>The Living Brain</em>, 1953), and a lot of female computers among the 270 participants.</p>
+
+              <p><strong>Why a missed opportunity?</strong> From a CS perspective, the AI conversation that emerged at Dartmouth 1956 (American-led, narrowed to symbolic reasoning) might have been a broader, more European, more cybernetics-driven conversation if it had crystallised in Paris first. Turing's absence in particular is striking — he died three years later without ever joining the Anglo-French AI community.</p>
+
+              <p><strong>The reflective lesson:</strong> The geography and personnel of conferences shape what fields exist. 'AI' as a research programme in the 1950s was an American invention. A different conference in 1951 might have produced a different field, with different priorities, possibly including the broader cybernetic concerns that eventually faded.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>What was missed in Paris in 1951 was the chance for AI to be born European, broad, and interdisciplinary instead of American, narrow, and engineering-focused.</p>
+              <div class="note">~270 words on exam day. The 'who was there / who wasn't' contrast is the spine.</div>
+            `
+          },
+          {
+            q: "Dutch computing has been described as 'bluffing their way into the computer age.' Discuss this framing.",
+            hint: "Gerard Alberts's phrase. Performance-driven development.",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>The phrase.</strong> Historian Gerard Alberts described early Dutch computing as 'bluffing their way into the computer age.'</p>
+
+              <p><strong>The evidence.</strong> The first ARRA (June 1952) didn't really work — but the Mathematisch Centrum team played up its public success anyway. ARRA II (March 1954) was a real working machine. The funny acronyms (ZEBRA = Zeer Eenvoudig Binair Reken Apparaat — 'very simple binary calculator'; PASCAL = Philips Akelig Snelle Calculator — 'horribly fast calculator') reflect a half-ironic, almost playful culture.</p>
+
+              <p><strong>Why this framing matters.</strong> The 'bluff' is a model of how second-tier computing nations actually catch up: claim success, get funding, deliver later. It's not deception so much as performance. Without the public confidence projected by the Mathematisch Centrum, the Dutch government wouldn't have continued funding, and Electrologica wouldn't have been founded.</p>
+
+              <p><strong>The reflective lesson.</strong> Early-stage technology development is partly performance. The history reminds us that 'first-mover' advantages often go to those who claim them loudly enough to attract follow-on resources, not necessarily those whose first attempt actually worked. This is true today too — claims often run ahead of working systems.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>'Bluffing' is not a criticism — it is a fair description of how a small country with limited resources entered a technology race dominated by giants.</p>
+              <div class="note">~270 words. The 'claim → funding → deliver' chain is the analytical core.</div>
+            `
+          },
+          {
+            q: "Computers were dreamed of and built even though they 'evidently did not work.' What does this tell us about ideology in technology?",
+            hint: "The prof's question. Faith preceded evidence.",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>The puzzle.</strong> The lecturer asks: why after WWII did people put faith in machines that 'evidently did not work'? ENIAC's tubes were predicted to fail every ten minutes. The first ARRA was a flop. Early UNIVACs were monolithic and unreliable.</p>
+
+              <p><strong>The answer: ideology preceded evidence.</strong> NASA, Cold War prestige, science as national pride, the Marshall Plan optimism — all created an ideological environment in which 'the computer' was a symbol of modernity and progress before it was a reliable technology. Continental Europe wanted computers because America had them, not because the Europeans had a clear use case.</p>
+
+              <p><strong>The pattern.</strong> Faith in the machine came first; the evidence followed. This is a deeply un-modern story (modernity claims that evidence drives belief) but a deeply <em>realistic</em> one. Major technologies are adopted on a mix of need, ideology, and political momentum — rarely on cold evidence alone.</p>
+
+              <p><strong>What this tells us about today.</strong> AI in the 2020s is in the same position. Generative models often produce wrong answers; the data centres consume vast resources; the safety arguments are unsettled. But the ideological pull — AI as the future, AI as national prestige — is enormous. We are again building machines that 'evidently do not work' because we believe they will.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>The history of computing shows that technology adoption is partly an act of faith, and reading that history reflectively helps us see the same pattern in our present.</p>
+              <div class="note">~270 words. Connection to today's AI is what gets the high marks here.</div>
+            `
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "L3",
+    label: "L3",
+    title: "Lecture 3 — The Sound of Software (Chapters 6–7)",
+    chapters: "Campbell-Kelly chapters 6–7",
+    enabled: true,
+    tiers: [
+      {
+        tier: 1,
+        label: "Almost Certain",
+        meta: "Direct from your assignment (4 questions)",
+        questions: [
+          {
+            q: "Discuss two ways of sounds, playing a role in computing in the 1950s calculating machines. Why were speakers connected to these machines?",
+            hint: "Two ways = (1) incidental machine noise, (2) deliberate speakers. Plus the anthem story.",
+            essay: `
+              <h3>Intro</h3>
+              <p>1950s computers literally made sound. Some of it was incidental — the clicking of relays and whirring of mechanics. Some of it was deliberate — engineers attached speakers on purpose. Both kinds played a role, and both tell us something about how programmers actually used these machines.</p>
+
+              <h3>The first way: incidental noise</h3>
+              <p>Mechanical machines like the Dutch ARRA (1952) or early IBM machines made constant clicking and humming. To a programmer who knew the machine, this noise was diagnostic. You could hear when a relay was stuck. You could tell when the program had moved into a new section. Old machines were noisy, and that noise was a tool.</p>
+
+              <h3>The second way: deliberate speakers</h3>
+              <p>Engineers also added speakers on purpose. The ARRA II (1954) had one. UNIVAC had a 'stall speaker' button. The German Z22 (1957) had one. The Soviet БЭСМ-6 (1963) had one. Speakers were used for four things:</p>
+              <ul>
+                <li><strong>Announcing the program had terminated</strong> — a beep when done.</li>
+                <li><strong>Auditive monitoring</strong> — different parts of the program made different sounds, so you knew it was working.</li>
+                <li><strong>Navigation</strong> — mathematicians could tell where in the program the machine was just by listening.</li>
+                <li><strong>Part of the instruction</strong> — sound became external control on execution.</li>
+              </ul>
+
+              <h3>The famous example</h3>
+              <p>In 1949, Christopher Strachey sent a punched-card tape to Maurice Wilkes' EDSAC at Cambridge. The program made the machine hum 'God Save the Queen.' A similar trick was performed on the Dutch MIRACLE machine — the Dutch national anthem. These weren't just stunts. They proved the computer could be made to do something culturally meaningful, not just calculate.</p>
+
+              <h3>Conclusion</h3>
+              <p>Speakers were connected to 1950s machines because computing was not yet automatic. You needed to monitor, debug, and trust the machine — and the easiest way to do that was through your ears. The sounds tell us something the textbooks miss: early computers were physical objects that programmers lived with, listened to, and even taught to sing.</p>
+
+              <div class="note"><strong>Word count: ~330.</strong> Anchors to memorise: EDSAC + 'God Save the Queen' (1949), MIRACLE + Dutch anthem, four uses of speakers. The 'taught to sing' closing is reusable.</div>
+            `
+          },
+          {
+            q: "Campbell-Kelly attributes the development of real-time computer systems to a successful blending of military research projects and entrepreneurial efforts. Explain his line of thought.",
+            hint: "It's a chain: Whirlwind → SAGE → SABRE → Barclays → UPC. War paid for the tech; business found the use.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Campbell-Kelly argues that real-time computing — the kind that responds to the user instantly — came from a marriage between military research and business entrepreneurship. The line of thought is a chain: war funded the technology, business turned it into something useful. Without one, the other would have failed.</p>
+
+              <h3>The military side</h3>
+              <p>The story starts at MIT. In 1944, Jay Forrester proposed Project Whirlwind: an aircraft trainer that would simulate flying in real time. By 1945 he made it digital. By 1951, his colleague Bill Papian had invented core memory — the breakthrough that made fast, reliable computers possible. ONR funding ran out, but Whirlwind was rescued by the Cold War: it became <strong>SAGE</strong> (Semi-Automatic Ground Environment), the air-defence system that watched the sky for Soviet bombers. SAGE had 23 direction centres and IBM AN/FSQ-7 computers. It was almost obsolete on arrival — ICBMs made manned bombers irrelevant — but it trained a generation of engineers and proved real-time computing worked.</p>
+
+              <h3>The business side (entrepreneurial)</h3>
+              <p>SAGE's real impact was civilian. <strong>SABRE</strong> (1957–64), built by IBM with American Airlines, was a reservation system with the same architecture as SAGE. It had 1,100 terminals in 50 cities. Perry Crawford, who had worked on Whirlwind, was involved here too. Then came credit cards: BankAmericard (1958) → Visa BASE I and II (1973–74). Then ATMs: Barclays London (1967). Each civilian project used technology that military money had paid to develop.</p>
+
+              <h3>The blend</h3>
+              <p>Campbell-Kelly's point is that neither side alone explains real-time. The military funded technology that had no business case (defending against bombers that quickly stopped mattering). Business found applications the military hadn't imagined (selling tickets, dispensing cash). Public funding for risky R&amp;D, private money for deployment — that is the blend.</p>
+
+              <h3>Conclusion</h3>
+              <p>Real-time computing did not come from one place. It came from a Cold War system that protected against an enemy that quickly stopped mattering, and from an airline that needed to sell seats. <strong>No SAGE, no SABRE.</strong> No SABRE, no real-time business computing. The 'successful blending' is exactly that.</p>
+
+              <div class="note"><strong>Word count: ~340.</strong> The chain Whirlwind → SAGE → SABRE → Barclays → UPC is the spine. Memorise 'No SAGE, no SABRE' as your closing punch.</div>
+            `
+          },
+          {
+            q: "In the late 1950s and throughout the 1960s and 70s, IBM was dominating the computer manufacturing market. What roles did other computer manufacturers play? Give an example of a relatively successful computer manufacturer and explain its success.",
+            hint: "Three strategies. Then pick Control Data as the success story.",
+            essay: `
+              <h3>Intro</h3>
+              <p>By the late 1950s, IBM had about 75% of the US computer market. The remaining seven companies — Sperry Rand/UNIVAC, Honeywell, RCA, GE, Control Data, Burroughs, and NCR — were nicknamed 'the seven dwarves.' But the dwarves were not all doing the same thing. Each survived (or didn't) by playing a different role.</p>
+
+              <h3>The three strategies</h3>
+              <p>The dwarves followed three broad strategies.</p>
+              <ul>
+                <li><strong>IBM-compatible.</strong> Build machines that ran IBM software but were cheaper or better. RCA's Spectra 70 was the classic example. The risk: IBM could change its standards and kill you.</li>
+                <li><strong>Own compatible family.</strong> Don't fight IBM directly; build your own architecture and lock in your customers. Honeywell, Burroughs, and NCR did this.</li>
+                <li><strong>Niche specialisation.</strong> Don't try to do everything. Find a corner where IBM didn't care to compete. Control Data went into scientific computing — supercomputers for laboratories. GE went into time-sharing.</li>
+              </ul>
+
+              <h3>Control Data — a successful example</h3>
+              <p>Control Data, founded 1957 by William Norris (formerly of ERA), chose niche specialisation. Its customers were national labs and weather services — places that needed raw scientific power, not business reports. With Seymour Cray as chief designer, Control Data built the <strong>CDC 6600</strong> (1964), which was for years the fastest computer in the world. It outperformed IBM at the high end. By focusing where IBM was weakest, Control Data survived where the others struggled.</p>
+
+              <h3>What happened to the rest</h3>
+              <p>The 1970–71 recession reshaped the field. RCA and GE exited the computer business. The remaining group was renamed 'IBM and the BUNCH' — Burroughs, UNIVAC, NCR, Control Data, Honeywell.</p>
+
+              <h3>Conclusion</h3>
+              <p>The dwarves' role was not to replace IBM but to fill the spaces around it. Control Data is the clearest example of why niche specialisation worked: by targeting scientists, not businesses, it sidestepped the war IBM was winning. The seven-dwarves story is a story about how giants leave room — but only at the edges.</p>
+
+              <div class="note"><strong>Word count: ~340.</strong> Memorise: 75% IBM, the three strategies (compatible / own family / niche), Control Data + CDC 6600 + Cray. 'Giants leave room — but only at the edges' is your closing.</div>
+            `
+          },
+          {
+            q: "Campbell-Kelly states that the introduction of the UPC was as much a political feat as a technical one. In the lecture it was connected to the history of AI. Explain the lines of thought.",
+            hint: "Two lines: (1) why political not technical, (2) link to AI through cybernetics & systems thinking.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The Universal Product Code — the barcode on every product — was adopted in 1973. Campbell-Kelly says its introduction was 'as much a political feat as a technical one.' The lecture connected this to the history of AI through cybernetics. Two lines of thought, then.</p>
+
+              <h3>Line one: why political, not just technical</h3>
+              <p>Technically, the UPC is simple. It's a series of black bars and white spaces encoding a 12-digit number, read by a laser scanner that looks the number up in a database. The technology was ready by the early 1970s.</p>
+
+              <p>The hard part was getting hundreds of unrelated companies to agree. Manufacturers had to print the same code on every product. Retailers had to install scanners. Distributors had to update systems. <strong>McKinsey</strong> (the consultancy) was hired in 1969 by the food industry; <strong>IBM</strong> brought the technical chops; an 'Ad Hoc Committee of the Grocery Industry' (1970) gathered top people from manufacturers and distributors. Years of negotiation produced the standard. Without that coalition, the technology would have stayed in a lab.</p>
+
+              <h3>Line two: the connection to AI</h3>
+              <p>The lecture's link to AI runs through cybernetics. <strong>Stafford Beer</strong>, the British cybernetician, had been arguing since the 1960s that companies should be modelled as systems — with feedback loops, real-time data, and central monitoring. His <strong>Viable Systems Model</strong> (1972) and the famous <strong>Cybersyn</strong> project for Allende's Chile (1971–73) tried to manage organisations through cybernetic feedback.</p>
+
+              <p>The UPC fits the same logic. By encoding every product, retailers could see in real time what was selling, where, when. Cybernetics in business was about turning human activity into legible data. UPC was the moment when that vision moved from theory into the supermarket aisle. AI today inherits the same impulse: turn behaviour into data, then optimise.</p>
+
+              <h3>Conclusion</h3>
+              <p>The UPC is a small piece of technology with a long shadow. The technology was easy; the politics were hard. And the politics were driven by a cybernetic vision — pioneered by Stafford Beer and others — of business as a system that could be monitored and steered. UPC was where that vision touched the everyday world.</p>
+
+              <div class="note"><strong>Word count: ~340.</strong> Two clean lines: (1) coalition + standardisation; (2) Stafford Beer + Cybersyn → UPC. The 'small technology, long shadow' framing is reusable.</div>
+            `
+          }
+        ]
+      },
+      {
+        tier: 2,
+        label: "Very Likely",
+        meta: "Adjacent reformulations of the lecture's main themes",
+        questions: [
+          {
+            q: "Why was IBM's System/360 (1964) called a 'bet-the-company' move, and why did it work?",
+            hint: "Five billion dollars. Bigger than the Manhattan Project. One compatible family.",
+            essay: `
+              <h3>Intro</h3>
+              <p>By 1961, IBM had a problem. Its computers came in incompatible models — the 1401, the 7000-series, others — each with its own software. Customers who outgrew one model had to rewrite everything to move up. The 'software crisis' was real. IBM's response, the System/360, was the largest civilian R&amp;D project ever undertaken at the time.</p>
+
+              <h3>Body — the bet</h3>
+              <p>The SPREAD task group (Systems, Programming, Review, Engineering, And Development) met in late 1961. Its 'New Product Line' would replace IBM's entire range with one compatible family of computers. Direct R&amp;D would cost ~$500 million. Total spend, including factories, training, and field support, would reach $5 billion — Tom Wise of <em>Fortune</em> coined the phrase 'IBM's $5 billion gamble' and noted that 'not even the Manhattan Project... cost so much.' One IBM manager called the project 'You bet your company.'</p>
+
+              <h3>Body — why it worked</h3>
+              <p>Three reasons. <strong>Compatibility.</strong> Customers could buy a small System/360 and grow into a larger one without rewriting software. <strong>Total-system thinking.</strong> IBM was unique in caring about peripherals, training, field service, and software, not just CPUs. <strong>Marketing and trust.</strong> IBM's existing customer base had reasons to believe IBM would still be around in ten years, which the seven dwarves struggled to match.</p>
+
+              <h3>Body — the cost</h3>
+              <p>System/360 was technically conservative — it didn't push the leading edge of hardware design. But it was a logistical and organisational masterpiece. By the late 1960s IBM had ~75% of the market and the seven dwarves were squeezed.</p>
+
+              <h3>Conclusion</h3>
+              <p>The System/360 was a bet on the right kind of innovation: not the most clever processor but the most consistent platform. IBM understood, before its competitors, that customers buy systems, not chips. The lesson is the same one Watson's father taught: in business computing, marketing and service beat technology.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> Anchors: $5B, 'bet the company,' compatible family, total-system view.</div>
+            `
+          },
+          {
+            q: "Discuss SAGE: a Cold War air-defence system that mostly didn't matter — yet shaped computing.",
+            hint: "Obsolete on arrival, but trained a generation. Use 'Reaping the Whirlwind' framing.",
+            essay: `
+              <h3>Intro</h3>
+              <p>SAGE — Semi-Automatic Ground Environment — was built in the 1950s to defend the United States against Soviet bomber attack. It was almost obsolete on arrival: ICBMs made manned bombers irrelevant before SAGE was even fully deployed. Yet SAGE shaped the computer industry for decades. Its real legacy was technology, training, and culture.</p>
+
+              <h3>Body — what SAGE was</h3>
+              <p>23 direction centres across the US, each running an IBM AN/FSQ-7 computer — the largest computer ever built. Operators sat at CRT screens, identifying aircraft and tracking interceptions in real time. The system descended directly from MIT's Project Whirlwind (Jay Forrester, 1944), which had been an aircraft trainer turned digital computer. Bill Papian's core memory (1951) made SAGE possible.</p>
+
+              <h3>Body — why it didn't matter (militarily)</h3>
+              <p>By the late 1950s, the Soviet Union had ICBMs that could cross the Atlantic in 30 minutes. SAGE was designed for bombers, which take hours. The whole defensive concept became outdated. The system stayed in operation through the 1980s but with diminishing strategic value.</p>
+
+              <h3>Body — why it mattered (technologically)</h3>
+              <p>Three reasons. <strong>Training.</strong> SAGE employed thousands of engineers, programmers, and operators. They went on to staff the rest of the computer industry — including Route 128 (Boston's tech corridor) which Whirlwind seeded directly. <strong>Civilian spinoffs.</strong> SABRE (1957–64) used SAGE's architecture for airline reservations. Barclays/Burroughs used similar designs for banking. <strong>Culture.</strong> The SAGE control room — operators at CRT screens watching real-time data — became the visual template for how a 'computer system' should look.</p>
+
+              <h3>Conclusion</h3>
+              <p>SAGE is a paradox: a military system that failed at its mission but succeeded in everything else. Its technology, its workforce, and its imagery shaped civilian computing for the next twenty years. As Campbell-Kelly's chapter title puts it, business was 'reaping the Whirlwind' for a long time.</p>
+
+              <div class="note"><strong>Word count: ~330.</strong> Frame: failed military / succeeded technologically. The training-and-culture line is the reflective punch.</div>
+            `
+          },
+          {
+            q: "Asimov's robots vs Orwell's surveillance — discuss how 1950s/60s science fiction shaped public perception of computers and AI.",
+            hint: "Two opposite emotional poles: hope (Asimov) and dread (Orwell).",
+            essay: `
+              <h3>Intro</h3>
+              <p>The public didn't form its opinion of computers and AI from technical journals. It formed it from stories. In the 1950s and 60s, two strands of science fiction set the emotional poles: Asimov's hopeful robot stories and Orwell's dystopian surveillance. Both still shape what we feel about AI today.</p>
+
+              <h3>Body — Asimov's hope</h3>
+              <p>Isaac Asimov (1920–1992) wrote <em>I, Robot</em> (1950) and the Foundation series, populated by robots constrained by his Three Laws of Robotics. His robots were rule-bound, helpful, and ultimately friendly. The cultural script: AI is a tool we can build wisely. The 'Big Three' golden-age writers — Asimov, Heinlein, Clarke — generally shared this optimism.</p>
+
+              <h3>Body — Orwell's dread</h3>
+              <p>George Orwell's <em>1984</em> (1948) is not, strictly, a computer novel. But it is about surveillance, totalitarianism, and what the lecturer called 'systems thinking' — the idea that an entire society can be monitored and controlled. 'Who controls the past, controls the future. Who controls the present, controls the past.' This is the dark side of cybernetics — feedback systems pointed at people. Philip K. Dick's later work (<em>Minority Report</em>, 1956; <em>Do Androids Dream of Electric Sheep?</em>, 1968) built on the same anxiety, asking what makes us human if a machine can do the same.</p>
+
+              <h3>Body — what each tradition gave us</h3>
+              <p>Asimov gave the public a positive way to imagine AI: robots as helpful colleagues. Hollywood adopted it (Kubrick's <em>2001: A Space Odyssey</em>, 1968, complicates this — HAL is the warning shot). Orwell and Dick gave the dread: surveillance, dehumanisation, and the question of authentic feeling vs. mere thinking.</p>
+
+              <h3>Conclusion</h3>
+              <p>The lecturer pointed out the deeper move: the contrast between Orwell's <em>1984</em> and Asimov's robots is a redefinition of what makes us human — feeling, not thinking. As thinking becomes computable, the human distinction shifts. That is why even today, when ChatGPT writes good prose, we talk about 'consciousness' and 'feeling' rather than 'reasoning.' The sci-fi pole-setting still does work in our heads.</p>
+
+              <div class="note"><strong>Word count: ~340.</strong> Asimov vs Orwell as emotional poles. The 'feeling, not thinking' redefinition is the prof's specific framing.</div>
+            `
+          },
+          {
+            q: "Discuss the relationship between AI and cybernetics in the 1950s–60s. Why were the AI pioneers (Wiener, McCarthy, Minsky) NOT at the cybernetics meetings?",
+            hint: "Two communities, same questions, different aesthetics. AI broke off.",
+            essay: `
+              <h3>Intro</h3>
+              <p>By the early 1960s, two communities were asking the same question — can a machine think? — but they barely talked to each other. One was cybernetics, broad and European. The other was AI, narrow and American. The lecturer pointed out who was at the International Association for Cybernetics meetings — and who notably was not.</p>
+
+              <h3>Body — the cybernetics community</h3>
+              <p>Heinz Zemanek (Vienna, Mailüfterl computer), William Grey Walter (UK, <em>The Living Brain</em>, 1953), Louis Couffignal (France), Henryk Greniewski (Poland), Anthony Stafford Beer (UK, business cybernetics) — these were the regular figures. The community was European, interdisciplinary (biology, psychology, engineering, economics), and applied (Beer worked with companies; Walter with brains).</p>
+
+              <h3>Body — the AI community</h3>
+              <p>Notably absent from the cybernetics meetings: <strong>Norbert Wiener</strong> (despite having coined 'cybernetics' in 1948), <strong>John McCarthy</strong>, <strong>Marvin Minsky</strong>, <strong>Frank Rosenblatt</strong> (the perceptron, 1957). These were the Americans who in 1956 had named their own field at the Dartmouth conference: artificial intelligence. They preferred symbolic reasoning, formal logic, and engineering — not biology and feedback.</p>
+
+              <h3>Body — why the split</h3>
+              <p>Three reasons. <strong>Geography.</strong> Cybernetics was European-Soviet-flavoured; AI was American. Cold War politics complicated transatlantic collaboration. <strong>Method.</strong> Cybernetics was interdisciplinary and analogue (Walter's electronic 'tortoises'); AI was symbolic and digital (LISP, search). <strong>Branding.</strong> By 1956, cybernetics had become associated with weak, popular books. The Dartmouth group chose 'artificial intelligence' partly to break free of that reputation.</p>
+
+              <h3>Conclusion</h3>
+              <p>The split is one of the great 'roads not taken' in the history of computing. Had the AI community stayed inside the cybernetics tent, modern AI might have been more biological, more interdisciplinary, and more European. Instead it became American, symbolic, and engineering-driven — for fifty years. Recent neural-network AI is, in many ways, a return to the cybernetic side of the family.</p>
+
+              <div class="note"><strong>Word count: ~330.</strong> Three reasons (geography / method / branding) is a clean structure. The 'roads not taken' closing is reusable.</div>
+            `
+          }
+        ]
+      },
+      {
+        tier: 3,
+        label: "Likely Themes",
+        meta: "Recurring framings the prof highlighted",
+        questions: [
+          {
+            q: "Discuss the use of metaphor in early computing terminology (program, memory, electronic brain). Why does this matter?",
+            hint: "Borrowed words shape what we think the machine is.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Computing didn't invent its own vocabulary. It borrowed, often from theatre, biology, and psychology. 'Program,' 'memory,' and 'electronic brain' are all metaphors. The lecturer's point is that these borrowed words shaped what people thought computers were — and still do.</p>
+
+              <h3>Body — the borrowed words</h3>
+              <p><strong>Program.</strong> First used in 1946 for ENIAC ('preparing programs'). The word came from theatre and broadcasting — a list of items to be performed. By 1948, 'programming' was used as a verb. The metaphor implies sequence, performance, and intent.</p>
+
+              <p><strong>Memory.</strong> The word 'storage' had been used since Babbage's time. Von Neumann replaced it with 'memory' in his 1945 First Draft of EDVAC, partly because of his interest in the brain. The metaphor was deliberate — it made the computer feel mind-like.</p>
+
+              <p><strong>Electronic brain.</strong> Turing used 'intelligent machinery' (1948); Edmund Berkeley wrote <em>Giant Brains, or Machines That Think</em> (1949). The press loved it. The metaphor sold computers — but it also set unrealistic expectations.</p>
+
+              <h3>Body — softer metaphors over time</h3>
+              <p>By 1960, 'programming language' had replaced earlier terms (assembly, autocoding). A 'compiler' was now a 'translator.' Grace Hopper said 'educating a machine'; Edsger Dijkstra called it 'communication with an automatic computer.' Reassuring names for new things.</p>
+
+              <h3>Why it matters</h3>
+              <p>Bolter (1984) called computing a 'defining technology' — a technology that defines what a culture thinks human nature is. By using brain metaphors, computing made the brain look more computational. By using performance metaphors (program, execute), it made human action look more mechanical. The metaphors flow both ways. Cybernetics' explicit aim — to emulate the human brain — was already encoded in the everyday vocabulary of programmers.</p>
+
+              <h3>Conclusion</h3>
+              <p>The terminology of computing isn't neutral description. It is half-borrowed from biology and half-borrowed from theatre, and that mixed origin shapes how we think about both computers and ourselves. Knowing the metaphors lets us notice when they break — for instance, when 'machine memory' isn't actually anything like memory.</p>
+
+              <div class="note"><strong>Word count: ~330.</strong> Three borrowed words (program / memory / electronic brain) is the spine. Bolter's 'defining technology' is the conceptual punch.</div>
+            `
+          },
+          {
+            q: "Stafford Beer's Cybersyn for Allende's Chile (1971–73) — what was it, and why does it matter?",
+            hint: "Cybernetics meeting socialism. Failed but visionary.",
+            essay: `
+              <h3>Intro</h3>
+              <p>In 1971, the British cybernetician Stafford Beer was invited by Salvador Allende's socialist government in Chile to design a real-time management system for the entire national economy. The project was called <strong>Cybersyn</strong>. It ran from 1971 to 1973, ended by the military coup that killed Allende. It is one of the most ambitious attempts ever to apply cybernetic thinking to a whole nation.</p>
+
+              <h3>Body — what Cybersyn was</h3>
+              <p>Cybersyn was a network of about 500 telex machines in factories across Chile, feeding daily production data to a central operations room in Santiago. The control room was a futuristic curved chamber with seven swivel chairs, projection screens, and analogue dials. The team — many of them young Chilean engineers — used Stafford Beer's <strong>Viable Systems Model</strong> to monitor production, anticipate problems, and adjust supply chains. The vision: real-time cybernetic management, but democratically run.</p>
+
+              <h3>Body — why it mattered</h3>
+              <p>Three reasons. <strong>Scale.</strong> Cybersyn was the most ambitious application of systems thinking to a whole society — bigger than any corporate effort. <strong>Politics.</strong> It was explicitly socialist: cybernetic feedback was meant to support workers' self-management, not central planning. This made it different from Soviet-style economic planning. <strong>Influence.</strong> It anticipates today's data-driven economies, smart cities, and platform capitalism by decades.</p>
+
+              <h3>Body — its end</h3>
+              <p>On 11 September 1973, Pinochet's coup killed Allende and ended Cybersyn. The control room was dismantled. Stafford Beer left Chile.</p>
+
+              <h3>Conclusion</h3>
+              <p>Cybersyn is the great 'what if' of cybernetics in business. It connects the UPC (industry-wide cybernetic standardisation) and modern data platforms (real-time control of human activity) to a politically explicit forerunner. Whether you read it as a hopeful experiment or as an ominous one, it was the moment when systems thinking tried to govern a country — and almost did.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> The control-room image is unforgettable. Connect to UPC / today's data platforms for the reflective frame.</div>
+            `
+          },
+          {
+            q: "Trace the line from MIT's Whirlwind to SAGE. What did each contribute?",
+            hint: "Aircraft trainer (1944) → digital (1945) → core memory (1951) → SAGE air defence.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The line from Whirlwind to SAGE is the line from one wartime contract to the largest peacetime computer system ever built. Each step contributed something specific that shaped real-time computing.</p>
+
+              <h3>Body — Whirlwind</h3>
+              <p>In 1944 MIT's Servomechanisms Laboratory got a contract from the US Navy to build a 'universal aircraft trainer' — a flight simulator that could imitate any plane. Jay Forrester, then 26, ran the project. By 1945, after meeting Perry Crawford, the team decided to go digital rather than analogue. This was a major bet — there was no working digital computer yet — but it set the architecture for everything that followed.</p>
+
+              <p>The project ran wildly over budget. By 1951, Office of Naval Research funding had nearly run out. But that same year, Bill Papian invented core memory — magnetic donuts woven onto wire grids — which replaced the unreliable electrostatic memory and became the standard storage technology for the next 20 years. Whirlwind survived.</p>
+
+              <h3>Body — SAGE</h3>
+              <p>The Cold War rescued the project. The US Air Force needed an early warning system for Soviet bombers. Whirlwind became the technological seed of <strong>SAGE</strong> (Semi-Automatic Ground Environment), a network of 23 direction centres each housing an IBM AN/FSQ-7 computer (the largest computer ever built). Operators sat at CRT screens tracking aircraft. The system became operational in the late 1950s.</p>
+
+              <h3>Body — the contributions</h3>
+              <p>Three things. <strong>Whirlwind contributed core memory</strong> — Bill Papian's invention. <strong>Whirlwind contributed real-time computing</strong> — the demonstration that a computer could respond instantly. <strong>SAGE contributed scale</strong> — proving these technologies could be deployed at national level, training thousands of engineers, and seeding Route 128 (Boston's tech corridor).</p>
+
+              <h3>Conclusion</h3>
+              <p>The Whirlwind → SAGE line is the prototype for how Cold War military money built civilian computing. Without an aircraft trainer in 1944, no SAGE in 1958. Without SAGE, no SABRE in 1964. The chain matters because each link funded and proved the next.</p>
+
+              <div class="note"><strong>Word count: ~320.</strong> Three contributions (core memory / real-time / scale) makes this memorable.</div>
+            `
+          },
+          {
+            q: "Why was the IBM 1401 such a phenomenon?",
+            hint: "Cheap, transistorised, with RPG software. 12,000 sales vs 1,000 forecast.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The IBM 1401, announced in fall 1959, was IBM's runaway success. Forecast at 1,000 sales, it eventually sold around 12,000 — a twelvefold overshoot that defined the early 1960s computing market. It earned IBM the nickname 'Big Blue' (from its powder-blue paint job). Three things explain its success.</p>
+
+              <h3>Body — cheap and transistorised</h3>
+              <p>The 1401 replaced the tube-based 650 with transistors and core memory. This made it ten times faster and far more reliable, while keeping the rental cost reasonable. For the first time, mid-sized companies could afford a real computer — not just General Motors, but a regional insurance firm. The IBM 1403 fast printer (4× faster than the popular IBM 407 accounting machine) was attached, making the whole system replace existing punched-card setups directly.</p>
+
+              <h3>Body — RPG software</h3>
+              <p>IBM also solved the programming problem. The Report Program Generator (RPG) was specifically designed so that people who already knew how to wire plugboards on accounting machines could, with a day or two of training, write their own business applications. RPG mimicked punched-card logic. It was easy. It became one of the most-used programming systems in the world.</p>
+
+              <h3>Body — the IBM total-system view</h3>
+              <p>The 1401 wasn't just a CPU. It was a computer <em>system</em>: peripherals, software, training, field service, and pre-built applications (payroll, invoicing, stock control) for the industries IBM already served. Other manufacturers were obsessed with processor design; IBM understood customers buy solutions, not chips.</p>
+
+              <h3>Conclusion</h3>
+              <p>The 1401 turned IBM from a leading punched-card company into the dominant computer company. By 1965, more than half of all US computer installations were IBM 1401s. Big Blue earned its nickname not because of one feature but because of the package: cheap, reliable, easy-to-program, well-supported. That formula — total-system thinking — became the IBM blueprint that the System/360 (1964) extended.</p>
+
+              <div class="note"><strong>Word count: ~320.</strong> Three reasons (transistorised / RPG / total system) makes the answer memorable. 'Big Blue' is the tag.</div>
+            `
+          },
+          {
+            q: "Discuss the Barclays + Burroughs real-time banking project (1965–71). What does its partial failure tell us?",
+            hint: "Promised real-time, delivered batch. Burroughs cancelled B8500. The 'real time or on time?' question.",
+            essay: `
+              <h3>Intro</h3>
+              <p>In 1965, the British bank Barclays signed a partnership with the American computer maker Burroughs to build a real-time banking system. The target was D-Day: 15 February 1971, the day Britain decimalised its currency. The story of how it went tells us something about the limits of real-time computing in the late 1960s.</p>
+
+              <h3>Body — the vision</h3>
+              <p>Barclays wanted to be the modern bank. It already had batch jobs running at its computer centre since 1961. Now, with Burroughs, it would go to real-time: every transaction visible instantly, customer accounts always up to date. The plan: a Burroughs B8500 mainframe linked to TC500 terminals across branches. Promised response time: 2.5 seconds. Promised throughput: 1,000,000 transactions per hour.</p>
+
+              <h3>Body — the failure</h3>
+              <p>Burroughs failed to deliver the B8500. By a 1968 CUBE meeting (a Barclays programmer event), production was already delayed. Burroughs proposed installing two B6500s instead. End of 1968: Barclays merged with Martins (732 branches), making the data load even bigger. 1969: B8500 production was cancelled altogether. The bank ended up 'limping in batch mode' — running daily batches, not real-time, well after D-Day.</p>
+
+              <h3>Body — what it tells us</h3>
+              <p>The lecture's question — 'real time or on time?' — is the lesson. Three things. First, real-time was harder than the marketing claimed. Second, in 1965, integrating a national branch network in real time was beyond Burroughs' engineering. Third, the 'company of the future' branding (Burroughs marketed itself this way) ran ahead of what the technology could deliver. Cybernetic visions of always-on monitoring depended on hardware that wasn't yet ready.</p>
+
+              <h3>Conclusion</h3>
+              <p>Barclays got its decimalisation done — in batch mode. Burroughs' B5500 came in instead. ATMs (Barclays London, 1967) were the real-time win. The partnership shows how 1960s real-time was a marketing claim that engineering struggled to deliver. The pattern repeats today — 'real-time AI,' 'instant analytics' — and the question 'real time or on time?' is still the right one to ask.</p>
+
+              <div class="note"><strong>Word count: ~330.</strong> 'Real time or on time?' is the prof's killer phrase — memorise it. The link to today's hype is the reflective punch.</div>
+            `
+          }
+        ]
+      },
+      {
+        tier: 4,
+        label: "Possible Reflective",
+        meta: "Philosophical / sociological angles — outline only",
+        questions: [
+          {
+            q: "Dijkstra and the X8 engineers in 1967 said: 'now we have grasped the logic of the processes... you would ask us to spoil that by some extra real time frivolities!?' Discuss this attitude.",
+            hint: "The 'real time or on time?' theme from the engineers' side.",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>The quote.</strong> Edsger Dijkstra and X8 engineers in 1967 framed real-time computing as 'frivolity' — a distraction from clean logical engineering. To them, real-time was an annoying business demand that messed up elegant theoretical work.</p>
+
+              <p><strong>The cultural split.</strong> 1960s computing had two camps. <strong>Logicians</strong> (Dijkstra, Algol, structured programming) cared about elegance, correctness, and academic clarity. <strong>Engineers</strong> (Forrester, IBM, Burroughs) cared about systems that worked under pressure for paying customers. The two sides argued through the entire decade.</p>
+
+              <p><strong>Why this matters.</strong> Real-time forced computing to confront the messy real world: deadlines, hardware failures, network latency, user impatience. The Dijkstra view treated this as ugly. The Forrester view embraced it as the whole point. Modern software engineering is a compromise: it values both elegance and operational reality.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>Dijkstra's 'frivolities' line is a reminder that academic computing and applied computing have often been at odds — and that the elegant view doesn't always win.</p>
+              <div class="note">~270 words on exam day. Use the academic vs. applied split as your spine.</div>
+            `
+          },
+          {
+            q: "The 'computer as electronic brain' metaphor — what did it gain, what did it lose?",
+            hint: "Sold the public; oversold the science.",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>What it gained.</strong> The 'electronic brain' framing (Turing 1948, Berkeley 1949) sold computing to the public. Newspapers, films (Desk Set, 1957), and politicians could talk about 'thinking machines.' Funding flowed because of the promise. AI as a field was born inside this metaphor.</p>
+
+              <p><strong>What it lost.</strong> Three things. <strong>Realism:</strong> 1950s computers couldn't think — they couldn't even play decent chess. The metaphor encouraged hype, AI winters followed. <strong>Other metaphors:</strong> 'computer as office machine' or 'computer as scientific tool' might have led to clearer thinking about what computers actually did. <strong>The boundary of human:</strong> calling computers brains made human cognition look mechanical, eroding what counts as uniquely human.</p>
+
+              <p><strong>Bolter's framing.</strong> J. D. Bolter's <em>Turing's Man</em> (1984) called computing a 'defining technology' — a technology that defines what a culture believes human nature is. The 'electronic brain' did exactly that: it defined the brain as an information processor.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>The metaphor sold the technology and reshaped how we think about ourselves. Whether the trade was worth it depends on whether you read modern AI as the metaphor's vindication or its over-extension.</p>
+              <div class="note">~260 words. Bolter's 'defining technology' is your reflective anchor.</div>
+            `
+          },
+          {
+            q: "Cybernetics in business has been called a 'forgotten tradition.' What was it, and why was it forgotten?",
+            hint: "Stafford Beer, Forrester's World Dynamics, the systems men. Lost to AI's branding war.",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>What it was.</strong> Cybernetics in business was the 1950s–70s movement that treated companies as feedback systems. Key figures: <strong>Stafford Beer</strong> (Viable Systems Model, Cybersyn), <strong>W. Robert Widener</strong> (<em>New Management Concepts</em>, 1968 — 'systems men'), <strong>Jay Forrester</strong> (<em>World Dynamics</em>, 1971 — system dynamics for the global economy). Companies were modelled as living organisms with information loops.</p>
+
+              <p><strong>Why it was forgotten.</strong> Three reasons. (1) <strong>The AI branding war.</strong> By the 1960s the McCarthy/Minsky group had named 'artificial intelligence' and dismissed cybernetics as fuzzy. (2) <strong>Cybersyn's collapse.</strong> Allende's coup killed cybernetics' most public success. (3) <strong>Cold War politics.</strong> Cybernetics had Soviet and Latin American associations; American business schools preferred 'management science.'</p>
+
+              <p><strong>Why it's coming back.</strong> Today's data platforms, real-time dashboards, and 'business intelligence' are exactly what Stafford Beer designed. Modern AI's interest in feedback, reinforcement learning, and continuous monitoring rediscovers cybernetic thinking — usually without the credit.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>Cybernetics in business was forgotten because it lost the branding war. It is being rediscovered because the underlying ideas keep working — and because the modern data economy is essentially a cybernetic one.</p>
+              <div class="note">~260 words. The 'lost the branding war' line is reusable. Connect to today's data platforms.</div>
+            `
+          }
+        ]
+      }
+    ]
+  },
+  { id: "L4", label: "L4", title: "Lecture 4 — Chapters 8–9", chapters: "Coming up", enabled: false },
+  { id: "L5", label: "L5", title: "Lecture 5 — Chapters 10–11", chapters: "Coming up", enabled: false },
+  { id: "L6", label: "L6", title: "Lecture 6 — Chapters 12–13", chapters: "Coming up", enabled: false },
+  { id: "L7", label: "L7", title: "Lecture 7 — Chapters 14–15", chapters: "Coming up", enabled: false }
+];
+
+// ============================================================
+// STATE + RENDERING
+// ============================================================
+let currentLecture = "L1";
+
+function renderLectureBars() {
+  const html = lectures.map(l => {
+    const cls = (l.id === currentLecture ? "active " : "") + (l.enabled ? "" : "disabled");
+    const onclick = l.enabled ? `onclick="setLecture('${l.id}')"` : "";
+    return `<button class="${cls.trim()}" ${onclick} title="${l.enabled ? '' : 'Coming soon'}">${l.label}</button>`;
+  }).join("");
+  document.getElementById("lectureBar").innerHTML = html;
+  document.getElementById("essLectureBar").innerHTML = html;
+}
+
+function setLecture(id) {
+  currentLecture = id;
+  renderLectureBars();
+  renderLecture();
+  renderEssentials();
+}
+
+function renderEssentials() {
+  const data = essentials[currentLecture];
+  const root = document.getElementById("essentialsContent");
+  if (!data) {
+    const lec = lectures.find(l => l.id === currentLecture) || {};
+    root.innerHTML = `
+      <div class="placeholder"><strong>Essentials for ${lec.title || currentLecture} not added yet.</strong>Once we work through this lecture together, the bare-minimum kit will appear here.</div>
+    `;
+    return;
+  }
+
+  const peopleHTML = data.people.map(p => `
+    <div class="ess-person">
+      <div class="ess-person-name">${p.name} <span class="ess-tag">${p.when}</span></div>
+      <div class="ess-person-did"><strong>Did:</strong> ${p.did}</div>
+      <div class="ess-person-use"><strong>Use them for:</strong> ${p.useFor}</div>
+    </div>
+  `).join("");
+
+  const datesHTML = data.dates.map(d => `
+    <div class="ess-date">
+      <div class="ess-year">${d.year}</div>
+      <div class="ess-event">${d.event}</div>
+    </div>
+  `).join("");
+
+  const tradHTML = data.traditions.map(t => `
+    <div class="ess-trad">
+      <div class="ess-trad-name">${t.name}</div>
+      <div class="ess-trad-desc">${t.desc}</div>
+      <div class="ess-trad-anchor">Anchor: ${t.anchor}</div>
+    </div>
+  `).join("");
+
+  const argsHTML = data.arguments.map(a => `
+    <div class="ess-arg">
+      <div class="ess-arg-title">${a.title}</div>
+      <div class="ess-arg-body">${a.body}</div>
+    </div>
+  `).join("");
+
+  const sentHTML = data.sentences.map(s => `<li>${s}</li>`).join("");
+
+  root.innerHTML = `
+    <div class="essentials-banner">
+      <h1>🎯 ${data.title} — The Bare Minimum</h1>
+      <p>${data.intro}</p>
+    </div>
+
+    <div class="ess-section">
+      <h2>👤 People you must know</h2>
+      <p class="ess-subtitle">One line of context for each. Don't memorise birthdays — memorise <em>what they did</em> and <em>which question they unlock.</em></p>
+      <div class="ess-people">${peopleHTML}</div>
+    </div>
+
+    <div class="ess-section">
+      <h2>📅 Dates you must know</h2>
+      <p class="ess-subtitle">Anchor your essays to these. Drop them anywhere and the grader knows you know the timeline.</p>
+      <div class="ess-dates">${datesHTML}</div>
+    </div>
+
+    <div class="ess-section">
+      <h2>🏛️ The Three Traditions</h2>
+      <p class="ess-subtitle">Memorise the labels, not all the examples. One name per tradition is plenty.</p>
+      <div class="ess-traditions">${tradHTML}</div>
+    </div>
+
+    <div class="ess-section">
+      <h2>🧩 Reusable arguments (cover most questions)</h2>
+      <div class="ess-args">${argsHTML}</div>
+    </div>
+
+    <div class="ess-section">
+      <h2>📝 Drop-in sentences</h2>
+      <p class="ess-subtitle">Memorise these and you can use them in many essays. Instant credibility, free word count.</p>
+      <ul class="ess-sentences">${sentHTML}</ul>
+    </div>
+
+    <div class="ess-section ess-final">
+      <h2>📖 What about the other names?</h2>
+      <p>${data.finalNote}</p>
+    </div>
+  `;
+}
+
+function renderLecture() {
+  const lec = lectures.find(l => l.id === currentLecture);
+  const header = document.getElementById("lectureHeader");
+  const list = document.getElementById("questionList");
+
+  if (!lec || !lec.enabled) {
+    header.innerHTML = `<h1>${lec ? lec.title : "Lecture"}</h1><p>${lec ? lec.chapters : ""}</p>`;
+    list.innerHTML = `<div class="placeholder"><strong>Content for this lecture is not added yet.</strong>Once we work through it together, the questions and model essays will appear here.</div>`;
+    return;
+  }
+
+  header.innerHTML = `<h1>${lec.title}</h1><p>${lec.chapters}</p>`;
+
+  list.innerHTML = lec.tiers.map((tier, ti) => `
+    <div class="tier-section tier-${tier.tier}">
+      <div class="tier-heading">
+        <span class="tier-badge">Tier ${tier.tier} — ${tier.label}</span>
+        <h2></h2>
+        <span class="tier-meta">${tier.meta}</span>
+      </div>
+      ${tier.questions.map((q, qi) => `
+        <div class="question-card" id="card-${tier.tier}-${qi}">
+          <div class="question-header" onclick="toggleCard(${tier.tier}, ${qi})">
+            <div class="q-number">${tier.tier}.${qi + 1}</div>
+            <div class="q-title-wrap">
+              <div class="q-title">${q.q}</div>
+              ${q.hint ? `<div class="q-hint">💡 ${q.hint}</div>` : ""}
+            </div>
+            <div class="q-toggle">+</div>
+          </div>
+          <div class="essay">${q.essay}</div>
+        </div>
+      `).join("")}
+    </div>
+  `).join("");
+}
+
+function toggleCard(tier, qi) {
+  if (document.body.classList.contains("study-mode")) return;
+  const card = document.getElementById(`card-${tier}-${qi}`);
+  card.classList.toggle("open");
+}
+
+function expandAll() {
+  if (document.body.classList.contains("study-mode")) return;
+  document.querySelectorAll(".question-card").forEach(c => c.classList.add("open"));
+}
+function collapseAll() {
+  document.querySelectorAll(".question-card").forEach(c => c.classList.remove("open"));
+}
+
+function toggleStudyMode() {
+  const on = document.getElementById("studyMode").checked;
+  document.body.classList.toggle("study-mode", on);
+  if (on) collapseAll();
+}
+
+function switchView(which) {
+  document.getElementById("view-essentials").classList.toggle("active", which === "essentials");
+  document.getElementById("view-lectures").classList.toggle("active", which === "lectures");
+  document.getElementById("view-toolkit").classList.toggle("active", which === "toolkit");
+  document.getElementById("tab-essentials").classList.toggle("active", which === "essentials");
+  document.getElementById("tab-lectures").classList.toggle("active", which === "lectures");
+  document.getElementById("tab-toolkit").classList.toggle("active", which === "toolkit");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// Init
+renderLectureBars();
+renderEssentials();
+renderLecture();
+</script>
+</body>
+</html>
