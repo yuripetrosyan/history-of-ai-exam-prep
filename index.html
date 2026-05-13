@@ -816,6 +816,183 @@ const essentials = {
       "The Universal Product Code (1973) was 'as much a political feat as a technical one' (Campbell-Kelly): McKinsey, IBM, and an industry coalition spent years getting manufacturers, distributors, and retailers to agree on a single standard."
     ],
     finalNote: "Other names you'll see — Wilkes (EDSAC), Hopper, Dijkstra, Watson Jr., Eliot Noyes (1401 designer), Bill Papian (core memory), Perry Crawford (Whirlwind→SABRE), Dee Hock (Visa), William Grey Walter, Karl Lashley, Berkeley, Philip K. Dick, Kubrick — are bonus dressing. The 5 above (Forrester, IBM, Strachey, Beer, Asimov+Orwell) will carry any L3 essay."
+  },
+
+  L4: {
+    title: "Lecture 4 — Computing Crisis? (Chapters 8–9)",
+    intro: "L4 is about software: how programming languages emerged from competing coalitions, how AI's mathematical wing produced proof checkers, and how the 'software crisis' was diagnosed differently in the US and in Europe. Five anchors. Three dates. Three agendas. Two arguments.",
+    people: [
+      {
+        name: "John Backus (FORTRAN, 1957)",
+        when: "IBM, 1957",
+        did: "Led the team at IBM that designed FORTRAN (FORmula TRANslation), released in 1957 for the IBM 704. The first widely-used high-level language. Within years it dominated scientific computing in the US, supported by IBM and the SHARE user group.",
+        useFor: "programming-languages question, the scientific-computing agenda, IBM's role."
+      },
+      {
+        name: "Grace Hopper (Flow-Matic → COBOL)",
+        when: "UNIVAC, 1950s",
+        did: "Pushed for English-language data-processing code at UNIVAC. Her Flow-Matic (1955) heavily influenced COBOL (1959–60). Coined 'compiler' and 'debugging.' COBOL was driven into the market by a US Department of Defense procurement rule in 1960.",
+        useFor: "programming-languages question, the business-computing agenda, US gov't as enforcer."
+      },
+      {
+        name: "John McCarthy (LISP, 1958)",
+        when: "MIT, 1958 onwards",
+        did: "Designed LISP (LISt Processing), based on Church's lambda calculus (1936). In 1961 wrote 'Computer programs for checking mathematical proofs,' founding the proof-checker line. 1965 paper described a working proof checker in LISP 1.5.",
+        useFor: "Mathematics-and-AI question, LISP, the link from logic to computing."
+      },
+      {
+        name: "Frederick Brooks vs Edsger Dijkstra",
+        when: "1964–1975",
+        did: "Brooks led IBM's OS/360 disaster (1964–66) and wrote <em>The Mythical Man-Month</em> (1975): the US diagnosis of the software crisis as a project-management problem. Dijkstra (Eindhoven) argued the crisis was conceptual — programmers needed mathematical discipline.",
+        useFor: "Software-crisis question, US vs Europe contrast, the two narratives."
+      },
+      {
+        name: "Kemeny + Kurtz (BASIC, 1964)",
+        when: "Dartmouth, 1964",
+        did: "John Kemeny and Thomas Kurtz designed BASIC (Beginners All-purpose Symbolic Instruction Code) for the Dartmouth Time-Sharing System. Aimed at liberal-arts students. Became the language of the personal-computer revolution: in 1975 it was the first widely-available language on early micros, and Microsoft was founded on a BASIC interpreter.",
+        useFor: "BASIC question, time-sharing, 'new ways of computing,' personal-computer prehistory."
+      }
+    ],
+    dates: [
+      { year: "1957", event: "<strong>FORTRAN released by IBM.</strong> The first widely-used high-level language. Within five years it dominates scientific computing." },
+      { year: "1960", event: "<strong>ALGOL 60 finalised in Paris</strong> + <strong>COBOL 60</strong>. The European 'elegant universal language' and the American 'English-for-business' language arrive in the same year." },
+      { year: "1968", event: "<strong>NATO Software Engineering Conference (Garmisch).</strong> The phrase 'software crisis' enters the vocabulary. Same year: IBM 'unbundles' software from hardware pricing, creating the software industry." }
+    ],
+    traditions: [
+      { name: "Scientific computing agenda", desc: "FORTRAN, IBM, SHARE, ACM journals. Goal: scientists writing formulas instead of assembly.", anchor: "<strong>Backus (FORTRAN, 1957)</strong>" },
+      { name: "Business computing agenda", desc: "COBOL, US Department of Defense, Hopper. Goal: English-language code, federal procurement standard.", anchor: "<strong>Hopper / DoD (COBOL, 1960)</strong>" },
+      { name: "European elegance agenda", desc: "ALGOL 60, IFIP working group 2.1, GAMM, Bauer, van Wijngaarden. Goal: mathematically clean, universal language.", anchor: "<strong>The 'ALGOL conspiracy'</strong>" }
+    ],
+    arguments: [
+      { title: "Argument A — \"Programming languages are coalitions, not just code.\"", body: "Each language of the late 1950s and early 1960s was pushed by a different coalition with a different agenda. FORTRAN had IBM and the scientists behind it; COBOL had the US Department of Defense and the business world; ALGOL 60 had European academics and the ACM publication standard; LISP had the MIT AI lab. The features of each language reflect the goals of its coalition. The point isn't really which language was best — it's whose agenda each language served." },
+      { title: "Argument B — \"The software crisis had two diagnoses, US and European.\"", body: "By the late 1960s, large software projects were failing — IBM's OS/360 being the most famous. The US diagnosis, voiced by Brooks in <em>The Mythical Man-Month</em>, was managerial: better project structure, software engineering as a discipline. The European diagnosis, voiced by Dijkstra and supported by Hoare's work on Quicksort and formal verification, was conceptual: programmers needed mathematical discipline. Both legacies survive — software engineering as a profession (US) and formal methods (Europe)." }
+    ],
+    sentences: [
+      "FORTRAN (Backus at IBM, 1957) was the first widely-used high-level language, and within a few years it dominated scientific computing in the US.",
+      "COBOL (1959) was pushed by Grace Hopper's advocacy for English-language code and by the US Department of Defense, which in 1960 refused to buy computers without a COBOL compiler.",
+      "ALGOL 60 was the European answer: elegant, universal, academic, the ACM's standard for publishing algorithms — but from a US point of view it was difficult and inflexible, and it lost the commercial battle.",
+      "McCarthy's LISP (1958), based on Church's lambda calculus, opened a line that led through his 1965 proof checker to the Dutch Automath project (de Bruijn, 1967) and the computer-assisted proof of the four-colour theorem (1976).",
+      "By 1968 a NATO conference in Garmisch was openly calling it a 'software crisis': in the US, the diagnosis was Fred Brooks's (the OS/360 disaster, a project-management problem); in Europe, it was Dijkstra's (a discipline-of-programming problem)."
+    ],
+    finalNote: "Other names you'll see — Friedrich Bauer, Heinz Rutishauser, Aad van Wijngaarden (ALGOL 60), Tony Hoare (Quicksort), N.G. de Bruijn (Automath), Seymour Papert (LOGO), B.F. Skinner (programmed instruction), Max Euwe (Dutch textbook), Guus Vonk (blind-date algorithm), A. van der Sluis (the 1969 quote) — are bonus. The 5 anchors above (Backus, Hopper, McCarthy, Brooks/Dijkstra, Kemeny+Kurtz) will carry any L4 essay."
+  },
+
+  L5: {
+    title: "Lecture 5 — Dream Machines (Chapters 10–11)",
+    intro: "L5 is about computers becoming personal — and AI dreaming big. Silicon Valley's counterculture, Europe's smaller valleys, the rise (and fall) of expert systems, and chess as the model organism of AI. Five anchors. Three dates. One culture. One dream-cycle. Two arguments.",
+    people: [
+      {
+        name: "Stewart Brand",
+        when: "1968–71, Whole Earth Catalog",
+        did: "Edited the <em>Whole Earth Catalog</em> (1968–1971), the back-to-the-land magazine that framed the personal computer as a tool of personal liberation. Slogan: 'We are as gods, and might as well get good at it.' His vision shaped Silicon Valley's countercultural identity.",
+        useFor: "the personal-computer / counterculture question, Silicon Valley's cultural roots, 'appropriating the machine.'"
+      },
+      {
+        name: "Steve Jobs + Steve Wozniak (Apple)",
+        when: "1976 onwards",
+        did: "Founded Apple in 1976 out of the Homebrew Computer Club. Apple I (1976) and Apple II (1977) became the first real PC products. The Macintosh (1984) brought the GUI/WIMP interface to consumers. The Apple route: vertical integration, design-led, countercultural identity.",
+        useFor: "the rise of the PC, Apple vs IBM, GUI/WIMP, Silicon Valley as a place."
+      },
+      {
+        name: "Edward Feigenbaum",
+        when: "1965 onwards, Stanford",
+        did: "With Bruce Buchanan and Joshua Lederberg, built <strong>DENDRAL</strong> (1965) — the first expert system, which identified organic molecules from mass-spectrometer data. Later co-wrote <em>The Fifth Generation</em> (1983) with McCorduck, announcing Japan's AI initiative.",
+        useFor: "the expert-systems question, AI's first commercial wave, the 1980s AI boom and bust."
+      },
+      {
+        name: "Max Euwe",
+        when: "1901–1981, Netherlands",
+        did: "Dutch chess world champion 1935–37. Second career in computing: UNIVAC ambassador, advisor in automation. From 1964, professor of Automatic Data Processing in Rotterdam. The Dutch human bridge between chess and AI.",
+        useFor: "chess as the drosophila of AI, the Dutch link, the chess–computing tradition."
+      },
+      {
+        name: "Japan's Fifth Generation (1982)",
+        when: "1982–1992",
+        did: "MITI's $850 million ten-year initiative to leap-frog the West with logic-based AI. Promoted by Pamela McCorduck and Edward Feigenbaum's 1983 book. Triggered the global AI boom of the 1980s — and the bust that followed.",
+        useFor: "the expert-systems boom and collapse, hype cycles in AI, why rules-based AI lost out to data-driven AI."
+      }
+    ],
+    dates: [
+      { year: "1975", event: "<strong>Homebrew Computer Club founded</strong> (Menlo Park) + <strong>Altair 8800</strong> released. The personal-computer movement begins. Hobbyists, not corporations, build the first PCs." },
+      { year: "1982", event: "<strong>Japan's Fifth Generation initiative announced</strong> + <strong>Commodore 64 + Sinclair ZX Spectrum released</strong>. The 'AI boom' meets the home-computer revolution." },
+      { year: "1997", event: "<strong>IBM Deep Blue beats Garry Kasparov.</strong> Chess as the drosophila of AI completes its arc — from Shannon (1950) and Turing (1952) to a working machine that out-plays the world champion." }
+    ],
+    traditions: [
+      { name: "Counterculture & PC", desc: "Whole Earth Catalog → Homebrew Club → Apple → IBM PC → GUI. The PC as a tool of personal liberation.", anchor: "<strong>Stewart Brand + Homebrew Club (1975)</strong>" },
+      { name: "Expert systems boom & bust", desc: "DENDRAL (1965) → MYCIN (1970) → AAAI (1978) → British Nationality Act as Prolog (1986) → 1990s collapse.", anchor: "<strong>Feigenbaum + DENDRAL</strong>" },
+      { name: "Chess as drosophila of AI", desc: "Shannon Type A/B (1950) → Turing's algorithm (1952) → HAL plays chess (1968) → Kronrod's drosophila claim (1965) → Deep Blue beats Kasparov (1997).", anchor: "<strong>Shannon → Turing → Deep Blue (1950–1997)</strong>" }
+    ],
+    arguments: [
+      { title: "Argument A — \"The PC was made in California — but appropriated everywhere.\"", body: "Silicon Valley's counterculture (Whole Earth Catalog, 1968–71; Homebrew Computer Club, 1975) framed the personal computer as a tool of personal liberation. But the actual hobby clubs spread fast: Amateur Computer Club in Essex (1973), AFACO in France (1974), Hobby Computer Club in the Netherlands (1977). Europe and Japan didn't just import the machines — they built their own clubs, valleys (Sophia-Antipolis, Twente, Eindhoven), and game cultures (Nintendo, Namco, Sony). The PC was Californian by birth, global by appropriation." },
+      { title: "Argument B — \"Expert systems were AI's first hype cycle.\"", body: "From 1965 (DENDRAL) to the early 1990s, expert systems went through a complete boom-and-bust. The technology was real — DENDRAL outperformed chemists, MYCIN outperformed doctors in narrow tests. The hype, fuelled by Japan's Fifth Generation (1982) and the McCorduck/Feigenbaum book (1983), brought billions into AI. The collapse came when rules turned out not to scale: brittle on edge cases, expensive to maintain, impossible to extract from intuitive expertise. Modern data-driven AI is the answer to expert systems' failure — and is now in its own hype cycle." }
+    ],
+    sentences: [
+      "The Whole Earth Catalog (Stewart Brand, 1968–71) framed the personal computer as a tool of personal liberation, a vision the Homebrew Computer Club (Menlo Park, 1975) put into practice.",
+      "Edward Feigenbaum's DENDRAL (1965) was AI's first expert system — software that captured a chemist's expertise as if-then rules in LISP.",
+      "Japan's Fifth Generation initiative (1982), announced by Pamela McCorduck and Edward Feigenbaum's same-year book, was meant to leap-frog the West with logic-based AI hardware.",
+      "The British Nationality Act (1981) was even rewritten as a Prolog program (APES, 1986) — perhaps the most ambitious attempt to express a country's law as machine logic.",
+      "Chess has been called 'the drosophila of AI' (Kronrod, 1965): Deep Blue's 1997 victory over Kasparov closed an arc opened by Shannon (1950) and Turing (1952)."
+    ],
+    finalNote: "Other names you'll see — Ted Nelson (Computer Lib, Xanadu), Joseph Weizenbaum (ELIZA), Terry Winograd (SHRDLU), Buchanan, Lederberg, Djerassi, Bill Gates, McCorduck, Pamela McCorduck, Kronrod, McKenzie Wark, Mike Lord, J-C Ribes, the Sergot/Kowalski team — are bonus. The 5 anchors above (Brand, Jobs+Wozniak, Feigenbaum, Euwe, Japan's Fifth Generation) will carry any L5 essay."
+  },
+
+  L6: {
+    title: "Lecture 6 — Neat Networks (Chapters 12–13)",
+    intro: "L6 is about the Internet's rise — through Campbell-Kelly's three desires AND through mass-media history — plus AI's revival from the 1990s onward. Five anchors. Three dates. Two perspectives on the same Internet. Two arguments.",
+    people: [
+      {
+        name: "H.G. Wells + the World Brain",
+        when: "1937",
+        did: "In a 1937 US lecture tour, the science-fiction writer H.G. Wells proposed the 'World Brain' — a networked global encyclopedia that would let any student anywhere consult any document. Microfilm was the imagined medium; the vision was the Internet's first dream.",
+        useFor: "the World Brain question, the oldest desire behind the Internet, the AI link."
+      },
+      {
+        name: "Vannevar Bush + the Memex",
+        when: "1945",
+        did: "In <em>As We May Think</em> (Atlantic Monthly, 1945), Bush imagined the Memex — a desk-like personal information machine that could browse books and create 'associative trails' between documents. Effectively invented hypertext in concept. Direct ancestor of the World Wide Web.",
+        useFor: "the World Brain → WWW arc, hypertext, individual access to global knowledge."
+      },
+      {
+        name: "Tim Berners-Lee + WWW",
+        when: "1989, CERN",
+        did: "While working at CERN, Berners-Lee proposed the World Wide Web in 1989 — 'the marriage of hypertext and the Internet.' The first webpage went live in 1991; by 1993 the web had taken off. He gave it away free.",
+        useFor: "the romantic desire fulfilled, Europe's contribution to the Internet, open-web ideology."
+      },
+      {
+        name: "Minitel (France Télécom)",
+        when: "1978–2012",
+        did: "France Télécom's national consumer network. Every French household got a free terminal. 6.5 million users by the early 1990s. Booked trains, paid bills, ran chat rooms. Profitable and culturally distinctive. The state-led European alternative to the open Internet — and proof Europe had real digital infrastructure before the WWW.",
+        useFor: "the consumer-networks question, US vs Europe contrast, the mass-media perspective."
+      },
+      {
+        name: "Chaos Computer Club (CCC)",
+        when: "Berlin, founded 1981",
+        did: "European hacker movement that framed 'freedom for the data' as a human right. Newsletter <em>Datenschleuder</em> from 1984 (the Orwell year). Inspired Dutch counterparts like Hack-Tic (1989–94) and De Digitale Stad (1994).",
+        useFor: "hacker culture, European Internet politics, the civic Internet alternative."
+      }
+    ],
+    dates: [
+      { year: "1937", event: "<strong>H.G. Wells's 'Brain Organization of the Modern World' lecture.</strong> The World Brain dream — a networked global encyclopedia — gets its name." },
+      { year: "1978", event: "<strong>Minitel rolls out in France</strong> (and Datanet 1 in the Netherlands). State-owned telecoms build real consumer networks a decade before the public Internet." },
+      { year: "1989", event: "<strong>Tim Berners-Lee proposes the World Wide Web at CERN.</strong> The Internet's romantic dream — Wells's World Brain — finally has its technical answer." }
+    ],
+    traditions: [
+      { name: "Three desires (Campbell-Kelly)", desc: "Internet as the confluence of (1) fault-tolerant networking (military), (2) uniting networks, (3) the World Brain dream.", anchor: "<strong>Wells → Bush → Berners-Lee</strong>" },
+      { name: "Mass-media history (lecture)", desc: "Internet as the latest chapter in a longer story: telegraph → radio → TV → networked computers. Standards, infrastructure, international cooperation.", anchor: "<strong>Minitel, Viditel, Datanet 1, CFIDO</strong>" },
+      { name: "AI's phoenix", desc: "Post-1990s AI revival via machine learning, search engines, online advertising. Ethical critiques follow (O'Neil 2016, Gebru, Algorithmic Justice League 2016).", anchor: "<strong>PageRank (1998) → ChatGPT (2022) → ethics</strong>" }
+    ],
+    arguments: [
+      { title: "Argument A — \"The Internet is part of mass-media history, not just computing history.\"", body: "Networks of telegraph cables crossed continents in the mid-1800s; radio standardised global broadcasting in the 1920s; television in the 1950s. Each required protocols, standards, infrastructure, and international cooperation. The Internet inherited all of that. France's Minitel (1978–2012), the Netherlands' Viditel (1980), Datanet 1, and China's CFIDO show that pre-Internet consumer networks were real and distinctive. Campbell-Kelly's three-desires story explains <em>why</em> engineers built the Internet; the mass-media view explains <em>what kind of thing</em> the Internet became." },
+      { title: "Argument B — \"AI's revival via machine learning is data-driven but not bias-free.\"", body: "After the 1980s expert-system collapse, AI came back through machine learning — statistical methods that learn patterns from data. It was sold as objective and bias-free. Cathy O'Neil's <em>Weapons of Math Destruction</em> (2016), Timnit Gebru's work, the Algorithmic Justice League (2016), Black in AI (2017) demolished that claim. ML systems encode existing inequalities at scale; behind every clever model is hidden labour (data taggers in Kenya) and hidden waste (Agbogbloshie). The phoenix has flown, but it is not innocent." }
+    ],
+    sentences: [
+      "H.G. Wells's 1937 lecture 'The Brain Organization of the Modern World' described a 'World Brain' — a networked global store of human knowledge that would let any student anywhere consult any book.",
+      "Vannevar Bush's 1945 <em>As We May Think</em> (Atlantic Monthly) imagined the Memex — a personal information machine that effectively invented hypertext in concept.",
+      "Tim Berners-Lee proposed the World Wide Web at CERN in 1989 and called it 'the marriage of hypertext and the Internet.'",
+      "France's Minitel (1978–2012) was Europe's largest pre-Internet consumer network — state-funded, top-down, profitable, and culturally distinctive.",
+      "Cathy O'Neil's <em>Weapons of Math Destruction</em> (2016) showed that machine learning, marketed as bias-free, often encoded existing inequalities at scale — a critique extended by Timnit Gebru and the Algorithmic Justice League."
+    ],
+    finalNote: "Other names you'll see — Vinton Cerf, Robert Kahn, Larry Page, Sergey Brin, Sherry Turkle, Marleen Stikker, Saskia Stuiveling, Cathy O'Neil, Timnit Gebru, Steven Levy, Janet Abbate, Mar Hicks — are bonus. The 5 anchors above (Wells, Bush, Berners-Lee, Minitel, CCC) will carry any L6 essay."
   }
 };
 
@@ -840,19 +1017,17 @@ const lectures = [
             hint: "Use the Three Traditions framework as your skeleton.",
             essay: `
               <h3>Intro</h3>
-              <p>It is tempting to imagine a single straight line from the abacus to the laptop. The real history of computing is messier. Three separate worlds were each developing their own kind of automation in the 1800s, and they barely talked to each other. The modern computer is where they finally meet.</p>
+              <p>It is tempting to imagine one straight line from the abacus to the laptop. The real story is messier. As I understood it from the lecture, three quite separate worlds were each working on their own kind of automation in the 1800s, and they barely talked to each other. The modern computer is where they finally meet. The lecture called this the Three Traditions: administration, process control, and science and engineering.</p>
 
               <h3>Body</h3>
-              <p><strong>The administrative tradition</strong> came from the explosion of paperwork in 19th-century offices and governments. The clearest example is Herman Hollerith's punched-card system for the 1890 US Census. It processed 62 million cards in 2.5 years instead of seven. His company eventually became IBM.</p>
+              <p><strong>The administrative tradition</strong> grew out of the explosion of paperwork in 19th-century offices and governments. The clearest example, both in the book and the slides, is Herman Hollerith. After watching the 1880 US census drag on for seven years with 1,495 tally clerks, he built a punched-card tabulator for the 1890 census in Washington. The same population was processed in around 2.5 years. He then founded the Tabulating Machine Company in 1896, which later became IBM. That, I think, is the point: the administrative line is about money, urgency and paperwork driving a machine into existence.</p>
 
-              <p><strong>The process-control tradition</strong> came from heavy industry. Factories needed machines to monitor and adjust temperatures, pressures, and flows in real time. The legacy was the idea that a machine could continuously regulate a real-world process — a thread that survives in modern embedded computing today.</p>
+              <p><strong>The process-control tradition</strong> came from heavy industry. The lecture's example is Shell's refineries in the 1930s and the Dutch steel maker Hoogovens, where engineers drew the plant as a diagram of pipes, valves and sensors, then wired analogue controllers straight onto that diagram, so the machine literally followed the physical process. By 1956 DSM in Limburg was running a similar setup for its chemicals. The "program" here was the outline of the factory itself.</p>
 
-              <p><strong>The science and engineering tradition</strong> was driven by the demand for fast, accurate calculation. Astronomers needed star tables; navies needed gunnery tables. The story goes back to de Prony in the 1790s, who organised dozens of unemployed hairdressers in Paris to compute decimal tables by hand. Charles Babbage in the 1830s tried to build a machine to do the same job — the Analytical Engine — but never succeeded.</p>
+              <p><strong>The science and engineering tradition</strong> was driven by the need for fast, accurate calculation. The book's anchor is Gaspard de Prony, who from 1790 in Paris organised about sixty unemployed hairdressers into a human "factory" computing the decimal tables du cadastre by the method of differences. Charles Babbage saw the manuscripts in 1819 and tried, from 1822, to mechanise the same job with his Difference Engine in London. He never finished it.</p>
 
               <h3>Conclusion</h3>
-              <p>By the time ENIAC was unveiled in 1946, all three streams had finally come together in a single machine. That is why it's often called the first computer — not because it was technically unique, but because it pulled three different histories into one place. Calling computing 'one history' hides how unlikely the convergence really was.</p>
-
-              <div class="note"><strong>Word count: ~290.</strong> Names used: Hollerith, IBM, de Prony, Babbage, ENIAC. Five anchors — that's all you need.</div>
+              <p>By the time ENIAC was unveiled in 1946, all three streams had finally come together in a single machine. That, I think, is why it's often called the first computer: not because it was technically unique, but because it pulled three different histories into one place. Calling computing "one history" hides how unlikely that convergence really was.</p>
             `
           },
           {
@@ -860,17 +1035,15 @@ const lectures = [
             hint: "Two threads predating ENIAC: logic and imagination.",
             essay: `
               <h3>Intro</h3>
-              <p>It seems strange to say AI predates computers, since AI is software running on computers. But the questions AI tries to answer — can a machine think? can it imitate a human? — were being asked long before electronics existed. The lecture sketched two threads.</p>
+              <p>It sounds odd to say AI predates computers, since AI today is software running on computers. But the questions AI is asking, can a machine think, can it imitate a human, were being asked long before electronics existed. The lecture pulled this prehistory into two threads: human thinking and behaviour, and language.</p>
 
               <h3>Body</h3>
-              <p><strong>The first thread is logic and language.</strong> George Boole's <em>Laws of Thought</em> (1854) tried to turn thinking into algebra: calculations with truth and false. Decades later, Alan Turing built on this in 1936. He described what we now call the 'Turing machine' — a theoretical device with a tape and a reader that could compute anything computable. Both Boole and Turing were asking: can thought be reduced to formal symbol manipulation? They were doing AI prehistory in pure mathematics, before any computer was built.</p>
+              <p><strong>The first thread is human thinking and behaviour.</strong> The lecture started this one with Descartes in 1637 ("Je pense, donc je suis") and ran it through the 19th-century rise of teaching and didactics, where William Jevons in Manchester asked how learning actually happens. The most concrete example, I think, is Leonardo Torres Quevedo. In 1912 in Madrid he built El Ajedrecista, an electromechanical machine that played the king-and-rook versus king chess endgame against a human and reliably won. No computer, no program in our sense, just gears and relays embodying a chess-playing rule. That, as I understood it, is AI behaviour before computing.</p>
 
-              <p><strong>The second thread is imagining artificial humans.</strong> Mary Shelley's <em>Frankenstein</em> (1818) gave us the first modern story of a created mind. The Czech play <em>R.U.R.</em> (1920) coined the word 'robot' for mass-produced artificial workers. Fritz Lang's film <em>Metropolis</em> (1927) showed a robot double of a real woman. None of these required a computer to exist — they're a cultural prehistory of AI.</p>
+              <p><strong>The second thread is language.</strong> Here the line runs through formal logic. George Boole in 1854 published <em>An Investigation of the Laws of Thought</em> in Cork, trying to do algebra with truth and false. Gottlob Frege in Jena followed with the <em>Begriffsschrift</em> in 1879, a written symbolic language for pure reasoning. David Hilbert in Göttingen posed the <em>Entscheidungsproblem</em> in 1928, asking whether truth in a formal system is calculable. Kurt Gödel answered no in 1931, and Alan Turing's 1936 paper "On Computable Numbers" gave the proof using his a-machine. All of this was AI's question, can thought be reduced to symbol manipulation, worked out on paper before any computer existed.</p>
 
               <h3>Conclusion</h3>
-              <p>Computers gave AI its medium. But the questions of AI — what is mind? can it be mechanised? — are centuries older. AI is the inheritor of a long conversation, not a brand new field. When people today feel anxious about ChatGPT, they're partly reacting through Frankenstein and R.U.R.</p>
-
-              <div class="note"><strong>Word count: ~280.</strong> Names used: Boole, Turing, Shelley, Čapek (R.U.R.), Lang. The two-thread structure (logic + imagination) is reusable.</div>
+              <p>Computers gave AI its medium. But the actual questions, what is mind, can it be mechanised, were already centuries old by 1946. That, I think, is what the lecturer meant: AI inherited a long conversation, it did not start one.</p>
             `
           },
           {
@@ -1263,9 +1436,9 @@ const lectures = [
               <h3>Body</h3>
               <p>Cybernetics was much wider than what we now call AI. The Macy conferences (1946–53), led by figures like Margaret Mead and Norbert Wiener, brought together psychologists, biologists, anthropologists, mathematicians, and engineers around one question: how do feedback, information, and control work in living systems and machines?</p>
 
-              <p>Each discipline saw something useful in computers. Psychologists wanted to model decision-making. Linguists wanted automatic translation (an early Cold War priority). Biologists wanted to model populations and animal behaviour. Mathematicians and logicians — Alan Turing chief among them — wanted to formalise reasoning.</p>
+              <p>Specific people made this concrete. Norbert Wiener, in his 1948 book <em>Cybernetics</em>, argued that the same feedback mathematics governed both nervous systems and machines, which made the new computer a tool for testing theories of mind. Margaret Masterman in Cambridge ran her Language Research Unit on automatic translation, an early Cold War priority that needed a machine that could store rules and a dictionary. Allen Newell and Herbert Simon at RAND were using a machine to model administrative decision-making, building on Simon's 1947 <em>Administrative Behavior</em>.</p>
 
-              <p>So when Mauchly and Eckert built ENIAC in 1946, the scientists who got most excited about it were not just engineers but cyberneticians who saw a tool to test centuries-old questions. Turing's 1950 paper <em>Computing Machinery and Intelligence</em> framed the computer as something that might soon imitate a human in conversation. The 1956 Dartmouth conference, where 'AI' was named as a discipline, was a narrowing of this much broader cybernetic conversation.</p>
+              <p>Turing's 1950 paper <em>Computing Machinery and Intelligence</em> framed the computer as something that might soon imitate a human in conversation, and gave these scattered efforts a shared question. When the 1956 Dartmouth conference named the field 'artificial intelligence', it was narrowing this broader cybernetic conversation, not starting it. The point for the lecture is that scientists in psychology, linguistics, logic and economics had already decided computers were worth their time, and that decision drove the building of more machines.</p>
 
               <h3>Conclusion</h3>
               <p>Scientists needed computers because they had questions about thinking, learning, and language that only a programmable machine could test. AI / cybernetics gave computing its scientific motivation. Without those questions, the computer might have stayed a calculator. The line of thought is: the science of mind drove the invention of the machine, not the other way around.</p>
@@ -1724,9 +1897,9 @@ const lectures = [
               <p>The Universal Product Code — the barcode on every product — was adopted in 1973. Campbell-Kelly says its introduction was 'as much a political feat as a technical one.' The lecture connected this to the history of AI through cybernetics. Two lines of thought, then.</p>
 
               <h3>Line one: why political, not just technical</h3>
-              <p>Technically, the UPC is simple. It's a series of black bars and white spaces encoding a 12-digit number, read by a laser scanner that looks the number up in a database. The technology was ready by the early 1970s.</p>
+              <p>Technically the UPC is simple. A series of black bars and white spaces encodes a number that a scanner reads against a database. The technology was ready by the early 1970s; Campbell-Kelly notes that the IBM barcode finally adopted in spring 1973 was chosen for being cheap, printable in ordinary ink, and tolerant of smearing.</p>
 
-              <p>The hard part was getting hundreds of unrelated companies to agree. Manufacturers had to print the same code on every product. Retailers had to install scanners. Distributors had to update systems. <strong>McKinsey</strong> (the consultancy) was hired in 1969 by the food industry; <strong>IBM</strong> brought the technical chops; an 'Ad Hoc Committee of the Grocery Industry' (1970) gathered top people from manufacturers and distributors. Years of negotiation produced the standard. Without that coalition, the technology would have stayed in a lab.</p>
+              <p>The hard part was getting hundreds of unrelated firms to agree. In 1969 the National Association of Food Chains hired McKinsey &amp; Company to advise on a coding system. In August 1970 McKinsey set up the 'Ad Hoc Committee of the Grocery Industry', ten top industry leaders chaired by the president of the Heinz Company. Over the next year McKinsey delivered about fifty presentations to the top echelons of manufacturers and retailers. The committee then brokered hard compromises: it agreed on a ten-digit code, five digits for the manufacturer and five for the product, a number manufacturers wanted longer and retailers wanted shorter. It also decided the code would carry no price (since prices vary by store) and that manufacturers, not retailers, would print it. Only after that consensus was the barcode formally adopted, with the first scanners from IBM and NCR rolling out in 1974. Without that coalition, the technology would have stayed in a lab.</p>
 
               <h3>Line two: the connection to AI</h3>
               <p>The lecture's link to AI runs through cybernetics. <strong>Stafford Beer</strong>, the British cybernetician, had been arguing since the 1960s that companies should be modelled as systems — with feedback loops, real-time data, and central monitoring. His <strong>Viable Systems Model</strong> (1972) and the famous <strong>Cybersyn</strong> project for Allende's Chile (1971–73) tried to manage organisations through cybernetic feedback.</p>
@@ -2016,9 +2189,1182 @@ const lectures = [
       }
     ]
   },
-  { id: "L4", label: "L4", title: "Lecture 4 — Chapters 8–9", chapters: "Coming up", enabled: false },
-  { id: "L5", label: "L5", title: "Lecture 5 — Chapters 10–11", chapters: "Coming up", enabled: false },
-  { id: "L6", label: "L6", title: "Lecture 6 — Chapters 12–13", chapters: "Coming up", enabled: false },
+  {
+    id: "L4",
+    label: "L4",
+    title: "Lecture 4 — Computing Crisis? (Chapters 8–9)",
+    chapters: "Campbell-Kelly chapters 8–9",
+    enabled: true,
+    tiers: [
+      {
+        tier: 1,
+        label: "Almost Certain",
+        meta: "Direct from your L4 assignment — the four real questions (A1, B2, B3, C4)",
+        questions: [
+          {
+            q: "[A1 — Mathematics and AI] In the lecture it was discussed that mathematicians became interested in proof checkers, and how this resulted in more mathematics by computer. Elaborate on the line of thought.",
+            hint: "McCarthy 1961 quote → Principia Mathematica foundation → Automath (Dutch) → four-colour theorem 1976.",
+            essay: `
+              <h3>Intro</h3>
+              <p>One early hope for AI was not to make machines think like humans, but to make machines that could help humans do mathematics. The lecture traced this through proof checkers: programs that verify whether a mathematical proof is correct. The line of thought connects logic, computers, and the nature of mathematical work itself.</p>
+
+              <h3>The McCarthy claim</h3>
+              <p>In 1961, John McCarthy — who had designed LISP three years earlier — wrote a paper called “Computer programs for checking mathematical proofs.” He said it was reasonable to hope that the relationship between computation and mathematical logic would be as fruitful in the next century as the relationship between analysis and physics had been in the last. That was a big claim, and it framed the project: use computers to do mathematics the way Newton had used calculus to do physics.</p>
+
+              <h3>The foundation</h3>
+              <p>The idea wasn’t new. Russell and Whitehead’s <em>Principia Mathematica</em> (1910) had already tried to reduce all of mathematics to formal logic. McCarthy’s 1965 paper described a working proof checker for predicate calculus, implemented in LISP. The dream of mechanised logic from the 1910s was finally getting a machine.</p>
+
+              <h3>What followed</h3>
+              <p>N.G. de Bruijn in Eindhoven started the Automath project in 1967, presenting it at a Versailles symposium in 1968. By the mid-1970s, the Automath team had checked an entire mathematics textbook (Landau’s <em>Grundlagen der Analysis</em>, 1930) by machine. In 1976, Haken and Appel used a computer to prove the four-colour theorem — the first major theorem proved with essential computer help. Some mathematicians said mathematics had changed forever; others said no.</p>
+
+              <h3>Conclusion</h3>
+              <p>This is what “more mathematics by computer” means. The line goes: mathematicians wanted certainty, computers were good at following rules, so checking proofs became a natural fit. Once a machine could check a proof, it could also help find one. McCarthy’s hope in 1961 did come true, though slowly, and it changed both what mathematicians could do and what counts as a proof.</p>
+
+              <div class="note"><strong>Word count: ~330.</strong> Names: McCarthy, LISP, Russell &amp; Whitehead, de Bruijn, Automath, Haken &amp; Appel. Memorise McCarthy’s 1961 ‘computation + mathematical logic = analysis + physics’ analogy — it is the heart of the answer.</div>
+            `
+          },
+          {
+            q: "[B2 — Programming languages] Campbell-Kelly introduces two programming languages that became common in the late 1950s. Discuss differences and similarities between these two languages. Use the concept of agenda's.",
+            hint: "FORTRAN (Backus / IBM / scientific) vs COBOL (Hopper / Dept of Defense / business). Different coalitions, different goals.",
+            essay: `
+              <h3>Intro</h3>
+              <p>In the late 1950s two programming languages took over computing: FORTRAN (1957) and COBOL (1959). They had similar goals — high-level coding, machine independence — but they came out of completely different coalitions, each with its own agenda. Looking at both shows that programming languages are never just technical.</p>
+
+              <h3>FORTRAN’s agenda</h3>
+              <p>FORTRAN (FORmula TRANslation) was designed by John Backus at IBM and released in 1957 for the IBM 704. Its purpose was scientific computing: scientists and engineers needed to write formulas, not assembly code. Backus’s economic argument was that compiler-generated machine code would be cheap enough that companies would adopt it. The push came from IBM and was supported by SHARE, the user group of IBM customers. Within a few years FORTRAN dominated scientific work in the US.</p>
+
+              <h3>COBOL’s agenda</h3>
+              <p>COBOL (Common Business-Oriented Language) was different. It was designed for business data processing, where the readers of the code might be managers, not just programmers. Grace Hopper’s earlier Flow-Matic language at UNIVAC heavily influenced its design. The decisive push came from a non-technical actor: in 1960 the US Department of Defense announced that it would not buy any new computer without a COBOL compiler unless the manufacturer could prove its absence wouldn’t hurt performance. No manufacturer attempted such a proof, and COBOL became the standard for administrative computing.</p>
+
+              <h3>Similarities</h3>
+              <p>Both were high-level: programmers wrote formulas or English-like statements and the compiler turned them into machine code. Both were standardised so that programs could move between different makes of computer. Both were promoted not just by their inventors but by coalitions — IBM and its users behind FORTRAN, the Department of Defense behind COBOL.</p>
+
+              <h3>Differences</h3>
+              <p>FORTRAN’s agenda was scientific elegance and corporate self-interest. COBOL’s agenda was readability and federal procurement. FORTRAN survived because scientists kept using it; COBOL survived because banks, insurance companies and government departments kept using it. Together they accounted for about 90% of applications programs for the next twenty years.</p>
+
+              <h3>Conclusion</h3>
+              <p>Each language was a coalition. FORTRAN was IBM plus the scientists; COBOL was the Defense Department plus the business community. Their differences and similarities are not really about features — they are about who wanted what to happen.</p>
+
+              <div class="note"><strong>Word count: ~370.</strong> The “agendas” concept is the lecture’s framing — use it explicitly. Spell out the coalition behind each language.</div>
+            `
+          },
+          {
+            q: "[B3 — BASIC] Campbell-Kelly discusses the role of BASIC in his chapter \"New ways of computing\". What makes BASIC a suitable subject for a chapter with that title?",
+            hint: "BASIC fits because it captures the shift from elite mainframe users to ordinary people. Time-sharing, non-specialists, personal computers.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Campbell-Kelly’s chapter on “New Ways of Computing” covers everything that did <em>not</em> follow the mainframe model of the 1960s: time-sharing, minicomputers, BASIC, Unix, microelectronics, and eventually the personal computer. BASIC fits this chapter because it embodies what was new about all of them: computing brought to ordinary users.</p>
+
+              <h3>What BASIC is</h3>
+              <p>BASIC (Beginners All-purpose Symbolic Instruction Code) was designed in 1964 by John Kemeny and Thomas Kurtz at Dartmouth College. They were running a new time-sharing system on a General Electric computer. They wanted a language simple enough that liberal-arts students, not just engineers, could write programs after a few hours of teaching. To print three numbers in FORTRAN you had to write a format statement; in BASIC you just wrote “PRINT A, B, C.” That difference is the whole point.</p>
+
+              <h3>Why it suits the chapter title — three reasons</h3>
+              <p>First, <strong>BASIC was the language of time-sharing</strong>. Until then, programming meant batch jobs at a computer centre. BASIC was designed alongside Dartmouth’s time-sharing system, where students used terminals directly. That was new.</p>
+
+              <p>Second, <strong>BASIC was the language of non-specialists</strong>. It created what Campbell-Kelly calls a “third group” of users: not professional programmers, not naive end-users, but people who could write their own little programs. That was new.</p>
+
+              <p>Third, <strong>BASIC was the language of the personal computer</strong>. In 1975 it became the first widely-available language for early microcomputers, and Microsoft was founded on the back of a BASIC interpreter. The personal computer would not have spread so fast without a language ordinary buyers could use. That was new too.</p>
+
+              <h3>The larger argument</h3>
+              <p>BASIC fits “New Ways of Computing” because it is what happens when computing escapes the mainframe. Each of the chapter’s other topics — time-sharing, minicomputers, microelectronics — makes the same shift in a different way: from elite operators to ordinary users, from centralised batch jobs to individual interaction.</p>
+
+              <h3>Conclusion</h3>
+              <p>BASIC is a suitable subject for a chapter called “New Ways of Computing” because it captures the cultural shift at the heart of all the new modes. The chapter is not really about technology; it is about who gets to compute. BASIC was the first programming language designed for that question.</p>
+
+              <div class="note"><strong>Word count: ~370.</strong> Three reasons (time-sharing / non-specialists / personal computer) gives a clean body. The “who gets to compute” framing is the reusable punch.</div>
+            `
+          },
+          {
+            q: "[C4 — Software crisis] Elaborate on the crisis in software in the late 1960s. What was in crisis and how was it solved? Distinguish between a US and a European perspective.",
+            hint: "OS/360 disaster + NATO 1968 + Brooks (US, management) vs Dijkstra (Europe, discipline).",
+            essay: `
+              <h3>Intro</h3>
+              <p>By the late 1960s, software development had become a known problem in computing. Computer hardware was getting much faster every year, but the software that ran on it kept blowing past schedules and budgets. A 1968 NATO conference at Garmisch openly used the phrase “software crisis.” But the US and European versions of this crisis weren’t the same thing.</p>
+
+              <h3>What was in crisis</h3>
+              <p>Programs were getting bigger. IBM’s OS/360, the operating system for its new System/360 family of computers, was meant to be a million lines of code coordinated across hundreds of components. By 1966 it was nine months late and “painfully sluggish.” This kind of disaster was happening across the industry: large projects ended in cost overruns, missed deadlines, or outright failure. The software couldn’t keep up with the hardware.</p>
+
+              <h3>The US perspective</h3>
+              <p>Frederick Brooks, who had led OS/360 at IBM, later wrote <em>The Mythical Man-Month</em> (1975). His diagnosis was practical and managerial: adding more programmers to a late project makes it later. Software needed to be built like a big engineering project, with architecture, schedules and disciplined teams. The “crisis” in the US was a project-management crisis, and the solution was software engineering as a discipline.</p>
+
+              <h3>The European perspective</h3>
+              <p>Edsger Dijkstra, the Dutch computer scientist, saw the crisis differently. For him the problem was conceptual: programmers wrote sloppy code that nobody could reason about. The solution was to make programming itself more rigorous — structured programming, mathematical proof of correctness, less reliance on intuition. Tony Hoare’s Quicksort (1960) and his later work on program verification fit the same tradition. Dijkstra wanted programming to become a branch of mathematics; Brooks wanted it to become a branch of engineering.</p>
+
+              <h3>How it was solved</h3>
+              <p>Both sides got partial solutions. Software engineering became a profession (US legacy). Structured programming and formal methods entered computer-science education (European legacy). Some big projects still fail today, so the crisis was managed rather than cured.</p>
+
+              <h3>Conclusion</h3>
+              <p>The software crisis was real on both sides of the Atlantic, but the diagnosis differed. Americans, led by Brooks at IBM, saw a management problem. Europeans, led by Dijkstra in the Netherlands, saw a discipline problem. The US wanted better project organisation; Europe wanted better programmers. The legacy of both is the modern field of software engineering.</p>
+
+              <div class="note"><strong>Word count: ~400.</strong> Brooks vs Dijkstra is the spine. The exam asks for US vs European — give both clearly, then the joint legacy.</div>
+            `
+          }
+        ]
+      },
+      {
+        tier: 2,
+        label: "Very Likely",
+        meta: "Adjacent reformulations of the lecture's main themes",
+        questions: [
+          {
+            q: "Discuss ALGOL 60 and the 'ALGOL conspiracy.' Why did the European-led project win the journals but lose the market?",
+            hint: "Elegant universal language, IFIP working group 2.1, ACM publication standard, but no commercial buyer.",
+            essay: `
+              <h3>Intro</h3>
+              <p>ALGOL 60 was supposed to be the universal programming language. By the mid-1960s it was finished in industry, although it survived in academia for decades. The story of why is the story of the “ALGOL conspiracy” — the European-led coalition that pushed for elegance over market dominance.</p>
+
+              <h3>What ALGOL was</h3>
+              <p>ALGOL stood for Algorithmic Language. The first version, IAL (1958), was the joint work of American and European computer scientists. ALGOL 60 was the second version, finalised in 1960 at a conference in Paris. It was elegant, mathematically clean, and machine-independent — closer to mathematical notation than to existing assembly languages.</p>
+
+              <h3>The conspiracy</h3>
+              <p>The European push was led by people including Friedrich Bauer (Munich), Heinz Rutishauser (Zurich), and Aad van Wijngaarden (Amsterdam). They worked through the new International Federation for Information Processing (IFIP, working group 2.1, 1962) and through GAMM in Germany. The ACM in the US adopted ALGOL as its standard for publishing scientific algorithms — meaning every computer scientist had to learn enough ALGOL to read research papers.</p>
+
+              <h3>Why it lost</h3>
+              <p>From a US point of view, ALGOL 60 was academic, inflexible, and difficult to learn. FORTRAN had IBM behind it; COBOL had the Department of Defense. ALGOL had a coalition of European academics with no commercial buyer. Standardising on FORTRAN was easier and cheaper. By the mid-1960s the battle was lost.</p>
+
+              <h3>Conclusion</h3>
+              <p>ALGOL 60 is the great “what if” of programming-language history. The European agenda — elegance, universality, mathematical clarity — never quite lined up with the American agenda of commercial deployment. ALGOL won the journals; FORTRAN won the world. Its design ideas live on in every modern language that took ideas from it (Pascal, C, the modern programming-language design tradition), but as a working standard it lost.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> Use it as a 'European agenda' case study.</div>
+            `
+          },
+          {
+            q: "Discuss LISP and its link to AI. Why was LISP different from FORTRAN and COBOL?",
+            hint: "Lambda calculus, AI research, list-processing. Niche but conceptually deep.",
+            essay: `
+              <h3>Intro</h3>
+              <p>While FORTRAN handled scientific calculation and COBOL handled business records, John McCarthy at MIT designed a third kind of language in 1958: LISP. It came from a completely different agenda — artificial intelligence research — and even today it sits in a corner of computing that the dominant languages never quite reach.</p>
+
+              <h3>What LISP is</h3>
+              <p>LISP stands for LISt Processing. Programs are written as nested lists, with operations like (+ A B) instead of A+B. This looks strange, but it has a deep purpose: a LISP program can manipulate other LISP programs as data. That makes it ideal for AI, where programs need to reason about themselves.</p>
+
+              <h3>The lambda calculus link</h3>
+              <p>McCarthy based LISP on Alonzo Church’s lambda calculus (1936), the same formalism Turing had worked with. LISP was therefore, in a real sense, AI’s first attempt to bring formal logic into practical computing. It connects directly to McCarthy’s later work on proof checkers (1961, 1965).</p>
+
+              <h3>The agenda</h3>
+              <p>LISP’s coalition was small. MIT’s AI lab. Stanford’s AI group. The AAAI (1978). No equivalent of SHARE for IBM customers; no equivalent of the Department of Defense for COBOL. LISP stayed niche because it served an academic community, not a commercial one.</p>
+
+              <h3>Conclusion</h3>
+              <p>LISP shows that programming-language agendas are not just business or government. Sometimes they’re scientific. FORTRAN was for engineers, COBOL was for accountants, ALGOL was for mathematicians, LISP was for AI researchers. Each language is a coalition of people who wanted the same kind of computing to exist. LISP’s coalition was the smallest, but in some ways the most influential: every modern functional programming language descends from it, and AI’s old symbolic-reasoning tradition was written in it.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> The four-coalition contrast (FORTRAN/COBOL/ALGOL/LISP) is the memorable structure.</div>
+            `
+          },
+          {
+            q: "Discuss Grace Hopper's role in the history of programming. Why does she matter beyond COBOL?",
+            hint: "Flow-Matic, the word 'compiler,' 'debugging,' English-language code.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Grace Hopper is one of the most influential figures in the history of programming, although her name is less famous than Backus or McCarthy. Her career bridges the original “computer as scientific instrument” era and the era of business computing.</p>
+
+              <h3>Early work</h3>
+              <p>Hopper worked on the Harvard Mark I during WWII. By the late 1940s she was at UNIVAC. She advocated for the idea that programs could be written in something closer to English, not just in numeric instructions or assembly. She called it “educating a computer.”</p>
+
+              <h3>Flow-Matic and COBOL</h3>
+              <p>Hopper’s Flow-Matic (1955) was a business-data-processing language for UNIVAC. It heavily influenced COBOL (1959). Hopper herself wasn’t on the formal COBOL committee, but the language clearly reflected her vision: code that managers and clerks could read.</p>
+
+              <h3>Bigger ideas</h3>
+              <p>Hopper popularised the word “compiler” — a program that translates a higher-level language into machine code. She also coined “debugging” after literally pulling a moth out of the Harvard Mark II. Both terms are now universal in computing.</p>
+
+              <h3>Conclusion</h3>
+              <p>Hopper sits at the intersection of programming’s technical evolution and its agenda-driven adoption. Her language ideas (compilers, English-like code, debugging) shaped how programming actually worked. Her advocacy made business computing accessible to non-programmers. Without her, COBOL would not exist, and programming might have stayed a job for mathematicians alone.</p>
+
+              <div class="note"><strong>Word count: ~250.</strong> Three short paragraphs make this easy to reproduce from memory.</div>
+            `
+          },
+          {
+            q: "In 1968 IBM 'unbundled' software from hardware pricing. Why did this matter, and what did it create?",
+            hint: "Software pricing becomes visible → software industry is born → SAP, Oracle follow.",
+            essay: `
+              <h3>Intro</h3>
+              <p>In 1968 IBM made a single decision that created the software industry as we know it. Until then, IBM sold computers with all the software included; from then on, software was sold separately. The lecture called this moment “unbundling.” It was a turning point.</p>
+
+              <h3>What was bundled</h3>
+              <p>Through the 1960s, when a company bought an IBM mainframe, it got hardware, operating system, programming languages, application programs, training, and support. The software wasn’t free, but its cost was hidden inside the price of the hardware. There was, in effect, no software market — IBM gave it away to sell machines.</p>
+
+              <h3>The change</h3>
+              <p>In June 1968 IBM announced that software would be priced and sold separately from hardware. The reasons were partly antitrust pressure (IBM was being sued for tying software to hardware), partly because software was becoming too expensive to give away.</p>
+
+              <h3>The consequences</h3>
+              <p>Suddenly, third-party software was a real market. Companies that had quietly written contract programs for IBM users — CUC, Computer Sciences Corp, ADR — could now sell their own products. The packaged software industry started here. Within a decade it would produce SAP (Germany, 1972), Oracle (US, 1977) and many others.</p>
+
+              <h3>Conclusion</h3>
+              <p>Unbundling created the software industry by making software pricing visible. The lecture noted that European academics had trouble with the idea — software felt to them like a research artefact, not a commodity. But once the market existed, both sides of the Atlantic developed major software companies. The 1968 decision is one of those moments where a small administrative change rewrote a whole industry.</p>
+
+              <div class="note"><strong>Word count: ~290.</strong> The simple framing 'unbundling = visible pricing = industry' is the spine.</div>
+            `
+          }
+        ]
+      },
+      {
+        tier: 3,
+        label: "Likely Themes",
+        meta: "Recurring framings the prof highlighted",
+        questions: [
+          {
+            q: "How did 'code' become 'software'? What changed in the 1960s vocabulary?",
+            hint: "Internal 'code' vs external 'software project.' OS/360 + unbundling made software a thing.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The lecture pointed out that the word “software” had no clear meaning in the early 1960s. Programmers wrote “code”; external companies did “software projects.” The distinction tracks how programming professionalised across the decade.</p>
+
+              <h3>Early ambiguity</h3>
+              <p>In a company’s own computer department, what the programmers wrote was just “code” or “program.” “Software” was vague. If an outside company tested a program or wrote documentation, that was called a “software project,” which made it sound bigger than what the in-house team did, even when it was smaller.</p>
+
+              <h3>What changed</h3>
+              <p>Three things. First, the software contractor industry grew (RAND, SDC, Computer Sciences Corp, ADR). Second, IBM’s OS/360 disaster made everyone aware that software was complex enough to fail catastrophically. Third, the 1968 unbundling made software a commodity with a visible price.</p>
+
+              <h3>The broader pattern</h3>
+              <p>Naming matters. Calling something “software” turned a craft into a product. Calling someone a “software engineer” turned a programmer into a profession. The 1960s vocabulary shift prepared the ground for what came in the 1970s — formal computer-science departments, software-engineering textbooks, and a real industry.</p>
+
+              <h3>Conclusion</h3>
+              <p>The shift from “code” to “software” looks like just terminology. It was actually the moment when programming stopped being a side-activity of using a computer and became its own thing, with its own industry, profession and discipline. The crisis of the late 1960s forced the recognition.</p>
+
+              <div class="note"><strong>Word count: ~260.</strong> Three-cause structure works again. Use 'naming matters' as the reflective hook.</div>
+            `
+          },
+          {
+            q: "Computers in education in the 1960s and 70s: discuss the Dutch case and the wider picture.",
+            hint: "1968 'Computer wiskunde' report, van der Sluis 1969 democratic warning, Vonk's match-making algorithm, PLATO, Papert's LOGO.",
+            essay: `
+              <h3>Intro</h3>
+              <p>One of L4’s recurring themes is computers in education. Why did educators get interested in computers, and what did the involvement look like? The lecture distinguished three things: computers in the curriculum, computers in thinking about education, and computers in the educational process.</p>
+
+              <h3>The Dutch case</h3>
+              <p>In the Netherlands, the first major step was the 1968 report “Computer mathematics” (computer wiskunde), which argued that computers had to be included in the mathematics curriculum. From the early 1970s, programming was taught in Dutch secondary schools — using ALGOL and later Assembly. Max Euwe’s textbook <em>Computers and administration</em> (1966) was an early example for vocational training. Guus Vonk in 1971 taught arrays by having pupils program a match-making algorithm — a blind-dating program among classmates.</p>
+
+              <h3>What the educators wanted</h3>
+              <p>The mathematician A. van der Sluis in 1969 made the case that pupils should be taught what algorithms are, so they would not be intimidated by computer output. The fear was a “big brother” society in which decisions were “made by a computer” and citizens accepted them uncritically. Teaching programming was, partly, a democratic project.</p>
+
+              <h3>The international story</h3>
+              <p>In the US, Skinner’s behaviourism (1954) and the PLATO project (1960, University of Illinois) led to programmed instruction and computer-assisted instruction (CAI). Marvin Minsky and Seymour Papert at MIT created LOGO (1967); Papert’s <em>Mindstorms</em> (1981) brought turtle graphics into primary schools, on the idea that children could learn by exploring computing rather than memorising it.</p>
+
+              <h3>Conclusion</h3>
+              <p>Computers in education started not as a tool but as a subject. Teaching pupils about computers came before teaching them with computers. The lecture’s wider point is that this had political stakes: an educated public was meant to be a check on a society that ran on algorithms.</p>
+
+              <div class="note"><strong>Word count: ~330.</strong> The Dutch + Papert pair gives the European-vs-American contrast. Van der Sluis is the quote to drop in.</div>
+            `
+          },
+          {
+            q: "Brooks vs Dijkstra: discuss the two diagnoses of the software crisis and their lasting legacies.",
+            hint: "Project management (US) vs mathematical discipline (Europe). Both legacies survive.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The “software crisis” of the late 1960s was real, but it had two faces. Frederick Brooks in the US said the crisis was about project management. Edsger Dijkstra in the Netherlands said it was about programming discipline. Their disagreement set the tone for the next thirty years of software development.</p>
+
+              <h3>Brooks</h3>
+              <p>Brooks had led IBM’s disastrous OS/360 project (1964–66). His book <em>The Mythical Man-Month</em> (1975) drew the lessons. The most famous: adding more programmers to a late project makes it later. Software was a project-management challenge. Better planning, better architecture, better team structure would solve the crisis.</p>
+
+              <h3>Dijkstra</h3>
+              <p>Dijkstra’s diagnosis was different. He saw programmers writing intuitive code that nobody could verify or maintain. His response was structured programming, mathematical proof of correctness, and rigorous discipline. He famously argued “GOTO statement considered harmful” (1968). Programs should be reasoned about, not just tested.</p>
+
+              <h3>The difference in agenda</h3>
+              <p>Brooks was an industrial computing leader at IBM, trained to ship products. Dijkstra was an academic computer scientist in Eindhoven, trained to value clarity over deployment. The “crisis” looked different from each chair. To Brooks it looked like a delivery problem; to Dijkstra it looked like a thinking problem.</p>
+
+              <h3>Conclusion</h3>
+              <p>Both legacies survived. The US tradition produced software engineering as a profession — schedules, project managers, agile methods. The European tradition produced formal methods, structured programming and the academic discipline of computer science. The split goes back to 1968 and the two interpretations of the same crisis.</p>
+
+              <div class="note"><strong>Word count: ~290.</strong> Brooks-vs-Dijkstra is the cleanest binary in the whole course — memorise it.</div>
+            `
+          },
+          {
+            q: "Tony Hoare and Quicksort: what does this story tell us about the European tradition in computing?",
+            hint: "Elegant + provably correct algorithm. European 'discipline' agenda in practice.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Tony Hoare is one of the founders of European programming theory. His most famous invention, the Quicksort algorithm, became the standard example of what disciplined programming could produce.</p>
+
+              <h3>Quicksort</h3>
+              <p>Hoare designed Quicksort in 1960 while working on a Russian-English translation project for the British company Elliott Brothers. The algorithm sorts a list by repeatedly choosing a “pivot” element and partitioning the rest of the list into smaller and larger parts. It’s fast, elegant, and can be proven correct. It became one of the most-used sorting algorithms in computing.</p>
+
+              <h3>Hoare's broader contribution</h3>
+              <p>Hoare went on to develop ideas around verifying programs — what’s now called Hoare logic. His work made it possible to write a program and a mathematical proof that the program does what it’s supposed to do. This was Dijkstra’s vision in practice.</p>
+
+              <h3>The agenda</h3>
+              <p>Hoare’s career fits the European “make programming a branch of mathematics” agenda. He worked at the University of Belfast, then Oxford. His Turing Award lecture (1980) was titled “The Emperor’s Old Clothes” — a critique of the software industry’s tendency to value complexity over clarity.</p>
+
+              <h3>Conclusion</h3>
+              <p>Hoare’s Quicksort is a small example of what the European discipline-of-programming tradition wanted: an algorithm that is short, elegant, fast, and provably correct. Without people like Hoare, the European critique of software practice would have been pure complaint. He showed that the discipline could deliver.</p>
+
+              <div class="note"><strong>Word count: ~280.</strong> Tie Hoare into the Dijkstra story for compound power.</div>
+            `
+          },
+          {
+            q: "Automath and the Dutch tradition in proof checking: why does this matter for the history of AI?",
+            hint: "de Bruijn Eindhoven 1967. Checked Landau by machine. Direct ancestor of modern proof assistants.",
+            essay: `
+              <h3>Intro</h3>
+              <p>One of the more surprising threads in L4 is how prominently the Netherlands appears in the history of computer-checked mathematics. The key figure is N.G. de Bruijn at Eindhoven, and the project is Automath.</p>
+
+              <h3>What Automath was</h3>
+              <p>De Bruijn started Automath in 1967, presenting it publicly at a Versailles symposium in 1968. The goal was to express mathematical proofs in a formal language a computer could check. Between 1970 and 1975, the Automath team checked Edmund Landau’s <em>Grundlagen der Analysis</em> (1930) — a famous textbook on real numbers — completely by machine. It was the first time a substantial piece of formal mathematics had been verified end-to-end by a computer.</p>
+
+              <h3>Why it matters</h3>
+              <p>This is a Dutch contribution to AI’s prehistory that is often forgotten. The American story of AI (McCarthy’s LISP, Stanford, MIT) gets all the attention. But the Dutch story — Automath, de Bruijn, later Coq and other proof assistants that descend from it — is one of the most successful threads in the field.</p>
+
+              <h3>The link to today</h3>
+              <p>Modern proof assistants (Coq, Lean, Isabelle) trace their intellectual lineage to Automath. When mathematicians today use a computer to verify a tricky proof, they are in the Dutch tradition.</p>
+
+              <h3>Conclusion</h3>
+              <p>The Dutch link in L4 — Automath, de Bruijn, also van Wijngaarden’s role in ALGOL 60 — is a reminder that European computing was not a marginal extra. It was a parallel tradition with its own successes. Some of them, like Automath, mattered more in the long run than some of the famous American projects.</p>
+
+              <div class="note"><strong>Word count: ~280.</strong> Connect to McCarthy proof checker for compound power.</div>
+            `
+          }
+        ]
+      },
+      {
+        tier: 4,
+        label: "Possible Reflective",
+        meta: "Philosophical / sociological angles — outline only",
+        questions: [
+          {
+            q: "A. van der Sluis (1969) argued that teaching programming was a democratic project. Discuss this framing.",
+            hint: "Big brother society + algorithms in school = civic protection. Still relevant today.",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>The quote.</strong> In the lecture there is a long quote from Dutch mathematician A. van der Sluis (1969). He argued that the general population must understand that computers don’t decide anything by themselves — humans decide, and the computer follows. His worry: a “big brother” society where decisions are made “by computer” and citizens accept them without question.</p>
+
+              <p><strong>His proposed solution.</strong> Teach algorithms in school. Show pupils how a problem gets turned into something a computer can solve. Let them program in a simple language so they see for themselves that humans set the rules.</p>
+
+              <p><strong>The wider context.</strong> This was 1969, before the personal computer. Van der Sluis foresaw exactly the political problem we now face with AI: opaque decisions justified by “the algorithm.” His answer — civic education in programming — is still being attempted, with mixed results.</p>
+
+              <p><strong>The reflective lesson.</strong> The demand to teach programming wasn’t originally about jobs. It was about democracy. Knowing how computers work was meant to keep citizens able to challenge the machines that increasingly governed their lives.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>Half a century later, the question van der Sluis raised — whether ordinary people understand the algorithms that rule their lives — is more urgent than ever.</p>
+              <div class="note">~270 words on exam day. Connect to today's AI debates for the reflective punch.</div>
+            `
+          },
+          {
+            q: "The European school wanted programming to become a branch of mathematics. Was this the right ambition?",
+            hint: "Yes (formal methods exist) + No (mass software ignores it) + Partly (depending on domain).",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>The ambition.</strong> Dijkstra and the European school wanted programming to become a branch of mathematics. Programs should be reasoned about, proved correct, written with the same discipline as a mathematical theorem. The Automath project is one expression of this; Hoare’s Quicksort and formal verification is another.</p>
+
+              <p><strong>Was it the right ambition? Three answers.</strong></p>
+              <p><strong>Yes</strong>: formal methods exist today. They are used in safety-critical software — aviation, medical devices, cryptography. The European insistence on rigour produced real tools.</p>
+
+              <p><strong>No</strong>: most software is not written this way. The mass software industry follows Brooks more than Dijkstra. Agile, “move fast and break things,” large language models writing code — none of this looks like mathematics.</p>
+
+              <p><strong>Partly</strong>: the discipline survived where it had to (correctness-critical contexts) and faded where it didn’t. Modern AI’s “stochastic” approach to software is, in a way, the final defeat of the mathematical ideal — yet new formal-methods tools keep appearing.</p>
+
+              <p><strong>The reflective lesson.</strong> The European agenda was not the wrong one, but it lost the volume battle. Software is mostly written informally because most software doesn’t need to be more rigorous than that. But where it does, the European tradition is still the answer.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>The discipline-of-programming dream is a minority position with a long lifespan, and it is the right answer for some software even if it lost the everyday war.</p>
+              <div class="note">~270 words. Yes/No/Partly structure is highly reusable for any 'was X the right choice?' question.</div>
+            `
+          },
+          {
+            q: "BASIC was widely criticised by computer scientists. Discuss the cultural fight over BASIC.",
+            hint: "Discipline view (Dijkstra: 'mutilates the mind') vs access view (Kemeny & Kurtz: democratising programming).",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>The criticism.</strong> Computer scientists often said BASIC was bad. It encouraged sloppy programming, the GOTO statement was hard to reason about, and the language structure was loose. Famous critics like Dijkstra said BASIC “mutilates the mind.”</p>
+
+              <p><strong>The defence.</strong> BASIC was not for computer scientists. It was for liberal-arts students at Dartmouth in 1964. It was for hobbyists with home computers in the mid-1970s. It was for non-specialists who needed to do small computational tasks without becoming professionals.</p>
+
+              <p><strong>The cultural fight.</strong> This is a smaller version of the Brooks-vs-Dijkstra split. The discipline view (Dijkstra) said BASIC produced bad programmers. The access view (Kemeny and Kurtz) said BASIC produced more programmers, of an ordinary kind that the world needed.</p>
+
+              <p><strong>The reflective lesson.</strong> Both sides were right. BASIC did produce a generation of users who could program loosely. Some of them learned discipline later; others didn’t. But without BASIC the personal-computer revolution of the late 1970s would have been much slower. The trade-off between “few good programmers” and “many ordinary ones” is the central question of computing education.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>The fight over BASIC is the fight over who computing is for — and the lecture frames it as still unresolved.</p>
+              <div class="note">~270 words. The 'who computing is for' framing connects this to the BASIC essay in Tier 1.</div>
+            `
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "L5",
+    label: "L5",
+    title: "Lecture 5 — Dream Machines (Chapters 10–11)",
+    chapters: "Campbell-Kelly chapters 10–11",
+    enabled: true,
+    tiers: [
+      {
+        tier: 1,
+        label: "Almost Certain",
+        meta: "Most-likely assignment-style questions (mirroring the prof's pattern from L1–L4)",
+        questions: [
+          {
+            q: "Discuss how the personal computer emerged from California's counterculture. Use the Whole Earth Catalog and the Homebrew Computer Club as examples.",
+            hint: "Two examples linked by Stewart Brand. Counterculture → hobby club → Apple → IBM PC.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Campbell-Kelly argues in chapter 10 that the personal computer was not handed down by IBM. It grew out of two California subcultures that he calls the computer hobbyists and the computer-liberation advocates. The <em>Whole Earth Catalog</em> and the Homebrew Computer Club are the two examples that show how these subcultures actually built the PC.</p>
+
+              <h3>Body: Stewart Brand and the Whole Earth Catalog (1968 to 1971)</h3>
+              <p>Stewart Brand, a Stanford biology graduate, pressed NASA in 1966 to release a satellite photo of the Earth. He put that photo on the cover of the first <em>Whole Earth Catalog</em> in 1968. Campbell-Kelly groups Brand with what historians call the "New Communalists": politically agnostic, focused on alternative communities, willing to use technology for personal liberty. The Catalog listed tools that would, in Brand's words, "transform the individual into a capable, creative person." Steve Jobs later said it was "one of the bibles of my generation, a sort of Google in paperback form." Brand turned the computer from a corporate machine into a personal tool in the imagination of his readers before it existed as a product.</p>
+
+              <h3>Body: the Homebrew Computer Club (Menlo Park, spring 1975)</h3>
+              <p>The Homebrew Computer Club was founded in Menlo Park on the edge of Silicon Valley in spring 1975, right after the Altair 8800 hit the cover of <em>Popular Electronics</em> in January. Campbell-Kelly describes Homebrew as the place where the hobbyist culture and the computer-liberation culture finally met. It worked as a swap shop for circuit boards and programming tips. In early 1975 a young Hewlett-Packard engineer, Steve Wozniak, attended a meeting; within weeks he had wired together a computer using the MOS 6502 chip. He and Steve Jobs sold about 200 of those Apple machines, hand-assembled in Jobs's parents' garage in Cupertino. The Apple II, designed for the same Homebrew audience, launched at the West Coast Computer Faire in April 1977.</p>
+
+              <h3>Body: from hobby to industry</h3>
+              <p>Campbell-Kelly stresses that the hobbyist role mirrors the radio amateurs of the 1920s: an underappreciated group that built the first machines and the first market. Once Wozniak proved a microprocessor could be a real computer, hundreds of small firms appeared in two years. By 1981 IBM had to enter the market with its Personal Computer, using outsourced parts and Microsoft's MS-DOS, because the hobbyists had already defined what a PC was.</p>
+
+              <h3>Conclusion</h3>
+              <p>The Whole Earth Catalog supplied the vision that a computer could be personal property, and Homebrew supplied the people and the prototypes. Without Brand's New Communalist framing and without the Menlo Park meetings of 1975, IBM in 1981 would have had no market to enter.</p>
+
+              <div class="note"><strong>Word count: about 360.</strong> Anchors: Brand, NASA photo 1966, Catalog 1968 to 1971, Homebrew Menlo Park spring 1975, Wozniak's 6502 machine, Apple II at West Coast Computer Faire April 1977, IBM PC 1981.</div>
+            `
+          },
+          {
+            q: "Name two examples of European 'valleys' or hobby-computer cultures, and explain in what way(s) they were representative of European computing.",
+            hint: "Pick two from: Sophia-Antipolis (France, 1969), HCC (Netherlands, 1977), SAP (Germany, 1972), Twente (1964), Amateur Computer Club (Essex, 1973). Mirror the L2 Dutch Dinosaurs structure.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The lecture stresses that Europe did not copy Silicon Valley. It produced its own "valleys," smaller and more state-driven, and a hobby scene that arrived later than the American one. Two clear examples are Sophia-Antipolis in France (planned from 1969) and the Hobby Computer Club in the Netherlands (founded 1977). Together they show two different European routes into computing.</p>
+
+              <h3>Body: Sophia-Antipolis (France, 1969)</h3>
+              <p>Sophia-Antipolis was a "technopolis" planned by the French senator Pierre Laffitte in 1969, on a stretch of pine forest above Antibes near Nice. It was a deliberate piece of utopian city planning: academics and high-tech firms would be drawn south, share time-sharing computer facilities, and create a new kind of scientific community. Growth was slow through the 1970s, but by the 1980s the site housed Air France's reservation system, an IBM research lab, and several telecoms firms. The lecture uses Sophia-Antipolis to make the point that European tech geography was top-down: the state chose a place, paid for the roads, and waited for the scientists to arrive.</p>
+
+              <h3>Body: the Hobby Computer Club (Netherlands, 1977)</h3>
+              <p>The Dutch HCC was founded in 1977, a couple of years after Homebrew in Menlo Park, but with a very different character. The lecture stresses four concrete activities of the HCC: organising meetings for members, exchanging software, printing program listings in its newsletter, and broadcasting programs over the radio together with NOS so listeners could record them on cassette. There was no political agenda, unlike the American counterculture, but there was a strong group identity. The lecturer points to this male-coded hobbyist identity as one explanation for women being pushed out of Dutch computing in the late 1970s and 1980s.</p>
+
+              <h3>Body: what they share, and what they say about Europe</h3>
+              <p>Both examples sit inside a broader European pattern that the lecture sketches. The Amateur Computer Club, founded by Mike Lord in Essex in 1973, and the Association Française des Amateurs Constructeurs d'Ordinateurs, founded by J-C Ribes near Paris in 1974, are the hobbyist parallels. Twente Polytechnic (Enschede, 1964), Eindhoven around ASML in the 1980s, and SAP starting in Mannheim in 1972 are the industrial parallels. What unites them is that the youth movements of the 1960s were uninterested in computers; the energy came from state planners and from older amateur engineers, not from a Stewart Brand style counterculture.</p>
+
+              <h3>Conclusion</h3>
+              <p>Sophia-Antipolis and the HCC show two faces of European computing: planned scientific cities and amateur radio-style hobby clubs. Neither matches the Californian model, and both explain why Europe's PC industry stayed second-tier into the 1980s.</p>
+
+              <div class="note"><strong>Word count: about 380.</strong> Top-down (Sophia-Antipolis 1969) vs bottom-up (HCC 1977) is the spine. Background anchors: ACC Essex 1973, AFACO 1974, Twente 1964, SAP Mannheim 1972.</div>
+            `
+          },
+          {
+            q: "Discuss the rise and fall of expert systems. Give two examples and explain why they ultimately did not deliver on their promise.",
+            hint: "DENDRAL + British Nationality Act (or MYCIN) are good examples. End with the collapse.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The lecture treats expert systems as the second great AI dream after cybernetics: an attempt to capture human expertise in long lists of if-then rules and then sell that expertise as software. Two concrete cases show the full arc, from research breakthrough to commercial collapse: DENDRAL at Stanford and the British Nationality Act rewritten as a Prolog program.</p>
+
+              <h3>Body: DENDRAL at Stanford (1965, 1969, 1973)</h3>
+              <p>DENDRAL was started in 1965 by Edward Feigenbaum and Bruce Buchanan together with the chemists Joshua and Esther Lederberg and Carl Djerassi at Stanford. The program, written in LISP, took mass-spectrometer readings and worked out which organic molecule had produced them. By the published versions of 1969 and 1973 it was solving real problems for working chemists, and Feigenbaum used it to argue that "knowledge engineering" could capture a domain expert's intuition in explicit rules. MYCIN followed in 1970 in the same LISP environment, applying the same approach to diagnosing blood infections and recommending antibiotics. These two systems, both built at Stanford, became the lecture's template for what an expert system looked like.</p>
+
+              <h3>Body: the British Nationality Act as a logic program (London, 1986)</h3>
+              <p>In 1986 Marek Sergot, Fariba Sadri, Robert Kowalski, Frank Kriwaczek, Peter Hammond and Therese Cory at Imperial College London published "The British Nationality Act as a logic program" in <em>Communications of the ACM</em>. They had taken the 1981 British Nationality Act, clause by clause, and encoded it as Prolog rules running under their APES system (Augmented Prolog Expert System). It was the most ambitious attempt of the decade to turn a piece of national legislation into machine logic. Civil servants and lawyers, however, were uncomfortable: the Act had been deliberately written with ambiguities that bureaucratic discretion would resolve, and Prolog could not handle those gaps.</p>
+
+              <h3>Body: the boom and the collapse</h3>
+              <p>Around these research showpieces a whole industry grew. The AAAI was founded in 1978. In the 1980s companies like Symbolics, Intellicorp, Teknowledge, Carnegie Group, Lotus and IBM sold expert-system shells. Japan launched its Fifth Generation initiative in 1982, and Pamela McCorduck and Edward Feigenbaum's 1983 book of the same name drove a global investment panic. By the early 1990s, however, the firms were collapsing. The lecture gives three reasons. The systems were brittle on edge cases; the rules needed constant human maintenance whenever the domain changed; and the "knowledge engineer" interviews never managed to extract enough tacit expertise from human specialists.</p>
+
+              <h3>Conclusion</h3>
+              <p>DENDRAL and the British Nationality Act show the two ends of the expert-system story. The early Stanford work delivered real chemistry, but the later push to encode all of human expertise, in law, medicine, and engineering, ran into limits that LISP and Prolog could not fix. The systems themselves kept running into the 1990s; the companies built around them did not.</p>
+
+              <div class="note"><strong>Word count: about 380.</strong> Anchors: DENDRAL 1965 to 1973 (Feigenbaum, Buchanan, Lederberg, Djerassi, Stanford, LISP), MYCIN 1970, British Nationality Act 1986 paper in CACM (Sergot, Sadri, Kowalski, Imperial College, APES), AAAI 1978, Fifth Generation 1982, McCorduck and Feigenbaum 1983.</div>
+            `
+          },
+          {
+            q: "Chess has been called 'the drosophila of AI.' Explain this line of thought and discuss its history.",
+            hint: "Drosophila = fruit fly = model organism. Shannon → Turing → Kronrod → Deep Blue.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Drosophila is the fruit fly that geneticists use as a model organism: small, fast-breeding, and easy to control, so whatever you learn in flies you can scale up. The lecture borrows the phrase from the Soviet mathematician Alexander Kronrod, who in 1965 called chess "the drosophila of AI." The claim is that chess is small enough to study, well-defined enough to measure progress, and culturally important enough that every new AI technique has been tried on it.</p>
+
+              <h3>Body: Shannon, Turing, and the founding moment (1950 to 1952)</h3>
+              <p>Claude Shannon set the agenda in his 1950 paper "Programming a Computer for Playing Chess," where he split chess programs into Type A (search every move) and Type B (search only plausible moves). In 1952, with no computer fast enough to run his program, Alan Turing simulated his own chess algorithm by hand on paper, taking about half an hour per move against a human opponent. The chess problem was therefore in place before any machine could really play.</p>
+
+              <h3>Body: why chess works as a model organism</h3>
+              <p>The lecture explains the drosophila label as a combination of organism, culture, and practice. The "organism" is the game: a closed system with fixed rules and a game tree estimated at around ten to the 120th power, large enough to be hard but small enough to attack. The "culture" is the chess world, a community with rankings (Elo), tournaments, and recorded games going back centuries that gives AI researchers both opponents and training data. The "practice" is that every major AI approach has been tested on chess: minimax with alpha-beta pruning, hand-built evaluation functions, plausible-move heuristics, and later neural-network style learning.</p>
+
+              <h3>Body: the Dutch link, Max Euwe</h3>
+              <p>The lecture singles out Max Euwe (1901 to 1981), Dutch world chess champion from 1935 to 1937. After his playing career Euwe became a UNIVAC ambassador, an advisor on automation, and in 1964 the first professor of Automatic Data Processing in Rotterdam. Euwe is the lecture's reminder that the chess and computing communities overlapped long before machines could play decent chess.</p>
+
+              <h3>Body: the climax, Deep Blue and Kasparov (New York, May 1997)</h3>
+              <p>In May 1997 IBM's Deep Blue beat the reigning world champion Garry Kasparov three and a half to two and a half in a six-game match in New York. The machine combined Shannon's Type B approach (minimax with alpha-beta pruning, a tuned evaluation function, and plausible-move generators) with custom chess chips. It closed the arc that Shannon and Turing had opened in 1950 to 1952.</p>
+
+              <h3>Conclusion</h3>
+              <p>Chess earned the drosophila label because the same problem stayed solvable, measurable, and culturally meaningful for half a century. Kronrod gave it the name in 1965; Shannon, Turing, Euwe, and finally Deep Blue showed why he was right. After 1997 AI started moving on to harder model organisms like Go and protein folding.</p>
+
+              <div class="note"><strong>Word count: about 400.</strong> Memorisable chain: Shannon 1950, Turing 1952, Kronrod 1965, Euwe Rotterdam 1964, Deep Blue versus Kasparov May 1997.</div>
+            `
+          }
+        ]
+      },
+      {
+        tier: 2,
+        label: "Very Likely",
+        meta: "Adjacent reformulations of the lecture's main themes",
+        questions: [
+          {
+            q: "Apple and IBM took two very different routes to the personal-computer market. Compare and contrast these routes.",
+            hint: "Vertical integration (Apple) vs open architecture (IBM). The unintended winner: Microsoft.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Two very different companies shaped the personal computer in the late 1970s and early 1980s: Apple, born from California's hobbyist counterculture, and IBM, the world's largest mainframe maker entering an industry it had previously ignored. They took completely different routes to the same destination — and unintentionally created a third winner.</p>
+
+              <h3>Body — Apple's route: vertical integration</h3>
+              <p>Founded by Steve Wozniak and Steve Jobs in 1976. The Apple I came directly out of the Homebrew Computer Club. The Apple II (1977) became the first real personal-computer product, especially in education. Apple controlled hardware <em>and</em> operating system <em>and</em> design. Identity was countercultural, design-led, consumer-friendly. By the early 1980s Apple was the largest PC company in the world.</p>
+
+              <h3>Body — IBM's route: open architecture</h3>
+              <p>IBM finally entered the market in August 1981. To move fast, it did something unprecedented: used off-the-shelf parts (Intel CPUs, Microsoft DOS), published the architecture, and let third parties build 'IBM-compatible' clones. This open architecture made the IBM PC the world standard within two years — but also gave away the future to Microsoft and the clone manufacturers.</p>
+
+              <h3>Body — the unintended winner</h3>
+              <p>Apple kept margins; IBM gained market share. The Macintosh (1984), with its mouse and GUI, was Apple's response — but by then the IBM-compatible PC ecosystem was unstoppable. By the late 1980s, Microsoft Windows had effectively replaced IBM as the gravitational centre of the PC world. The company that 'won' the platform was neither IBM nor Apple — it was Microsoft, which controlled the software both companies' competitors needed.</p>
+
+              <h3>Conclusion</h3>
+              <p>The two routes show that 'winning' in technology is more complicated than it looks. Apple shaped what people wanted from a computer. IBM made it standard. Microsoft, riding IBM's openness, won the long game neither company expected. The PC industry today still bears the marks of these two routes — and a generation of platform strategy has been built on the lesson.</p>
+
+              <div class="note"><strong>Word count: ~290.</strong> Vertical integration vs open architecture is the spine. The 'unintended winner' framing is reusable for any platform-strategy essay.</div>
+            `
+          },
+          {
+            q: "Discuss ELIZA (Weizenbaum, 1964–67) and SHRDLU (Winograd, 1968–70). What did each reveal about AI's natural-language frontier?",
+            hint: "Pattern matching vs world modelling. Both showed limits.",
+            essay: `
+              <h3>Intro</h3>
+              <p>In the late 1960s and early 1970s, two famous AI programs tried to make computers talk. ELIZA (Joseph Weizenbaum, 1964–67) and SHRDLU (Terry Winograd, 1968–70) approached the problem from opposite ends. Both succeeded — and both showed AI's limits.</p>
+
+              <h3>Body — ELIZA: pattern matching</h3>
+              <p>Weizenbaum's program imitated a Rogerian psychotherapist. It worked by pattern matching: when the user typed 'I am sad about my mother,' ELIZA replied 'Tell me more about your mother.' It had no understanding. But people, including Weizenbaum's own secretary, treated it as if it did. The 'ELIZA effect' — humans reading meaning into shallow text — is named after it. Weizenbaum himself was so disturbed by the reaction that he became a critic of AI.</p>
+
+              <h3>Body — SHRDLU: world modelling</h3>
+              <p>Winograd's program controlled a virtual world of coloured blocks. The user could give commands ('Pick up the red block and put it on the green block') and ask questions ('Why did you do that?'). SHRDLU understood — within its tiny block-world. The achievement: real language reasoning, but only in a closed domain.</p>
+
+              <h3>Body — the lesson</h3>
+              <p>Together, ELIZA and SHRDLU mapped AI's natural-language frontier. ELIZA showed that humans project intelligence onto trivial patterns. SHRDLU showed that real understanding requires a tiny, well-defined world. Scaling SHRDLU to the real world turned out to be much harder than expected — exactly the problem expert systems hit a decade later.</p>
+
+              <h3>Conclusion</h3>
+              <p>ELIZA and SHRDLU still matter today. ELIZA's pattern-matching is the ancestor of modern chatbots, including the kind that mimic empathy without feeling it. SHRDLU's world-modelling is the ancestor of robotics and grounded language understanding. Modern large language models inherit both — they pattern-match like ELIZA but have learned to fake SHRDLU-style understanding from huge corpora.</p>
+
+              <div class="note"><strong>Word count: ~290.</strong> Pattern-matching vs world-modelling is the contrast. The 'modern LLMs inherit both' closing is the reflective punch.</div>
+            `
+          },
+          {
+            q: "Discuss game culture as a way of 'appropriating the machine.' Use specific examples from the 1960s–80s.",
+            hint: "Spacewar (1961) → Pong (1972) → Pacman (1980) → Donkey Kong (1981). And the Japanese takeover.",
+            essay: `
+              <h3>Intro</h3>
+              <p>One way the public learned to use computers was through play. Games were a way of 'appropriating the machine' — turning a tool of work into a tool of fun, and in the process making computers familiar.</p>
+
+              <h3>Body — early experiments</h3>
+              <p>Spacewar! (MIT, 1961) was the first interactive computer game, made by students on a DEC PDP-1. It wasn't a product — it was a hack, a celebration of the new machine. Joseph Weizenbaum wrote about computer play in <em>Datamation</em> in 1962. Oregon Trail (1971) brought games into education. Adventure games on the PDP-10 (Zork, 1977) borrowed from 'game books' and made text-based interaction popular.</p>
+
+              <h3>Body — arcade era</h3>
+              <p>Pong (Atari, 1972) was the first commercially successful video game. Vector-beam arcade games appeared in 1977. The Japanese took over the late 1970s and 80s: Pacman (Namco, 1980), Donkey Kong (Nintendo, 1981, featuring Mario). Note: Nintendo was founded in 1889 making playing cards — its computing pivot was a 100-year transformation.</p>
+
+              <h3>Body — home computers</h3>
+              <p>Commodore 64 (1982) and Sinclair ZX Spectrum (1982) brought game culture into millions of homes. The C64 had a BASIC interpreter; players could write their own games. This is where 'appropriating the machine' really happened: not just playing games but modifying them.</p>
+
+              <h3>Conclusion</h3>
+              <p>Games trained a generation in computer use. They normalised typing, pointing, and reading screens. They taught children that computers were for play, not just for work. By the time the GUI made business computing user-friendly, an entire population had already been trained by Pacman and Mario. Games were not a side-show — they were the main event in PC adoption.</p>
+
+              <div class="note"><strong>Word count: ~290.</strong> The chain Spacewar → Pong → Pacman → Donkey Kong is memorable. The Nintendo-since-1889 fact is a great drop-in detail.</div>
+            `
+          },
+          {
+            q: "What was Japan's Fifth Generation initiative (1982), and why did it ultimately fail to deliver on its promise?",
+            hint: "$850 million bet on logic-based AI. Triggered the global AI boom — and the bust.",
+            essay: `
+              <h3>Intro</h3>
+              <p>In 1982 Japan's Ministry of International Trade and Industry (MITI) launched the Fifth Generation Computer Systems project, with a planned ten-year, $850 million budget. The goal: leap-frog the US and Europe by building logic-based AI machines. The promise was vast; the result, more modest. The story is a classic case of AI hype meeting reality.</p>
+
+              <h3>Body — what was promised</h3>
+              <p>McCorduck and Feigenbaum's 1983 book <em>The Fifth Generation</em> announced the project to the West and triggered panic. The plan: parallel-processing hardware running Prolog and other logic languages, capable of natural-language understanding, reasoning, and machine vision. Japan would skip past von Neumann architecture and dominate the next computing era.</p>
+
+              <h3>Body — Western reactions</h3>
+              <p>Britain, Europe, and the US launched their own programmes — Alvey (UK, 1983), ESPRIT (EU, 1984), the Strategic Computing Initiative (US DARPA, 1983). Expert-system companies got a decade of funding. The whole field of AI rode the wave.</p>
+
+              <h3>Body — what actually happened</h3>
+              <p>By 1992, when the project ended, Japan had produced impressive logic-processing hardware but no breakthrough applications. The expert-system industry collapsed in the early 1990s. Prolog, the project's chosen language, never became mainstream. Japan's electronics industry, ironically, was about to be hit by the rise of personal computers — built on American x86 chips and Microsoft Windows, neither of them logic-based.</p>
+
+              <h3>Conclusion</h3>
+              <p>The Fifth Generation matters not because it succeeded but because it triggered the global AI boom of the 1980s. It was the bet that AI's path was through logic and rules; the world has since taken a different path through learning and data. Each new AI hype cycle — neural networks in the late 1980s, deep learning since 2012, large language models now — has its own Fifth Generation moment. Knowing the original helps us read the present.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> The 'each new hype cycle has its Fifth Generation moment' framing is the reflective punch and connects to today's AI boom.</div>
+            `
+          }
+        ]
+      },
+      {
+        tier: 3,
+        label: "Likely Themes",
+        meta: "Recurring framings the prof highlighted",
+        questions: [
+          {
+            q: "Why does Campbell-Kelly compare the personal computer to radio? What does this comparison teach us?",
+            hint: "Both: amateur first, mass-market later. Both: cultural+commercial mix.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Chapter 10 of Campbell-Kelly opens with a comparison: the personal computer is like the radio. Both emerged from a counterculture of amateurs, both took decades to be properly understood by historians, and both transformed everyday life. The comparison is more than rhetorical.</p>
+
+              <h3>Body — three parallels</h3>
+              <p><strong>Amateur first, mass-market later.</strong> Radio in the 1900s started with hobbyists ('hams') who built sets in their attics. Mass broadcasting only began in the 1920s. The personal computer of the 1970s started with the Homebrew hobbyists. Mass adoption only happened in the 1980s with the IBM PC.</p>
+
+              <p><strong>Visionary individuals followed by corporate consolidation.</strong> Marconi, Sarnoff, and others shaped early radio; later RCA and CBS dominated. Wozniak, Jobs, Gates shaped early PCs; later IBM, Apple, and Microsoft dominated.</p>
+
+              <p><strong>Imperfect to easy.</strong> Early radios needed three hands to tune. Early PCs needed a soldering iron and a manual. Both became plug-and-play through engineering work that hid the complexity.</p>
+
+              <h3>Body — what the comparison teaches</h3>
+              <p>Histories of emerging technologies tend to focus on heroic individuals (Steve Jobs, Bill Gates). Campbell-Kelly's point is that the real story is the interplay of cultural forces (counterculture, hobby clubs) and commercial interests (Apple, IBM, Microsoft). No single founder explains a technology that millions of people produce and consume.</p>
+
+              <h3>Conclusion</h3>
+              <p>The radio comparison is a methodological move. It tells the reader: you cannot understand the personal computer through founder mythology. You have to understand the cultural ecosystem (Homebrew, Whole Earth Catalog) and the commercial structures (IBM's open architecture, Microsoft's licensing) together. The same lesson applies to AI today.</p>
+
+              <div class="note"><strong>Word count: ~280.</strong> Three parallels gives you a clean three-paragraph body. The 'methodological move' framing is reusable.</div>
+            `
+          },
+          {
+            q: "The GUI/WIMP interface (Windows, Icons, Mouse, Pull-down menus) replaced the command line. What changed and why did it matter?",
+            hint: "Xerox PARC → Apple Lisa/Mac → Microsoft Windows. Desktop metaphor.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Until the early 1980s, computers were used through text commands. You typed 'DIR' to list files; you typed 'MOVE A.TXT B.TXT' to move one. The graphical user interface — GUI, sometimes called WIMP for <strong>W</strong>indows, <strong>I</strong>cons, <strong>M</strong>ouse, <strong>P</strong>ull-down menus — replaced this with pointing and clicking. The change was bigger than it sounds.</p>
+
+              <h3>Body — origin</h3>
+              <p>The GUI was invented at Xerox PARC in the 1970s, demonstrated in the Alto (1973) and Star (1981) workstations. Apple's Steve Jobs visited PARC in 1979 and recognised what he saw. The Apple Lisa (1983, $10,000) and the Macintosh (1984, $2,495) brought GUI to the consumer market. Microsoft Windows followed (Windows 1.0 in 1985; Windows 95 was the breakthrough).</p>
+
+              <h3>Body — the desktop metaphor</h3>
+              <p>The GUI replaced the command line with a 'desktop metaphor.' Files were 'documents'; folders were 'folders'; a trash can was a trash can. Ordinary people who had never used a computer could understand it because the interface borrowed from the office they already knew.</p>
+
+              <h3>Body — why it mattered</h3>
+              <p>Three things. First, it broadened the user base from technicians to everyone. Second, it made the operating system the centre of the user's experience — software companies (Microsoft) gained power over hardware companies (IBM). Third, it locked in a way of thinking about computers that we still use forty years later. The smartphone interface is a direct descendant of the Macintosh desktop.</p>
+
+              <h3>Conclusion</h3>
+              <p>The GUI/WIMP interface is one of those rare technologies that you stop noticing because it works so well. But it was a deliberate cultural choice — to make computers easy by hiding their power. That choice paid off in mass adoption. It also created a new dependency: users no longer understand what their computers are doing.</p>
+
+              <div class="note"><strong>Word count: ~280.</strong> WIMP acronym is memorable; the desktop metaphor is the reusable concept; the 'hidden power = new dependency' closing is the reflective punch.</div>
+            `
+          },
+          {
+            q: "Stewart Brand's Whole Earth Catalog (1968–71): why does it matter for the history of computing?",
+            hint: "It gave Silicon Valley its political vocabulary.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Why does a 1968 hippie magazine matter for the history of computing? Because the <em>Whole Earth Catalog</em>, edited by Stewart Brand, gave the personal computer its political identity before it had a commercial form.</p>
+
+              <h3>Body — what it was</h3>
+              <p>Published 1968–1971 (with later supplements), the Whole Earth Catalog was a vast oversized magazine listing 'tools' — anything an individual could use to live independently. Solar panels, surveying equipment, books on Buckminster Fuller, communal-living guides. Its slogan: 'We are as gods, and might as well get good at it.' It came out of the back-to-the-land communalist movement of California and the Pacific Northwest.</p>
+
+              <h3>Body — why computing</h3>
+              <p>Brand argued that information technology, properly designed, was a tool of personal liberation. The catalog reviewed early computer-related items as carefully as it reviewed axes. When the Homebrew Computer Club started in Menlo Park in 1975, many of its members had been Whole Earth readers. The early Apple, the personal computer movement, even the early internet borrowed Brand's framing.</p>
+
+              <h3>Body — the legacy</h3>
+              <p>Steve Jobs in his 2005 Stanford speech quoted the Whole Earth Catalog's farewell line: 'Stay hungry. Stay foolish.' That was no accident. The personal computer industry is partly the commercial inheritor of the counterculture's vision of technology as personal empowerment. Every 'user-friendly' claim, every 'tool for thinkers' tagline, every Apple ad echoes Brand.</p>
+
+              <h3>Conclusion</h3>
+              <p>The Whole Earth Catalog matters because it gave Silicon Valley its political vocabulary. The PC was sold as liberation, not just productivity. That framing shaped what the technology became. It also explains why later tech-counterculture conflicts — privacy, surveillance capitalism, AI — feel like betrayals. Brand's vision and the industry his readers built no longer fully align.</p>
+
+              <div class="note"><strong>Word count: ~290.</strong> The 'political vocabulary' framing is the spine. The 'feel like betrayals' closing is the reflective angle.</div>
+            `
+          },
+          {
+            q: "The British Nationality Act was rewritten as a Prolog program in 1986. What does this attempt tell us about AI's reach and limits?",
+            hint: "APES = ambitious overreach. Same pattern as DENDRAL but on law.",
+            essay: `
+              <h3>Intro</h3>
+              <p>In 1986, a paper appeared in <em>Communications of the ACM</em> with an unusual title: 'The British Nationality Act as a Logic Program.' Its authors — Sergot, Sadri, Kowalski, Kriwaczek, Hammond, and Cory — had taken the British Nationality Act of 1981 and rewritten it as Prolog code. The result was an Augmented Prolog Expert System (APES) — perhaps the most ambitious attempt to express a country's law as machine logic.</p>
+
+              <h3>Body — what they did</h3>
+              <p>The team took the legal text — full of conditions, exceptions, definitions of 'British citizen' — and translated it into formal logic rules. APES could then answer questions like 'Is X a British citizen?' by chaining the rules. Conceptually, this was breathtaking. If law is a system of rules, and rules are programs, then law is a program.</p>
+
+              <h3>Body — why it didn't work</h3>
+              <p>Three reasons. <strong>Real legal text is full of ambiguities</strong> that lawyers exploit. Compiling them into Prolog forced premature closure of meaning. <strong>Lawyers themselves were not interested.</strong> Their craft is interpretation; APES eliminated the interpretation. <strong>Edge cases broke the system:</strong> nationality involves human stories that don't fit if-then rules.</p>
+
+              <h3>Body — what it tells us about AI</h3>
+              <p>APES is a perfect example of expert-system overreach. The dream — capture human expertise in machine logic — collapsed when faced with the real complexity of human institutions. Modern AI for law (legal-tech, contract analysis) takes a different approach: pattern-match on data, not encode in rules. The shift mirrors the broader shift from symbolic AI to data-driven AI.</p>
+
+              <h3>Conclusion</h3>
+              <p>APES sits in the same family as DENDRAL and MYCIN — bold, narrow successes that didn't generalise. The British Nationality Act experiment is worth remembering because it showed exactly how far the expert-system dream could be pushed before reality pushed back. The 1990s collapse of expert-system companies began here, in confident attempts that turned out to be brittle.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> Three reasons (ambiguity / lawyers / edge cases) gives a clean structure. The 'expert-system overreach' phrase is reusable.</div>
+            `
+          },
+          {
+            q: "Max Euwe — chess world champion turned computing professor. Why does he matter for the history of AI?",
+            hint: "The Dutch human bridge between chess and computing.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Max Euwe (1901–1981) is most famous as the Dutch chess world champion who held the title from 1935 to 1937. Less well known is his second career: in computing, where he became one of the figures linking chess and AI in the Netherlands.</p>
+
+              <h3>Body — chess career</h3>
+              <p>Euwe took the world title from Alexander Alekhine in 1935 and lost it back in 1937. He was the only world champion never beaten by a former champion in head-to-head play. By the 1950s he was a respected mathematician and chess theoretician, with strong views on the game's logic.</p>
+
+              <h3>Body — computing career</h3>
+              <p>From the 1950s, Euwe served as a UNIVAC ambassador, advising on automation in the Netherlands. He saw chess and computing as natural allies — both were exercises in formalised reasoning. In 1964 he became professor of Automatic Data Processing at Rotterdam — one of the first computing professorships in the Netherlands.</p>
+
+              <h3>Body — the chess–AI link</h3>
+              <p>Euwe lived through the entire arc of computer chess. Shannon's 1950 paper. Turing's 1952 chess algorithm. Kronrod's 1965 description of chess as 'the drosophila of AI.' Euwe died in 1981, sixteen years before Deep Blue beat Kasparov in 1997. He didn't live to see the climax, but he understood the project.</p>
+
+              <h3>Conclusion</h3>
+              <p>Max Euwe matters for two reasons. First, the Dutch link: he embodies the way chess, mathematics, and computing intertwined in a small country with serious mathematical traditions. Second, the AI link: he is one of the human bridges between chess as a game and chess as an AI testbed. When we talk about chess as the drosophila of AI today, we are walking on the path Euwe helped lay.</p>
+
+              <div class="note"><strong>Word count: ~280.</strong> Three short bodies (chess / computing / AI link) make this easy to remember. Use the European angle.</div>
+            `
+          }
+        ]
+      },
+      {
+        tier: 4,
+        label: "Possible Reflective",
+        meta: "Philosophical / sociological angles — outline only",
+        questions: [
+          {
+            q: "Triumph of the Nerds (1996) tells the personal-computer story through Steve Jobs and Bill Gates. Discuss the journalistic narrative versus the real history.",
+            hint: "Heroes vs ecosystems. Campbell-Kelly's critique.",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>The journalistic narrative.</strong> The 1996 PBS series <em>Triumph of the Nerds</em>, hosted by Robert X. Cringely, told the personal-computer story through a small set of heroes: Steve Jobs, Bill Gates, Steve Wozniak. Compelling television, but historically misleading.</p>
+
+              <p><strong>Campbell-Kelly's critique.</strong> Chapter 10 opens by attacking exactly this kind of journalism: 'The real history lies in the rich interplay of cultural forces and commercial interests.' Whole Earth Catalog culture, Homebrew Club networks, IBM's open architecture, Microsoft's licensing strategy — none of this fits a heroic-founder narrative.</p>
+
+              <p><strong>Why the narrative persists.</strong> Heroes are easier to remember than ecosystems. Personalities sell magazines and TV documentaries. Investors and corporations have an interest in singular-genius stories — they justify high CEO pay and concentrated ownership.</p>
+
+              <p><strong>Why it matters.</strong> Heroic narratives shape public expectations of technology. They make us think the next breakthrough will come from a charismatic individual, not from cultural and corporate ecosystems. Reading history reflectively means resisting the journalistic urge.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>The story of the PC is not the story of Jobs and Gates. It is the story of a culture that wanted personal computers and a corporation that gave away its architecture. Forgetting this distorts how we understand technology today.</p>
+              <div class="note">~270 words. Connect to today's AI hero narratives (Sam Altman, etc.) for the reflective punch.</div>
+            `
+          },
+          {
+            q: "Why did expert systems fail despite their commercial success?",
+            hint: "Three reasons: brittleness, maintenance, knowledge acquisition.",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>The puzzle.</strong> Expert systems were AI's first commercial product — DENDRAL outperformed chemists; MYCIN outperformed doctors in narrow tests; the British Nationality Act was rewritten as Prolog. By the early 1990s the industry had collapsed. Why?</p>
+
+              <p><strong>Three reasons.</strong></p>
+              <ul>
+                <li><strong>Brittleness.</strong> Rule-based systems didn't handle edge cases. A medical-diagnosis system could be excellent on the cases it was trained for and disastrous on slightly different ones.</li>
+                <li><strong>Maintenance cost.</strong> Every change in the underlying domain (a new chemical compound, a new tax rule) required a human expert to update the rules — expensive and slow.</li>
+                <li><strong>Knowledge acquisition bottleneck.</strong> Getting experts to articulate their knowledge as rules was harder than expected. Implicit, intuitive knowledge resists explicit formalisation. This is the deepest problem.</li>
+              </ul>
+
+              <p><strong>The modern response.</strong> Don't ask experts to write rules; learn the patterns from data. The deep-learning revolution of the 2010s is a structural answer to expert systems' failure.</p>
+
+              <p><strong>Why this matters today.</strong> Today's AI hype mirrors the 1980s expert-system hype. The question whether modern AI will follow a similar arc — or break through where expert systems failed — is open. Reading the history reflectively helps us ask the right questions.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>Expert systems didn't fail because they didn't work. They failed because the work didn't generalise. The lesson AI is still learning is that knowledge isn't the same as rules.</p>
+              <div class="note">~270 words. The three-reason structure is highly memorable; today's AI parallel is the reflective punch.</div>
+            `
+          },
+          {
+            q: "The hobby computer club (Homebrew, ACC, AFACO, HCC) was a new kind of social form. What made it possible, and why did it matter?",
+            hint: "Three sources: ham radio + adult education + 1960s counterculture.",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>What it was.</strong> Voluntary associations of technical hobbyists, organised around shared knowledge and mutual help. Examples: Homebrew Computer Club (Menlo Park, 1975), Amateur Computer Club (Essex, 1973), AFACO (France, 1974), Hobby Computer Club (Netherlands, 1977).</p>
+
+              <p><strong>Three sources.</strong></p>
+              <ul>
+                <li><strong>The amateur-radio 'ham' tradition</strong>, which had since the 1920s linked hobbyists who built and tested radios. Same DIY ethic, same network of local clubs.</li>
+                <li><strong>The post-war culture of self-improvement</strong> — adult education, evening classes, technical correspondence courses. People expected to keep learning new technologies.</li>
+                <li><strong>The 1960s counterculture's emphasis on democratic access to tools.</strong> Stewart Brand's Whole Earth Catalog made hobby tinkering feel politically meaningful.</li>
+              </ul>
+
+              <p><strong>Why it mattered.</strong> The hobby clubs pre-organised the user base before the personal-computer industry existed. When the Altair 8800 appeared in 1975, there was already a community ready to buy it, modify it, write software for it, and tell each other about it. This community is one of the missing pieces in the heroic-founder story — without it, Apple and IBM would have had no audience.</p>
+
+              <p><strong>The Dutch detail.</strong> HCC's radio-broadcast software (via NOS) is a uniquely Dutch innovation that highlights how the same form took different national shapes.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>The personal computer industry is partly built on a social form — the hobby club — that the corporate narrative tends to forget. Without that form, no PC market.</p>
+              <div class="note">~270 words. The three sources (ham radio + adult education + counterculture) is a clean structure.</div>
+            `
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "L6",
+    label: "L6",
+    title: "Lecture 6 — Neat Networks (Chapters 12–13)",
+    chapters: "Campbell-Kelly chapters 12–13",
+    enabled: true,
+    tiers: [
+      {
+        tier: 1,
+        label: "Almost Certain",
+        meta: "Direct from Assignment 6 — the four real questions (B1, B2, C1, C2)",
+        questions: [
+          {
+            q: "[B1] The idea of the 'World Brain', according to Campbell-Kelly, was one of the oldest and most idealistic driving forces behind the rise of Internet. It also happens to be the one closest to AI. Elaborate on Campbell-Kelly's story and explain one of the instances where it touches upon AI.",
+            hint: "Wells → Bush → Berners-Lee. The AI link: Google PageRank, then large language models.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The idea of the 'World Brain' is, according to Campbell-Kelly, one of the oldest and most idealistic driving forces behind the Internet. It is also the one closest to AI. To understand the link, we need to follow the dream from H.G. Wells, through Vannevar Bush, to the modern search engine and large language model.</p>
+
+              <h3>Wells (1937)</h3>
+              <p>On a US lecture tour, H.G. Wells proposed the 'World Brain' — a global encyclopedia, organised as a network, that would let any student anywhere consult any book. Wells imagined it as microfilm-based, but the vision was clear: human knowledge made universally available. He wrote: 'The time is close at hand when any student, in any part of the world, will be able to sit with his projector in his own study at his or her own convenience to examine any book, any document, in an exact replica.'</p>
+
+              <h3>Bush (1945)</h3>
+              <p>Vannevar Bush's <em>As We May Think</em> (Atlantic Monthly, July 1945) described the Memex — a desk-like personal machine for storing and browsing all an individual's books and notes. Bush invented hypertext in concept: 'associative trails' between documents. Bush didn't know Wells, but the dream was the same — make the world's knowledge browsable.</p>
+
+              <h3>Berners-Lee (1989) and the AI link</h3>
+              <p>Tim Berners-Lee at CERN proposed the World Wide Web in 1989 — 'the marriage of hypertext and the Internet.' By 2000, 100 million computers were online. Wells's dream had a technical answer.</p>
+
+              <p>The AI instance comes when knowledge stops being just stored and starts being <em>organised</em>. Google's PageRank algorithm (1998, Page and Brin at Stanford) ranked web pages by analysing the structure of links between them. This was Wells's 'great number of workers... perfecting the index' done by mathematics. Modern large language models go further: they don't just rank, they answer. Ask ChatGPT a question and you get a summary of the world's knowledge in natural language. This is the World Brain's final form — and the original blind spots (bias, hallucination, opaque authority) come with it.</p>
+
+              <h3>Conclusion</h3>
+              <p>The World Brain connects the oldest part of the Internet's prehistory to the newest part of AI. Wells imagined a global mind; Bush imagined a personal supplement to it; today's AI tools try to do both at once. AI is not separate from the Internet — it is the Internet's information dream made personal and conversational. The risks Wells couldn't have predicted are the price of finally building the thing.</p>
+
+              <div class="note"><strong>Word count: ~390.</strong> Wells → Bush → Berners-Lee → PageRank → LLMs is the chain. The "global mind + personal supplement" framing is reusable.</div>
+            `
+          },
+          {
+            q: "[B2] The first chapter in the last part of Campbell-Kelly's book, 'The Ubiquitous Computer,' is entitled 'Globalization.' Explain how 'globalization' as a theme is relevant in this part of the book and in which ways it works out.",
+            hint: "Production (Foxconn / Bangalore) + access (Africa and South America leapfrog, M-Pesa Kenya 2007) + costs (Agbogbloshie). Specific named examples in named places.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Campbell-Kelly's book ends with a part called 'The Ubiquitous Computer,' and its first chapter is 'Globalization.' The ordering matters. By the late twentieth century the computer was no longer being made or used mainly in a few rich countries. It had spread, and the chapter is about how. The story works out along three lines: production, access, and the costs that come with both.</p>
+
+              <h3>Production</h3>
+              <p>The first part of the story is production. American and European brands kept their design work at home but moved the actual manufacturing abroad. Hardware was assembled in East Asia, particularly in China, where factories run by companies like Foxconn became central to the global supply of computers and phones. Software went a similar way. Big firms in the US and the UK outsourced their programming and IT services to companies in India, where cities like Bangalore grew into IT service hubs hosting Infosys and Wipro. The computer industry stayed branded American but became physically and operationally spread across the world.</p>
+
+              <h3>Access</h3>
+              <p>The second part of the story is access. Campbell-Kelly spends a good deal of his chapter on how computers reached parts of the world that had been outside the original mainframe and PC markets. In Africa and South America, the spread did not follow the same path as in the US or Europe. Many countries jumped straight to mobile phones without ever building large fixed telephone networks. Kenya is a striking example: M-Pesa, a mobile-money service launched there in 2007 by Safaricom, gave millions of people access to banking through a basic phone, without ever needing a bank branch or a PC. That kind of leapfrog adoption, rather than a slow replacement of old infrastructure, is what globalisation actually looked like for most of the world's new computer users.</p>
+
+              <h3>Costs</h3>
+              <p>The lecture also pointed out the costs that come with all of this. Old computers and phones from richer countries end up in places like Agbogbloshie in Ghana, where they are pulled apart by hand for the copper and other metals, while the rest is burned in the open air. So the global computer system is not only about who builds and uses the machines, but also about who deals with them once they are thrown away.</p>
+
+              <h3>Conclusion</h3>
+              <p>That, I think, is what Campbell-Kelly is doing in his final part. The computer is usually told as a triumph story. He reminds the reader that the ubiquitous computer is ubiquitous because it has been produced, spread, and used inside a global system, and the consequences of that system are not shared equally.</p>
+
+              <div class="note"><strong>Word count: ~400.</strong> Production (Foxconn, Bangalore) + access (Africa/South America leapfrog, M-Pesa Kenya 2007) + costs (Agbogbloshie) is the spine. Named person/thing/place in each section.</div>
+            `
+          },
+          {
+            q: "[C1] Campbell-Kelly described the rise of Internet as the confluence of three desires. In the lecture, it was suggested that we should approach a history of Internet from the perspective of mass media. Discuss both views and make a comparison.",
+            hint: "Three desires (military / unite networks / World Brain) vs. telegraph→radio→TV→Internet. Both true, but they answer different questions.",
+            essay: `
+              <h3>Intro</h3>
+              <p>How should we tell the story of the Internet? Campbell-Kelly frames it as the confluence of three desires. The lecture suggested a different lens: the Internet as the latest chapter in the history of mass media. Both views capture something real, and comparing them changes what we think the Internet is.</p>
+
+              <h3>Campbell-Kelly's three desires</h3>
+              <p>First, the <strong>utilitarian</strong>: a fault-tolerant networking technology that wouldn't break down — driven by the US military's worry about communications in nuclear war. This produced ARPANET (1969).</p>
+
+              <p>Second, the <strong>technical</strong>: unite the world's separate computer networks into a single system. Networks already existed by the 1970s, but they couldn't talk to each other. TCP/IP (1974) was the answer — a protocol that linked any network to any other.</p>
+
+              <p>Third, the <strong>romantic</strong>: make the world's store of knowledge available to anyone. This desire is the oldest. H.G. Wells's 'World Brain' (1937) imagined a global encyclopedia. Vannevar Bush's 'Memex' (1945) imagined a personal information machine. Tim Berners-Lee built the World Wide Web (CERN, 1989) — 'the marriage of hypertext and the Internet.'</p>
+
+              <h3>The mass-media perspective</h3>
+              <p>The lecture suggested a different angle. The Internet is also the latest stage in a longer story: the history of mass communication networks. Telegraph cables crossed continents in the mid-1800s. Radio standardised global broadcasting in the 1920s. Television in the 1950s. Each new medium required protocols, standards, infrastructure, and international cooperation. The Internet inherited all of that — networks were already global before computers arrived.</p>
+
+              <p>From this perspective, the 'three desires' story is too American and too technological. It misses that France had Minitel (1978–2012), the Netherlands had Viditel and Datanet 1, China had CFIDO (1991–98). These were not failed Internet experiments — they were consumer networks shaped by national mass-media traditions.</p>
+
+              <h3>Comparison</h3>
+              <p>The two views are not incompatible. The three desires explain <em>why</em> engineers built the Internet. The mass-media view explains <em>what kind of thing</em> the Internet became. Read together, the Internet is a specific 1980s American answer to questions older networks had already asked, and that other countries had answered differently.</p>
+
+              <h3>Conclusion</h3>
+              <p>Campbell-Kelly tells the founder story; the lecture tells the longer story. The first gets you the protocols and the dreams (TCP/IP, HTTP, World Brain, Memex). The second gets you the politics — who paid, who controlled, why the US won the standards war. To understand the Internet as a cultural object, you need both.</p>
+
+              <div class="note"><strong>Word count: ~400.</strong> Three desires on one side, mass-media on the other, comparison in the middle. The 'why engineers built it / what kind of thing it became' contrast is the reusable spine.</div>
+            `
+          },
+          {
+            q: "[C2] Prior to the Internet, consumer networks were popular in various places in the world for various reasons. Campbell-Kelly discusses a few striking differences between the US and some European countries. Pick two networks, discuss them and elaborate on the differences.",
+            hint: "Minitel (France, 1978–2012) vs Viditel (Netherlands, 1980). State-led mass vs market-led niche.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Before the Internet, several countries had their own consumer computer networks. Two clear contrasts are France's Minitel and the Netherlands' Viditel. Both started around 1980; both tried to bring computer services into ordinary homes; but they ended very differently. The contrast tells us how state-owned telecoms shaped early digital culture.</p>
+
+              <h3>Minitel (France, 1978–2012)</h3>
+              <p>Run by France Télécom (state-owned, partly state-funded). The plan was bold: every French household got a free Minitel terminal, paid for by ending paper phone directories. By the early 1990s there were 6.5 million terminals. Users could book trains, pay bills, read news, even use a chat room (the famous <em>messageries roses</em>). Minitel was profitable and culturally distinctive — a French alternative to the Anglo-Internet. It survived until 2012, long after the global Internet had taken over.</p>
+
+              <h3>Viditel (Netherlands, 1980)</h3>
+              <p>Run by the Dutch PTT. Much smaller scale. Viditel used the same videotex technology family as Minitel but never reached mass adoption. The Netherlands had alternatives: Teletekst (1980) gave information on TV screens; Datanet 1 (PTT, from 1978) served journalists, customs, and banks; the Hobby Computer Club (1977) supplied home enthusiasts. Viditel fell into the cracks.</p>
+
+              <h3>The differences</h3>
+              <p>Three things explain why they ended differently. First, <strong>scale of investment</strong>: France treated Minitel as national infrastructure; the Netherlands let it compete. Second, <strong>business model</strong>: Minitel charged per-minute access, creating an early service economy; Viditel never solved that. Third, <strong>culture</strong>: French consumers were used to state services; Dutch consumers preferred either niche professional networks (Datanet 1) or DIY hobbyism (HCC).</p>
+
+              <h3>What they share</h3>
+              <p>Both show that the pre-Internet 1980s had real consumer networks. They were not failed Internets — they were different things, run by state-owned telecoms, shaped by national mass-media traditions. The eventual victory of the open Internet (TCP/IP, WWW) was partly its openness, partly that the US wasn't burdened by a successful national alternative.</p>
+
+              <h3>Conclusion</h3>
+              <p>Minitel succeeded; Viditel did not. The reason is not technological — both used similar videotex — but institutional and cultural. France's state-led, mass-deployment approach worked; the Netherlands' market-led approach didn't. Both teach the same lesson: the Internet we got was one possible answer among many, and the alternatives were already running for years before the WWW arrived.</p>
+
+              <div class="note"><strong>Word count: ~410.</strong> Three reasons for divergence (scale / business model / culture). The 'one possible answer among many' closing is reusable.</div>
+            `
+          }
+        ]
+      },
+      {
+        tier: 2,
+        label: "Very Likely",
+        meta: "Adjacent reformulations of the lecture's main themes",
+        questions: [
+          {
+            q: "Discuss the Chaos Computer Club (CCC) and the European hacker movement of the 1980s. How did it differ from US hacker culture?",
+            hint: "Free information + Robin Hood (US) vs free information + political activism (Europe).",
+            essay: `
+              <h3>Intro</h3>
+              <p>In the 1980s, a new kind of social movement appeared around computers: the hacker. Not the criminal hacker of newspaper headlines, but the activist hacker — pursuing free information, fighting state surveillance, and treating the network as a public good. The German Chaos Computer Club (CCC), founded in 1981, was the most distinctive European expression.</p>
+
+              <h3>US hacker culture</h3>
+              <p>In the US, Steven Levy's <em>Heroes of the Computer Revolution</em> (1984) framed the hacker as a modern-day Robin Hood: technology should be free, government should stay out, computers change lives for the better. The Legion of Doom and similar groups embodied this. The ethic was libertarian — free information, minimal regulation, individual empowerment.</p>
+
+              <h3>The Chaos Computer Club</h3>
+              <p>The CCC was different. Founded in Berlin in 1981, it explicitly framed access to information as a human right — and a political one. Its newsletter <em>Datenschleuder</em> (first issue 1984, the Orwell year) published modem schematics, software, political manifestos, and reviews. The club organised public hacking events and published a manifesto: 'freedom for the data... for all humans and other intelligent life forms.' It came out of the German squatter movement and the broader 1980s counterculture.</p>
+
+              <h3>The Dutch version</h3>
+              <p>Hack-Tic magazine (1989–94) in the Netherlands followed the CCC model. It published 'telephone tricks,' surveillance commentary, and political analysis. The 1993 event 'Hacking at the End of the Universe' gathered European hackers. From this culture grew De Digitale Stad (1994) — a free public Internet portal in Amsterdam.</p>
+
+              <h3>The difference</h3>
+              <p>US hackers were libertarian individualists; European hackers were collectivist activists. The US ethos produced open-source software and Silicon Valley counterculture; the European ethos produced civic Internet projects, GDPR-style privacy laws, and a tradition of digital activism still visible today.</p>
+
+              <h3>Conclusion</h3>
+              <p>The hacker movement of the 1980s was the political seed of the European Internet. It rejected both US corporate models and European state-owned monopolies. Its legacy is mixed — open-source, privacy activism, free Wi-Fi — but the culture of resistance still shapes how Europeans think about the Internet.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> Libertarian vs collectivist is the spine. Note the Orwell year (1984) Datenschleuder date — it's a memorable hook.</div>
+            `
+          },
+          {
+            q: "Discuss Dutch Internet history: from Hack-Tic to De Digitale Stad. What does it tell us about civic alternatives to the corporate Internet?",
+            hint: "1989 Hack-Tic → 1993 Hacking at the End of the Universe → 1994 De Digitale Stad → 2019 'Internet is broken'.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The Netherlands has a distinctive Internet history shaped by hobby computing, activism, and a famous experiment: De Digitale Stad. The arc from Hack-Tic magazine to De Digitale Stad shows how the Dutch built a civic Internet — and why it didn't last.</p>
+
+              <h3>Hack-Tic (1989–94)</h3>
+              <p>A magazine modelled on the German Chaos Computer Club. Run by Rop Gonggrijp and a small team, it published phone-system tricks, network commentary, and political analysis of surveillance. Its slogan <em>WYSMRWYG</em> (a play on WYSIWYG) signalled scepticism toward corporate computing.</p>
+
+              <h3>Hacking at the End of the Universe (1993)</h3>
+              <p>A summer camp gathering of hackers from across Europe. The conversation shifted from breaking into systems to building alternatives.</p>
+
+              <h3>De Digitale Stad (1994)</h3>
+              <p>'The Digital City.' A free Internet portal for Amsterdam residents, launched as a six-week experiment in 1994. It lasted years. Users got a home page, email, chat rooms, and links to city services — for free. It was Europe's first attempt to make the Internet a public good rather than a commercial product. Marleen Stikker (born 1962) was a key founder.</p>
+
+              <h3>What it tells us</h3>
+              <p>The Dutch model differed from both the US (corporate-led) and France (state-led Minitel). It was civic — built by hobbyists and activists for citizens. Marleen Stikker has since argued <em>Het Internet is stuk</em> (The Internet is broken, 2019), pointing back to the lost civic vision of the 1990s.</p>
+
+              <h3>Conclusion</h3>
+              <p>De Digitale Stad is now mostly a memory. But its existence proves that the modern Internet was not the only possible Internet. A civic, free, locally rooted alternative ran for years in the Netherlands. Why it didn't survive — and whether it can be revived — is a question we still ask.</p>
+
+              <div class="note"><strong>Word count: ~290.</strong> Chronological structure works perfectly here. Connect to Stikker's 'Internet is broken' for the reflective punch.</div>
+            `
+          },
+          {
+            q: "AI was widely declared dead after the 1980s expert-system collapse. By the 2010s it was the most-funded technology on Earth. Discuss AI's 'phoenix from the ashes' revival.",
+            hint: "Three threads (ML / industrial / deep learning) + the ethics critique.",
+            essay: `
+              <h3>Intro</h3>
+              <p>After the 1980s expert-system collapse, AI was widely seen as a failed field. By the 2010s it was the most-funded technology on Earth. The lecturer called this AI's 'phoenix from the ashes' — a revival driven by data, statistical methods, and very different ambitions from the rule-based AI of the 1980s.</p>
+
+              <h3>What came back</h3>
+              <p>Three threads. First, <strong>machine learning</strong> — learning patterns from data rather than encoding rules. Statistical methods that had existed since the 1960s scaled with cheap storage and computing power. Second, <strong>industrial appropriation</strong>: search engines (Google PageRank, 1998), online targeted advertising (the most lucrative AI application), health diagnostics, agricultural research. Third, <strong>deep learning</strong> (from 2012 onwards) — neural networks that had been dismissed in the 1980s now outperformed everything else.</p>
+
+              <h3>What stayed the same</h3>
+              <p>Each AI wave produces a 'this time is different' promise. The 1956 Dartmouth conference promised general intelligence. The 1980s expert systems promised it again. Modern deep learning makes the same promise. Each wave delivered narrow successes — and unfulfilled bigger claims.</p>
+
+              <h3>The dark side</h3>
+              <p>Cathy O'Neil's <em>Weapons of Math Destruction</em> (2016) showed that ML systems, marketed as bias-free, often encoded existing inequalities at scale. Timnit Gebru and the Algorithmic Justice League (founded 2016), Black in AI (2017), AI for Good (2017) — these movements emerged from inside AI to challenge its assumptions. Agbogbloshie (Ghana) and the labour of AI data-taggers in Kenya are the hidden human cost.</p>
+
+              <h3>Conclusion</h3>
+              <p>AI did come back. But 'phoenix from the ashes' hides the fact that the bird is different. The data-driven AI of the 2010s onward solves different problems and creates different risks than the rule-based AI of the 1980s. Reading the history reflectively means asking whether this revival is the answer to the previous failure — or just the next hype cycle.</p>
+
+              <div class="note"><strong>Word count: ~320.</strong> Three threads + same-promise + dark side. The 'is this the answer or the next cycle?' framing is reusable.</div>
+            `
+          },
+          {
+            q: "Trace the World Brain dream from H.G. Wells (1937) through Vannevar Bush (1945) to Tim Berners-Lee (1989). What unites them?",
+            hint: "All three wanted not just storage but organisation. Each step builds on the previous.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The dream of a global mind — a single, accessible store of human knowledge — predates the Internet by half a century. H.G. Wells called it the World Brain (1937). Tim Berners-Lee built it (1989). The arc connects two very different worlds, and a shared insight runs through every step.</p>
+
+              <h3>Wells's vision (1937)</h3>
+              <p>H.G. Wells, the science-fiction writer, lectured across the US in 1937 with a talk titled 'The Brain Organization of the Modern World.' He proposed a World Encyclopedia — not a book but a network — that would let any student anywhere consult any document. Microfilm was the imagined medium. Wells died disappointed in 1946.</p>
+
+              <h3>Bush's Memex (1945)</h3>
+              <p>Vannevar Bush had run the US wartime research effort. He wrote <em>As We May Think</em> for the Atlantic Monthly in July 1945. His Memex was a desk-like personal information machine for browsing all an individual's books and creating 'associative trails' between documents. Bush invented hypertext in concept. He didn't reference Wells, but the dream was the same.</p>
+
+              <h3>Berners-Lee's WWW (1989)</h3>
+              <p>At CERN, the European nuclear research lab, Tim Berners-Lee in 1989 proposed the World Wide Web — 'the marriage of hypertext and the Internet.' By 1991 the first webpage was live. By 1993 the web had taken off. By 2000 there were 100 million Internet-connected computers.</p>
+
+              <h3>What unites them</h3>
+              <p>All three wanted not just storage but <em>organisation</em>. Wells imagined 'a great number of workers' indexing the World Brain. Bush imagined the user as their own indexer through associative trails. Berners-Lee built hypertext links to crowdsource the indexing. Google's PageRank (1998) automated it. Modern AI tries to answer questions directly. Each step builds on the previous.</p>
+
+              <h3>Conclusion</h3>
+              <p>The World Brain is the connecting thread from 1937 to today's large language models. The dream — a universal, accessible store of organised human knowledge — is older than the computer. The computer became the medium that finally made it possible. AI is the latest version of the same idea.</p>
+
+              <div class="note"><strong>Word count: ~330.</strong> The 'storage vs organisation' distinction is the analytical key. Each generation invented a new way to index.</div>
+            `
+          }
+        ]
+      },
+      {
+        tier: 3,
+        label: "Likely Themes",
+        meta: "Recurring framings the prof highlighted",
+        questions: [
+          {
+            q: "Sherry Turkle has written for forty years about how the Internet changes who we are. Discuss the shift from 'Who Am We?' (1996) to 'Alone Together' (2011).",
+            hint: "Early optimism vs later concern. The same researcher, the technology changed.",
+            essay: `
+              <h3>Intro</h3>
+              <p>How does the Internet change who we are? Sherry Turkle, MIT psychologist and ethnographer, has spent forty years asking this question. Two of her books frame the arc: <em>Who Am We?</em> (1996) and <em>Alone Together</em> (2011).</p>
+
+              <h3>Early optimism (1996)</h3>
+              <p>In <em>Who Am We?</em> Turkle argued that online identities — in early chat rooms, MUDs, virtual worlds — let people explore selves they couldn't try offline. Multiple identities, anonymity, role-playing — these were not threats but opportunities. Online, the self was performative and fluid in productive ways. Second Life (2003) was a popular embodiment of this vision.</p>
+
+              <h3>Later concern (2011)</h3>
+              <p>By <em>Alone Together</em>, Turkle had reversed. Constant connection, she argued, had hollowed out face-to-face intimacy. Smartphones interrupted family dinners. Teenagers preferred texting to talking. The online self was no longer a creative space but a constant performance for an audience. We expected more from technology and less from each other.</p>
+
+              <h3>The social media wave</h3>
+              <p>Daniel Miller's <em>How the World Changed Social Media</em> (2016) studied the impact globally. The pattern Turkle warned about — performative selves, eroded intimacy — appears in different forms across cultures, but the underlying shift is real.</p>
+
+              <h3>Conclusion</h3>
+              <p>Turkle's arc — from 1990s optimism to 2010s concern — tracks a generation's experience of life online. She didn't change her method; the technology changed. Her two books are useful because they show that the question 'is this good for us?' is empirical and historical, not just philosophical.</p>
+
+              <div class="note"><strong>Word count: ~260.</strong> Same researcher, different decade. The before/after structure is clean and memorable.</div>
+            `
+          },
+          {
+            q: "Marleen Stikker says 'The Internet is broken.' What does she mean, and how does this fit the lecture's mass-media perspective?",
+            hint: "Civic vision lost to advertising + platforms. The pattern of every mass medium.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Marleen Stikker (born 1962), Dutch activist and co-founder of De Digitale Stad (1994), has long argued that the Internet has gone wrong. Her book <em>Het Internet is stuk</em> (2019) makes the case: the original civic vision has been replaced by corporate surveillance and platform monopolies.</p>
+
+              <h3>The original vision</h3>
+              <p>In 1994, De Digitale Stad gave Amsterdam residents free Internet access, public chat rooms, and city services. The model was civic, not commercial. Tim Berners-Lee's WWW (1989) was open and free by design. Through the 1990s, the assumption was that the Internet would be a public good, like libraries and roads.</p>
+
+              <h3>What went wrong</h3>
+              <p>Three shifts. First, advertising became the dominant business model — Google, then Facebook, made surveillance profitable. Second, network effects concentrated power in a few platforms. Third, governments mostly handed regulation back to the platforms themselves. Tim Berners-Lee himself has made similar arguments and started the Solid project (2018) to give users control of their own data.</p>
+
+              <h3>The mass-media link</h3>
+              <p>Stikker's view fits the lecture's mass-media perspective on the Internet. Every previous mass medium (radio, TV) went through a phase of corporate consolidation. The Internet has done the same — only faster. The civic Internet of the 1990s was a brief moment, not a stable equilibrium.</p>
+
+              <h3>Conclusion</h3>
+              <p>'The Internet is broken' is half prediction, half lament. Whether it can be repaired is open. The history of mass media suggests that consolidation is hard to reverse, but not impossible. The civic projects of the 1990s — De Digitale Stad, the open web — are reminders that other Internets are possible.</p>
+
+              <div class="note"><strong>Word count: ~290.</strong> Three shifts (ads / network effects / regulation surrendered) is the core. The mass-media frame ties this to the lecture's argument.</div>
+            `
+          },
+          {
+            q: "Search engines are often described as a 1990s breakthrough. The lecture pointed out they're actually the latest stage in a much older tradition. Discuss.",
+            hint: "Dewey Decimal (1876) → MARC (1960) → Archie/Gopher/WAIS (1990–91) → PageRank (1998). Library cataloguing as long tradition.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Search engines are often described as a 1990s breakthrough — Yahoo!, AltaVista, Google. The lecture pointed out that they are actually the latest stage in a much older tradition: library catalogues. Recognising this changes how we understand them.</p>
+
+              <h3>Library systems</h3>
+              <p>Libraries have classified and indexed knowledge for centuries. The Dewey Decimal System (1876) was a major step. MARC (1960, Library of Congress) digitised it: Machine-Readable Cataloguing standardised how libraries described books for computers. By the 1970s, computer-based library catalogues were the norm.</p>
+
+              <h3>Early Internet search</h3>
+              <p>Archie (1990, McGill) indexed downloadable Internet files. Gopher (1991, University of Minnesota) gave a hierarchical menu. WAIS (1991) introduced keyword search. All three were extensions of library cataloguing logic to the Internet.</p>
+
+              <h3>Google's twist (1998)</h3>
+              <p>Larry Page and Sergey Brin's PageRank algorithm used the structure of links between websites to rank importance — the more prominent the linking site, the more weight it gave. This was the librarian's instinct ('which books do other books cite?') encoded as math. Google didn't invent search; it invented better ranking.</p>
+
+              <h3>Conclusion</h3>
+              <p>Search engines are the digital descendants of library catalogues. The shift from card index to PageRank is technical, but the underlying problem — find the relevant document in a sea of documents — is centuries old. Reading search engines this way reminds us that organising knowledge is a human craft, not a machine miracle.</p>
+
+              <div class="note"><strong>Word count: ~270.</strong> Four-step chain (Dewey → MARC → Archie/Gopher → PageRank) is highly memorable.</div>
+            `
+          },
+          {
+            q: "Machine learning is sold as bias-free. Discuss Cathy O'Neil's and Timnit Gebru's critiques.",
+            hint: "ML reproduces past inequality. The fix isn't technical — it's political.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Machine learning is sold as bias-free. The numbers don't lie — only humans do. Two recent critiques have demolished this claim: Cathy O'Neil's <em>Weapons of Math Destruction</em> (2016) and Timnit Gebru's research at Google and elsewhere.</p>
+
+              <h3>O'Neil's argument</h3>
+              <p>O'Neil, a mathematician turned data scientist, showed that ML systems used for hiring, criminal sentencing, credit scoring, and education encode existing inequalities. The training data reflects past human decisions; the model learns to reproduce them. Worse, the model's authority — 'the algorithm says' — makes the bias harder to challenge than a biased human.</p>
+
+              <h3>Gebru's work</h3>
+              <p>Timnit Gebru, while at Google, co-authored 'On the Dangers of Stochastic Parrots' (2021), arguing that large language models inherit and amplify the biases of their training data. She was forced out of Google after the paper. Her work, along with the Algorithmic Justice League (Joy Buolamwini, founded 2016) and Black in AI (2017), helped open the field of AI ethics.</p>
+
+              <h3>The deeper issue</h3>
+              <p>ML systems work by pattern-matching past data. If the past was unjust, the system will reproduce that injustice. Fixing this isn't a technical problem — it's a political one. Modern AI cannot be made 'fair' by tweaking algorithms; it requires deciding what fairness means, and acting on it.</p>
+
+              <h3>Conclusion</h3>
+              <p>The ML-as-bias-free claim was always wrong. O'Neil and Gebru's work has moved AI ethics from a fringe concern to a mainstream one. The arc of AI's revival — promised neutrality, delivered amplification — is now part of the field's history.</p>
+
+              <div class="note"><strong>Word count: ~280.</strong> The 'technical problem → political problem' move is the reflective key. Connect to today's hype cycle.</div>
+            `
+          },
+          {
+            q: "Why did France get Minitel while the US got the open Internet? Discuss the role of state-owned telecoms in European computing.",
+            hint: "Institutional choice, not technological. Public infrastructure logic vs private competition.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Why did France get Minitel and the US get the open Internet? The answer is in the institutions, not the technology. Europe's state-owned telecoms (PTT in the Netherlands, France Télécom, Deutsche Bundespost) made different network choices than US private corporations.</p>
+
+              <h3>The European model</h3>
+              <p>In the late 1970s, most European telecoms were nationalised. They saw networks as public infrastructure: built once, used by everyone, regulated by the state. Minitel (1978–2012) was the clearest expression — France Télécom rolled out millions of free terminals. The PTT in the Netherlands launched Viditel (1980), Teletekst (1980), and Datanet 1 (1978). Goals were universal access and national strategic value, not market share.</p>
+
+              <h3>The US model</h3>
+              <p>AT&amp;T was broken up in 1984, ending the closest US equivalent of a state-owned telecoms. Networks were built by private companies (or universities funded by ARPA). The Internet that won was open: TCP/IP was a US Department of Defense standard, but it was free and unowned. Once it spread, no national network could compete with it.</p>
+
+              <h3>The consequence</h3>
+              <p>Europe's state-owned networks created real consumer services years before the US could. Minitel was profitable and culturally distinctive. But once the open Internet arrived, the state-owned networks couldn't pivot fast enough. By the early 2000s, they had been overtaken.</p>
+
+              <h3>Conclusion</h3>
+              <p>The European/US contrast isn't a story of technology winning over politics. It's a story of one institutional choice (open standards, private investment) beating another (state-owned, closed standards) — at least for now. The European tradition didn't disappear: it shaped privacy law (GDPR), digital sovereignty debates, and the current push for European AI regulation.</p>
+
+              <div class="note"><strong>Word count: ~310.</strong> Institutions, not technology. The 'state-owned tradition shaped GDPR' link is the reflective punch.</div>
+            `
+          }
+        ]
+      },
+      {
+        tier: 4,
+        label: "Possible Reflective",
+        meta: "Philosophical / sociological angles — outline only",
+        questions: [
+          {
+            q: "Agbogbloshie (Ghana) is where much of the world's e-waste ends up. What does this site reveal about computing's hidden costs?",
+            hint: "E-waste + data taggers + cobalt mines = the dirty foundation of ubiquitous computing.",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>What it is.</strong> Agbogbloshie, a district of Accra, Ghana, is one of the largest e-waste dumps in the world. Discarded computers, phones, and other electronics from Europe and the US are sent there, dismantled by hand, and burned for copper recovery. The site is among the most polluted on Earth.</p>
+
+              <p><strong>The wider pattern.</strong> Hidden labour goes beyond e-waste. AI training data is tagged by low-wage workers in Kenya, the Philippines, India — labelling images, flagging toxic content, training the models that later 'magically' recognise pictures. OpenAI's training of ChatGPT used Kenyan workers earning around $2/hour.</p>
+
+              <p><strong>The reflective lesson.</strong> The ubiquitous computer is ubiquitous because its costs are hidden. Globalisation made computing cheap by exporting the dirty parts. AI inherits this — the 'intelligence' is built on human labour that doesn't appear in the marketing.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>Reading the history of computing reflectively means following the supply chain. Behind every ChatGPT response is a labelled training set, behind that a tagger, behind that a labour market. Agbogbloshie is what happens when computers retire; the same logic shapes how they're born.</p>
+              <div class="note">~260 words. Connect to globalisation question for compound power.</div>
+            `
+          },
+          {
+            q: "Open data and government accountability: discuss Saskia Stuiveling's legacy at the Dutch Court of Audit.",
+            hint: "The World Brain idea applied to governance. Open data as 21st-century transparency.",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>Who she was.</strong> Saskia Stuiveling (1945–2017), president of the Dutch Algemene Rekenkamer (Court of Audit) from 1999 to 2015. She used the Internet to push government transparency.</p>
+
+              <p><strong>What she championed.</strong> Open data — making government spending, contracts, and NGO budgets accessible online, in machine-readable form. The reasoning: if citizens can see how money is spent, accountability follows. Open data is a 21st-century version of the World Brain idea, applied to governance rather than science.</p>
+
+              <p><strong>The international wave.</strong> data.gov in the US (2009), Open Government Partnership (2011) — the same impulse. Some of it works (budget transparency, public health datasets). Some of it gets gamed (governments release data selectively, hide what's politically inconvenient).</p>
+
+              <p><strong>The reflective lesson.</strong> The Internet's civic potential is real but contested. Stuiveling's open-data legacy shows what's possible when state institutions take the Internet seriously as a tool of accountability rather than a marketing channel.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>Open data is one of the rare cases where the civic vision of the 1990s Internet survived into the platform era. It works because it's institutional, not consumer-led.</p>
+              <div class="note">~250 words. Connect to Stikker's 'Internet is broken' for compound argument.</div>
+            `
+          },
+          {
+            q: "Why didn't the Soviet Union build a nationwide computer network? Discuss InterNyet.",
+            hint: "OGAS proposed by Glushkov in the 1960s. Threatened bureaucratic power. Lesson: tech is political.",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>The question.</strong> Slava Gerovitch's article 'InterNyet: why the Soviet Union did not build a nationwide computer network' (2008) is on the lecture's reading list. The question is genuinely puzzling: the USSR had advanced mathematics, strong central planning, and a tradition of grand technical projects. Why no Soviet Internet?</p>
+
+              <p><strong>The proposal.</strong> From the 1960s, Soviet cyberneticians (Viktor Glushkov, Anatoly Kitov) proposed a nationwide computer network for economic planning — OGAS. It was scientifically credible.</p>
+
+              <p><strong>Why it failed.</strong> It threatened existing bureaucratic power. Ministries that controlled information were not going to surrender it to a central computer system. The project was approved in principle and starved of resources in practice.</p>
+
+              <p><strong>The reflective lesson.</strong> Technology adoption is a political question. The USSR didn't lack the science; it lacked the institutional will. By contrast, the US Internet succeeded partly because the Department of Defense funded it as a research project — outside the existing bureaucracy.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>InterNyet is the reverse of the 'three desires' story. It shows that without the institutional alignment, even the right technology and the right science don't produce a network.</p>
+              <div class="note">~260 words. Connect to consumer-networks question (state-led models can fail too).</div>
+            `
+          }
+        ]
+      }
+    ]
+  },
   { id: "L7", label: "L7", title: "Lecture 7 — Chapters 14–15", chapters: "Coming up", enabled: false }
 ];
 

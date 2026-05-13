@@ -18,8 +18,9 @@ Interactive study platform for the VU Amsterdam Bachelor AI **History of AI** co
 | L1 | Campbell-Kelly 1–3 | ✅ complete |
 | L2 | Campbell-Kelly 4–5 | ✅ complete |
 | L3 | Campbell-Kelly 6–7 | ✅ complete |
-| L4 | Campbell-Kelly 8–9 | placeholder |
-| L5 | Campbell-Kelly 10–11 | placeholder |
+| L4 | Campbell-Kelly 8–9 | ✅ complete |
+| L5 | Campbell-Kelly 10–11 | ✅ complete |
+| L6 | Campbell-Kelly 12–13 | ✅ complete |
 | L6 | Campbell-Kelly 12–13 | placeholder |
 | L7 | Campbell-Kelly 14–15 | placeholder |
 
