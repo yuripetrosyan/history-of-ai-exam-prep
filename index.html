@@ -196,6 +196,139 @@
   .lectures-view.active { display: block; }
   .essentials-view { display: none; }
   .essentials-view.active { display: block; }
+  .exam-view { display: none; }
+  .exam-view.active { display: block; }
+
+  /* Exam Bank styling */
+  .exam-banner {
+    background: linear-gradient(135deg, rgba(239,68,68,0.10), rgba(245,158,11,0.10));
+    border: 1px solid var(--tier2);
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    margin-bottom: 24px;
+  }
+  .exam-banner h1 { margin: 0 0 8px; font-size: 1.7rem; color: var(--tier2); }
+  .exam-banner p { margin: 0; color: var(--text); font-size: 0.97rem; }
+
+  .exam-section { margin-bottom: 32px; }
+  .exam-section h2 { font-size: 1.15rem; margin: 0 0 12px; color: var(--text); }
+  .exam-section .sub { color: var(--text-dim); font-size: 0.9rem; margin: -8px 0 14px; }
+
+  .exam-format {
+    display: grid; gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .exam-format-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 12px 16px;
+  }
+  .exam-format-card strong { color: var(--accent); display: block; margin-bottom: 4px; font-size: 0.95rem;}
+  .exam-format-card span { font-size: 0.87rem; color: var(--text-dim); }
+
+  .past-exam {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 14px 18px;
+    margin-bottom: 12px;
+  }
+  .past-exam-head {
+    display: flex; gap: 10px; align-items: center;
+    cursor: pointer; user-select: none;
+  }
+  .past-exam-head h3 { margin: 0; font-size: 1.0rem; color: var(--accent-2); flex: 1;}
+  .past-exam-head .chev { color: var(--text-dim); transition: transform 0.2s; font-size: 1.2rem;}
+  .past-exam.open .past-exam-head .chev { transform: rotate(90deg); color: var(--accent);}
+  .past-exam-body { display: none; padding-top: 12px;}
+  .past-exam.open .past-exam-body { display: block; }
+  .past-exam-body .qgroup { margin: 10px 0; }
+  .past-exam-body .qgroup h4 {
+    margin: 0 0 6px; font-size: 0.92rem; color: var(--text-dim);
+    text-transform: uppercase; letter-spacing: 0.4px;
+  }
+  .past-exam-body ol { padding-left: 22px; margin: 4px 0; }
+  .past-exam-body li { margin: 6px 0; font-size: 0.9rem; line-height: 1.4; }
+  .past-exam-body li strong { color: var(--text);}
+
+  .recurring-list {
+    display: grid; gap: 10px;
+  }
+  .recurring-item {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-left: 3px solid var(--tier1);
+    border-radius: 10px; padding: 12px 16px;
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 0.92rem;
+  }
+  .recurring-item .topic { flex: 1; }
+  .recurring-item .topic strong { color: var(--text); display: block; margin-bottom: 3px;}
+  .recurring-item .topic .meta { color: var(--text-dim); font-size: 0.85rem;}
+  .recurring-item .coverage {
+    flex-shrink: 0; font-size: 0.78rem; padding: 3px 8px;
+    border-radius: 999px; align-self: center;
+    white-space: nowrap;
+  }
+  .cov-yes { background: rgba(110,231,183,0.15); color: var(--accent); }
+  .cov-partial { background: rgba(245,158,11,0.15); color: var(--tier2);}
+  .cov-no { background: rgba(239,68,68,0.15); color: var(--tier1);}
+
+  .pred-tabs {
+    display: flex; gap: 8px; margin-bottom: 14px;
+  }
+  .pred-tabs button {
+    background: var(--bg-alt); border: 1px solid var(--border);
+    color: var(--text); padding: 8px 14px; border-radius: 10px;
+    cursor: pointer; font-size: 0.9rem;
+  }
+  .pred-tabs button.active {
+    background: var(--accent-2); color: #0a1521;
+    border-color: var(--accent-2); font-weight: 600;
+  }
+  .pred-group { display: none; }
+  .pred-group.active { display: block; }
+  .pred-list { display: grid; gap: 8px; }
+  .pred-item {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 14px;
+    font-size: 0.9rem; line-height: 1.45;
+    cursor: pointer;
+    transition: border-color 0.18s ease;
+  }
+  .pred-item:hover { border-color: var(--accent-2); }
+  .pred-item.open { border-color: var(--accent); }
+  .pred-item strong { color: var(--text);}
+  .pred-item .pred-meta {
+    margin-top: 4px; font-size: 0.8rem; color: var(--text-dim);
+  }
+  .pred-item .pred-meta .badge {
+    display: inline-block; font-size: 0.75rem;
+    padding: 1px 7px; border-radius: 999px; margin-right: 6px;
+  }
+  .pred-item .pred-chev {
+    float: right; font-size: 0.85rem; color: var(--text-dim);
+    margin-left: 8px;
+    transition: transform 0.18s ease;
+  }
+  .pred-item.open .pred-chev { transform: rotate(90deg); color: var(--accent);}
+  .pred-essay {
+    display: none;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border);
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .pred-item.open .pred-essay { display: block; }
+  .pred-essay p { margin: 8px 0; color: var(--text); }
+  .pred-essay h4 {
+    margin: 10px 0 4px; font-size: 0.85rem; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 0.4px; font-weight: 700;
+  }
+  .pred-essay .ref {
+    margin-top: 10px; padding: 8px 12px;
+    background: rgba(110,231,183,0.08);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    font-size: 0.85rem; color: var(--text-dim); font-style: italic;
+  }
 
   /* Essentials styling */
   .essentials-banner {
@@ -408,6 +541,7 @@
     <div class="top-tabs" role="tablist">
       <button id="tab-essentials" class="active" onclick="switchView('essentials')">🎯 Essentials</button>
       <button id="tab-lectures" onclick="switchView('lectures')">📚 Lectures</button>
+      <button id="tab-exam" onclick="switchView('exam')">🎲 Exam Bank</button>
       <button id="tab-toolkit" onclick="switchView('toolkit')">✍️ Writing Toolkit</button>
     </div>
   </div>
@@ -436,6 +570,632 @@
     </div>
 
     <div id="questionList"></div>
+  </section>
+
+  <!-- ============ EXAM BANK VIEW ============ -->
+  <section id="view-exam" class="exam-view">
+    <div class="exam-banner">
+      <h1>🎲 Exam Bank</h1>
+      <p>The 2025 exam papers, the recurring themes, and the most-likely 2026 questions cross-referenced to your existing essays. You only have to write four essays on exam day (1 A + 2 B + 1 C). Pick wisely.</p>
+    </div>
+
+    <div class="exam-section">
+      <h2>📋 Exam format</h2>
+      <p class="sub">From the 2025 May and July papers. Same structure expected for 2026.</p>
+      <div class="exam-format">
+        <div class="exam-format-card"><strong>2 hours 15 minutes</strong><span>About 30 min per essay if you do all four.</span></div>
+        <div class="exam-format-card"><strong>27 questions on paper</strong><span>8 A-questions (lecture), 12 B-questions (book), 6 C-questions (combine), 1 NO BONUS.</span></div>
+        <div class="exam-format-card"><strong>You write only 4</strong><span>1 A + 2 B + 1 C. Each worth 2 points (8 total).</span></div>
+        <div class="exam-format-card"><strong>NO BONUS = 1 point</strong><span>Only if your assignment bonus is below 6/6 avg of best 4.</span></div>
+        <div class="exam-format-card"><strong>Pick clearly</strong><span>Mention question number/title in your answer. Only first answer per category counted.</span></div>
+        <div class="exam-format-card"><strong>Explain yourself</strong><span>"Just a few buzzwords never constitute an answer." Always use appropriate examples.</span></div>
+      </div>
+    </div>
+
+    <div class="exam-section">
+      <h2>📚 Past Exams (2025)</h2>
+      <p class="sub">Both papers, full question text. Click each to expand. These ARE study material — work through them like practice questions.</p>
+
+      <div class="past-exam" id="past-exam-may">
+        <div class="past-exam-head" onclick="togglePastExam('past-exam-may')">
+          <h3>Exam I — May 22, 2025</h3>
+          <span class="chev">▶</span>
+        </div>
+        <div class="past-exam-body">
+          <div class="qgroup">
+            <h4>A-Questions (lectures)</h4>
+            <ol>
+              <li><strong>Technology and trust.</strong> During the lecture, (general) trust in technology was connected to the late 19th, early 20th century. Explain the line of thought, and describe how this trust was established.</li>
+              <li><strong>Dutch dinosaurs.</strong> Discuss a history of one of the "Dutch dinosaurs". Make a comparison to one of the US or UK "dinosaurs".</li>
+              <li><strong>Metaphor.</strong> Elaborate on the rise of the 1950s metaphor of "electronic brain" to refer to computers. To what extent was that metaphor related to research in AI?</li>
+              <li><strong>AI in mathematics.</strong> In what ways was AI instrumental in 1960s/70s mathematics? Elaborate on two specific examples!</li>
+              <li><strong>AI and education.</strong> In the 1960s and 70s AI was made instrumental in education. Elaborate on two specific examples.</li>
+              <li><strong>Game culture.</strong> Discuss in what ways pc game culture and AI research interacted with each other in a mutual beneficial way.</li>
+              <li><strong>History of AI.</strong> In the lectures, history of AI was connected to the rise of the field of AI. Comparisons were made with history of computing. Elaborate on two of those comparisons.</li>
+              <li><strong>Web 2.0 and AI.</strong> To what extent did the rise of Web 2.0 influence the rise of AI?</li>
+            </ol>
+          </div>
+          <div class="qgroup">
+            <h4>B-Questions (book)</h4>
+            <ol>
+              <li><strong>Maurice Wilkes.</strong> What roles does Campbell-Kelly claim for Maurice Wilkes in his history of computing?</li>
+              <li><strong>Computer manufacturers.</strong> Campbell-Kelly describes how, in the early 1950s, the automatic computer was reconstructed to become a business machine. Describe how this happened.</li>
+              <li><strong>IBM.</strong> Campbell-Kelly discusses the rise of IBM with the phrase "Watson was rational but wrong, while Eckert and Mauchly were irrational but right". Explain that phrase in the context.</li>
+              <li><strong>Real time.</strong> Campbell-Kelly discusses real time computing as a military experiment that almost didn't happen and was not offering the safety it was supposed to create. Explain his line of thought.</li>
+              <li><strong>Software crisis.</strong> To what extent was the late 1960s software crisis a real crisis? Discuss at least two stakeholders and explain their point of view.</li>
+              <li><strong>Timesharing.</strong> Campbell-Kelly discusses the role of timesharing as essential for the rise of computing as something interesting for "ordinary people". Explain his line of thought.</li>
+              <li><strong>Personal computers.</strong> Campbell-Kelly suggest PCs became of interest because of a successful blend of two cultures, most outspokenly present in California. Explain his narrative. Which cultures does he refer to?</li>
+              <li><strong>Broadening the appeal.</strong> The personal computer industry in the 1980s "broadened the appeal" of computers in several ways. Explain that remark. Mention the main firms relevant to the points you discuss.</li>
+              <li><strong>Internet.</strong> Campbell-Kelly discusses the rise of Internet as the "confluence of three desires". Which desires does he refer to, and how do these together explain the rise?</li>
+              <li><strong>Diversity and inclusion.</strong> Campbell-Kelly addresses several instances of the computer industry in the 2010s starting to work in favour of diversity and inclusion. Explain his line of thought.</li>
+              <li><strong>Google.</strong> To what extent was Google offering something new with its search engine around 2000? In what sense does Campbell-Kelly relate Google to the rise of surveillance capitalism?</li>
+              <li><strong>Computing and governance.</strong> 21st century computing became an ethical liability, mitigated by governments. Explain two of these in detail.</li>
+            </ol>
+          </div>
+          <div class="qgroup">
+            <h4>C-Questions (combine)</h4>
+            <ol>
+              <li><strong>Histories.</strong> The traditional history of AI starting with Turing 1950 or Dartmouth 1956 could be contested. Mention two alternative starting points and explain how these have merits. Use the concept of agendas.</li>
+              <li><strong>Digital culture.</strong> To what extent is "digital culture" a suitable way of describing twenty-first century culture?</li>
+              <li><strong>Silicon valley.</strong> Campbell-Kelly decomposes the "two boys and a garage" myth. The lecture noted few non-US success stories. Discuss the two lines (Silicon Valley + outside US), comparing a successful valley and a non-valley company, addressing company culture.</li>
+              <li><strong>Internet.</strong> The Internet boom of the early 21st century was discussed differently in book and lectures. Elaborate on one of the main differences, using the concept of appropriation.</li>
+              <li><strong>Defining technology.</strong> Discuss two 1960s examples of cybernetics as a defining technology (in Bolter's sense).</li>
+              <li><strong>AI winters.</strong> Compare the narrative of the AI winters to the narrative of Babbage that Aiken used to obtain funding for the Mark I. Use the concept of agendas.</li>
+            </ol>
+          </div>
+          <div class="qgroup">
+            <h4>NO BONUS</h4>
+            <ol><li><strong>Elaborate on the roles of education in a history of AI between 1990 and 2010.</strong></li></ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="past-exam" id="past-exam-jul">
+        <div class="past-exam-head" onclick="togglePastExam('past-exam-jul')">
+          <h3>Exam II — July 3, 2025 (resit)</h3>
+          <span class="chev">▶</span>
+        </div>
+        <div class="past-exam-body">
+          <div class="qgroup">
+            <h4>A-Questions (lectures)</h4>
+            <ol>
+              <li><strong>Prehistory of AI.</strong> A prehistory of AI was compared to a prehistory of computing. What were the events these histories had in common?</li>
+              <li><strong>Paris conference.</strong> A 1951 conference in Paris was used to suggest that AI was the driving force in early post-war computer development. Explain the line of thought.</li>
+              <li><strong>Acronyms.</strong> Elaborate on the functions of acronyms in 1950s computing.</li>
+              <li><strong>Grace Hopper.</strong> Discuss Grace Hopper's direct and indirect contributions to both computing and AI.</li>
+              <li><strong>AI and education.</strong> To what extent was the 1950s/60s hype of programmed instruction instrumental in the visibility of AI? Compare to the 1970s/80s hype of LOGO.</li>
+              <li><strong>History of AI.</strong> Discuss in what ways history of AI helps defining AI.</li>
+              <li><strong>Computers and ordinary life.</strong> Computers in the 1980s/90s gradually became part of ordinary life. Use statistics and blockbuster movies. Explain the line of thought.</li>
+              <li><strong>Data and AI.</strong> The rise of AI in the early 21st century was intertwined with data collecting as part of surveillance capitalism. Explain the line of thought.</li>
+            </ol>
+          </div>
+          <div class="qgroup">
+            <h4>B-Questions (book)</h4>
+            <ol>
+              <li><strong>Moore school.</strong> "Computing was not performed for its own sake, but always as a means to an end" — explain that remark about Moore school.</li>
+              <li><strong>Computer manufacturers.</strong> In the late 1940s and early 1950s, manufacturers met problems with magnetic tape storage. Elaborate on these problems.</li>
+              <li><strong>IBM 1401.</strong> Campbell-Kelly explains the success of the IBM 1401 as good technology and great marketing. Explain his line of thought.</li>
+              <li><strong>Perry Crawford.</strong> Campbell-Kelly narrates how Perry Crawford saved project Whirlwind twice. Explain that remark.</li>
+              <li><strong>Software crisis.</strong> To what extent may OS/360 be called exemplar to the software crisis and its results?</li>
+              <li><strong>Timesharing.</strong> Campbell-Kelly discusses the role of "new ways of computing" in the 1960s to explain the rise of personal computing later. Discuss at least two of these in detail.</li>
+              <li><strong>Whole earth catalogue.</strong> To what extent does Campbell-Kelly suggest that The Whole Earth Catalogue influenced the rise of personal computing?</li>
+              <li><strong>Broadening the appeal.</strong> Discuss two companies in the 1980s that launched a GUI-based OS for the PC and were not successful. Why is it relevant to know about these histories?</li>
+              <li><strong>Internet.</strong> Sociologists and psychologists were fascinated by social issues brought by the new medium of e-mail. Explain that remark.</li>
+              <li><strong>Off-shoring and out-sourcing.</strong> The two defining characteristics of globalization of the computer industry. Discuss typical IT examples.</li>
+              <li><strong>Netflix.</strong> To what extent does Netflix illustrate the rise of Web 2.0? Relation to surveillance capitalism?</li>
+              <li><strong>Computing and governance.</strong> Differences between US and European privacy legislation. Compare two of these legal programs.</li>
+            </ol>
+          </div>
+          <div class="qgroup">
+            <h4>C-Questions (combine)</h4>
+            <ol>
+              <li><strong>Histories.</strong> The traditional history of computing uses the concept of appropriation. To what extent does that concept also apply to a history of AI?</li>
+              <li><strong>Data driven culture.</strong> To what extent is "data driven culture" a suitable way of describing twenty-first century culture?</li>
+              <li><strong>Prejudice in AI.</strong> Histories of computing and AI are dominated by caucasian males. Provide two examples that may help contradict that prejudice and explain how that narrative came into existence.</li>
+              <li><strong>Computer clubs.</strong> Discuss two types of clubs. Compare US and European versions. Use the concept of agendas.</li>
+              <li><strong>Defining technology.</strong> Discuss two 21st century examples of AI as a defining technology (in Bolter's sense).</li>
+              <li><strong>AI and histories.</strong> To what extent are histories used to further agendas?</li>
+            </ol>
+          </div>
+          <div class="qgroup">
+            <h4>NO BONUS</h4>
+            <ol><li><strong>Discuss Pamela McCorduck's history of AI in the context of AI winters.</strong></li></ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exam-section">
+      <h2>🔥 Recurring themes (highest 2026 probability)</h2>
+      <p class="sub">These topics appeared in BOTH 2025 exams. Treat them as the most likely to come up again.</p>
+      <div class="recurring-list">
+        <div class="recurring-item">
+          <div class="topic"><strong>Real time computing / Whirlwind / SAGE</strong><div class="meta">B-question in both 2025 papers. Different angles (military / Perry Crawford twice saving Whirlwind).</div></div>
+          <div class="coverage cov-yes">L3 Tier 1</div>
+        </div>
+        <div class="recurring-item">
+          <div class="topic"><strong>Software crisis / OS-360</strong><div class="meta">B5 both years. May 2025: real crisis? July 2025: OS/360 as exemplar.</div></div>
+          <div class="coverage cov-yes">L4 Tier 1</div>
+        </div>
+        <div class="recurring-item">
+          <div class="topic"><strong>Computer manufacturers reconstructed</strong><div class="meta">B2 both years. Business-machine pivot in 1950s.</div></div>
+          <div class="coverage cov-yes">L3 Tier 1</div>
+        </div>
+        <div class="recurring-item">
+          <div class="topic"><strong>IBM (Watson / 1401)</strong><div class="meta">B3 both years. May 2025: "Watson rational but wrong". July 2025: IBM 1401 success.</div></div>
+          <div class="coverage cov-yes">L3 Tier 3</div>
+        </div>
+        <div class="recurring-item">
+          <div class="topic"><strong>Timesharing / new ways of computing</strong><div class="meta">B6 both years. Setup for personal computing.</div></div>
+          <div class="coverage cov-partial">L4/L5 partial</div>
+        </div>
+        <div class="recurring-item">
+          <div class="topic"><strong>Broadening the appeal (1980s PC)</strong><div class="meta">B8 both years. May 2025: how it broadened. July 2025: failed GUI companies.</div></div>
+          <div class="coverage cov-partial">L5 partial</div>
+        </div>
+        <div class="recurring-item">
+          <div class="topic"><strong>Internet</strong><div class="meta">B9 both years. May: three desires. July: email sociology.</div></div>
+          <div class="coverage cov-yes">L6 Tier 1</div>
+        </div>
+        <div class="recurring-item">
+          <div class="topic"><strong>Computing and governance / privacy</strong><div class="meta">B12 both years. Chapter 14/15 territory.</div></div>
+          <div class="coverage cov-yes">L7 Tier 1</div>
+        </div>
+        <div class="recurring-item">
+          <div class="topic"><strong>Histories (C1)</strong><div class="meta">C1 both years. May: AI starting points + agendas. July: appropriation + AI.</div></div>
+          <div class="coverage cov-partial">L1/L2 partial</div>
+        </div>
+        <div class="recurring-item">
+          <div class="topic"><strong>Defining technology (Bolter)</strong><div class="meta">C5 BOTH years. 1960s cybernetics (May) vs 21st century AI (July).</div></div>
+          <div class="coverage cov-partial">L3/L5 partial</div>
+        </div>
+        <div class="recurring-item">
+          <div class="topic"><strong>AI winters / agendas</strong><div class="meta">C6 May 2025 + NO BONUS July 2025 (McCorduck). Big recurring theme.</div></div>
+          <div class="coverage cov-partial">L5 partial</div>
+        </div>
+        <div class="recurring-item">
+          <div class="topic"><strong>AI and education</strong><div class="meta">A5 May 2025 + A5 July 2025. Both years.</div></div>
+          <div class="coverage cov-yes">L4 Tier 3</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exam-section">
+      <h2>🎯 2026 most-likely questions by category</h2>
+      <p class="sub">Pick 1 A, 2 B, 1 C. Click a category below to see the predictions.</p>
+      <div class="pred-tabs">
+        <button id="pred-tab-A" class="active" onclick="switchPred('A')">A-Questions (lecture)</button>
+        <button id="pred-tab-B" onclick="switchPred('B')">B-Questions (book)</button>
+        <button id="pred-tab-C" onclick="switchPred('C')">C-Questions (combine)</button>
+      </div>
+
+      <div class="pred-group active" id="pred-group-A">
+        <div class="pred-list">
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Three traditions of automation</strong> — admin / process control / science. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L1 Tier 1</span>Foundational prof framing.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Three histories converged in the modern computer. Administration (Hollerith's 1890 census tabulator → IBM), process control (industrial factories regulating temperature and flow), and science (de Prony's 1790s human-computer factory → Babbage → ENIAC 1946). The point is computing wasn't one history but three that finally met in a single machine.</p>
+              <div class="ref">Full essay on the platform: <strong>L1 Tier 1 (Q1)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Dutch dinosaurs</strong> — name one + compare to US/UK dinosaur. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L2 Tier 1</span>Almost certain — appeared 2025 I.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Pick van Wijngaarden (ARRA, Amsterdam, 1952) and/or van der Poel (ZEBRA, Delft, 1955). Small teams, funny acronyms, what Alberts called "bluffing their way into the computer age." For a US/UK comparison, pick UNIVAC (Eckert + Mauchly, 1951) or IBM 700 series — orders of magnitude bigger funding, sales force, and customer base. The contrast is scale and ambition.</p>
+              <div class="ref">Full essay on the platform: <strong>L2 Tier 1 (Q3)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Electronic brain metaphor</strong> — relation to AI research. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L3 Tier 3</span>Appeared 2025 I.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> The 1950s called computers "electronic brains" (Turing's <em>Intelligent Machinery</em> 1948, Edmund Berkeley's <em>Giant Brains</em> 1949, plus tabloid press). The metaphor worked as a sales tool but set unrealistic AI expectations that contributed to later AI winters. Bolter (1984) calls this kind of metaphor a "defining technology" — the framing shapes how a culture sees itself, and computers became "brain-like" partly because we kept calling them that.</p>
+              <div class="ref">Full essay on the platform: <strong>L3 Tier 3</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>AI in mathematics</strong> — proof checkers, two examples. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L4 Tier 1</span>Appeared 2025 I.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Two examples: <strong>McCarthy's 1965 LISP proof checker</strong> (extending his 1961 paper saying computation + mathematical logic could be as fruitful as analysis + physics had been), and <strong>Automath</strong> (de Bruijn, Eindhoven, started 1967; by mid-1970s had machine-checked Landau's analysis textbook). Climax: Haken &amp; Appel's 1976 four-colour theorem — first major proof done with essential computer help.</p>
+              <div class="ref">Full essay on the platform: <strong>L4 Tier 1 (A1)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>AI and education</strong> — two examples (PI, LOGO). <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L4 Tier 3</span>Appeared BOTH years.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Two examples: <strong>Programmed instruction</strong> (Skinner behaviourism 1954 → PLATO project, Illinois 1960) — drilling-style tutoring software; and <strong>LOGO</strong> (Papert + Minsky 1967, popularised in <em>Mindstorms</em> 1981) — children program the turtle, learn by building. Dutch case: 1968 "computer wiskunde" report + Vonk's 1971 blind-dating algorithm to teach arrays. Civic angle: van der Sluis 1969 said teaching algorithms protects citizens from a "big brother" society.</p>
+              <div class="ref">Full essay on the platform: <strong>L4 Tier 3</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Game culture and AI</strong> — mutual benefit. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L5 Tier 1</span>Appeared 2025 I.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Three threads. Chess as "drosophila of AI" — but the analogy meant fixation, not testbed (Shannon 1950 → Deep Blue 1997 didn't deliver general intelligence). Text adventures: Weizenbaum's ELIZA → his students' Oregon Trail (1971) → Zork (1977) — real natural-language work. Video games: scripted AI (Pacman ghosts), workforce training for later AI engineers.</p>
+              <div class="ref">Full essay on the platform: <strong>L5 Tier 1 (A1)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Acronyms in 1950s computing</strong> — functions of. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">New essay below</span>2025 II A3.</div>
+            <div class="pred-essay">
+              <p>In the 1950s, computer projects almost universally gave themselves acronyms. The Dutch were famous for this: ARRA, ZEBRA, PETER, PASCAL, MIRACLE. The American and British scene had ENIAC, UNIVAC, EDVAC, EDSAC, LEO. The lecturer pointed out three real functions, not just stylistic ones.</p>
+              <p>The first function was <strong>identity</strong>. Small computer teams, often working in universities with tiny budgets, needed a way to talk about their machine and present it to funders. An acronym gave the project a name that fit on a poster and a grant application.</p>
+              <p>The second function was <strong>memorability</strong>. The full name of ZEBRA in Dutch translates to "very simple binary calculator." Nobody would say that out loud. Saying "ZEBRA" turned a clunky technical project into something a listener could remember and repeat.</p>
+              <p>The third function, especially in the Dutch case, was <strong>humour and self-deprecation</strong>. ZEBRA literally meant "very simple": the engineers were claiming modesty even as they were building something hard. MIRACLE at Shell was openly tongue-in-cheek.</p>
+              <p>Acronyms were a small marker of how the 1950s computing community saw itself: a network of named projects, each with a memorable label, each in conversation with the others. In a period before the industry was dominated by IBM, the acronym was how a Dutch project signalled it was part of the global story.</p>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Grace Hopper</strong> — direct + indirect contributions to computing &amp; AI. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L4 Tier 2</span>Appeared 2025 II.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Worked on Harvard Mark I (WWII), then UNIVAC. Her Flow-Matic language (1955) heavily influenced COBOL (1959). She championed English-language code, calling it "educating a computer." Coined "compiler" and "debugging" (after a moth in a relay). Direct contribution: COBOL. Indirect: she shaped the whole idea that programming should be readable by non-experts — a precondition for ordinary people interacting with AI today.</p>
+              <div class="ref">Full essay on the platform: <strong>L4 Tier 2</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Technology and trust (late 19th / early 20th c)</strong> — how trust was established. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">New essay below</span>2025 I A1.</div>
+            <div class="pred-essay">
+              <p>Before people could trust computers, they first had to trust machines in general. That trust was built up between roughly 1880 and 1930 through specific developments.</p>
+              <p>The first thing was <strong>infrastructure success</strong>. Telegraph networks crossed continents reliably from the 1860s. Railways ran on timetables. Electricity arrived in households in the late 1800s and just kept working. Each of these systems taught the public that machines could be depended on.</p>
+              <p>The second thing was <strong>office and factory mechanisation</strong>. Hollerith's punched-card machines processed the 1890 US census faster and more accurately than the human clerks who had done the 1880 one. Taylor's scientific management broke down factory work into measured motions. Ford's moving assembly line in 1913 produced standardised cars at a price ordinary people could afford. These workplaces taught a generation that mechanical systems outperformed traditional human ones.</p>
+              <p>The third thing was the <strong>cultural shift around what counted as modern</strong>. By the 1920s, "scientific" and "modern" had become positive words. To trust a machine was to be progressive. To distrust one was to be a Luddite.</p>
+              <p>By the time the first computers arrived in the 1940s, the audience was already prepared. The hard work of establishing trust in machines had been done by railways, telegraph offices, factories and assembly lines decades earlier. Computers inherited that trust.</p>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Web 2.0 and AI</strong> — Web 2.0 influence on AI rise. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L7 Tier 1</span>2025 I A8.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Web 2.0 (Yahoo 1993, Google PageRank 1997, Wikipedia 2001, Facebook 2002) produced two things at once: the World Brain Wells imagined, automated and free, AND massive behavioural data. That data became the training fuel for modern AI. So the 1990s/2000s Internet enabled the 2010s AI boom. The cost: surveillance capitalism business model (Cambridge Analytica scandal showed the dark side).</p>
+              <div class="ref">Full essay on the platform: <strong>L7 Tier 1</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Data and AI / surveillance capitalism</strong> — intertwined rise. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L7 Tier 1</span>2025 II A8.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Modern ML needs huge data. Web 2.0 platforms (Google, Facebook, Amazon) collect it as a side effect of user activity. That same data trains AI systems — search, recommendations, large language models. Surveillance capitalism = data extraction as business model. Cathy O'Neil (<em>Weapons of Math Destruction</em>, 2016) and Timnit Gebru showed the bias problems. AI rises with the data; the data comes from surveillance.</p>
+              <div class="ref">Full essay on the platform: <strong>L7 Tier 1</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Computers and ordinary life (1980s/90s)</strong> — statistics + blockbuster movies. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">New essay below</span>2025 II A7.</div>
+            <div class="pred-essay">
+              <p>In the 1980s and 1990s, computers moved from being industrial machines to being a normal part of household life. The lecturer made the point with two kinds of evidence: statistics on PC ownership, and blockbuster movies that reflected the public mood.</p>
+              <p>The <strong>statistics</strong> are simple. In 1985, only about 5 percent of US households had a PC. By 1995 that figure had crossed 30 percent, and by 2000 it was over 50 percent. In the Netherlands, the "pc privé" scheme of the late 1980s let employees buy PCs through their workplace with tax benefits, which accelerated home adoption.</p>
+              <p>The <strong>movies</strong> show the same shift through their changing tone. Tron (1982) treated the inside of a computer as a strange new world. Terminator (1984) was the opposite: a warning about a machine that turned on its makers, made when household PCs were still expensive and unfamiliar. By the mid-1990s, the tone changed again. The Matrix (1999) put its computer fear next to a deep philosophical question, but it assumed the audience already knew what a server room and an email looked like. Resident Evil (1996) used computers as background, not as a special threat.</p>
+              <p>So the line of thought is that two different kinds of source point in the same direction. The statistics show that PCs spread fast into ordinary homes. The movies show that, as computers became normal, the cultural mood shifted from "what is this thing" to "is it dangerous" to "this is just what life is now." By 2000, computers had become invisible in the same way as washing machines.</p>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Paris 1951 conference</strong> — AI as driver of early computing. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-partial">L2 Tier 4</span>2025 II A2.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> The January 1951 Paris conference "Les machines à calculer et la pensée humaine" gathered European cybernetics thinkers (Wiener, Aiken, Wilkes, van Wijngaarden). Many female computers attended. Turing and Masterman did NOT. The line of thought: scientists in psychology, linguistics and logic were already framing the new computer as a tool for thinking-machine questions before engineers had finished building it. AI/cybernetics drove the building, not the other way around. Often called a "missed opportunity" — if it had shaped the field, AI might have stayed European and interdisciplinary instead of becoming American and narrow at Dartmouth 1956.</p>
+              <div class="ref">Full essay on the platform: <strong>L2 Tier 4 (outline)</strong>.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="pred-group" id="pred-group-B">
+        <div class="pred-list">
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Real time / Whirlwind / SAGE</strong> — military origin + entrepreneurial. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L3 Tier 1</span>Recurring B4 both years.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Whirlwind at MIT (Jay Forrester, started 1944 as aircraft trainer) went digital in 1945 with Perry Crawford's push, then Bill Papian invented core memory in 1951. ONR funding ran out, but the Cold War rescued it: Whirlwind became SAGE, the air-defence system that was obsolete on arrival (ICBMs) but trained engineers and seeded Route 128. Civilian payoff: SABRE airline reservations (1957-64, same architecture as SAGE). Campbell-Kelly's "successful blending": military funded the risky tech, business found the use cases. <strong>"No SAGE, no SABRE."</strong></p>
+              <div class="ref">Full essay on the platform: <strong>L3 Tier 1 (Q2)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Software crisis / OS-360</strong> — was it real? OS/360 as exemplar. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L4 Tier 1</span>Recurring B5 both years.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> NATO 1968 Garmisch conference coined the phrase. IBM's OS/360 (1964-66) was the disaster case — a million lines of code, nine months late, "painfully sluggish." Two diagnoses: <strong>Brooks (US)</strong> said it was a management problem (<em>Mythical Man-Month</em> 1975: adding programmers to a late project makes it later) → software engineering as a discipline. <strong>Dijkstra (Europe)</strong> said it was a conceptual problem → structured programming, formal methods. Both legacies survive: profession on one side, formal methods on the other.</p>
+              <div class="ref">Full essay on the platform: <strong>L4 Tier 1 (C4)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Computer manufacturers reconstructed</strong> — 1950s business pivot. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L3 Tier 1</span>Recurring B2 both years.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Through the early 1950s, computers were scientific instruments. By 1958 they were business machines. UNIVAC 1951 (Eckert + Mauchly) was the public face — predicted Eisenhower's 1952 election win on TV. IBM caught up slowly: Defense Calculator (1952, → 701) was for science; TPM (→ 702) was for business; the Model 650 was the breakthrough (cheap, university discounts). IBM won via marketing, service, and modular design. By 1958 the industry was "IBM and the seven dwarfs."</p>
+              <div class="ref">Full essay on the platform: <strong>L3 Tier 1 (B3)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>IBM 1401 success</strong> — good tech + great marketing. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L3 Tier 3</span>Appeared 2025 II.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> 1959, sold 12,000 vs 1,000 forecast. "Big Blue" nickname from powder-blue paint. Three reasons for success: (1) cheap and transistorised — replaced the tube-based Model 650 with much faster, more reliable parts; (2) RPG software — let existing card-machine operators write programs after a day's training; (3) IBM's total-system view — peripherals, training, software, service all bundled. Other manufacturers obsessed over CPUs; IBM understood customers buy systems.</p>
+              <div class="ref">Full essay on the platform: <strong>L3 Tier 3</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Internet "three desires"</strong> — confluence. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L6 Tier 1</span>2025 I B9.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Campbell-Kelly: the Internet was the confluence of three desires. <strong>(1) Fault-tolerant military network</strong> — ARPANET 1969, drove TCP/IP. <strong>(2) Unite separate networks</strong> — TCP/IP (mid-1970s) let any network talk to any other. <strong>(3) World Brain</strong> — the oldest and most romantic: H.G. Wells 1937 → Vannevar Bush Memex 1945 → Tim Berners-Lee WWW at CERN 1989. The Internet is where all three finally converged.</p>
+              <div class="ref">Full essay on the platform: <strong>L6 Tier 1 (C1)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Maurice Wilkes</strong> — Campbell-Kelly's roles for him. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-partial">L2 background</span>2025 I B1.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Cambridge mathematician who attended the 1946 Moore School Lectures (paid his own way to the US, arrived two weeks late). Came back to Cambridge and built EDSAC, operational May 1949 — the second stored-program computer to work, after the Manchester Baby. With Wheeler and Gill he wrote the first programming manual in 1951. He was the key European bridge from the Moore School to Britain. Campbell-Kelly treats him as one of the people who actually translated von Neumann's blueprint into a working machine.</p>
+              <div class="ref">Covered as background in <strong>L2 Tier 1 Moore School essay</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Watson rational but wrong; Eckert irrational but right</strong> — explain. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L3 Tier 1</span>2025 I B3.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Apocryphal story: IBM's Thomas Watson Sr. said around 1949 there was a market for "no more than a dozen computers." Eckert and Mauchly bet there was a much bigger market and founded the company that built UNIVAC. Watson's view was <em>rational</em> based on punched-card-era experience — most companies didn't need a big calculator. Eckert and Mauchly's view was <em>irrational</em> — they had no business plan and went broke twice — but they were right. Campbell-Kelly's point: in technology markets, the irrational vision sometimes wins, but it could just as easily have gone the other way.</p>
+              <div class="ref">Full essay on the platform: <strong>L3 Tier 1 (B3)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Personal computers + two cultures</strong> — California blend. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L5 Tier 1</span>2025 I B7.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> 1970s California blended two cultures. <strong>The counterculture:</strong> Stewart Brand's <em>Whole Earth Catalog</em> (1968-71), the Homebrew Computer Club (Menlo Park 1975), Ted Nelson's <em>Computer Lib</em> (1974). <strong>The engineering/business tradition:</strong> Stanford, Fairchild → Intel semiconductor chain, IBM PC (1981). Apple is what happens when both fuse — Wozniak's engineering + Jobs's countercultural design. Both cultures were most outspokenly present in the same place at the same time.</p>
+              <div class="ref">Full essay on the platform: <strong>L5 Tier 1 (C4 Valleys)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Whole Earth Catalogue</strong> — influence on PC rise. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L5 / L6 Tier 3</span>2025 II B7.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Stewart Brand, 1968-71 (with later supplements). A vast catalog listing "tools" for back-to-the-land individuals. Slogan: "We are as gods, and might as well get good at it." Many Homebrew Computer Club members were readers. The catalog gave the personal computer its political vocabulary: technology as personal liberation, not corporate property. Steve Jobs quoted the catalog's farewell line "Stay hungry, stay foolish" in his 2005 Stanford speech. Campbell-Kelly treats it as the cultural ground out of which Apple grew.</p>
+              <div class="ref">Full essay on the platform: <strong>L5 Tier 1 (B2 Computer Lib)</strong> + <strong>L6 Tier 3</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Failed GUI companies (Apple Lisa, MS Bob, etc.)</strong> — why know about these? <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">New essay below</span>2025 II B8.</div>
+            <div class="pred-essay">
+              <p>The graphical user interface we use every day was not first launched by Apple or Microsoft. It was launched by Xerox and then by Apple Lisa, both of which commercially failed. Knowing about these failures is what makes the eventual Mac and Windows success understandable, not inevitable.</p>
+              <p><strong>Xerox Star (1981)</strong> used everything we now recognise as a modern computer: mouse, windows, icons, the desktop metaphor. Almost all of these had been developed at Xerox PARC by Alan Kay and others during the 1970s. The problem was the price. The Star cost about $16,000 in 1981. It was aimed at corporate office buyers, but it was too expensive for most departments, and Xerox's sales team did not really know how to sell a computer. The Star was withdrawn within a few years.</p>
+              <p><strong>Apple Lisa (1983)</strong>, launched for about $10,000, was Apple's first attempt at a consumer GUI computer. Steve Jobs had visited Xerox PARC in 1979 and taken the ideas back to Apple. The Lisa had a beautiful interface and a serious operating system, but it was slow and expensive. It also flopped commercially. What rescued the GUI for Apple was the <strong>Macintosh (1984)</strong>, at $2,495.</p>
+              <p>Knowing these failed stories matters for two reasons. First, it shows that innovation by itself is not enough: price, timing and a sales channel are what made the Mac work where the Lisa did not. Second, it removes the temptation to read the history of computing as inevitable. Xerox could easily have been the Apple of the 1980s if it had priced the Star differently.</p>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Perry Crawford / Whirlwind twice</strong> — how he saved it. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L3 Tier 3</span>2025 II B4.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Crawford was a key figure across military and business real-time computing. <strong>Save #1:</strong> in 1945 he met Jay Forrester at MIT and persuaded him to make Whirlwind digital rather than analogue — a huge bet at a time when no digital computer yet existed. Without this, Whirlwind would have been just another analogue flight simulator. <strong>Save #2:</strong> later, Crawford was personally involved in SABRE (the IBM + American Airlines reservation system, 1957-64), carrying the Whirlwind-style real-time architecture into civilian business. He is the connecting figure between military funding and commercial deployment.</p>
+              <div class="ref">Full essay on the platform: <strong>L3 Tier 3</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Email sociology</strong> — social fascination with new medium. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-partial">L6 Sherry Turkle</span>2025 II B9.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Sherry Turkle's arc tells the story. In <em>Who Am We?</em> (1996) she was optimistic: online identities and email let people explore selves they couldn't try offline. In <em>Alone Together</em> (2011) she reversed: constant connection had eroded face-to-face intimacy. Daniel Miller's <em>How the World Changed Social Media</em> (2016) found similar patterns globally. Sociologists and psychologists were fascinated by email because it was a new medium that mixed intimacy and distance in a way no previous medium had — and the social effects took years to show up.</p>
+              <div class="ref">Full essay on the platform: <strong>L6 Tier 3 (Turkle)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Magnetic tape problems</strong> — 1950s manufacturer struggles. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">New essay below</span>2025 II B2.</div>
+            <div class="pred-essay">
+              <p>In the late 1940s and early 1950s, magnetic tape was the technology that promised to replace punched cards for mass storage on computers. Eckert and Mauchly's UNIVAC, delivered in 1951, was the first commercial computer to depend on it. But getting magnetic tape to actually work in practice turned out to be harder than expected, and the manufacturers faced three kinds of problem.</p>
+              <p>The first was <strong>mechanical</strong>. Tape had to move past a read/write head at precise speeds, then start and stop suddenly between records. Early tape drives stretched the tape, snapped it, or simply lost track of where they were on the reel. UNIVAC machines were often offline because the tape drives were broken.</p>
+              <p>The second was about the <strong>material itself</strong>. Early plastic-backed tapes were sensitive to heat and humidity. They stretched in storage, which corrupted data. The metal oxide coating that held the magnetic information could flake off when the tape was rewound too many times.</p>
+              <p>The third was <strong>cultural and commercial</strong>. IBM, the dominant manufacturer, had its whole business built around punched cards. Customers were trained to think in card decks. Switching to magnetic tape meant retraining clerks, redesigning data layouts, and trusting a fragile new medium. IBM was slow to adopt tape and continued building punched-card machinery well into the 1950s. UNIVAC's lead in tape did not translate into a lasting commercial advantage.</p>
+              <p>By the late 1950s, the mechanical, material and cultural problems had all been solved enough for tape to become standard. But the first decade was a struggle.</p>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Off-shoring + out-sourcing</strong> — IT globalization examples. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L6 Tier 1</span>2025 II B10.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Two defining traits of the globalised computer industry. <strong>Off-shoring:</strong> move manufacturing abroad — Foxconn in China, TSMC in Taiwan, Samsung in Korea. American and European brands keep design at home, build their products in East Asia. <strong>Out-sourcing:</strong> move software services — India's IT industry (Infosys, Wipro, TCS), Bangalore as the global IT-services hub. Made computing cheap by hiding the dirty parts and the cheap labour. Connect to costs: M-Pesa in Kenya (2007) shows the positive side; Agbogbloshie e-waste in Ghana shows the negative.</p>
+              <div class="ref">Full essay on the platform: <strong>L6 Tier 1 (B2 Globalization)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Google + surveillance capitalism</strong> — what was new c.2000. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L7 Tier 1</span>2025 I B11.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Google's PageRank (Page + Brin, Stanford, 1997) was new because it automated what Yahoo had been doing by hand: ranking websites by quality. The World Brain that Wells had imagined humans indexing became free at the point of use. The business model — advertising tied to behavioural tracking — is what Shoshana Zuboff calls surveillance capitalism. Google rebranded as Alphabet (2015), motto shifted from "Don't be evil" to "Do the Right Thing." Cambridge Analytica (Facebook, 2018) showed the same model's dark side.</p>
+              <div class="ref">Full essay on the platform: <strong>L7 Tier 1 (Web 2.0)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Netflix + Web 2.0</strong> — surveillance capitalism. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-partial">L7 Tier 2</span>2025 II B11.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Netflix illustrates Web 2.0's interactive turn: user data (what you watched, when you paused, what you abandoned) drives recommendation algorithms. The same business model as Google: free or cheap service in exchange for behavioural data. Campbell-Kelly frames it as another surveillance-capitalism example — the platform sells advertisers, networks, and itself the prediction that "this user will keep watching." The point is not that Netflix is uniquely dangerous; it's that the same data-extraction logic powers all major Web 2.0 services.</p>
+              <div class="ref">Full essay on the platform: <strong>L7 Tier 2 (Gig economy / Web 2.0)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Diversity and inclusion in 2010s</strong> — book's positive note. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L7 Tier 3</span>2025 I B10.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Campbell-Kelly's positive note in the final chapters. Examples: ENIAC's six women programmers (Kathleen McNulty and others), written out of contemporary press. Mar Hicks's <em>Programmed Inequality</em> documented British women IT workers fired upon marriage. Joy Rankin's <em>A People's History of Computing</em> recovered the US story. Timnit Gebru's 2020 firing from Google over the "Stochastic Parrots" paper made AI ethics mainstream. The positive story is that the white-male narrative has been challenged from inside the industry, and forgotten contributors are being recovered.</p>
+              <div class="ref">Full essay on the platform: <strong>L7 Tier 3 (Mar Hicks + Joy Rankin)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Computing &amp; governance / privacy law</strong> — US vs European. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L7 Tier 1</span>B12 BOTH years.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> <strong>GDPR (EU, 2016)</strong> treats privacy as a fundamental right. Rules on what data is collected, who has access, why, with fines up to 4% of global revenue. <strong>US</strong> has no federal equivalent: privacy is regulated sector-by-sector (HIPAA for health, FERPA for education). California's CCPA (2018) is the closest US version. The deeper difference: Europe treats data as a right; the US treats it as commercial property. After 9/11, US surveillance infrastructure expanded; Edward Snowden's 2013 disclosures showed the scale. China has the Great Firewall — a third model.</p>
+              <div class="ref">Full essay on the platform: <strong>L7 Tier 1 (GDPR)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Broadening the appeal (1980s)</strong> — main firms + how. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-partial">L5 partial</span>B8 both years.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Campbell-Kelly's chapter 11 title. Three things broadened the PC's appeal in the 1980s. <strong>GUI</strong> — Macintosh (1984), Windows 3.0 (1990, finally fast enough on Intel 386). <strong>CD-ROM</strong> — Sony/Philips 1984, with games (Grandma and Me 1992) and encyclopedias (Encarta, Grolier) as the killer apps. <strong>Consumer networks</strong> — CompuServe (1969 timesharing → home users by 1978), AOL (1991, free-floppy marketing → 4.5M subscribers by 1995), Minitel (France, 1983). By 1995, PCs had become household goods.</p>
+              <div class="ref">Covered partially in <strong>L5 Tier 2 (Apple vs IBM)</strong> + <strong>L7 Tier 1 (Cloud)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Timesharing</strong> — for "ordinary people" + setup of PC. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-partial">L4 / L5 partial</span>B6 both years.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> 1960s shift from batch processing to interactive use. <strong>MIT CTSS</strong> (Fano + Corbató, 1961) was the first. <strong>Dartmouth Time-Sharing System (DTSS)</strong> (Kemeny + Kurtz, 1964) was the one for non-experts — students used terminals directly. Out of DTSS came <strong>BASIC</strong>, designed to be learnable in an hour. Timesharing felt personal even on a shared mainframe, which is the cultural step that made the personal computer thinkable a decade later. Campbell-Kelly: timesharing is when computing started becoming interesting for "ordinary people."</p>
+              <div class="ref">Full essay on the platform: <strong>L4 Tier 1 (BASIC)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Moore school</strong> — computing "as means to an end". <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L2 Tier 1</span>2025 II B1.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> University of Pennsylvania. <strong>Pre-war:</strong> Bush's differential analyser brought army ballistics work to the school. <strong>War:</strong> Mauchly proposed an electronic computer to break the calculation bottleneck for firing tables; Eckert built it; ENIAC was completed in late 1945. <strong>Post-war:</strong> von Neumann's <em>First Draft of a Report on the EDVAC</em> (June 1945) defined the stored-program computer. The 1946 Moore School Lectures (eight weeks) taught Wilkes, Newman, Williams, who took the architecture back to Cambridge and Manchester. Campbell-Kelly's "means to an end": Moore School built ENIAC for ballistics, not for the sake of computing itself.</p>
+              <div class="ref">Full essay on the platform: <strong>L2 Tier 1 (Q2)</strong>.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="pred-group" id="pred-group-C">
+        <div class="pred-list">
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Histories of AI / alternative starting points + agendas</strong> <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-partial">L1 / L2 partial</span>C1 both years.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> The traditional history of AI starts with Turing 1950 (the "imitation game" paper) or Dartmouth 1956 (where the name "AI" was coined). Two alternative starting points: <strong>Babbage's Analytical Engine (1830s)</strong> as the first conceptual computer / "thinking machine"; and the <strong>Macy conferences (1946-53)</strong> as the broader cybernetics origin that AI later narrowed. Use "agendas" to structure: each starting point reflects a different agenda — engineering (Babbage), logic (Boole/Turing), interdisciplinary feedback (Macy), American symbolic AI (Dartmouth). Different starting points produce different fields.</p>
+              <div class="ref">Covered in <strong>L1 Tier 1 (Q1)</strong> and <strong>L2 Tier 1 (Q1)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Defining technology (Bolter)</strong> — two examples. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-partial">L3 / L5 partial</span>C5 BOTH years.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Bolter's <em>Turing's Man</em> (1984) says a "defining technology" shapes how a culture sees itself, not just what it builds. Two examples:</p>
+              <p><strong>Cybernetics (1960s)</strong> — "feedback" entered everyday language. Organisations were modelled as systems with inputs and outputs. Stafford Beer's Cybersyn for Allende's Chile (1971-73) tried to run an entire country as a cybernetic system. Companies redefined themselves as "information processors." The word "system" carried the metaphor everywhere.</p>
+              <p><strong>AI (21st century)</strong> — "algorithm" defines daily decisions: who gets the loan, who appears in search results, what Netflix recommends. "Data-driven" describes everything from medicine to advertising. We talk about our brains as "wetware" and our skills as "training" — the AI metaphor runs the other way too. The technology shapes our self-understanding.</p>
+              <p>In both cases the technology was real, but the bigger effect was metaphorical: cybernetics made everything a system, AI makes everything an algorithm.</p>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>AI winters + agendas / Babbage→Aiken narrative parallel</strong> <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-partial">L5 partial</span>C6 May 2025 + NO BONUS July 2025.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Each AI winter follows an inflated promise. First winter: 1970s, after the Lighthill report (1973) in the UK cut AI funding. Second winter: late 1980s and early 1990s, after the expert-systems boom collapsed and Japan's Fifth Generation (1982) failed to deliver general intelligence. The Babbage parallel: Babbage failed in the 1830s, but a century later Aiken (Harvard, 1944) explicitly sold the Mark I as "Babbage's dream come true" — reframing past failure as current hope to obtain funding. The "agenda" point: each new generation rebrands old failure as new opportunity. McCorduck's 1979 history did the same for AI, helping inflate the 1980s boom that then collapsed.</p>
+              <div class="ref">Covered in <strong>L5 Tier 1 (Expert systems)</strong> + <strong>L7 Tier 3 (McCorduck)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>World Brain → AI</strong> — Wells, Bush, Berners-Lee, Google PageRank. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L6 Tier 1</span>Likely C — your L6 assignment had this.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Wells's 1937 lecture proposed a "World Brain" — a networked global encyclopedia. Bush's Memex (Atlantic Monthly, 1945) was a personal browsing machine with "associative trails" (hypertext in concept). Berners-Lee built the WWW at CERN in 1989 as "the marriage of hypertext and the Internet." The AI instance: Google's PageRank (Page + Brin, Stanford, 1997, advised by AI researcher Terry Winograd of SHRDLU fame) automated the indexing Wells imagined humans doing. Wells: "a great number of workers... engaged in perfecting this index of human knowledge." Page and Brin built a piece of software. Internet = medium; AI = the brain.</p>
+              <div class="ref">Full essay on the platform: <strong>L6 Tier 1 (B1)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Internet boom + appropriation</strong> — different in book vs lecture. <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-partial">L6 partial</span>2025 I C4.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> The book frames the Internet boom as confluence of three desires (military fault-tolerance, network unification, World Brain). The lecture frames it as mass-media history continued (telegraph → radio → TV → Internet) + appropriation: different countries took the same technology and used it differently. <strong>Appropriation examples:</strong> France's Minitel (1978-2012) — government-led mass deployment; China's CFIDO (1991-1998) — hobbyist bulletin board; Dutch Datanet 1 — professional networks. These weren't failed Internets; they were national mass-media traditions shaping a new technology to local needs.</p>
+              <div class="ref">Covered in <strong>L6 Tier 1 (C1)</strong> + <strong>L6 Tier 1 (C2 Consumer networks)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Silicon Valley vs European valleys + company culture</strong> <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L5 Tier 1</span>2025 I C3. Your L5 assignment.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Campbell-Kelly busts the "two boys in a garage" myth. The real reason Silicon Valley worked: a dense ecosystem — Stanford university, the Shockley → Fairchild → Intel spin-off chain, military money (Fairchild's defence contracts), venture capital (Markkula at Apple), and the counterculture (Brand, Homebrew). The European valleys had buildings but not ecosystems: <strong>Sophia-Antipolis</strong> (France, 1969) — utopian planning, no spin-off culture; <strong>Twente</strong> (Netherlands, 1964) — polytechnic but small budget; <strong>Eindhoven/ASML</strong> (1980s); <strong>SAP at Mannheim</strong> (1972) — the one European success, but a single company not a valley. The punch line: "Sophia-Antipolis built buildings; Palo Alto built an industry."</p>
+              <div class="ref">Full essay on the platform: <strong>L5 Tier 1 (C4 Valleys)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Computer clubs US vs European + agendas</strong> <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L5 Tier 2</span>2025 II C4.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> US: <strong>Homebrew Computer Club</strong> (Menlo Park, 1975) — libertarian, "free information," Robin-Hood ethic. Members became Apple, etc. European clubs: <strong>Chaos Computer Club</strong> (Berlin, 1981) — political activism, "freedom for the data," linked to 1980s squatter movement; <strong>Hack-Tic</strong> (Netherlands, 1989-94) — surveillance critique, civic angle; <strong>Amateur Computer Club</strong> (Essex, 1973); <strong>AFACO</strong> (France, 1974). Use "agendas" concept: US clubs had a libertarian agenda (tech for personal liberation); European clubs had a political agenda (tech for democracy and against state surveillance). Same hobby, different politics.</p>
+              <div class="ref">Full essay on the platform: <strong>L5 Tier 2</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Digital culture as 21st c framing</strong> <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-yes">L1 Tier 1</span>2025 I C2.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> "Digital culture" doesn't just mean doing the same things online. It means transformation in the texture of an existing habit. Personal example (studying): library → search engines, paper → Notion, in-person → group chats. <strong>Positives:</strong> reach, speed, individualization. <strong>Negatives:</strong> shallower memory, fragmented attention, surveillance, deskilling. The change is cultural, not just technical. To what extent does it fit 21st c? Strongly: nearly every habit (work, learning, friendship, dating) has been remade. But there's always a catch — digital culture inevitably produces a digital divide.</p>
+              <div class="ref">Full essay on the platform: <strong>L1 Tier 1 (Q4)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Data driven culture as 21st c framing</strong> <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-partial">L6 / L7 partial</span>2025 II C2.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Sibling concept to "digital culture" but data is now the medium and the rule. Recommendation algorithms (Netflix, Spotify, TikTok) shape choices. Personalised ads predict behaviour. Surveillance capitalism (Zuboff) describes the trade-off: free services in exchange for behavioural data. To what extent does "data driven" fit 21st century? It captures something real — most major institutions now operate on extracted data — but it hides who chose to make data the rule (advertisers, platforms, regulators). It's a useful 21st c label as long as you remember it's a political choice, not a natural state.</p>
+              <div class="ref">Covered in <strong>L7 Tier 1 (Web 2.0 + GDPR)</strong>.</div>
+            </div>
+          </div>
+
+          <div class="pred-item" onclick="togglePred(this)"><strong>Prejudice in AI / non-caucasian-male examples</strong> <span class="pred-chev">▸</span>
+            <div class="pred-meta"><span class="badge cov-partial">L2 / L6 partial</span>2025 II C3.</div>
+            <div class="pred-essay">
+              <p><strong>Quick recall.</strong> Two examples that contradict the white-male narrative: (1) <strong>The ENIAC Six</strong> — Kathleen McNulty, Frances Bilas, Betty Jean Jennings, Ruth Lichterman, Marlyn Wescoff, Frances Snyder — the women who programmed the first electronic computer, but were not even invited to the unveiling dinner in 1946. (2) <strong>Timnit Gebru</strong> — Ethiopian-American computer scientist, co-led Google's ethical AI team, fired in 2020 after co-authoring the "Stochastic Parrots" paper warning about large language model bias. Her work, with Joy Buolamwini's Algorithmic Justice League, made AI ethics mainstream. Why the standard narrative came to be: institutional photographs and press releases featured the men who built the hardware; the programmers (often women) were treated as clerical support. Mar Hicks and Joy Rankin recovered the missing stories.</p>
+              <div class="ref">Covered in <strong>L2 background</strong> + <strong>L7 Tier 3 (Mar Hicks + Joy Rankin)</strong>.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="exam-section">
+      <h2>✅ L7 now covered (chapters 14–15)</h2>
+      <p class="sub">L7 essentials and Tier 1–4 essays are in. The previously-flagged gaps are now answered.</p>
+      <div class="recurring-list">
+        <div class="recurring-item"><div class="topic"><strong>Web 2.0 / Google / surveillance capitalism</strong><div class="meta">Yahoo → Google → Wikipedia → surveillance.</div></div><div class="coverage cov-yes">L7 Tier 1</div></div>
+        <div class="recurring-item"><div class="topic"><strong>Cloud computing</strong><div class="meta">AWS / Salesforce / Azure as time-sharing revived.</div></div><div class="coverage cov-yes">L7 Tier 1</div></div>
+        <div class="recurring-item"><div class="topic"><strong>GDPR vs US privacy law</strong><div class="meta">Direct US/Europe contrast.</div></div><div class="coverage cov-yes">L7 Tier 1</div></div>
+        <div class="recurring-item"><div class="topic"><strong>Digital divide / hidden costs</strong><div class="meta">Environment, labour, prejudice. Agbogbloshie, Mar Hicks, Gebru.</div></div><div class="coverage cov-yes">L7 Tier 1</div></div>
+        <div class="recurring-item"><div class="topic"><strong>Wikipedia + gig economy + blockchain + antitrust</strong><div class="meta">Tier 2 deep-dives.</div></div><div class="coverage cov-yes">L7 Tier 2</div></div>
+      </div>
+    </div>
+
+    <div class="exam-section">
+      <h2>💡 Strategy notes</h2>
+      <div class="tk-grid">
+        <div class="tk-card">
+          <h3><span class="emoji">⏱️</span> Time management</h3>
+          <p>2h 15min = 135 min / 4 essays = ~33 min each. Spend 5 min picking questions, 5 min outlining each, 20 min writing, 3 min checking.</p>
+        </div>
+        <div class="tk-card">
+          <h3><span class="emoji">🎯</span> Pick wisely</h3>
+          <p>Aurora's feedback was about <em>specific examples</em>. Pick the questions where you have at least 3 named examples ready (person + year + what they did).</p>
+        </div>
+        <div class="tk-card">
+          <h3><span class="emoji">🔑</span> The prof's keywords</h3>
+          <p>Use the actual lecture concepts: <strong>agendas, appropriation, defining technology (Bolter), three traditions, company culture, three desires</strong>. Each one is worth points just for echoing.</p>
+        </div>
+        <div class="tk-card">
+          <h3><span class="emoji">✍️</span> Body structure (from seminar)</h3>
+          <p>Decompose the question into clauses. Answer each one in a labelled body section. Don't ramble — show your reasoning.</p>
+        </div>
+        <div class="tk-card">
+          <h3><span class="emoji">🚫</span> Avoid</h3>
+          <p>Buzzwords without examples. Imposing your own framework where the chapter has a clear one. Tangential angles (Aurora killed "standards" for Globalization).</p>
+        </div>
+        <div class="tk-card">
+          <h3><span class="emoji">✅</span> Bonus secured</h3>
+          <p>You got the assignment bonus, so you skip the NO BONUS question. Just 4 essays: 1 A + 2 B + 1 C. Max 9 points (8 + 1 free bonus).</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ============ TOOLKIT VIEW ============ -->
@@ -993,6 +1753,65 @@ const essentials = {
       "Cathy O'Neil's <em>Weapons of Math Destruction</em> (2016) showed that machine learning, marketed as bias-free, often encoded existing inequalities at scale — a critique extended by Timnit Gebru and the Algorithmic Justice League."
     ],
     finalNote: "Other names you'll see — Vinton Cerf, Robert Kahn, Larry Page, Sergey Brin, Sherry Turkle, Marleen Stikker, Saskia Stuiveling, Cathy O'Neil, Timnit Gebru, Steven Levy, Janet Abbate, Mar Hicks — are bonus. The 5 anchors above (Wells, Bush, Berners-Lee, Minitel, CCC) will carry any L6 essay."
+  },
+
+  L7: {
+    title: "Lecture 7 — Digital Culture, Digital Divide (Chapters 14–15)",
+    intro: "L7 is the wrap-up: the ubiquitous computer (cloud + Web 2.0), governance (GDPR, antitrust, surveillance), and the digital divide. Plus the reflective frame: why we did this course. Five anchors. Three dates. Two arguments.",
+    people: [
+      {
+        name: "Pamela McCorduck",
+        when: "1940–2021",
+        did: "Wrote <em>Machines Who Think</em> (1979), the standard popular history of AI. The lecturer used her as the framing figure for the whole story: the field has its myths, its heroes, and its forgotten figures. She also showed up in the 1983 <em>Fifth Generation</em> book that triggered Japan's AI initiative.",
+        useFor: "AI history meta-questions, the reflective frame, NO BONUS-style questions about how AI history gets told."
+      },
+      {
+        name: "Google (Page + Brin)",
+        when: "Stanford, 1997 → Alphabet 2015",
+        did: "Larry Page and Sergey Brin built PageRank at Stanford in 1997. By 2007 the company had $3.19bn in advertising revenue. Expanded into Gmail (2004), YouTube (2006), Chrome (2008), Android. Rebranded as Alphabet (2015). Motto shifted from “Don't be evil” to “Do the Right Thing.”",
+        useFor: "World Brain finally automated, surveillance capitalism, Web 2.0 business model."
+      },
+      {
+        name: "Jeff Bezos (Amazon + AWS)",
+        when: "Seattle, 1995 onwards",
+        did: "Founded Amazon as an online bookseller in July 1995. By 2011 Borders had gone bankrupt (21,000 jobs lost). Launched the Kindle (2007). In a 2006 MIT talk announced AWS — Amazon's server infrastructure sold to corporations — which became the world's largest cloud.",
+        useFor: "the cloud question, time-sharing revived, gig economy, the universal retailer."
+      },
+      {
+        name: "GDPR (EU, 2016)",
+        when: "Adopted 2016, in force 2018",
+        did: "The General Data Protection Regulation. Sets rules on what personal data can be collected, who has access, why, and how it must be stored. Gives users rights to access, correct, and delete their data. Fines up to 4% of global revenue. The strongest government answer so far to surveillance capitalism.",
+        useFor: "the computing &amp; governance question, US vs European privacy law, regulation of cloud-era companies."
+      },
+      {
+        name: "Agbogbloshie + the digital divide",
+        when: "Ghana, 2000s onwards",
+        did: "One of the world's largest e-waste dumps. Old phones, computers, and screens from Europe and the US are taken apart by hand and burned for metal. The lecturer used it as the standing example of computing's hidden environmental and human cost.",
+        useFor: "digital divide questions, hidden costs of computing, environmental angle, globalization."
+      }
+    ],
+    dates: [
+      { year: "1995", event: "<strong>Amazon launched</strong> (Seattle, July). The online retailer that later builds AWS, Kindle, and a global supply chain. The start of e-commerce as a mass-market category." },
+      { year: "1997", event: "<strong>Google PageRank</strong> (Stanford). Automated the indexing job Wells had imagined humans doing. World Brain becomes free at the point of use." },
+      { year: "2016", event: "<strong>GDPR adopted</strong> by the EU. The first major regulatory response to surveillance capitalism. The US still has no equivalent federal law." }
+    ],
+    traditions: [
+      { name: "The ubiquitous computer", desc: "Cloud + Web 2.0 + global supply chains. Computing is everywhere because it is no longer in one place.", anchor: "<strong>AWS (Bezos, 2006)</strong>" },
+      { name: "Data-driven society", desc: "Machine learning, pattern recognition, recommendation systems. The 'always a catch' angle: convenience traded for surveillance.", anchor: "<strong>Google → Cambridge Analytica → GDPR</strong>" },
+      { name: "Digital divide", desc: "Who pays the cost: e-waste in Ghana and China, low-wage AI data tagging, women IT workers fired upon marriage. The hidden labour and environmental footprint.", anchor: "<strong>Agbogbloshie + Mar Hicks's recovered histories</strong>" }
+    ],
+    arguments: [
+      { title: "Argument A — \"The Web 2.0 era is the World Brain dream realised, with surveillance as the price.\"", body: "Wells (1937) imagined a network of human indexers. Yahoo (1993) actually did that. Google's PageRank (1997) replaced the humans with code. Wikipedia (Wales, 2001) added volunteers. Facebook (2002) and YouTube (2005) added user-generated content. The World Brain is now functional. But the business model is advertising tied to behavioural tracking, which Shoshana Zuboff calls 'surveillance capitalism.' The dream came true and brought a price with it." },
+      { title: "Argument B — \"Computing's costs are now regulated, but slowly and unevenly.\"", body: "By the 2010s, governments had to step in. The EU's GDPR (2016) protects personal data as a fundamental right. Antitrust law has been used before: the 1956 AT&amp;T consent decree freed the transistor patents and enabled Silicon Valley; the 1969 DoJ case against IBM forced 'unbundling' (1968) and created the software industry. But the US still has no federal privacy law, China has the Great Firewall, and post-9/11 surveillance is structural. Regulation always lags the technology." }
+    ],
+    sentences: [
+      "Yahoo's hand-curated web directory (Filo and Yang, Stanford, 1993) was, in a way, the World Brain Wells imagined, just with college students doing the indexing.",
+      "Google's PageRank algorithm (Page and Brin, 1997) automated the indexing job and turned the World Brain into a profit machine.",
+      "The cloud is time-sharing revived: AWS (Bezos, 2006), Salesforce (Benioff, 1999), and Microsoft Azure sell the server infrastructure that companies used to own themselves.",
+      "The General Data Protection Regulation (GDPR, 2016) is Europe's strongest answer to surveillance capitalism: rules on what data is collected, who has access, and why.",
+      "Computing's hidden cost is huge: data centres need the equivalent of 30 nuclear power plants, and e-waste ends up in places like Agbogbloshie in Ghana."
+    ],
+    finalNote: "Other names you'll see — Filo, Yang, Wales (Wikipedia), Zuckerberg (Facebook, Harvard 2002), Benioff (Salesforce, 1999), Satoshi Nakamoto (Bitcoin white paper Oct 2008), Mar Hicks, Joy Rankin, Margaret Mead, Margaret Masterman, Timnit Gebru, Bill Gates as 'son of Mary Gates', Marleen Stikker — are bonus. The 5 anchors above (McCorduck, Google, Amazon/AWS, GDPR, Agbogbloshie) will carry any L7 essay."
   }
 };
 
@@ -1017,17 +1836,17 @@ const lectures = [
             hint: "Use the Three Traditions framework as your skeleton.",
             essay: `
               <h3>Intro</h3>
-              <p>It is tempting to imagine one straight line from the abacus to the laptop. The real story is messier. As I understood it from the lecture, three quite separate worlds were each working on their own kind of automation in the 1800s, and they barely talked to each other. The modern computer is where they finally meet. The lecture called this the Three Traditions: administration, process control, and science and engineering.</p>
+              <p>It is tempting to think computing has one origin story. The lecture says it has three. Three separate worlds were each working on their own kind of automation in the 1800s, and they barely talked to each other. The modern computer is where they finally meet. The lecture called this the Three Traditions: administration, process control, and science and engineering.</p>
 
               <h3>Body</h3>
-              <p><strong>The administrative tradition</strong> grew out of the explosion of paperwork in 19th-century offices and governments. The clearest example, both in the book and the slides, is Herman Hollerith. After watching the 1880 US census drag on for seven years with 1,495 tally clerks, he built a punched-card tabulator for the 1890 census in Washington. The same population was processed in around 2.5 years. He then founded the Tabulating Machine Company in 1896, which later became IBM. That, I think, is the point: the administrative line is about money, urgency and paperwork driving a machine into existence.</p>
+              <p><strong>The administrative tradition</strong> came from the explosion of paperwork in 19th-century offices and governments. The clearest example is Herman Hollerith, who built a punched-card machine for the US census in 1890. His company eventually became IBM. The tradition is about money, urgency and paperwork driving a machine into existence.</p>
 
-              <p><strong>The process-control tradition</strong> came from heavy industry. The lecture's example is Shell's refineries in the 1930s and the Dutch steel maker Hoogovens, where engineers drew the plant as a diagram of pipes, valves and sensors, then wired analogue controllers straight onto that diagram, so the machine literally followed the physical process. By 1956 DSM in Limburg was running a similar setup for its chemicals. The "program" here was the outline of the factory itself.</p>
+              <p><strong>The process-control tradition</strong> came from heavy industry. By the early 20th century, factories needed machines to monitor and adjust temperatures, pressures and flows in real time. Engineers drew the factory as a diagram and wired analogue controllers onto it, so the machine literally followed the physical process. The legacy is the idea that a machine could continuously regulate the real world.</p>
 
-              <p><strong>The science and engineering tradition</strong> was driven by the need for fast, accurate calculation. The book's anchor is Gaspard de Prony, who from 1790 in Paris organised about sixty unemployed hairdressers into a human "factory" computing the decimal tables du cadastre by the method of differences. Charles Babbage saw the manuscripts in 1819 and tried, from 1822, to mechanise the same job with his Difference Engine in London. He never finished it.</p>
+              <p><strong>The science and engineering tradition</strong> came from the need for fast, accurate calculation. The lecture's anchor is Gaspard de Prony in France in the 1790s, who organised dozens of unemployed hairdressers into a kind of human computer factory to produce mathematical tables by hand. A few decades later, Charles Babbage in England tried to mechanise the same job with his Difference Engine, but never finished it.</p>
 
               <h3>Conclusion</h3>
-              <p>By the time ENIAC was unveiled in 1946, all three streams had finally come together in a single machine. That, I think, is why it's often called the first computer: not because it was technically unique, but because it pulled three different histories into one place. Calling computing "one history" hides how unlikely that convergence really was.</p>
+              <p>By the time ENIAC was unveiled in 1946, all three streams had finally come together in a single machine. That, I think, is why it is often called the first computer: not because it was technically unique, but because it pulled three different histories into one place. Calling computing one history hides how unlikely that convergence really was.</p>
             `
           },
           {
@@ -1035,15 +1854,15 @@ const lectures = [
             hint: "Two threads predating ENIAC: logic and imagination.",
             essay: `
               <h3>Intro</h3>
-              <p>It sounds odd to say AI predates computers, since AI today is software running on computers. But the questions AI is asking, can a machine think, can it imitate a human, were being asked long before electronics existed. The lecture pulled this prehistory into two threads: human thinking and behaviour, and language.</p>
+              <p>It sounds odd to say AI predates computers, since AI today is software running on computers. But the questions AI is asking, can a machine think, can it imitate a human, were being asked long before electronics existed. The lecture grouped this prehistory into two threads: human thinking and behaviour, and language.</p>
 
               <h3>Body</h3>
-              <p><strong>The first thread is human thinking and behaviour.</strong> The lecture started this one with Descartes in 1637 ("Je pense, donc je suis") and ran it through the 19th-century rise of teaching and didactics, where William Jevons in Manchester asked how learning actually happens. The most concrete example, I think, is Leonardo Torres Quevedo. In 1912 in Madrid he built El Ajedrecista, an electromechanical machine that played the king-and-rook versus king chess endgame against a human and reliably won. No computer, no program in our sense, just gears and relays embodying a chess-playing rule. That, as I understood it, is AI behaviour before computing.</p>
+              <p><strong>The first thread is thinking and behaviour.</strong> This thread goes back to philosophy and to machines that imitate humans. Descartes opened it in the 17th century with "I think, therefore I am". The concrete example the lecture used is Leonardo Torres Quevedo, a Spanish engineer who in the early 20th century built a small mechanical machine that played a chess endgame against a human and reliably won. No computer, no program in our sense, just gears and relays embodying a chess-playing rule. That is AI behaviour before computing.</p>
 
-              <p><strong>The second thread is language.</strong> Here the line runs through formal logic. George Boole in 1854 published <em>An Investigation of the Laws of Thought</em> in Cork, trying to do algebra with truth and false. Gottlob Frege in Jena followed with the <em>Begriffsschrift</em> in 1879, a written symbolic language for pure reasoning. David Hilbert in Göttingen posed the <em>Entscheidungsproblem</em> in 1928, asking whether truth in a formal system is calculable. Kurt Gödel answered no in 1931, and Alan Turing's 1936 paper "On Computable Numbers" gave the proof using his a-machine. All of this was AI's question, can thought be reduced to symbol manipulation, worked out on paper before any computer existed.</p>
+              <p><strong>The second thread is language.</strong> Here the line runs through formal logic. George Boole in the mid-19th century published a book called <em>The Laws of Thought</em> and tried to do algebra with truth and false. Several mathematicians worked on the same question over the following decades. Alan Turing finished it in 1936 with a paper called "On Computable Numbers", which described a theoretical machine that could in principle do any computation. All of this was AI's question, can thought be reduced to symbol manipulation, worked out on paper before any computer existed.</p>
 
               <h3>Conclusion</h3>
-              <p>Computers gave AI its medium. But the actual questions, what is mind, can it be mechanised, were already centuries old by 1946. That, I think, is what the lecturer meant: AI inherited a long conversation, it did not start one.</p>
+              <p>Computers gave AI its medium. But the actual questions, what is mind, can it be mechanised, were already centuries old by 1946. AI inherited a long conversation, it did not start one.</p>
             `
           },
           {
@@ -1051,17 +1870,17 @@ const lectures = [
             hint: "Pick two with different perspectives — Boole's logic + Esperanto works well.",
             essay: `
               <h3>Intro</h3>
-              <p>In the late 1800s, several people tried to design 'perfect' languages — each from a different motivation. Two examples that mattered for AI are George Boole's algebra of logic (1854) and Esperanto (created by Zamenhof in 1887). They came from completely different worlds, but both asked the same underlying question: can language be made systematic enough that a machine — or all of humanity — can use it without ambiguity?</p>
+              <p>In the late 1800s and early 1900s, several people tried to design "perfect" artificial languages, each from a different motivation. Two clear examples that mattered for AI are Boole's algebra of logic and Esperanto. They came from completely different worlds, but both asked the same underlying question: can language be made systematic enough that a machine, or all of humanity, can use it without ambiguity?</p>
 
               <h3>Body</h3>
-              <p><strong>Boolean logic</strong> came from mathematics. Boole wrote a book called <em>The Laws of Thought</em>. He tried to express thought in formulae and calculate with truth and false. He believed he was modelling the human mind. Eventually, Boolean algebra became the basis for digital circuits and for symbolic AI. The relevance for AI is direct: if reasoning can be reduced to a formal language, then a machine that manipulates that language is, in a precise sense, reasoning.</p>
+              <p><strong>Boolean logic</strong> came from mathematics. George Boole wrote a book called <em>The Laws of Thought</em> in the mid-19th century. He tried to express thought in formulae and calculate with truth and false. He believed he was modelling the human mind. His project was extended into the early 20th century by Russell and Whitehead's <em>Principia Mathematica</em> (1910-13), which tried to derive all of mathematics from logic. Eventually, Boolean algebra became the basis for digital circuits and for symbolic AI. The relevance for AI is direct: if reasoning can be reduced to a formal language, then a machine that manipulates that language is, in a precise sense, reasoning.</p>
 
-              <p><strong>Esperanto</strong> came from a totally different perspective: the peace movement. Zamenhof, a Polish doctor, designed Esperanto in 1887 as a politically neutral universal language. The hope was that if everyone shared a tongue, ethnic conflict would shrink. The Esperanto movement believed you could engineer thought through engineered language. The relevance for AI here is more indirect but important. The dream of a clear, machine-friendly, ambiguity-free language was already part of European culture before computers existed. The same dream reappears in formal grammars, programming languages, and natural language processing today.</p>
+              <p><strong>Esperanto</strong> came from a completely different perspective: the peace movement. A Polish doctor designed Esperanto in the late 1800s as a politically neutral universal language. The hope was that if everyone shared a tongue, ethnic conflict would shrink. The movement believed you could engineer thought through engineered language. The relevance for AI here is less direct but important. The dream of a clear, machine-friendly, ambiguity-free language was already part of European culture before computers existed. The same dream reappears in programming languages and natural language processing today.</p>
+
+              <p><strong>A third example from the same period</strong>, from yet another angle, was <em>Klavarscribo</em>, a Dutch artificial music notation designed by Cornelis Pot in 1931. It was intended to let people read music without conventional training. Different domain, same intuition: a clearer, more universal symbolic system. The lecturer used this as a reminder that the "artificial language" impulse showed up in fields nobody usually thinks of, music as much as mathematics or politics.</p>
 
               <h3>Conclusion</h3>
-              <p>Boole succeeded narrowly — for logic. Esperanto failed as a universal tongue, but the cultural moment matters. Long before AI existed as a field, people were already trying to make language calculable. Modern AI's interest in formal grammars and unambiguous communication is the technical heir of these earlier experiments.</p>
-
-              <div class="note"><strong>Word count: ~310.</strong> Pick examples with <em>different perspectives</em> — that's literally what the question asks. Boole = mathematical perspective; Esperanto = political/peace perspective.</div>
+              <p>Boole succeeded narrowly, for logic. Esperanto failed as a universal tongue, but the cultural moment matters. Klavarscribo had its niche. Long before AI existed as a field, people across many fields were already trying to make language calculable. That is the line connecting these projects to AI.</p>
             `
           },
           {
@@ -1069,21 +1888,19 @@ const lectures = [
             hint: "Personal essay — pick ONE habit from your own life and run with it.",
             essay: `
               <h3>Intro</h3>
-              <p>'Digital culture' doesn't just mean doing the same things online. It means a transformation in the texture of an existing habit — how we coordinate, what we expect, what skills we keep and lose. I'll use the example of how being a university student has changed in my own generation.</p>
+              <p>"Digital culture" does not just mean doing the same things online. It means a transformation in the texture of an existing habit: how we coordinate, what we expect, what skills we keep or lose. I will use the example of how being a university student has changed in my own generation.</p>
 
               <h3>Body</h3>
-              <p>Until recently, studying was overwhelmingly physical. You went to the library to find a book. You took notes by hand. You studied with classmates by sitting in a room together. The information environment was scarce, slow, and shared.</p>
+              <p>Until recently, studying was mostly physical. You went to the library to find a book. You took notes by hand. You studied with classmates by sitting in a room together. The information environment was scarce, slow and shared.</p>
 
-              <p>Computer technology has rebuilt every part of this. Lecture recordings make attendance optional. Notion and iPad note apps replaced paper. Search engines and Wikipedia replaced reference works. Group chats coordinate everything. AI assistants — like the one helping with this essay — change what 'looking something up' even means. The act of studying itself has been redefined: it is now distributed, asynchronous, and continuously online.</p>
+              <p>Computer technology has rebuilt every part of this. Lecture recordings make attendance optional. Search engines and Wikipedia replaced reference works. Group chats coordinate everything. AI assistants change what "looking something up" even means. The act of studying itself has been redefined: it is now distributed, asynchronous and continuously online.</p>
 
-              <p><strong>Positive implications.</strong> Speed and reach are real. Students can access materials that used to require expensive institutional access. Collaboration is easier across time zones. Learning is more individualised: you can watch lectures at 1.5×, pause, rewind.</p>
+              <p><strong>Positive implications.</strong> Speed and reach are real. Students can access materials that used to require expensive institutional access. Collaboration is easier across time zones. Learning is more individualised: you can watch lectures at 1.5x speed, pause, rewind.</p>
 
-              <p><strong>Negative implications.</strong> Memorisation has become shallower; we trust we can always look things up. Attention is fragmented by constant notifications. Platforms harvest our learning data — what we read, how long, where we struggle. There's a deskilling risk: we don't remember phone numbers because the phone does. The same may happen with reasoning if AI tools become primary thinking tools rather than supports.</p>
+              <p><strong>Negative implications.</strong> Memorisation has become shallower; we trust we can always look things up. Attention is fragmented by constant notifications. Platforms harvest our learning data. There is a deskilling risk: we do not remember phone numbers because the phone does. The same may happen with reasoning if AI tools become primary thinking tools rather than supports.</p>
 
               <h3>Conclusion</h3>
-              <p>This is what makes the change a <em>cultural</em> one rather than just a technical one. Studying with computers would be a small change. Studying-as-such being redefined — that's digital culture. The positives are obvious; the negatives only show up over years, which is exactly why a historical perspective matters.</p>
-
-              <div class="note"><strong>Word count: ~340.</strong> Personal essays still need analytical structure. Always discuss positives <em>and</em> negatives — the prompt asks for both. End with a 'reflective' framing.</div>
+              <p>This is what makes the change a cultural one rather than just a technical one. Studying with computers would be a small change. Studying-as-such being redefined, that is digital culture. The positives are obvious; the negatives only show up over years, which is exactly why a historical perspective matters.</p>
             `
           }
         ]
@@ -1431,19 +2248,15 @@ const lectures = [
             hint: "AI / cybernetics gave scientists their reasons to take computers seriously.",
             essay: `
               <h3>Intro</h3>
-              <p>It might seem strange that AI would motivate scientists to build computers, since the usual story is that computers came first and AI followed. The lecture argued the reverse: scientists from many fields were already asking what a thinking machine could do — and that broader project, called cybernetics, gave them their reason to take the new computers seriously.</p>
+              <p>It might seem strange to say AI motivated scientists to build computers, since the usual story is the other way around. But the lecture argued the reverse. After WWII, scientists from many fields were already asking what a thinking machine could do, and that broader project, called cybernetics, gave them their reason to take the new computers seriously.</p>
 
               <h3>Body</h3>
-              <p>Cybernetics was much wider than what we now call AI. The Macy conferences (1946–53), led by figures like Margaret Mead and Norbert Wiener, brought together psychologists, biologists, anthropologists, mathematicians, and engineers around one question: how do feedback, information, and control work in living systems and machines?</p>
+              <p>Cybernetics was much wider than what we now call AI. The Macy conferences (1946 to 1953), led by Norbert Wiener and Margaret Mead, brought together psychologists, biologists, linguists, mathematicians and engineers around one question: how do feedback, information and control work in living systems and in machines? Each discipline saw something useful in the new computer. Psychologists wanted to model decision-making. Linguists wanted automatic translation, an early Cold War priority. Biologists wanted to model animal behaviour. Mathematicians and logicians, with Turing chief among them, wanted to formalise reasoning.</p>
 
-              <p>Specific people made this concrete. Norbert Wiener, in his 1948 book <em>Cybernetics</em>, argued that the same feedback mathematics governed both nervous systems and machines, which made the new computer a tool for testing theories of mind. Margaret Masterman in Cambridge ran her Language Research Unit on automatic translation, an early Cold War priority that needed a machine that could store rules and a dictionary. Allen Newell and Herbert Simon at RAND were using a machine to model administrative decision-making, building on Simon's 1947 <em>Administrative Behavior</em>.</p>
-
-              <p>Turing's 1950 paper <em>Computing Machinery and Intelligence</em> framed the computer as something that might soon imitate a human in conversation, and gave these scattered efforts a shared question. When the 1956 Dartmouth conference named the field 'artificial intelligence', it was narrowing this broader cybernetic conversation, not starting it. The point for the lecture is that scientists in psychology, linguistics, logic and economics had already decided computers were worth their time, and that decision drove the building of more machines.</p>
+              <p>So when Mauchly and Eckert built ENIAC in 1946, the scientists most excited about it were not just engineers but cyberneticians who saw a tool for asking very old questions. Turing's 1950 paper <em>Computing Machinery and Intelligence</em> framed the computer as something that might soon imitate a human in conversation. The 1956 Dartmouth conference, where "AI" was named as a discipline, was a narrowing of this much broader cybernetic conversation, not its starting point.</p>
 
               <h3>Conclusion</h3>
-              <p>Scientists needed computers because they had questions about thinking, learning, and language that only a programmable machine could test. AI / cybernetics gave computing its scientific motivation. Without those questions, the computer might have stayed a calculator. The line of thought is: the science of mind drove the invention of the machine, not the other way around.</p>
-
-              <div class="note"><strong>Word count: ~290.</strong> Names used: Mauchly, Eckert, Turing, Mead, Wiener. Cybernetics > AI is the spine.</div>
+              <p>Scientists needed computers because they had questions about thinking, learning and language that only a programmable machine could test. AI and cybernetics gave computing its scientific motivation. Without those questions, the computer might have stayed a calculator. The line of thought is: the science of mind drove the invention of the machine, not the other way around.</p>
             `
           },
           {
@@ -1451,21 +2264,19 @@ const lectures = [
             hint: "Three distinct stages — and the post-war story is the global one.",
             essay: `
               <h3>Intro</h3>
-              <p>The Moore School of Electrical Engineering at the University of Pennsylvania is one of the central institutions in the history of computing. It mattered before, during, and after WWII — but in three very different ways.</p>
+              <p>The Moore School of Electrical Engineering at the University of Pennsylvania is one of the central institutions in the history of computing. It mattered before, during, and after WWII, but in three very different ways.</p>
 
               <h3>Pre-war</h3>
-              <p>The Moore School was a respectable but second-tier electrical engineering school, definitely behind MIT in prestige. Its key asset was a copy of Vannevar Bush's differential analyser — an analogue machine for solving differential equations. This brought the Ballistics Research Laboratory (BRL) at the Aberdeen Proving Ground into close working contact with the school for routine ballistics calculations.</p>
+              <p>The Moore School was a respectable but second-tier electrical engineering school, behind MIT in prestige. Its key asset was a copy of Vannevar Bush's differential analyser, an analogue machine for solving differential equations. This brought the army's Ballistics Research Laboratory into close working contact with the school for routine ballistics calculations.</p>
 
               <h3>War</h3>
-              <p>In 1942, John Mauchly proposed building an electronic computer to break the calculation bottleneck for army firing tables. With Lt. Herman Goldstine pushing the proposal forward and Presper Eckert as chief engineer, 'Project PX' was approved in April 1943 — and ENIAC was the result. Completed in late 1945, it was an 18,000-tube machine that performed 5,000 operations per second. Two hundred women, many trained by Mauchly's wife, were already doing ballistics calculations by hand at the school in parallel.</p>
+              <p>In the early 1940s, John Mauchly proposed building an electronic computer to break the calculation bottleneck for army firing tables. With Presper Eckert as chief engineer, he built ENIAC, completed in late 1945. It was a huge tube-based machine that performed thousands of operations per second. Hundreds of women, doing ballistics calculations by hand at the school in parallel, were eventually replaced by it.</p>
 
               <h3>Post-war</h3>
-              <p>This is where the Moore School became globally important. Von Neumann joined the team in 1944 and wrote the <em>First Draft of a Report on the EDVAC</em> (June 1945) — the foundational document of the stored-program computer. Then in summer 1946, Dean Pender organised the Moore School Lectures: an eight-week course that taught the next generation of computer builders. Maurice Wilkes (Cambridge → EDSAC), Newman and Williams (Manchester → Manchester Baby), and many others learned the stored-program concept here and brought it home to Europe.</p>
+              <p>This is where the Moore School became globally important. John von Neumann joined the team in 1944 and wrote the <em>First Draft of a Report on the EDVAC</em> in June 1945. It became the foundational document of the stored-program computer. Then in summer 1946, the school organised an eight-week course called the Moore School Lectures. The next generation of computer builders attended: Maurice Wilkes from Cambridge went home and built EDSAC; Newman and Williams from Manchester built the Manchester Baby. The stored-program concept spread from Pennsylvania to Europe.</p>
 
               <h3>Conclusion</h3>
-              <p>The Moore School was a third-rank engineering school that, because of an analogue machine, a young physicist with an idea, a Hungarian mathematician, and one well-organised summer school, became the place where modern computing was born and exported. The pre-war / war / post-war story is the story of how a wartime project became a global standard.</p>
-
-              <div class="note"><strong>Word count: ~330.</strong> The question literally asks for three periods — give them three labelled paragraphs.</div>
+              <p>The Moore School was a third-rank engineering school that, because of an analogue machine, a young physicist with an idea, a Hungarian mathematician, and one summer school, became the place where modern computing was born and exported. The pre-war, war, and post-war story is the story of how a wartime project became a global standard.</p>
             `
           },
           {
@@ -1473,21 +2284,19 @@ const lectures = [
             hint: "Pick two of: van Wijngaarden, van der Poel, Nijenhuis. Note the funny acronyms!",
             essay: `
               <h3>Intro</h3>
-              <p>Early Dutch computing was distinctive: small budgets, funny acronyms, and what historian Gerard Alberts called 'bluffing their way into the computer age.' Two pioneers stand out: Aad van Wijngaarden in Amsterdam and Willem van der Poel in Delft. Together they show what early Dutch computing was like.</p>
+              <p>Early Dutch computing was distinctive: small budgets, funny acronyms, and what the historian Gerard Alberts called "bluffing their way into the computer age." Two pioneers stand out: Aad van Wijngaarden in Amsterdam and Willem van der Poel in Delft. Together they show what early Dutch computing was like.</p>
 
-              <h3>Body — van Wijngaarden and the ARRA</h3>
-              <p>Aad van Wijngaarden became director of the computing department of the Mathematisch Centrum in Amsterdam in 1947, just after a 1946 visit to the Moore School. With his team he built ARRA (Automatische Relais Rekenmachine Amsterdam) — unveiled on 21 June 1952. The first ARRA was, by most accounts, a flop; ARRA II (March 1954) worked better. Out of this effort came the spin-off company Electrologica in 1956, whose machine X1 was eventually bought back by the Mathematisch Centrum.</p>
+              <h3>van Wijngaarden and the ARRA</h3>
+              <p>Aad van Wijngaarden became director of the computing department at the Mathematisch Centrum in Amsterdam in 1947, just after a visit to the Moore School. With his team he built the ARRA, unveiled in 1952. The first ARRA was, by most accounts, a flop. ARRA II, two years later, actually worked. Out of this effort came the spin-off company Electrologica in 1956.</p>
 
-              <h3>Body — van der Poel and ZEBRA</h3>
-              <p>Willem van der Poel worked in Delft on a series of machines, each with a Dutch acronym: ARCO/Testudo (1950, optical problems), ZERO (Zeer Eenvoudig Reken Orgaan, 1951), PTERA (PTT Electronische Reken Automaat, 1953), and finally ZEBRA (Zeer Eenvoudig Binair Reken Apparaat, 1955). ZEBRA went into commercial production in 1957 with the British firm STANTEC.</p>
+              <h3>van der Poel and ZEBRA</h3>
+              <p>Willem van der Poel worked in Delft on a series of machines, each with a funny Dutch acronym. The most successful was ZEBRA (1955), which went into commercial production in 1957 with a British firm. The acronyms (ZEBRA stands for "very simple binary calculator" in Dutch) were a recurring joke: Dutch engineering naming itself ironically.</p>
 
               <h3>Why these are representative</h3>
-              <p>Three things. First, scale: small teams, small budgets — nothing like IBM. Second, the funny acronyms reflect a tinkering, almost ironic culture. Third, the Dutch pioneers were tightly networked: van Wijngaarden, van der Poel, Wim Nijenhuis at Philips (PETER, 1953–56), and many others met at the 'Colloquium Moderne Rekenmachines' from 1952 onwards, and later collaborated on the international programming language ALGOL 60.</p>
+              <p>Three things. First, scale: small teams, small budgets, nothing like IBM. Second, the funny acronyms reflect a tinkering, almost ironic engineering culture. Third, the Dutch pioneers were tightly networked: van Wijngaarden, van der Poel, and others at Philips met regularly through the 1950s, and they later collaborated on the international programming language ALGOL 60.</p>
 
               <h3>Conclusion</h3>
-              <p>Early Dutch computing was a story of clever pragmatism in tight conditions. These two pioneers show how a small country with no IBM-scale resources produced computers anyway — and why 'bluffing their way in' is fitting praise.</p>
-
-              <div class="note"><strong>Word count: ~330.</strong> Names: van Wijngaarden, van der Poel, Nijenhuis, Alberts. The acronym detail (ZEBRA, PTERA) is gold — it shows you actually attended.</div>
+              <p>Early Dutch computing was a story of clever pragmatism in tight conditions. These two pioneers show how a small country with no IBM-scale resources produced computers anyway, and why "bluffing their way in" is fitting praise.</p>
             `
           },
           {
@@ -1495,26 +2304,24 @@ const lectures = [
             hint: "'To what extent' — answer should be partial. Argue both sides, then place yourself.",
             essay: `
               <h3>Intro</h3>
-              <p>Alan Turing is often called the father of AI. The honest answer is: yes, but only partly. The 'to what extent' framing matters here. Three things he did make him a strong claimant; three things make him a partial one.</p>
+              <p>Alan Turing is often called the father of AI. The honest answer is: yes, but only partly. The "to what extent" framing matters here. Three things he did make him a strong claimant. Three things make him a partial one.</p>
 
-              <h3>Body — yes, in three senses</h3>
-              <p><strong>Theoretically.</strong> His 1936 paper <em>On Computable Numbers</em> introduced the universal Turing machine — the abstract model of any computer. Without this, the very idea of a 'thinking machine' has no formal meaning.</p>
+              <h3>Yes, in three senses</h3>
+              <p><strong>Theoretically.</strong> His 1936 paper <em>On Computable Numbers</em> introduced the universal Turing machine, the abstract model of any computer. Without this, the very idea of a "thinking machine" has no formal meaning.</p>
 
-              <p><strong>The imitation game.</strong> His 1950 paper <em>Computing Machinery and Intelligence</em> introduced what we now call the Turing test. He framed the question — can a machine convincingly imitate a human? — that AI has been working on ever since.</p>
+              <p><strong>The imitation game.</strong> His 1950 paper <em>Computing Machinery and Intelligence</em> introduced what we now call the Turing test. He framed the question, can a machine convincingly imitate a human, that AI has been working on ever since.</p>
 
-              <p><strong>Hands-on contribution.</strong> At Bletchley Park during WWII, Turing helped break German codes using the bombe — a real machine doing what looked like reasoning. He was one of the few who actually built thinking-adjacent machines.</p>
+              <p><strong>Hands-on contribution.</strong> At Bletchley Park during WWII, Turing helped break German codes using machines that did what looked like reasoning. He was one of the few who actually built thinking-adjacent systems.</p>
 
-              <h3>Body — but only partly</h3>
-              <p><strong>The field is dated to 1956, after his death.</strong> AI as a discipline was named at the Dartmouth conference, four years after Turing's suicide in 1954. The Americans — McCarthy, Minsky, Newell, Simon — are the ones who actually founded the discipline.</p>
+              <h3>But only partly</h3>
+              <p><strong>The field is dated to 1956, after his death.</strong> AI as a discipline was named at the Dartmouth conference, two years after Turing died in 1954. The Americans, especially McCarthy and Minsky, are the ones who actually founded the discipline.</p>
 
-              <p><strong>Cybernetics is the broader parent.</strong> Norbert Wiener, the Macy conferences, and various non-Turing thinkers shaped the early conversation. Turing was an important voice but not the central one in 1940s–50s cybernetics.</p>
+              <p><strong>Cybernetics is the broader parent.</strong> Norbert Wiener and the Macy conferences shaped the early conversation about thinking machines. Turing was an important voice but not the central one in 1940s and 50s cybernetics.</p>
 
-              <p><strong>Specific techniques came from elsewhere.</strong> Symbolic AI (Newell &amp; Simon), neural networks (Rosenblatt), and search built more on others than on Turing's specific work.</p>
+              <p><strong>Specific techniques came from elsewhere.</strong> Symbolic AI, neural networks and search built more on later researchers than on Turing's specific work.</p>
 
               <h3>Conclusion</h3>
-              <p>To what extent is Turing the father of AI? Strongly so philosophically and theoretically — he set the question and built the conceptual machine. Less so as a research-program founder, since the field was named and shaped after his death by others. The honest answer falls in the middle. He is <em>a</em> father — but not <em>the</em> father.</p>
-
-              <div class="note"><strong>Word count: ~340.</strong> 'To what extent' questions reward a balanced answer that places yourself between two extremes — exactly what the seminar's diagram showed.</div>
+              <p>To what extent is Turing the father of AI? Strongly so philosophically and theoretically: he set the question and built the conceptual machine. Less so as a research-program founder, since the field was named and shaped after his death by others. The honest answer falls in the middle. He is a father, but not the father.</p>
             `
           }
         ]
@@ -3362,7 +4169,344 @@ const lectures = [
       }
     ]
   },
-  { id: "L7", label: "L7", title: "Lecture 7 — Chapters 14–15", chapters: "Coming up", enabled: false }
+  {
+    id: "L7",
+    label: "L7",
+    title: "Lecture 7 — Digital Culture, Digital Divide (Chapters 14–15)",
+    chapters: "Campbell-Kelly chapters 14–15",
+    enabled: true,
+    tiers: [
+      {
+        tier: 1,
+        label: "Almost Certain",
+        meta: "No L7 assignment — these are the four highest-probability exam questions L7 answers (per 2025 past papers)",
+        questions: [
+          {
+            q: "[Web 2.0 / Google / Surveillance] How did Web 2.0 produce both the World Brain Wells imagined and the rise of surveillance capitalism? Discuss with examples.",
+            hint: "Yahoo (1993) and Google (1997) as automated World Brain. Facebook Cambridge Analytica as the surveillance turn.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The Internet of the 1990s was mostly a publishing tool. The Web 2.0 era from the early 2000s was interactive: users became creators. Two things came out of this at once. The first was that H.G. Wells's old dream of a "World Brain" finally became real. The second was that the business model behind it turned out to be surveillance.</p>
+
+              <h3>The World Brain finally works</h3>
+              <p>Yahoo, founded by Filo and Yang at Stanford in 1993, was at first a hand-curated web directory: staff literally surfed the web to keep the index up to date. Campbell-Kelly says this is exactly what Wells imagined for the World Brain. Google, founded by Page and Brin at Stanford in 1997, replaced that human indexing with the PageRank algorithm. Wikipedia (Jimmy Wales, 2001) added an open, volunteer-written encyclopedia that a 2005 Nature study found comparable in accuracy to Britannica. By 2010 the World Brain dream was working at planetary scale, free at the point of use.</p>
+
+              <h3>The price was surveillance</h3>
+              <p>The business model behind all of this was advertising tied to behavioural tracking. Google made $3.19bn in 2007. Facebook, founded by Zuckerberg in a Harvard dorm in 2002, had 145 million users by 2008, 70% outside the US. In 2018 the Cambridge Analytica scandal revealed that 80 million Facebook users' data had been shared without consent. The US Federal Trade Commission later fined Facebook $5bn. This is what Shoshana Zuboff calls surveillance capitalism: the data we generate is the product being sold.</p>
+
+              <h3>The AI link</h3>
+              <p>The data flowing through Google, Facebook, YouTube became the raw material for modern AI. Machine learning needs data; Web 2.0 produced an ocean of it. The 1990s and 2000s Internet, in other words, set up the 2010s AI boom. Google rebranded as Alphabet in 2015 and changed its motto from "Don't be evil" to "Do the Right Thing", which Campbell-Kelly reads as a sign of how seriously the company now takes its own power.</p>
+
+              <h3>Conclusion</h3>
+              <p>Wells imagined an army of human workers indexing the world. Google built software to do it. The Web 2.0 era is the World Brain dream realised, but the trade-off is surveillance and concentrated platform power. That, I think, is the line the lecture and the book both draw.</p>
+            `
+          },
+          {
+            q: "[Cloud computing] What is the cloud, and why does Campbell-Kelly say it is time-sharing revived? Discuss with at least two examples.",
+            hint: "Compaq engineers coined 'cloud' (1996). AWS Bezos 2006, Salesforce Benioff 1999, Microsoft Azure.",
+            essay: `
+              <h3>Intro</h3>
+              <p>"Cloud computing" sounds new but is actually old. The lecturer made the point clearly: the cloud is time-sharing revived, just at internet scale. Companies rent server capacity instead of owning it, the same arrangement that university time-sharing systems offered in the 1960s. Three companies in the early 21st century built the modern version.</p>
+
+              <h3>Where the idea comes from</h3>
+              <p>The term was coined by engineers at Compaq in 1996. The underlying idea is older still. In the 1960s, John Kemeny and Thomas Kurtz at Dartmouth ran a time-sharing system that let many students share one mainframe, each feeling like they had their own computer. The cloud does the same thing but over the internet, from anywhere, with much more capacity.</p>
+
+              <h3>Three examples</h3>
+              <p><strong>AWS (Amazon Web Services).</strong> In a 2006 talk at MIT, Jeff Bezos announced that Amazon would sell its server infrastructure to other companies. Amazon had built it for its own retail business and realised it was a product. AWS became the world's largest cloud provider.</p>
+
+              <p><strong>Salesforce.</strong> Marc Benioff founded Salesforce in 1999 as the first "Software as a Service" (SaaS) company. Instead of installing business software on every PC, customers used it through a browser. Cost-effective for small companies.</p>
+
+              <p><strong>Microsoft Azure.</strong> Microsoft's cloud, launched 2010. Now the second-largest cloud after AWS, mostly used by enterprise customers.</p>
+
+              <h3>The consequences</h3>
+              <p>Two things follow from the cloud being everywhere. First, power shifts: companies that used to own their computers now depend on three American cloud providers for everything. Second, environmental cost is huge. The book notes that data centres now consume electricity equivalent to about 30 nuclear power plants, and a McKinsey study found that only about 12% of that power actually does computation; the rest keeps idle servers ready. EU policy aims to make data centres climate-neutral by 2030.</p>
+
+              <h3>Conclusion</h3>
+              <p>The cloud delivered time-sharing's original promise: computing as a utility, like electricity. But the trade-off is that everyone now depends on three American companies for their digital infrastructure, and the environmental cost is hidden in data centres most users will never see. The cloud is old technology at new political scale.</p>
+            `
+          },
+          {
+            q: "[Computing and governance] Discuss differences between US and European legislative responses to computing's ethical liabilities. Use at least two specific examples.",
+            hint: "GDPR (EU 2016) vs sector-by-sector US approach. Possibly antitrust precedents too (AT&T 1956, IBM 1969).",
+            essay: `
+              <h3>Intro</h3>
+              <p>By the 2010s, computing had become so embedded in daily life that governments had to step in. Two very different approaches emerged: Europe with the General Data Protection Regulation (GDPR, 2016), and the United States with a much more market-led, sector-specific approach. The contrast tells us how seriously each side takes privacy in the cloud era.</p>
+
+              <h3>The European approach</h3>
+              <p>GDPR was adopted in 2016 and came into force in May 2018. It is built around three questions about personal data: what is collected, who has access, and why. Companies must obtain meaningful consent. Users have rights to access, correct and delete their data. Fines can reach 4% of global revenue. The legal philosophy behind it is that privacy is a fundamental right, not a market issue, and that the state must regulate the platforms that handle personal data.</p>
+
+              <h3>The US approach</h3>
+              <p>There is no federal equivalent to GDPR. Privacy is regulated sector by sector: HIPAA for health data, FERPA for education records, financial-sector rules for banks. The closest US equivalent is California's CCPA (2018), enacted at state level. The political culture treats data as commercial property, not a right. After 9/11, surveillance infrastructure expanded dramatically; Edward Snowden's 2013 disclosures showed the National Security Agency was collecting bulk records on hundreds of millions of people.</p>
+
+              <h3>The deeper pattern</h3>
+              <p>Antitrust shows a similar split. The 1956 AT&amp;T consent decree forced AT&amp;T to license its transistor patents royalty-free, which directly enabled Silicon Valley. The 1969 Department of Justice case against IBM ran for 13 years and eventually forced IBM to "unbundle" its software from hardware in 1968, inadvertently creating the modern software industry. Europe has used antitrust differently, focusing more on consumer protection and platform competition rules (the Digital Markets Act, 2022).</p>
+
+              <h3>Conclusion</h3>
+              <p>The simple summary is that Europe treats computing's harms as a problem governments must solve up front, while the US tends to react after the fact and only when companies become too powerful. The GDPR is the most ambitious answer any government has given to surveillance capitalism. The US still has not given one, partly because the surveillance-capitalism companies are American and the political culture protects them.</p>
+            `
+          },
+          {
+            q: "[Digital culture → digital divide] The lecture said digital culture comes with a digital divide. Explain this line of thought and discuss the hidden costs.",
+            hint: "Environment (Agbogbloshie, data centres), labour (WWII women, Navajo Fairchild, Kenya AI taggers), prejudice (Hicks, Rankin, Gebru).",
+            essay: `
+              <h3>Intro</h3>
+              <p>The lecturer made a clear point: digital culture comes with a digital divide. The benefits of computing flow to some places; the costs flow elsewhere. Campbell-Kelly's last chapter documents three kinds of hidden cost.</p>
+
+              <h3>Environmental cost</h3>
+              <p>Data centres consume the electricity equivalent of about 30 nuclear power plants, and only about 12% of that power goes to actual computation; the rest keeps idle servers ready. Rare-metal mining (lanthanum, cerium, dysprosium) for chips is environmentally destructive. E-waste from old computers and phones ends up in places like Agbogbloshie in Ghana and Guiyu in China, where it is burned for metal. The EU has set a target of climate-neutral data centres by 2030. Bitcoin alone uses more power than the world's top 500 supercomputers combined.</p>
+
+              <h3>Hidden labour</h3>
+              <p>The labour story runs through the whole history. British WWII women IT workers were treated as sub-clerical, denied pensions, and fired upon marriage. Fairchild built a semiconductor plant on the Navajo reservation in New Mexico in 1965, exploiting minimum-wage exemptions until the American Indian Movement forced it to shut in 1975. Today the same logic operates globally: data taggers in Kenya and the Philippines train the AI models we use, often on $2/hour.</p>
+
+              <h3>Prejudice and recovery</h3>
+              <p>The standard story of computing is told as white-male history. Recent work has been recovering the rest. Mar Hicks's book <em>Programmed Inequality</em> documents the British women IT workers. Joy Rankin's <em>A People's History of Computing</em> recovers the women and Black engineers in the US story. Timnit Gebru's work on bias in AI in the 2010s, and her 2020 dismissal from Google after publishing the "Stochastic Parrots" paper, show that the prejudice question is still very current.</p>
+
+              <h3>Conclusion</h3>
+              <p>The digital divide is not just about who has access to the Internet. It is about who pays the costs of computing being everywhere. Reading these histories reflectively, as the lecturer put it, means following the supply chain and remembering whose story does not usually get told. Blaming the technology, the lecturer also said, is missing the point. The point is who designed the systems and on whose backs they were built.</p>
+            `
+          }
+        ]
+      },
+      {
+        tier: 2,
+        label: "Very Likely",
+        meta: "Adjacent reformulations of L7's main themes",
+        questions: [
+          {
+            q: "Wikipedia is sometimes called the World Brain realised. Discuss.",
+            hint: "Wales 2001, volunteer-driven, Nature 2005 study, contrast with Yahoo and Google.",
+            essay: `
+              <h3>Intro</h3>
+              <p>If anything from the 2000s deserves the title of "World Brain realised", it is Wikipedia. Founded by Jimmy Wales in 2001, it took the universal-encyclopedia dream Wells described in 1937 and built it in a way neither Wells nor anyone else expected: through unpaid volunteers.</p>
+
+              <h3>What Wikipedia did differently</h3>
+              <p>Yahoo and Google had already organised the web through indexing and ranking. Wikipedia did something different: it organised knowledge into articles, the way an encyclopedia does, but with anyone able to edit. Volunteers wrote, corrected and disputed entries. By 2005, a study in <em>Nature</em> compared the accuracy of Wikipedia and the Encyclopaedia Britannica on science topics and found them roughly comparable. Britannica eventually stopped its print edition in 2012.</p>
+
+              <h3>Why this matters for the World Brain story</h3>
+              <p>Wells imagined a "great number of workers" indexing knowledge. He probably pictured them as paid librarians. Wikipedia's workers are unpaid and self-organising. That, I think, is the most interesting twist: Wells's dream was bigger than he could fund, and it took the open, low-cost structure of the web to make it work. Volunteer labour replaced the paid army.</p>
+
+              <h3>The catch</h3>
+              <p>Wikipedia is not neutral. Editor demographics skew male and Western, so coverage of women, non-English topics, and Global South subjects is weaker. Edit wars can shape contested entries. And the platform is dependent on a small foundation budget. The "World Brain realised" is real, but it also has the biases of the people who actually do the editing.</p>
+
+              <h3>Conclusion</h3>
+              <p>Wikipedia is Wells's World Brain finally working, and it is also a warning. The dream of universal, accessible knowledge turns out to require constant human attention, and the demographics of the attention shape the result. Compare this with Yahoo's paid surfers, Google's algorithm, and Facebook's user content: each is a different way of getting human knowledge online, and each has a different politics built in.</p>
+            `
+          },
+          {
+            q: "Discuss the gig economy as a feature of Web 2.0. Use Uber and Airbnb as examples.",
+            hint: "Both 2008-ish. Uber destroyed taxi medallions ($200K→$1M→destroyed by VC-subsidised below-cost pricing). Airbnb IPO 2020 at $47bn. UK Supreme Court 2016: Uber drivers are employees.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The gig economy is one of Web 2.0's most disruptive products. Two companies define it: Uber (ride-sharing) and Airbnb (short-term rentals). Both are platforms that organise individual workers and assets through software. Both used venture capital to undercut existing industries before regulators caught up.</p>
+
+              <h3>Uber and the destruction of taxi value</h3>
+              <p>Uber controls about two-thirds of the global ride-sharing market. The most striking story is the New York taxi medallion. A medallion cost about $200,000 in 2002 and rose to roughly $1 million by 2014. Uber, funded by venture capital, deliberately priced rides below cost to drive medallion-cab competition out of the market. By the late 2010s medallion prices had collapsed. Several medallion owners committed suicide.</p>
+
+              <h3>Airbnb and the redefinition of hotels</h3>
+              <p>Airbnb was founded by Brian Chesky and others in 2008. It let homeowners rent out spare rooms or whole apartments through a website. By the 2020 IPO it was valued at $47bn. The model put pressure on the hotel industry and on urban housing markets, with cities like Amsterdam, Barcelona and New York eventually imposing strict regulations.</p>
+
+              <h3>The labour question</h3>
+              <p>The same legal question kept appearing: are gig workers employees or contractors? In 2016 the UK Supreme Court ruled that Uber drivers were employees, with rights to minimum wage and holiday pay. Other jurisdictions have ruled differently. Underneath the technology is an old labour dispute.</p>
+
+              <h3>Conclusion</h3>
+              <p>The gig economy is what Web 2.0 looks like when applied to traditional services. Software replaces the regulator: prices are set by an algorithm, workers are managed by an app. The result is cheaper service and disrupted industries, but also vulnerable workers and unprotected consumers. Whether this is appropriation of the old taxi or hotel industries or just market replacement is exactly the kind of question the lecturer's "always a catch" framing was designed to ask.</p>
+            `
+          },
+          {
+            q: "Discuss antitrust as a force in the history of computing. Use AT&T (1956) and IBM (1969) as examples.",
+            hint: "AT&T 1956 consent decree → transistor patents royalty-free → Silicon Valley. IBM 1969 DoJ case → 1968 unbundling → software industry.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Antitrust law has shaped the computing industry at least twice in important ways. The 1956 AT&amp;T consent decree freed the transistor and made Silicon Valley possible. The 1969 Department of Justice case against IBM forced the unbundling of software and inadvertently created the modern software industry. Both stories show that the structure of the industry was set by lawyers, not just engineers.</p>
+
+              <h3>AT&amp;T 1956 → Silicon Valley</h3>
+              <p>AT&amp;T's Bell Labs had invented the transistor in 1947. As part of a 1956 consent decree with the US Department of Justice, AT&amp;T was forced to license its transistor patents royalty-free to anyone. That single legal decision is what enabled Fairchild, Intel, and the whole semiconductor industry of Silicon Valley to exist. Without the decree, the transistor would have been an AT&amp;T monopoly product.</p>
+
+              <h3>IBM 1969 → software industry</h3>
+              <p>In 1969 the US Department of Justice sued IBM for monopolisation. The case ran for 13 years before being dropped in 1982. While it was running, IBM voluntarily "unbundled" its software from its hardware (1968), starting to price them separately. This is what the lecture and book call the moment the software industry was created: companies like Lotus, Microsoft, Oracle, and SAP could now sell software as products, not just as add-ons to mainframes.</p>
+
+              <h3>The pattern</h3>
+              <p>Both cases show the same thing: the US has used antitrust to break open monopolies and force technology into wider distribution, often with unintended consequences that turned out to be the most important. AT&amp;T did not intend to create Silicon Valley. IBM did not intend to create the software industry. Government action made both possible.</p>
+
+              <h3>Conclusion</h3>
+              <p>Reading the history of computing without antitrust law misses some of the most important decisions ever made. The current debate over breaking up Google, Amazon, Facebook and Apple is the same debate, repeating. Whether those companies will be unbundled, restructured, or left alone will probably shape the next 20 years of computing as much as any technical innovation.</p>
+            `
+          },
+          {
+            q: "Bitcoin and blockchain: how does Campbell-Kelly frame this technology? What are the costs?",
+            hint: "Haber & Stornetta (1991) timestamping. Bitcoin Satoshi Nakamoto white paper Oct 2008, network Jan 2009. Power use > top 500 supercomputers combined. Hardware lifespan 1.29 years.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Blockchain and Bitcoin sit at the end of Campbell-Kelly's chapter on the Interactive Web. The technology is presented as both a genuine innovation in cryptographic record-keeping and as a striking example of what computing can cost when the externalities are ignored.</p>
+
+              <h3>Origins</h3>
+              <p>The underlying idea is older than Bitcoin. Stuart Haber and Scott Stornetta published a paper in 1991 describing cryptographic timestamping: a way of chaining data records so that none can be altered without invalidating the rest. Bitcoin (the white paper appeared in October 2008 under the name Satoshi Nakamoto, the network went live in January 2009) was the first major application: a decentralised currency whose ledger no central party controls.</p>
+
+              <h3>Why it matters</h3>
+              <p>Two things made Bitcoin politically significant. It came right after the 2008 financial crisis, so the appeal of a currency independent of banks was strong. And it proved the underlying blockchain idea, which has since been applied to many other domains (smart contracts, supply chain tracking, NFTs).</p>
+
+              <h3>The cost</h3>
+              <p>The lecture and book both emphasise the energy use. Bitcoin alone uses more electrical power than the world's top 500 supercomputers combined. The hardware used for "mining" has an average lifespan of about 1.29 years before it is obsolete, producing roughly 30+ kilotons of e-waste per year. The technology that promised to make money "free of banks" has turned out to be one of the most energy-intensive software projects on Earth.</p>
+
+              <h3>Conclusion</h3>
+              <p>Bitcoin is Campbell-Kelly's example of an Internet technology whose benefits and costs both run very high. The cryptographic ideas are sound and have spread far beyond currency. The environmental footprint is enormous. Reading this story reflectively, the question is whether the technology can be redesigned with less waste or whether the original design is the problem.</p>
+            `
+          }
+        ]
+      },
+      {
+        tier: 3,
+        label: "Likely Themes",
+        meta: "Recurring framings the prof highlighted",
+        questions: [
+          {
+            q: "Pamela McCorduck's history of AI: discuss its role in the AI winters narrative.",
+            hint: "Machines Who Think (1979), Fifth Generation (1983 with Feigenbaum). McCorduck shaped how AI is remembered.",
+            essay: `
+              <h3>Intro</h3>
+              <p>Pamela McCorduck (1940–2021) wrote the standard popular history of AI: <em>Machines Who Think</em> (1979). She also co-wrote <em>The Fifth Generation</em> (1983) with Edward Feigenbaum, the book that triggered the Japanese AI initiative and Western panic in response. The lecturer used her as the framing figure for the AI winters narrative because she did not just record AI's history, she helped shape how the field remembers itself.</p>
+
+              <h3>The AI winters narrative</h3>
+              <p>The "AI winters" are usually told as two cycles. First winter: the 1970s, after the Lighthill report (1973) in the UK cut AI funding. Second winter: late 1980s and early 1990s, after the expert-systems boom collapsed and the Japanese Fifth Generation failed to deliver its promised general intelligence. Each winter followed a period of inflated expectations.</p>
+
+              <h3>McCorduck's role</h3>
+              <p>McCorduck's book of 1979 was published right before the first winter ended and the expert-systems boom began. Her account presented AI as a respectable, important research programme with deep historical roots. Her 1983 book with Feigenbaum amplified the optimism of the early 1980s and arguably contributed to the bubble.</p>
+
+              <h3>Why this matters</h3>
+              <p>Histories shape what comes next. The 1980s AI boom was funded partly because McCorduck and Feigenbaum's book made governments believe AI was about to deliver. The collapse that followed was made worse because the expectations had been raised so high. Reading the AI winters reflectively, the lecturer's point was that historians are not just observers; they are participants who help inflate or deflate the next hype cycle.</p>
+
+              <h3>Conclusion</h3>
+              <p>McCorduck's place in AI history is interesting because she is both a historian of the field and a reason for one of its hype cycles. The current AI boom (2023+) has its own McCorducks: figures who write about AI as if it is already at the threshold of general intelligence. Whether this is a fair description or a setup for another winter is exactly the question her career models.</p>
+            `
+          },
+          {
+            q: "Discuss Mar Hicks and Joy Rankin's work on recovering women's contributions to computing.",
+            hint: "Hicks: Programmed Inequality (UK WWII women IT workers). Rankin: A People's History of Computing in the United States.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The standard history of computing is told through men: Babbage, Hollerith, Mauchly, Eckert, von Neumann, Jobs, Gates. Mar Hicks and Joy Rankin are two historians whose recent work has changed that picture by recovering the women who actually did much of the work.</p>
+
+              <h3>Mar Hicks and the British women IT workers</h3>
+              <p>Hicks's book <em>Programmed Inequality</em> documents how, after WWII, the British computing workforce was largely female. Women had been recruited during the war for code-breaking and programming. After 1945, the government and the industry classified their work as "sub-clerical": they were denied pensions, paid less, and routinely fired upon marriage. When the British computer industry tried to professionalise in the 1960s and 70s, it forced these women out and replaced them with men. The book argues that this is a major reason British computing failed to compete with the Americans: it deliberately deskilled itself.</p>
+
+              <h3>Joy Rankin and the American story</h3>
+              <p>Rankin's <em>A People's History of Computing in the United States</em> does similar work for the US. She recovers the role of women, students, and small institutions in the 1960s and 70s computing scene, especially around education and Dartmouth's time-sharing system. The standard "Silicon Valley genius" story disappears the kind of distributed, collective work that actually made computing widespread.</p>
+
+              <h3>Why this matters</h3>
+              <p>Both historians make a methodological point: who gets to count as a computing pioneer is a political question. The choice of heroes shapes which stories are seen as the main line. Recovering women, students, and institutional workers is not just a matter of fairness; it changes what we think computing actually was.</p>
+
+              <h3>Conclusion</h3>
+              <p>The lecturer's point was that the importance of stories goes both ways. We can tell computing's history as great men and dramatic founder moments, or we can tell it as the work of many people, most of them forgotten. Hicks and Rankin show that the second version is closer to what actually happened.</p>
+            `
+          },
+          {
+            q: "\"Blaming technology is missing the point.\" Explain what the lecturer meant.",
+            hint: "Technology is shaped by the people who design and deploy it. The catch is always also a human choice.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The lecturer made a clear claim toward the end of L7: blaming technology is missing the point. The reasoning is straightforward but easy to forget when something goes wrong with a digital system. Technology does not act on its own; it carries the priorities of the people who built it and the institutions that deployed it.</p>
+
+              <h3>The point</h3>
+              <p>When a Facebook algorithm amplifies extremist content, when an AI system denies a loan because of a discriminatory pattern in the training data, when a data centre uses huge amounts of electricity, when an e-waste site in Ghana poisons groundwater, it is tempting to blame "the algorithm" or "the technology". But each of those situations was produced by human choices: what data to collect, what business model to follow, where to put the infrastructure, what to do with the discarded hardware. The technology is the medium; the politics is the message.</p>
+
+              <h3>Why it matters</h3>
+              <p>This framing has practical consequences. If we blame "the algorithm", we accept that the problem is too complex to fix and that we should just try to use the technology better. If we recognise that the algorithm reflects deliberate choices, we can ask different questions: who made those choices, with what incentives, and how could the choices be different. The first framing makes us passive; the second makes us responsible.</p>
+
+              <h3>Special responsibility for AI professionals</h3>
+              <p>The lecturer added that AI professionals carry a special responsibility precisely because they are the ones making the choices. What is "an advantage to one may be a disadvantage to someone else": the designer chooses whose advantage to optimise for. Refusing to make that choice (or pretending it is the technology's choice) is itself a choice.</p>
+
+              <h3>Conclusion</h3>
+              <p>The point is not that technology has no effects, or that bad technologies do not exist. It is that the effects come from how technologies are designed, deployed, and regulated. Blaming "the technology" hides the political and economic decisions that produced the technology in the first place. Recognising the human role behind the system is the first step to changing it.</p>
+            `
+          },
+          {
+            q: "Why does the L7 lecture say cybernetics is \"not visible\" in modern AI?",
+            hint: "Modern AI = ML, data mining, pattern recognition, expert systems. Cybernetics's broader vision largely vanished from the public face of AI.",
+            essay: `
+              <h3>Intro</h3>
+              <p>The lecturer made a striking point about modern AI: cybernetics, the broader 1940s and 50s movement that produced AI in the first place, is no longer visible in it. Modern AI is associated with machine learning, data mining, pattern recognition, expert systems, robotics, and deep learning. The wider cybernetic vision (feedback, control, communication across biological and mechanical systems) has largely vanished from the public face of the field.</p>
+
+              <h3>What cybernetics included</h3>
+              <p>Cybernetics in the 1940s and 50s drew from mathematics, neuroscience, biology, psychology, library science, administration, philosophy, even anthropology. The Macy conferences (1946–53) brought all these fields together. Margaret Mead, Norbert Wiener, Warren McCulloch and Walter Pitts (the Perceptron, 1943), William Grey Walter (the Elsie and Elmer robotic "tortoises", 1948), Claude Shannon (Theseus the mouse, 1950) were all part of it. AI proper, named at Dartmouth in 1956, was just one branch of this much wider conversation.</p>
+
+              <h3>What survived in modern AI</h3>
+              <p>Modern AI inherited the engineering of cybernetics (algorithms, learning, feedback loops) but lost most of its interdisciplinary breadth. Machine learning treats AI as an optimisation problem on data. Deep learning since 2010 has produced spectacular results on pattern recognition and language, but it does not normally engage with neuroscience, philosophy or anthropology the way cybernetics did. The field has narrowed.</p>
+
+              <h3>Why this matters</h3>
+              <p>The lecturer's point connects to the wider course theme: histories shape what is possible. If AI sees itself as machine learning only, it has less to draw on when it confronts hard questions about meaning, ethics, or social structure. Cybernetics had answers (or at least vocabulary) for those questions. Modern AI often does not. Recovering the cybernetic prehistory of AI, the lecturer suggested, gives the field a richer set of tools than the pure engineering tradition allows.</p>
+
+              <h3>Conclusion</h3>
+              <p>That cybernetics is "less visible" in modern AI is not just a historical observation; it is a critique. The dominant AI of the 2020s solves narrow technical problems brilliantly but talks about its own social and ethical dimensions awkwardly. Cybernetics, despite being mostly forgotten, had a richer vocabulary for exactly those dimensions.</p>
+            `
+          }
+        ]
+      },
+      {
+        tier: 4,
+        label: "Possible Reflective",
+        meta: "Philosophical / methodological angles — outline only",
+        questions: [
+          {
+            q: "\"Why did we do this again?\" Discuss the lecturer's reflective frame for the course.",
+            hint: "Not prescriptive but reflective. Historical / philosophical / sociological lenses.",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>The frame.</strong> L7 closed with the lecturer asking why we took this course at all. The answer was that history of AI is not meant to be prescriptive (telling us what to do) but reflective (helping us think about who we are, where we came from, and where we are heading).</p>
+
+              <p><strong>Three lenses.</strong> The lecturer named three: historical (Campbell-Kelly and the book), philosophical (what counts as a machine, as thought, as a community), and sociological (who builds, who uses, who pays).</p>
+
+              <p><strong>The simple stories don't hold.</strong> The lecturer listed four wrong stories: "people wanted to own a computer so they were made"; "computers made life easier"; "only the Luddites tried to prevent the future"; "the line of development was inevitable". All of these flatten the actual messy history. The real picture involves different desires, different agendas, people with ideals, unintended use, appropriation, confluences, the creation of markets, and (in the Dutch case) bluffing your way in.</p>
+
+              <p><strong>Why it matters.</strong> The reflective frame is a tool. If you know the history is messy, you can ask better questions about the present. Why is Google's algorithm shaped the way it is? Whose interests does the GDPR protect? Why is most computing infrastructure American? Each of these questions has a historical answer that pushes back against the "this is just how technology is" story.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>That, I think, is why we did this course: not to learn dates but to learn how to read the present as something that was made, not given.</p>
+              <div class="note">~280 words. The lecturer's own list of "simple stories" is the spine.</div>
+            `
+          },
+          {
+            q: "Discuss the role of \"missed opportunities\" in the history of AI.",
+            hint: "Cybernetics, the Macy conferences, the Paris 1951 conference, the Logic Theorist 1956. The lecturer highlighted these.",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>The point.</strong> Histories of AI tend to be told as a clean lineage from Turing to Dartmouth 1956 to today. The lecturer pushed back on that: a more honest history would include the missed opportunities, the conferences that should have mattered but were forgotten, and the figures who almost shaped the field but didn't.</p>
+
+              <p><strong>Examples.</strong></p>
+              <ul>
+                <li>The Macy conferences (1946–1953). They brought psychologists, mathematicians, biologists, and engineers together around cybernetics. If AI had stayed inside the Macy frame, it would be a much broader, more interdisciplinary field than it became.</li>
+                <li>The Paris 1951 conference "Les machines à calculer et la pensée humaine". European cybernetics had its own conversation that paralleled the American one. After 1956 Dartmouth captured the public attention and the funding, the Paris tradition faded.</li>
+                <li>The Logic Theorist (Newell, Simon, Shaw, 1956). The first program described as AI, presented at Dartmouth, but not Dartmouth's main story. It got less press than later work, but it was technically the first real AI system.</li>
+              </ul>
+
+              <p><strong>Why it matters.</strong> Each missed opportunity is a path the field could have taken. Knowing about them gives you a way of seeing the present AI as a choice, not as the only outcome. The dominant AI of today (data-driven, English-language, US-based) is the winner of a competition with many losers, and the losers also had ideas.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>Missed opportunities matter because they show that the field's actual shape is contingent. It could have been different. That makes it easier to imagine how it might still be different.</p>
+              <div class="note">~270 words. Macy + Paris 1951 + Logic Theorist is the trio to name.</div>
+            `
+          },
+          {
+            q: "Discuss the rise of social media (Facebook, Twitter) as a Web 2.0 phenomenon and a governance problem.",
+            hint: "Facebook 2002 Harvard, 145M users by 2008. Cambridge Analytica → $5bn FTC fine. Twitter 2006, never reached 1/5 of FB. The book frames both as Web 2.0 maturing into corporate platforms.",
+            essay: `
+              <h3>Outline</h3>
+              <p><strong>What social media became.</strong> Facebook was founded by Mark Zuckerberg in a Harvard dorm in 2002. By 2008 it had 145 million users, 70% outside the United States. It acquired Instagram for $1bn in 2012 and WhatsApp for $19bn in 2014. Twitter, founded by Jack Dorsey in 2006, never reached even one-fifth of Facebook's user base but became the dominant short-text platform.</p>
+
+              <p><strong>The governance problem.</strong> The Cambridge Analytica scandal (revealed in 2018) showed that the data of 80 million Facebook users had been shared with a political consulting firm without informed consent. The FTC fined Facebook $5bn. By 2019, Facebook employed thousands of human content moderators worldwide and was training AI systems to replace them. The platform's scale made it impossible to moderate by hand; the platform's reach made un-moderated content a serious political problem.</p>
+
+              <p><strong>The Web 2.0 angle.</strong> Social media is what happens when the participatory promise of Web 2.0 meets the advertising-funded business model of Google. Users produce the content; the platform sells access to attention. The same arrangement that made Wells's World Brain free also made surveillance the default.</p>
+
+              <p><strong>Reflective lesson.</strong> Social media is not a deviation from Web 2.0; it is what Web 2.0 produces when the platforms get large enough. Treating it as an "AI ethics" problem misses the structural point: the business model was set in the 1990s when advertising became the default revenue source.</p>
+
+              <h3>Conclusion sentence</h3>
+              <p>The governance question for social media is not how to clean it up but whether the business model that made it possible can be sustained at all.</p>
+              <div class="note">~280 words. Cambridge Analytica + the $5bn fine is the memorable detail.</div>
+            `
+          }
+        ]
+      }
+    ]
+  }
 ];
 
 // ============================================================
@@ -3532,11 +4676,28 @@ function toggleStudyMode() {
 function switchView(which) {
   document.getElementById("view-essentials").classList.toggle("active", which === "essentials");
   document.getElementById("view-lectures").classList.toggle("active", which === "lectures");
+  document.getElementById("view-exam").classList.toggle("active", which === "exam");
   document.getElementById("view-toolkit").classList.toggle("active", which === "toolkit");
   document.getElementById("tab-essentials").classList.toggle("active", which === "essentials");
   document.getElementById("tab-lectures").classList.toggle("active", which === "lectures");
+  document.getElementById("tab-exam").classList.toggle("active", which === "exam");
   document.getElementById("tab-toolkit").classList.toggle("active", which === "toolkit");
   window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function togglePastExam(id) {
+  document.getElementById(id).classList.toggle("open");
+}
+
+function switchPred(letter) {
+  ['A','B','C'].forEach(L => {
+    document.getElementById('pred-tab-' + L).classList.toggle('active', L === letter);
+    document.getElementById('pred-group-' + L).classList.toggle('active', L === letter);
+  });
+}
+
+function togglePred(elem) {
+  elem.classList.toggle('open');
 }
 
 // Init
