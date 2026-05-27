@@ -198,6 +198,112 @@
   .essentials-view.active { display: block; }
   .exam-view { display: none; }
   .exam-view.active { display: block; }
+  .cheatsheet-view { display: none; }
+  .cheatsheet-view.active { display: block; }
+
+  /* Cheat Sheet styling */
+  .cs-banner {
+    background: linear-gradient(135deg, rgba(110,231,183,0.10), rgba(96,165,250,0.10));
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+  }
+  .cs-banner h1 { margin: 0 0 6px 0; font-size: 1.6rem; }
+  .cs-banner p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+  .cs-toc {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+  }
+  .cs-toc a {
+    color: var(--accent-2);
+    text-decoration: none;
+    font-size: 0.88rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(96,165,250,0.07);
+    border: 1px solid rgba(96,165,250,0.18);
+    transition: all 0.15s ease;
+  }
+  .cs-toc a:hover { background: rgba(96,165,250,0.15); border-color: var(--accent-2); }
+  .cs-section {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-bottom: 22px;
+    scroll-margin-top: 90px;
+  }
+  .cs-section h2 {
+    font-size: 1.18rem;
+    margin: 0 0 4px 0;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .cs-section .cs-tag {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-bottom: 14px;
+  }
+  .cs-table-wrap { overflow-x: auto; }
+  .cs-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .cs-table thead th {
+    background: rgba(110,231,183,0.07);
+    color: var(--accent-2);
+    text-align: left;
+    padding: 9px 12px;
+    border-bottom: 2px solid var(--border);
+    font-weight: 600;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .cs-table tbody td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.45;
+  }
+  .cs-table tbody tr:last-child td { border-bottom: none; }
+  .cs-table tbody tr:hover { background: rgba(255,255,255,0.025); }
+  .cs-table .name { font-weight: 600; color: var(--text); }
+  .cs-table .year {
+    color: var(--accent);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .cs-table .who { color: var(--accent-2); white-space: nowrap; }
+  .cs-concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .cs-concept-card {
+    background: rgba(255,255,255,0.025);
+    border-left: 3px solid var(--accent);
+    padding: 11px 14px;
+    border-radius: 6px;
+  }
+  .cs-concept-card h4 {
+    margin: 0 0 5px 0;
+    color: var(--accent-2);
+    font-size: 0.95rem;
+  }
+  .cs-concept-card p {
+    margin: 0;
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
 
   /* Exam Bank styling */
   .exam-banner {
@@ -542,6 +648,7 @@
       <button id="tab-essentials" class="active" onclick="switchView('essentials')">🎯 Essentials</button>
       <button id="tab-lectures" onclick="switchView('lectures')">📚 Lectures</button>
       <button id="tab-exam" onclick="switchView('exam')">🎲 Exam Bank</button>
+      <button id="tab-cheatsheet" onclick="switchView('cheatsheet')">📋 Cheat Sheet</button>
       <button id="tab-toolkit" onclick="switchView('toolkit')">✍️ Writing Toolkit</button>
     </div>
   </div>
@@ -757,6 +864,140 @@
           <div class="topic"><strong>AI and education</strong><div class="meta">A5 May 2025 + A5 July 2025. Both years.</div></div>
           <div class="coverage cov-yes">L4 Tier 3</div>
         </div>
+      </div>
+    </div>
+
+    <div class="exam-section">
+      <h2>🏆 Top 12 Most Likely 2026 Questions</h2>
+      <p class="sub">These topics appeared in <strong>BOTH</strong> 2025 papers (May + July). Highest probability for 2026. Click any item to read the full essay.</p>
+      <div class="pred-list">
+
+        <div class="pred-item" onclick="togglePred(this)"><strong>1. Real time computing — Whirlwind, SAGE, SABRE.</strong> Why "real time" mattered. <span class="pred-chev">▸</span>
+          <div class="pred-meta"><span class="badge cov-yes">B-question both years</span>Asked in 2025 I &amp; II.</div>
+          <div class="pred-essay">
+            <p>Real time computing means the machine processes input fast enough to react to events as they happen, instead of running batch jobs overnight. The book frames Whirlwind as the breakthrough. Jay Forrester at MIT started Whirlwind in the 1940s as a flight simulator project, but it was repeatedly close to cancellation. Perry Crawford saved it twice. First he reframed it as a digital project rather than analogue, which kept the navy interested. Second, after the Soviets tested an atomic bomb in 1949, Crawford pushed Whirlwind as the answer to the new air-defence problem.</p>
+            <p>That pivot became <strong>SAGE</strong>, the Semi-Automatic Ground Environment, finished around 1958. SAGE was the first large real time system: radar data flowed into the computer, operators saw aircraft on screens, and the machine could direct interceptors. The civilian spin-off was <strong>SABRE</strong> (1964), American Airlines' seat reservation system, built by IBM using the SAGE blueprint. It let agents anywhere book a seat instantly.</p>
+            <p>The historical point is twofold. Technically, real time forced new ideas: magnetic core memory, light pens, large duplex systems with backup. Institutionally, the Cold War paid for the research, then airlines and banks appropriated the technology for civilian use. This is the prof's "appropriation" pattern again: a military problem became commercial infrastructure. Without real time computing there would be no airline booking, no ATMs, and no interactive operating systems later in the 1960s.</p>
+          </div>
+        </div>
+
+        <div class="pred-item" onclick="togglePred(this)"><strong>2. Software crisis — OS/360 as exemplar.</strong> Brooks vs Dijkstra. <span class="pred-chev">▸</span>
+          <div class="pred-meta"><span class="badge cov-yes">B-question both years</span>2025 I asked "real crisis?" 2025 II asked about OS/360.</div>
+          <div class="pred-essay">
+            <p>The "software crisis" is the term used at the 1968 NATO conference in Garmisch to describe how software projects in the 1960s kept missing deadlines, going over budget, and shipping with bugs. IBM's <strong>OS/360</strong> is the textbook exemplar. It was the operating system for the System/360 family of machines announced in 1964. Fred Brooks led the project. It eventually employed around a thousand programmers, cost roughly 500 million dollars, and was delivered late and unstable.</p>
+            <p>Brooks wrote about it afterwards in <em>The Mythical Man-Month</em> (1975). His key insight: adding more programmers to a late project makes it later, because communication costs grow faster than productivity. He also argued software is "intrinsically" hard because it has to handle every edge case in an imagined world.</p>
+            <p>Dijkstra took a different view. He thought the crisis was not intrinsic but a failure of discipline. Programmers were sloppy, used GOTO statements, and did not write code that could be reasoned about. His response was structured programming and formal methods.</p>
+            <p>Together the two responses framed software engineering as a real discipline. The lecturer's point is that OS/360 was big enough and public enough to make this debate visible. It exposed that writing software at industrial scale was nothing like the small-team programming of the 1950s, and the field had to invent management techniques and ways of thinking that did not exist yet.</p>
+          </div>
+        </div>
+
+        <div class="pred-item" onclick="togglePred(this)"><strong>3. Computer manufacturers reconstructed.</strong> The 1950s pivot to business. <span class="pred-chev">▸</span>
+          <div class="pred-meta"><span class="badge cov-yes">B-question both years</span>2025 I &amp; II both featured this theme.</div>
+          <div class="pred-essay">
+            <p>In the late 1940s, computers were one-off scientific instruments. By the late 1950s they were business machines you could buy from a catalogue. Campbell-Kelly tracks how the early computer industry was reconstructed around that shift.</p>
+            <p>The first commercial computer was <strong>UNIVAC</strong>, built by Eckert and Mauchly and delivered to the US Census Bureau in 1951. UNIVAC was famous for predicting Eisenhower's 1952 election victory on live television, which sold the public on the idea of computers. But Eckert and Mauchly were not businessmen. Remington Rand bought them, and even with UNIVAC's head start they lost the market.</p>
+            <p>The winner was <strong>IBM</strong>. IBM had the punched-card customer base from the 1930s — banks, insurance companies, government — and a feared sales force trained by Thomas Watson Sr. When IBM finally released the 701 (1952) and then the 650 (1954), they used existing customer relationships to push computers into offices. By 1956 IBM had passed Remington Rand. By the late 1950s, IBM controlled around 70% of the market.</p>
+            <p>One sub-theme is magnetic tape. Early manufacturers struggled with reliability, head wear, and standardization. UNIVAC used metal tape; IBM used plastic-based tape that was lighter and easier to handle.</p>
+            <p>The takeaway: the early industry was reconstructed by sales, support, and existing customer trust, not by who had the best machine. Technology was necessary but not sufficient.</p>
+          </div>
+        </div>
+
+        <div class="pred-item" onclick="togglePred(this)"><strong>4. IBM 1401 — good technology + great marketing.</strong> Campbell-Kelly's line of thought. <span class="pred-chev">▸</span>
+          <div class="pred-meta"><span class="badge cov-yes">B-question both years</span>Watson framing (May) and 1401 specifically (July).</div>
+          <div class="pred-essay">
+            <p>The <strong>IBM 1401</strong>, released in 1959, was a mid-range business computer that became one of the most successful machines of its era. By 1964 about 10,000 had been installed worldwide. Campbell-Kelly explains the success as a combination of solid technology and IBM's marketing engine.</p>
+            <p>The technology side: the 1401 used transistors instead of vacuum tubes, which made it smaller, cheaper, and more reliable than earlier business computers. It came with a chain printer (the 1403) that was a real engineering achievement, printing 600 lines a minute. The system was modular, so customers could buy a basic configuration and add memory or peripherals later. For most companies the 1401 was the first computer that actually fit their workflow rather than forcing them to redesign processes around it.</p>
+            <p>The marketing side: IBM did not just sell the box. They sold the whole package — installation, training, financing, and ongoing service contracts. The sales force was trained at IBM's own school. They knew their customers' industries and could talk to managers in business language, not technical language. IBM also offered the 1401 on a lease, which spread the cost and locked customers in.</p>
+            <p>Campbell-Kelly's point is that this is why IBM, not the technologically interesting competitors, came to dominate. The 1401 was not the most advanced computer in 1959 but it was the one a credit-union manager in Iowa could actually buy and use. Good enough technology plus great service is the formula.</p>
+          </div>
+        </div>
+
+        <div class="pred-item" onclick="togglePred(this)"><strong>5. Timesharing — new ways of computing in the 1960s.</strong> CTSS, DTSS, BASIC. <span class="pred-chev">▸</span>
+          <div class="pred-meta"><span class="badge cov-yes">B-question both years</span>Discuss at least two new ways of computing.</div>
+          <div class="pred-essay">
+            <p>In the early 1960s, computers ran in batch mode: you submitted a deck of punched cards, waited hours, and got a printout. Two "new ways" broke that model and set up personal computing.</p>
+            <p>The first was <strong>timesharing</strong>. The idea was that one big computer could serve many users at once by giving each a small slice of CPU time. <strong>CTSS</strong> (Compatible Time Sharing System) at MIT, demonstrated in 1961 under Fernando Corbató, was the first real implementation. Suddenly a programmer could sit at a teletype, type code, and see results in seconds. CTSS led to <strong>Project MAC</strong> and eventually Multics, which Unix later imitated and simplified.</p>
+            <p>The second was <strong>BASIC</strong> and the Dartmouth Time Sharing System (<strong>DTSS</strong>). In 1964, John Kemeny and Thomas Kurtz at Dartmouth designed BASIC as a language any student could learn in an afternoon, running on a campus-wide timesharing system. Within a few years a majority of Dartmouth students had written a program. This was the moment computing escaped the priesthood of professional programmers.</p>
+            <p>Campbell-Kelly's argument is that these new ways prepared people for the personal computer of the 1970s. By the time the Altair and the Apple II appeared, there was already a generation that had typed at a keyboard, seen output appear on a screen or a printer, and knew what a programming language felt like. Without timesharing and BASIC, the PC would have arrived to a public that did not know what to do with it. The hardware revolution rode on a behavioural one.</p>
+          </div>
+        </div>
+
+        <div class="pred-item" onclick="togglePred(this)"><strong>6. Broadening the appeal of the PC.</strong> 1980s — GUI, CD-ROM, failed challengers. <span class="pred-chev">▸</span>
+          <div class="pred-meta"><span class="badge cov-yes">B-question both years</span>Why is it relevant to know about the failures?</div>
+          <div class="pred-essay">
+            <p>The early 1980s personal computer was a hobby and an office tool. By the early 1990s it had become a household appliance. Campbell-Kelly calls this "broadening the appeal." Three things drove it.</p>
+            <p>The first was the <strong>graphical user interface</strong>. Xerox PARC had built the first GUI in the 1970s, but it was Apple's <strong>Macintosh</strong> (1984) and then Microsoft <strong>Windows</strong> (Windows 3.0 in 1990) that made it mass-market. Suddenly people who would never type a command could use a computer.</p>
+            <p>The second was <strong>multimedia</strong>. The CD-ROM, introduced in the late 1980s, let publishers ship games, encyclopaedias, and educational software on a single disk. <strong>Myst</strong> (1993) is the standard example. This made the PC something a family would buy for the children, not just an office machine.</p>
+            <p>The third was <strong>networking</strong>, which arrives in the mid-1990s with the web.</p>
+            <p>The exam often asks about the <em>failed</em> GUI companies. <strong>VisiCorp</strong> (VisiOn, 1983) and <strong>GEM</strong> (Digital Research, 1985) both released GUI systems for the PC before Microsoft did. Both failed: VisiOn was too expensive and slow; GEM lost a lawsuit from Apple about lookalike. Why does it matter that we know about them? Because it shows the winners were not technologically inevitable. The market was contested, and the historians' job is to recover the alternatives. Knowing about the failures is what stops history from being a victory narrative dictated by Microsoft and Apple.</p>
+          </div>
+        </div>
+
+        <div class="pred-item" onclick="togglePred(this)"><strong>7. Internet — three desires + email sociology.</strong> Why people built it. <span class="pred-chev">▸</span>
+          <div class="pred-meta"><span class="badge cov-yes">B-question both years</span>Three desires (May) and email sociology (July).</div>
+          <div class="pred-essay">
+            <p>Campbell-Kelly explains the internet not as one project but as three desires that all wanted the same infrastructure. The desires came from different communities and converged.</p>
+            <p>The first desire was <strong>military</strong>. The Cold War context made the US Department of Defense want a network that could keep working after parts of it were destroyed. ARPANET (1969) used packet switching designed by Paul Baran at RAND so that messages could find alternative routes.</p>
+            <p>The second desire was <strong>academic</strong>. Computer scientists wanted to share data and software across universities. ARPANET grew from four nodes in 1969 to dozens by the mid-1970s, and email turned out to be the most-used application within a year, even though it was almost an afterthought.</p>
+            <p>The third desire was <strong>civic and commercial</strong>. By the late 1980s the National Science Foundation took over the backbone (NSFNET), commercial providers arrived, and the World Wide Web (Berners-Lee, CERN, 1989–91) finally made the system usable for non-experts.</p>
+            <p>The email part of the question. Sociologists and psychologists in the 1970s and 1980s noticed that email had effects nobody designed. People flamed each other, friendships formed between strangers across continents, hierarchies in companies flattened because a junior engineer could write to a director. The medium itself shaped behaviour. The prof's framing is that email is the first case where computer history becomes social history. We cannot understand the internet just as a technical artefact: it is also a social experiment that nobody set up on purpose.</p>
+          </div>
+        </div>
+
+        <div class="pred-item" onclick="togglePred(this)"><strong>8. Computing and governance — US vs European privacy.</strong> Compare two legal programs. <span class="pred-chev">▸</span>
+          <div class="pred-meta"><span class="badge cov-yes">B-question both years</span>B12 both years.</div>
+          <div class="pred-essay">
+            <p>The US and Europe took very different paths on computing-related privacy. The lecture frames this as a "computing and governance" question and asks us to compare two legal programs.</p>
+            <p>The European program is the <strong>GDPR</strong> (General Data Protection Regulation), in force from 2018 across the EU. GDPR treats personal data as a fundamental right under EU law. Companies must have a lawful basis to process data, must allow users to access and delete their data, and face fines up to 4% of global revenue for breaches. It is comprehensive and applies to any company doing business in the EU. The roots go back further: the 1981 Council of Europe Convention 108 and individual national laws in Germany and Sweden from the 1970s.</p>
+            <p>The US program is sectoral and patchier. <strong>HIPAA</strong> (1996) regulates health data. <strong>COPPA</strong> (1998) regulates children's data online. <strong>CCPA</strong> (California Consumer Privacy Act, 2018) is the closest the US has to GDPR but only applies in one state. There is no federal omnibus privacy law.</p>
+            <p>The contrast is philosophical. Europe came out of a 20th century where governments had used data to persecute people — the legacy of fascism and East German surveillance — and treats privacy as a defence against the state and large companies. The US, with a stronger first-amendment tradition and a tech industry it wanted to grow, treated data as a commercial asset and intervened only sector by sector.</p>
+            <p>The historical point is that the same digital infrastructure produced two opposite regulatory cultures because each culture asked a different question about what computers are for.</p>
+          </div>
+        </div>
+
+        <div class="pred-item" onclick="togglePred(this)"><strong>9. AI and education.</strong> Two examples — PI and LOGO. <span class="pred-chev">▸</span>
+          <div class="pred-meta"><span class="badge cov-yes">A-question both years</span>A5 May 2025 + A5 July 2025.</div>
+          <div class="pred-essay">
+            <p>Two examples from the lectures illustrate how AI met education. They come from opposite ends of the educational philosophy spectrum.</p>
+            <p>The first is <strong>programmed instruction</strong>. The behaviourist B. F. Skinner argued in 1954 that learning could be broken into small steps, each reinforced by a correct answer. This became the foundation of the <strong>PLATO</strong> project at the University of Illinois from 1960. PLATO offered drill-style tutoring on a network of terminals: the computer asked a question, the student answered, the computer either moved on or gave a hint. By the 1970s, PLATO ran tutoring software in chemistry, languages, and music for tens of thousands of students.</p>
+            <p>The second is <strong>LOGO</strong>, designed by Seymour Papert with Marvin Minsky at MIT in 1967 and popularised in Papert's book <em>Mindstorms</em> (1981). LOGO was the opposite philosophy. Instead of drilling students with right answers, it gave them a "turtle" they could program. The child made the turtle move and draw, learned debugging by fixing their own mistakes, and discovered geometry from the inside out. Papert called this "powerful ideas" learning.</p>
+            <p>The Dutch case is worth mentioning. In 1968 a state report on "computer wiskunde" called for teaching algorithms in schools. C. J. Vonk in 1971 wrote a teaching algorithm based on blind-dating to introduce arrays. A. van der Sluis in 1969 argued that teaching algorithms gave citizens a defence against a "big brother" society.</p>
+            <p>The historical point: AI and education was not just a tool question, it was an argument about what kind of citizen the future needed.</p>
+          </div>
+        </div>
+
+        <div class="pred-item" onclick="togglePred(this)"><strong>10. Defining technology (Bolter).</strong> Two 21st-century AI examples. <span class="pred-chev">▸</span>
+          <div class="pred-meta"><span class="badge cov-yes">C-question both years</span>C5 both years. 1960s cybernetics (May) vs 21st century AI (July).</div>
+          <div class="pred-essay">
+            <p>Jay David Bolter, in <em>Turing's Man</em> (1984), introduced the idea of a <strong>defining technology</strong>. A defining technology is one a culture uses as the central metaphor to understand itself. Bolter argued that the clock defined the Newtonian universe, the steam engine defined the industrial age, and the computer defines the late 20th century. The point is not that the technology causes the culture, but that we cannot stop ourselves from describing the mind, the body, society, and even nature in the vocabulary of whatever the dominant machine is.</p>
+            <p>Two 21st-century examples of AI as a defining technology.</p>
+            <p>The first is <strong>healthcare</strong>. Hospitals and policymakers now describe medical decision-making in AI terms. We "diagnose" with classifiers. We talk about "training" doctors on data sets. IBM's Watson Health was sold to hospitals around 2014 as a system that would read journal articles and recommend treatments. Even though Watson Health largely failed and was sold off in 2022, the metaphor stuck. Medicine reframed itself as a pattern-recognition problem because AI was the defining technology of the decade.</p>
+            <p>The second is <strong>justice and policing</strong>. Predictive policing tools like COMPAS (criminal risk-scoring in US courts) and city-level systems that predict crime rates have entered the legal system. Judges are now asked to weigh an algorithm's recommendation. This is exactly Bolter's claim: a domain that used to think in moral terms now thinks in classification terms because AI provides the dominant vocabulary.</p>
+            <p>The historical point is that AI does not just do new things; it changes the language a society uses to describe what it already does.</p>
+          </div>
+        </div>
+
+        <div class="pred-item" onclick="togglePred(this)"><strong>11. Histories of AI — appropriation and agendas.</strong> Alternative starting points. <span class="pred-chev">▸</span>
+          <div class="pred-meta"><span class="badge cov-yes">C-question both years</span>C1 both years. Appropriation (July) + starting points/agendas (May).</div>
+          <div class="pred-essay">
+            <p>The traditional history of computing centres on a few canonical starting points — ENIAC 1946, Dartmouth 1956 for AI — and presents the field as a clean march of progress. The prof argues this is a chosen story serving an agenda, and that other starting points are equally defensible.</p>
+            <p>For AI the textbook starting point is the <strong>Dartmouth summer workshop of 1956</strong>, where McCarthy, Minsky, Rochester, and Shannon coined "artificial intelligence." This is the canonical origin. But Pamela McCorduck's <em>Machines Who Think</em> (1979) deliberately pushed the start back to ancient mythology — the Golem, Talos — to make AI feel like an old human dream. That is one alternative.</p>
+            <p>A second alternative is the <strong>Macy conferences (1946–53)</strong> on cybernetics, where Norbert Wiener, McCulloch, and Pitts already had a working theory of mind and machine before "AI" had a name. The Dartmouth group later marketed cybernetics' problems as their own.</p>
+            <p>A third is <strong>Babbage's Analytical Engine (1830s onwards)</strong>, which Ada Lovelace described as capable of representing anything formal, including music. If we treat that as the start, AI is nearly two centuries old.</p>
+            <p>This is what the lecturer means by <strong>appropriation</strong>: each generation chooses a starting point that justifies its current research programme. Dartmouth gave AI its symbolic-logic agenda. McCorduck's mythological framing gave AI cultural authority during the funding-poor 1970s. The lesson: histories of AI are tools used to defend present-day claims. Reflecting on the choice of origin is itself part of the history.</p>
+          </div>
+        </div>
+
+        <div class="pred-item" onclick="togglePred(this)"><strong>12. AI winters and agendas — McCorduck context.</strong> Why winters keep happening. <span class="pred-chev">▸</span>
+          <div class="pred-meta"><span class="badge cov-yes">C/bonus both years</span>C6 May 2025 + NO BONUS July 2025.</div>
+          <div class="pred-essay">
+            <p>An <strong>AI winter</strong> is a period when AI funding and public interest collapse after a wave of hype fails to deliver. There have been two main winters: roughly 1974–80 after the Lighthill report in the UK declared general AI research a dead end, and roughly 1987–93 after the expert-systems bubble burst.</p>
+            <p>The lecturer pairs the AI winters with Pamela McCorduck's <em>Machines Who Think</em> (1979), and the pairing is the key. McCorduck wrote her book at the bottom of the first winter. She traced AI back to myth and ancient automata to give the field cultural depth at a moment when its scientific claims were under attack. Her book was not just a history. It was an argument that AI research deserved to continue, even if the current generation had over-promised.</p>
+            <p>This is the lecturer's claim about <strong>agendas</strong>. Histories of AI tend to be written when the field is under pressure, and the histories are designed to defend present-day funding. McCorduck's history rebuilt the field's public legitimacy. The cyberneticists in the 1950s wrote histories that put themselves at the centre. Today's deep-learning advocates write histories that make neural networks the inevitable winner over symbolic AI.</p>
+            <p>The historical lesson from the winters themselves is that AI breakthroughs are followed by inflated promises, which collapse when the technology cannot scale. Each winter ended when a new approach (expert systems in the 1980s, deep learning around 2012) made the old failures look like a different problem. The pattern suggests we should expect another winter, and another rewritten history to follow it.</p>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -1196,6 +1437,476 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- ============ CHEAT SHEET VIEW ============ -->
+  <section id="view-cheatsheet" class="cheatsheet-view">
+    <div class="cs-banner">
+      <h1>📋 Cheat Sheet — every big topic at a glance</h1>
+      <p>Quick tables for the names, dates, machines, and concepts that show up most often. Skim before the exam. Click a chip to jump to a section.</p>
+    </div>
+
+    <nav class="cs-toc">
+      <a href="#cs-prog">Programming languages</a>
+      <a href="#cs-pre1946">Pre-1946 machines</a>
+      <a href="#cs-electronic">Electronic computers</a>
+      <a href="#cs-dutch">Dutch dinosaurs</a>
+      <a href="#cs-pcs">Personal computers</a>
+      <a href="#cs-os">Operating systems</a>
+      <a href="#cs-ai-people">AI pioneers</a>
+      <a href="#cs-ai-milestones">AI milestones</a>
+      <a href="#cs-traditions">Three traditions</a>
+      <a href="#cs-logic">Logic prehistory</a>
+      <a href="#cs-langs">Artificial languages</a>
+      <a href="#cs-internet">Internet</a>
+      <a href="#cs-privacy">Privacy laws</a>
+      <a href="#cs-winters">AI winters</a>
+      <a href="#cs-games">Games &amp; AI</a>
+      <a href="#cs-education">Education &amp; AI</a>
+      <a href="#cs-scifi">Sci-fi prehistory</a>
+      <a href="#cs-companies">Key companies</a>
+      <a href="#cs-concepts">Key concepts</a>
+    </nav>
+
+    <!-- 1. Programming Languages -->
+    <div class="cs-section" id="cs-prog">
+      <h2>💻 Programming languages</h2>
+      <div class="cs-tag">The five names that dominate the exam, plus three useful extras. Memorise creator + year + what it was for.</div>
+      <div class="cs-table-wrap"><table class="cs-table">
+        <thead><tr><th>Language</th><th>Created by</th><th>Year</th><th>What it's for (2 words)</th><th>Backed by</th></tr></thead>
+        <tbody>
+          <tr><td class="name">FORTRAN</td><td class="who">John Backus</td><td class="year">1957</td><td>Scientific formulas</td><td>IBM</td></tr>
+          <tr><td class="name">LISP</td><td class="who">John McCarthy</td><td class="year">1958</td><td>AI &amp; symbolic processing (nested lists)</td><td>MIT / DARPA</td></tr>
+          <tr><td class="name">COBOL</td><td class="who">Grace Hopper / CODASYL</td><td class="year">1959</td><td>Business &amp; managers (English-readable)</td><td>US Dept of Defense</td></tr>
+          <tr><td class="name">ALGOL 60</td><td class="who">Naur, Backus, intl. cmte</td><td class="year">1960</td><td>European scientific computing</td><td>European academia</td></tr>
+          <tr><td class="name">BASIC</td><td class="who">Kemeny + Kurtz</td><td class="year">1964</td><td>Teaching beginners</td><td>Dartmouth (DTSS)</td></tr>
+          <tr><td class="name">Pascal</td><td class="who">Niklaus Wirth</td><td class="year">1970</td><td>Structured programming, education</td><td>ETH Zürich</td></tr>
+          <tr><td class="name">C</td><td class="who">Dennis Ritchie</td><td class="year">1972</td><td>Systems programming (Unix)</td><td>Bell Labs</td></tr>
+          <tr><td class="name">Smalltalk</td><td class="who">Alan Kay + Adele Goldberg</td><td class="year">1972</td><td>Object-oriented, GUI prototypes</td><td>Xerox PARC</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 2. Pre-1946 Machines -->
+    <div class="cs-section" id="cs-pre1946">
+      <h2>⚙️ Pre-1946 computing machines</h2>
+      <div class="cs-tag">The "prehistory" — what the computer was before ENIAC.</div>
+      <div class="cs-table-wrap"><table class="cs-table">
+        <thead><tr><th>Machine</th><th>Inventor</th><th>Year</th><th>What it did</th><th>Country</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Difference Engine</td><td class="who">Charles Babbage</td><td class="year">1822</td><td>Tabulating polynomials (nautical tables)</td><td>UK</td></tr>
+          <tr><td class="name">Analytical Engine</td><td class="who">Babbage / Ada Lovelace</td><td class="year">1837+</td><td>General computation (never finished)</td><td>UK</td></tr>
+          <tr><td class="name">Hollerith Tabulator</td><td class="who">Herman Hollerith</td><td class="year">1890</td><td>US census, punched cards</td><td>USA</td></tr>
+          <tr><td class="name">Differential Analyser</td><td class="who">Vannevar Bush</td><td class="year">1934</td><td>Analogue engineering computation</td><td>USA (MIT)</td></tr>
+          <tr><td class="name">Z3</td><td class="who">Konrad Zuse</td><td class="year">1941</td><td>First programmable electromechanical</td><td>Germany</td></tr>
+          <tr><td class="name">Atanasoff–Berry</td><td class="who">Atanasoff + Berry</td><td class="year">1942</td><td>Early electronic, linear equations</td><td>USA</td></tr>
+          <tr><td class="name">Colossus</td><td class="who">Tommy Flowers</td><td class="year">1943</td><td>Codebreaking (Lorenz cipher)</td><td>UK (Bletchley)</td></tr>
+          <tr><td class="name">Harvard Mark I</td><td class="who">Howard Aiken</td><td class="year">1944</td><td>Scientific calculation, electromechanical</td><td>USA (Harvard/IBM)</td></tr>
+          <tr><td class="name">ENIAC</td><td class="who">Mauchly + Eckert</td><td class="year">1946</td><td>Ballistic firing tables</td><td>USA (UPenn)</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 3. Electronic Computers -->
+    <div class="cs-section" id="cs-electronic">
+      <h2>🖥️ Early electronic computers (post-1946)</h2>
+      <div class="cs-tag">The machines that became the industry. Watch the pivot from science to business around 1952.</div>
+      <div class="cs-table-wrap"><table class="cs-table">
+        <thead><tr><th>Machine</th><th>Built by</th><th>Year</th><th>Why it matters</th></tr></thead>
+        <tbody>
+          <tr><td class="name">ENIAC</td><td class="who">Moore School, UPenn</td><td class="year">1946</td><td>First general-purpose electronic computer</td></tr>
+          <tr><td class="name">EDVAC (design)</td><td class="who">von Neumann / Moore School</td><td class="year">1945</td><td>Stored-program concept (First Draft)</td></tr>
+          <tr><td class="name">Manchester Baby</td><td class="who">Williams + Kilburn</td><td class="year">1948</td><td>First stored-program run</td></tr>
+          <tr><td class="name">EDSAC</td><td class="who">Maurice Wilkes, Cambridge</td><td class="year">1949</td><td>Built after Moore School Lectures</td></tr>
+          <tr><td class="name">UNIVAC I</td><td class="who">Eckert + Mauchly</td><td class="year">1951</td><td>First commercial computer, predicted 1952 election</td></tr>
+          <tr><td class="name">IBM 701</td><td class="who">IBM</td><td class="year">1952</td><td>IBM's first commercial machine (scientific)</td></tr>
+          <tr><td class="name">IBM 650</td><td class="who">IBM</td><td class="year">1954</td><td>Magnetic drum, sold ~2000 — first mass business computer</td></tr>
+          <tr><td class="name">IBM 1401</td><td class="who">IBM</td><td class="year">1959</td><td>Transistors, ~10,000 sold, "good tech + great marketing"</td></tr>
+          <tr><td class="name">IBM System/360</td><td class="who">IBM (Brooks)</td><td class="year">1964</td><td>Compatible family, OS/360 → software crisis</td></tr>
+          <tr><td class="name">PDP-8</td><td class="who">DEC</td><td class="year">1965</td><td>First mass-market minicomputer</td></tr>
+          <tr><td class="name">Cray-1</td><td class="who">Seymour Cray</td><td class="year">1976</td><td>Supercomputing era</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 4. Dutch Dinosaurs -->
+    <div class="cs-section" id="cs-dutch">
+      <h2>🇳🇱 Dutch dinosaurs (almost certain exam question)</h2>
+      <div class="cs-tag">Alberts called this "bluffing your way into the computer age." Small teams, funny acronyms, big ambition.</div>
+      <div class="cs-table-wrap"><table class="cs-table">
+        <thead><tr><th>Machine</th><th>Built by</th><th>Where</th><th>Year</th><th>Meaning / fact</th></tr></thead>
+        <tbody>
+          <tr><td class="name">ARRA</td><td class="who">van Wijngaarden</td><td>Math. Centrum, Amsterdam</td><td class="year">1952</td><td>Automatische Relais Reken-machine Amsterdam</td></tr>
+          <tr><td class="name">FERTA</td><td class="who">Math. Centrum</td><td>Amsterdam</td><td class="year">1954</td><td>Improved ARRA</td></tr>
+          <tr><td class="name">ARMAC</td><td class="who">Math. Centrum</td><td>Amsterdam</td><td class="year">1956</td><td>First Dutch computer sold (to Shell)</td></tr>
+          <tr><td class="name">ZEBRA</td><td class="who">van der Poel</td><td>Delft</td><td class="year">1955</td><td>"Zeer Eenvoudige Binaire Reken Automaat" — very simple binary calc</td></tr>
+          <tr><td class="name">PETER</td><td class="who">Philips</td><td>Eindhoven</td><td class="year">1957</td><td>First Philips machine</td></tr>
+          <tr><td class="name">PASCAL</td><td class="who">Philips</td><td>Eindhoven</td><td class="year">~1960</td><td>Philips' commercial machine</td></tr>
+          <tr><td class="name">MIRACLE</td><td class="who">Shell</td><td>Amsterdam</td><td class="year">~1960</td><td>Shell's tongue-in-cheek name</td></tr>
+          <tr><td class="name">Electrologica X1</td><td class="who">Scholten / Dijkstra (compiler)</td><td>Amsterdam</td><td class="year">1958</td><td>First Dutch commercial computer; Dijkstra wrote first ALGOL 60 compiler on it</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 5. Personal Computers -->
+    <div class="cs-section" id="cs-pcs">
+      <h2>🖱️ Personal computers (1975 → 1990)</h2>
+      <div class="cs-tag">How the computer left the office and entered the home. "Broadening the appeal."</div>
+      <div class="cs-table-wrap"><table class="cs-table">
+        <thead><tr><th>Machine</th><th>Maker</th><th>Year</th><th>Significance</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Altair 8800</td><td class="who">MITS</td><td class="year">1975</td><td>First hobbyist PC; Gates &amp; Allen wrote BASIC for it</td></tr>
+          <tr><td class="name">Apple I</td><td class="who">Jobs + Wozniak</td><td class="year">1976</td><td>Single-board</td></tr>
+          <tr><td class="name">Apple II</td><td class="who">Jobs + Wozniak</td><td class="year">1977</td><td>Mass market; VisiCalc spreadsheet 1979 "killer app"</td></tr>
+          <tr><td class="name">Commodore PET</td><td class="who">Commodore</td><td class="year">1977</td><td>One of the "Trinity of '77"</td></tr>
+          <tr><td class="name">TRS-80</td><td class="who">Tandy / RadioShack</td><td class="year">1977</td><td>Trinity of '77, sold in stores</td></tr>
+          <tr><td class="name">IBM PC (5150)</td><td class="who">IBM</td><td class="year">1981</td><td>Open architecture → standard; MS-DOS</td></tr>
+          <tr><td class="name">Compaq Portable</td><td class="who">Compaq</td><td class="year">1983</td><td>First legal IBM clone, started PC clone industry</td></tr>
+          <tr><td class="name">Macintosh</td><td class="who">Apple</td><td class="year">1984</td><td>First mass-market GUI computer</td></tr>
+          <tr><td class="name">Commodore Amiga</td><td class="who">Commodore</td><td class="year">1985</td><td>Multimedia / graphics pioneer</td></tr>
+          <tr><td class="name">Windows 3.0</td><td class="who">Microsoft</td><td class="year">1990</td><td>GUI wins on the PC platform</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 6. Operating Systems -->
+    <div class="cs-section" id="cs-os">
+      <h2>🔧 Operating systems &amp; "new ways of computing"</h2>
+      <div class="cs-tag">Each one changed how people interacted with a computer.</div>
+      <div class="cs-table-wrap"><table class="cs-table">
+        <thead><tr><th>System</th><th>Origin</th><th>Year</th><th>What was new</th></tr></thead>
+        <tbody>
+          <tr><td class="name">CTSS</td><td class="who">Corbató, MIT</td><td class="year">1961</td><td>First real timesharing OS</td></tr>
+          <tr><td class="name">OS/360</td><td class="who">Brooks, IBM</td><td class="year">1964</td><td>Family OS for System/360 — software crisis exemplar</td></tr>
+          <tr><td class="name">Multics</td><td class="who">MIT + Bell + GE</td><td class="year">1965</td><td>Big ambitious timesharing OS</td></tr>
+          <tr><td class="name">Unix</td><td class="who">Ritchie + Thompson, Bell</td><td class="year">1969</td><td>Multics simplified; written in C</td></tr>
+          <tr><td class="name">CP/M</td><td class="who">Gary Kildall</td><td class="year">1974</td><td>First popular PC OS</td></tr>
+          <tr><td class="name">MS-DOS</td><td class="who">Microsoft</td><td class="year">1981</td><td>Command line for IBM PC</td></tr>
+          <tr><td class="name">Mac OS (System 1)</td><td class="who">Apple</td><td class="year">1984</td><td>First mass GUI OS</td></tr>
+          <tr><td class="name">Windows 1.0 → 3.0</td><td class="who">Microsoft</td><td class="year">1985–90</td><td>GUI layer over MS-DOS</td></tr>
+          <tr><td class="name">Linux</td><td class="who">Linus Torvalds</td><td class="year">1991</td><td>Free Unix clone → open-source movement</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 7. AI Pioneers -->
+    <div class="cs-section" id="cs-ai-people">
+      <h2>🧠 AI pioneers &amp; cybernetics</h2>
+      <div class="cs-tag">The people the prof keeps coming back to.</div>
+      <div class="cs-table-wrap"><table class="cs-table">
+        <thead><tr><th>Person</th><th>Field</th><th>Years</th><th>Key contribution</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Alan Turing</td><td>logic / AI</td><td class="year">1912–54</td><td>Turing machine (1936), Turing test (1950)</td></tr>
+          <tr><td class="name">Norbert Wiener</td><td>cybernetics</td><td class="year">1894–1964</td><td>Founded cybernetics; Macy conferences</td></tr>
+          <tr><td class="name">McCulloch &amp; Pitts</td><td>neural nets</td><td class="year">1943</td><td>"Logical calculus of nervous activity" — first neural net model</td></tr>
+          <tr><td class="name">Claude Shannon</td><td>info theory</td><td class="year">1916–2001</td><td>Information theory (1948); first chess paper (1950)</td></tr>
+          <tr><td class="name">John McCarthy</td><td>symbolic AI</td><td class="year">1927–2011</td><td>Coined "AI", LISP, Dartmouth 1956</td></tr>
+          <tr><td class="name">Marvin Minsky</td><td>symbolic AI</td><td class="year">1927–2016</td><td>LOGO, Society of Mind, Perceptrons critique</td></tr>
+          <tr><td class="name">Newell &amp; Simon</td><td>symbolic AI</td><td class="year">RAND/CMU</td><td>Logic Theorist 1955, GPS 1957</td></tr>
+          <tr><td class="name">Seymour Papert</td><td>AI &amp; education</td><td class="year">1928–2016</td><td>LOGO (1967), Mindstorms (1981)</td></tr>
+          <tr><td class="name">Joseph Weizenbaum</td><td>NLP</td><td class="year">1923–2008</td><td>ELIZA (1966); later AI critic</td></tr>
+          <tr><td class="name">Hubert Dreyfus</td><td>AI critic</td><td class="year">1929–2017</td><td><em>What Computers Can't Do</em> (RAND 1965)</td></tr>
+          <tr><td class="name">Pamela McCorduck</td><td>AI historian</td><td class="year">1940–2021</td><td><em>Machines Who Think</em> (1979)</td></tr>
+          <tr><td class="name">Jay David Bolter</td><td>media theory</td><td class="year">b. 1951</td><td><em>Turing's Man</em> (1984) — "defining technology"</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 8. AI Milestones -->
+    <div class="cs-section" id="cs-ai-milestones">
+      <h2>🎯 AI milestones (timeline)</h2>
+      <div class="cs-tag">Memorise five — Dartmouth, ELIZA, Lighthill, Deep Blue, ChatGPT.</div>
+      <div class="cs-table-wrap"><table class="cs-table">
+        <thead><tr><th>Year</th><th>Milestone</th><th>Who</th><th>Why it matters</th></tr></thead>
+        <tbody>
+          <tr><td class="year">1943</td><td class="name">Neuron logic paper</td><td class="who">McCulloch &amp; Pitts</td><td>First neural net model</td></tr>
+          <tr><td class="year">1948</td><td class="name"><em>Cybernetics</em></td><td class="who">Wiener</td><td>Founded the field</td></tr>
+          <tr><td class="year">1950</td><td class="name">Turing test paper</td><td class="who">Turing</td><td>"Computing Machinery and Intelligence"</td></tr>
+          <tr><td class="year">1955</td><td class="name">Logic Theorist</td><td class="who">Newell &amp; Simon</td><td>First running AI program</td></tr>
+          <tr><td class="year">1956</td><td class="name">Dartmouth workshop</td><td class="who">McCarthy, Minsky, Rochester, Shannon</td><td>"AI" coined</td></tr>
+          <tr><td class="year">1958</td><td class="name">LISP</td><td class="who">McCarthy</td><td>AI's language for decades</td></tr>
+          <tr><td class="year">1966</td><td class="name">ELIZA</td><td class="who">Weizenbaum</td><td>First chatbot</td></tr>
+          <tr><td class="year">1967</td><td class="name">LOGO</td><td class="who">Papert + Minsky</td><td>Children programming</td></tr>
+          <tr><td class="year">1969</td><td class="name"><em>Perceptrons</em></td><td class="who">Minsky + Papert</td><td>Killed neural net research for a decade</td></tr>
+          <tr><td class="year">1972</td><td class="name">SHRDLU</td><td class="who">Terry Winograd</td><td>Natural-language blocks world</td></tr>
+          <tr><td class="year">1973</td><td class="name">Lighthill report</td><td class="who">UK government</td><td>Triggered first AI winter</td></tr>
+          <tr><td class="year">1976</td><td class="name">Four-colour theorem</td><td class="who">Haken &amp; Appel</td><td>First major proof needing a computer</td></tr>
+          <tr><td class="year">1979</td><td class="name"><em>Machines Who Think</em></td><td class="who">McCorduck</td><td>Defended AI during the winter</td></tr>
+          <tr><td class="year">1980s</td><td class="name">Expert systems boom</td><td class="who">MYCIN, R1/XCON</td><td>Brief AI revival</td></tr>
+          <tr><td class="year">1987–93</td><td class="name">Second AI winter</td><td class="who">—</td><td>Expert systems &amp; Lisp machines collapse</td></tr>
+          <tr><td class="year">1997</td><td class="name">Deep Blue beats Kasparov</td><td class="who">IBM</td><td>Brute-force chess, not general AI</td></tr>
+          <tr><td class="year">2011</td><td class="name">Watson wins Jeopardy!</td><td class="who">IBM</td><td>Mass-media AI moment</td></tr>
+          <tr><td class="year">2012</td><td class="name">AlexNet / ImageNet</td><td class="who">Krizhevsky, Sutskever, Hinton</td><td>Deep-learning thaw</td></tr>
+          <tr><td class="year">2016</td><td class="name">AlphaGo beats Lee Sedol</td><td class="who">DeepMind</td><td>Deep learning + tree search</td></tr>
+          <tr><td class="year">2022</td><td class="name">ChatGPT</td><td class="who">OpenAI</td><td>AI enters every household</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 9. Three Traditions -->
+    <div class="cs-section" id="cs-traditions">
+      <h2>🔱 Three traditions of automation</h2>
+      <div class="cs-tag">The prof's signature framework. Every "history of computing" question can be answered through this.</div>
+      <div class="cs-table-wrap"><table class="cs-table">
+        <thead><tr><th>Tradition</th><th>Driver</th><th>Examples</th><th>Slogan</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Administration</td><td>Money, urgency, practices</td><td>Hollerith (1890 US census), IBM, NCR, Burroughs, typewriters</td><td>"Practices and outlines"</td></tr>
+          <tr><td class="name">Process control</td><td>Outlines, analogue tech</td><td>Edison electricity (1898), Shell (1935), Hoogovens, DSM (1956)</td><td>"Outlines + analogue"</td></tr>
+          <tr><td class="name">Science &amp; engineering</td><td>Concepts, calculation</td><td>de Prony (1790s), Babbage, Bush differential analyser (1934), Hartree, Manhattan project, Tinbergen</td><td>"Calculations"</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 10. Logic prehistory -->
+    <div class="cs-section" id="cs-logic">
+      <h2>🧮 Logic &amp; math prehistory of AI</h2>
+      <div class="cs-tag">The chain that runs from Boole to Turing. AI needs a language for thought.</div>
+      <div class="cs-table-wrap"><table class="cs-table">
+        <thead><tr><th>Year</th><th>Work</th><th>Author</th><th>Why it matters</th></tr></thead>
+        <tbody>
+          <tr><td class="year">1854</td><td class="name"><em>Laws of Thought</em></td><td class="who">George Boole</td><td>Boolean algebra — logic as math</td></tr>
+          <tr><td class="year">1879</td><td class="name"><em>Begriffsschrift</em></td><td class="who">Gottlob Frege</td><td>Formal symbolic logic</td></tr>
+          <tr><td class="year">1910–13</td><td class="name"><em>Principia Mathematica</em></td><td class="who">Russell + Whitehead</td><td>Derive all math from logic</td></tr>
+          <tr><td class="year">1928</td><td class="name">Entscheidungsproblem</td><td class="who">David Hilbert</td><td>"Is there a universal decision procedure?"</td></tr>
+          <tr><td class="year">1931</td><td class="name">Incompleteness theorems</td><td class="who">Kurt Gödel</td><td>"No, there isn't"</td></tr>
+          <tr><td class="year">1936</td><td class="name">Lambda calculus</td><td class="who">Alonzo Church</td><td>Function-based computation</td></tr>
+          <tr><td class="year">1936</td><td class="name">a-machine (Turing machine)</td><td class="who">Alan Turing</td><td>Universal machine model</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 11. Artificial Languages -->
+    <div class="cs-section" id="cs-langs">
+      <h2>🌐 Artificial languages</h2>
+      <div class="cs-tag">From "early 20th-century language reform" exam questions. Two paths: peace + thought.</div>
+      <div class="cs-table-wrap"><table class="cs-table">
+        <thead><tr><th>Language / system</th><th>Inventor</th><th>Year</th><th>Goal</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Volapük</td><td class="who">Johann Schleyer</td><td class="year">1879–80</td><td>International auxiliary language</td></tr>
+          <tr><td class="name">Esperanto</td><td class="who">L.L. Zamenhof</td><td class="year">1887</td><td>Peace movement</td></tr>
+          <tr><td class="name">Ido</td><td class="who">de Beaufront, Couturat</td><td class="year">1907</td><td>Esperanto reform</td></tr>
+          <tr><td class="name">Latino sine flexione</td><td class="who">Giuseppe Peano</td><td class="year">1903</td><td>Simplified Latin</td></tr>
+          <tr><td class="name">Significs</td><td class="who">Lady Victoria Welby</td><td class="year">~1903</td><td>Meaning &amp; signs in language</td></tr>
+          <tr><td class="name">Begriffsschrift</td><td class="who">Gottlob Frege</td><td class="year">1879</td><td>Formal language for pure thought</td></tr>
+          <tr><td class="name">Klavarscribo</td><td class="who">Cornelis Pot</td><td class="year">1931</td><td>Visual music notation (NL)</td></tr>
+          <tr><td class="name">Lambda calculus</td><td class="who">Alonzo Church</td><td class="year">1936</td><td>Mathematical language of computation</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 12. Internet -->
+    <div class="cs-section" id="cs-internet">
+      <h2>🌍 Internet milestones</h2>
+      <div class="cs-tag">"Three desires": military, academic, civic/commercial — all wanted the same infrastructure.</div>
+      <div class="cs-table-wrap"><table class="cs-table">
+        <thead><tr><th>Year</th><th>Event</th><th>Who / where</th></tr></thead>
+        <tbody>
+          <tr><td class="year">1962</td><td class="name">Packet switching idea</td><td class="who">Paul Baran (RAND)</td></tr>
+          <tr><td class="year">1969</td><td class="name">ARPANET first 4 nodes</td><td class="who">DoD / UCLA, UCSB, SRI, Utah</td></tr>
+          <tr><td class="year">1971</td><td class="name">First email</td><td class="who">Ray Tomlinson</td></tr>
+          <tr><td class="year">1974</td><td class="name">TCP design</td><td class="who">Vint Cerf + Bob Kahn</td></tr>
+          <tr><td class="year">1983</td><td class="name">TCP/IP adopted on ARPANET</td><td class="who">DoD</td></tr>
+          <tr><td class="year">1985</td><td class="name">NSFNET launched</td><td class="who">National Science Foundation</td></tr>
+          <tr><td class="year">1989</td><td class="name">WWW proposal</td><td class="who">Tim Berners-Lee, CERN</td></tr>
+          <tr><td class="year">1993</td><td class="name">Mosaic browser</td><td class="who">NCSA (Marc Andreessen)</td></tr>
+          <tr><td class="year">1995</td><td class="name">Commercial internet</td><td class="who">NSFNET decommissioned</td></tr>
+          <tr><td class="year">1998</td><td class="name">Google founded</td><td class="who">Page + Brin</td></tr>
+          <tr><td class="year">2004</td><td class="name">Web 2.0 / Facebook</td><td class="who">O'Reilly / Zuckerberg</td></tr>
+          <tr><td class="year">2007</td><td class="name">iPhone</td><td class="who">Apple — mobile internet</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 13. Privacy laws -->
+    <div class="cs-section" id="cs-privacy">
+      <h2>🔒 Privacy &amp; governance laws</h2>
+      <div class="cs-tag">Europe omnibus + US sectoral. The B12 question on the exam.</div>
+      <div class="cs-table-wrap"><table class="cs-table">
+        <thead><tr><th>Year</th><th>Law</th><th>Where</th><th>Scope</th></tr></thead>
+        <tbody>
+          <tr><td class="year">1973</td><td class="name">Fair Information Practices (HEW)</td><td>USA</td><td>First privacy framework</td></tr>
+          <tr><td class="year">1981</td><td class="name">Convention 108</td><td>Council of Europe</td><td>First international privacy treaty</td></tr>
+          <tr><td class="year">1995</td><td class="name">Data Protection Directive</td><td>EU</td><td>Pre-GDPR</td></tr>
+          <tr><td class="year">1996</td><td class="name">HIPAA</td><td>USA</td><td>Health data</td></tr>
+          <tr><td class="year">1998</td><td class="name">COPPA</td><td>USA</td><td>Children's data online</td></tr>
+          <tr><td class="year">2018</td><td class="name">GDPR</td><td>EU</td><td>Omnibus law, fines up to 4% global revenue</td></tr>
+          <tr><td class="year">2018</td><td class="name">CCPA</td><td>California</td><td>State-level US version of GDPR</td></tr>
+          <tr><td class="year">2024</td><td class="name">EU AI Act</td><td>EU</td><td>First major AI regulation</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 14. AI Winters -->
+    <div class="cs-section" id="cs-winters">
+      <h2>❄️ AI winters &amp; histories</h2>
+      <div class="cs-tag">Pair each winter with the history that was written to defend the field.</div>
+      <div class="cs-table-wrap"><table class="cs-table">
+        <thead><tr><th>Period</th><th>What happened</th><th>Trigger / response</th></tr></thead>
+        <tbody>
+          <tr><td class="year">1969</td><td class="name">Mansfield Amendment</td><td>US: DARPA must fund "mission-relevant" research only</td></tr>
+          <tr><td class="year">1973</td><td class="name">Lighthill report (UK)</td><td>Declares general AI a dead end → UK funding cut</td></tr>
+          <tr><td class="year">1974–80</td><td class="name">First AI winter</td><td>Symbolic AI loses funding worldwide</td></tr>
+          <tr><td class="year">1979</td><td class="name"><em>Machines Who Think</em></td><td>McCorduck rebuilds AI's cultural legitimacy via mythology</td></tr>
+          <tr><td class="year">1980s</td><td class="name">Expert systems boom</td><td>MYCIN, XCON — first commercial AI revival</td></tr>
+          <tr><td class="year">1984</td><td class="name"><em>Turing's Man</em></td><td>Bolter: computer as "defining technology"</td></tr>
+          <tr><td class="year">1987–93</td><td class="name">Second AI winter</td><td>Lisp machines &amp; expert systems collapse</td></tr>
+          <tr><td class="year">2012</td><td class="name">AlexNet</td><td>Deep learning thaw — connectionism wins again</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 15. Games & AI -->
+    <div class="cs-section" id="cs-games">
+      <h2>🎮 Games &amp; AI</h2>
+      <div class="cs-tag">Chess is the "drosophila" — but the analogy meant fixation, not testbed.</div>
+      <div class="cs-table-wrap"><table class="cs-table">
+        <thead><tr><th>Game</th><th>Year</th><th>Maker</th><th>Significance</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Shannon chess paper</td><td class="year">1950</td><td class="who">Claude Shannon</td><td>Set chess as AI's main testbed</td></tr>
+          <tr><td class="name">Bertie the Brain (tic-tac-toe)</td><td class="year">1950</td><td class="who">Josef Kates</td><td>First electronic game-playing machine</td></tr>
+          <tr><td class="name">NIM machine</td><td class="year">1951</td><td class="who">Ferranti / Festival of Britain</td><td>Public demo of game AI</td></tr>
+          <tr><td class="name">Oregon Trail</td><td class="year">1971</td><td class="who">Rawitsch, Heinemann, Dillenberger (MIT-trained)</td><td>Educational adventure; Weizenbaum legacy</td></tr>
+          <tr><td class="name">Pong</td><td class="year">1972</td><td class="who">Atari (Bushnell)</td><td>First arcade hit</td></tr>
+          <tr><td class="name">Adventure (Colossal Cave)</td><td class="year">1976</td><td class="who">Crowther + Woods</td><td>First text adventure</td></tr>
+          <tr><td class="name">Zork</td><td class="year">1977</td><td class="who">MIT (Infocom)</td><td>Sophisticated natural-language parser</td></tr>
+          <tr><td class="name">Pacman</td><td class="year">1980</td><td class="who">Namco (Iwatani)</td><td>Scripted ghost AI (rule-based)</td></tr>
+          <tr><td class="name">Deep Blue vs Kasparov</td><td class="year">1997</td><td class="who">IBM</td><td>Brute force, not general intelligence</td></tr>
+          <tr><td class="name">AlphaGo vs Lee Sedol</td><td class="year">2016</td><td class="who">DeepMind</td><td>Deep RL + tree search</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 16. Education & AI -->
+    <div class="cs-section" id="cs-education">
+      <h2>🎓 AI &amp; education</h2>
+      <div class="cs-tag">Two philosophies: drilling (PI) vs constructing (LOGO).</div>
+      <div class="cs-table-wrap"><table class="cs-table">
+        <thead><tr><th>Approach</th><th>Founder</th><th>Year</th><th>Idea</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Programmed Instruction</td><td class="who">B. F. Skinner</td><td class="year">1954</td><td>Behaviourism: drill + reinforce</td></tr>
+          <tr><td class="name">PLATO project</td><td class="who">University of Illinois</td><td class="year">1960</td><td>Big timesharing tutor</td></tr>
+          <tr><td class="name">BASIC + DTSS</td><td class="who">Kemeny + Kurtz, Dartmouth</td><td class="year">1964</td><td>"Computer for every student"</td></tr>
+          <tr><td class="name">LOGO</td><td class="who">Papert + Minsky, MIT</td><td class="year">1967</td><td>Turtle, "powerful ideas"</td></tr>
+          <tr><td class="name">Computer wiskunde report</td><td class="who">Dutch government</td><td class="year">1968</td><td>Algorithms in school</td></tr>
+          <tr><td class="name">Blind-dating algorithm</td><td class="who">C.J. Vonk</td><td class="year">1971</td><td>Teaching arrays in NL classrooms</td></tr>
+          <tr><td class="name"><em>Mindstorms</em></td><td class="who">Seymour Papert</td><td class="year">1981</td><td>Kids should build, not be drilled</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 17. Sci-fi prehistory -->
+    <div class="cs-section" id="cs-scifi">
+      <h2>🎭 Sci-fi &amp; cultural prehistory</h2>
+      <div class="cs-tag">"Does AI exist without computers?" Fiction shaped the questions before the engineers arrived.</div>
+      <div class="cs-table-wrap"><table class="cs-table">
+        <thead><tr><th>Year</th><th>Work</th><th>Author</th><th>What it imagined</th></tr></thead>
+        <tbody>
+          <tr><td class="year">1818</td><td class="name"><em>Frankenstein</em></td><td class="who">Mary Shelley</td><td>Created life, creator's ethics</td></tr>
+          <tr><td class="year">1872</td><td class="name"><em>Erewhon</em></td><td class="who">Samuel Butler</td><td>Machines evolving consciousness</td></tr>
+          <tr><td class="year">1920</td><td class="name"><em>R.U.R.</em></td><td class="who">Karel Čapek</td><td>Coined "robot"</td></tr>
+          <tr><td class="year">1927</td><td class="name"><em>Metropolis</em></td><td class="who">Fritz Lang</td><td>Mechanical female worker</td></tr>
+          <tr><td class="year">1936</td><td class="name"><em>Modern Times</em></td><td class="who">Charlie Chaplin</td><td>Industrial assembly satire</td></tr>
+          <tr><td class="year">1968</td><td class="name"><em>2001: A Space Odyssey</em></td><td class="who">Kubrick / Clarke</td><td>HAL 9000</td></tr>
+          <tr><td class="year">1984</td><td class="name"><em>Neuromancer</em></td><td class="who">William Gibson</td><td>Cyberspace</td></tr>
+          <tr><td class="year">1999</td><td class="name"><em>The Matrix</em></td><td class="who">Wachowskis</td><td>Simulated reality</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 18. Companies -->
+    <div class="cs-section" id="cs-companies">
+      <h2>🏢 Key companies</h2>
+      <div class="cs-tag">Most computer history is company history.</div>
+      <div class="cs-table-wrap"><table class="cs-table">
+        <thead><tr><th>Company</th><th>Founded</th><th>Specialty</th><th>One-line story</th></tr></thead>
+        <tbody>
+          <tr><td class="name">IBM</td><td class="year">1924 (CTR 1911)</td><td>Business machines, mainframes</td><td>Punched cards → 701 → 1401 → System/360. Dominated 1956–80.</td></tr>
+          <tr><td class="name">Remington Rand</td><td class="year">1927</td><td>Office equipment</td><td>Bought UNIVAC; lost the market to IBM.</td></tr>
+          <tr><td class="name">Bell Labs</td><td class="year">1925</td><td>R&amp;D</td><td>Transistor 1947, Unix 1969, C 1972, Shannon's info theory.</td></tr>
+          <tr><td class="name">DEC</td><td class="year">1957</td><td>Minicomputers</td><td>PDP-8 (1965) made minicomputing mass-market.</td></tr>
+          <tr><td class="name">Xerox PARC</td><td class="year">1970</td><td>R&amp;D lab</td><td>Alto, GUI, Smalltalk, Ethernet — never commercialised.</td></tr>
+          <tr><td class="name">Intel</td><td class="year">1968</td><td>Microprocessors</td><td>4004 chip 1971 → PC era.</td></tr>
+          <tr><td class="name">Microsoft</td><td class="year">1975</td><td>Software</td><td>BASIC for Altair, MS-DOS, Windows, Office.</td></tr>
+          <tr><td class="name">Apple</td><td class="year">1976</td><td>PCs &amp; consumer tech</td><td>Apple II, Mac, iPhone.</td></tr>
+          <tr><td class="name">Philips</td><td class="year">1891</td><td>Electronics</td><td>Dutch PETER and PASCAL machines.</td></tr>
+          <tr><td class="name">Shell</td><td class="year">1907</td><td>Oil</td><td>Bought ARMAC 1956; built MIRACLE — process control tradition.</td></tr>
+          <tr><td class="name">Google</td><td class="year">1998</td><td>Search → AI</td><td>PageRank, Android, DeepMind (2014).</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- 19. Key concepts -->
+    <div class="cs-section" id="cs-concepts">
+      <h2>💡 Key concepts (the prof's vocabulary)</h2>
+      <div class="cs-tag">Drop these terms into any essay. They are the lecturer's signature language.</div>
+      <div class="cs-concept-grid">
+        <div class="cs-concept-card">
+          <h4>Three Traditions</h4>
+          <p>Administration, process control, science. Computing has three histories, not one. They converged in the modern computer.</p>
+        </div>
+        <div class="cs-concept-card">
+          <h4>Appropriation</h4>
+          <p>One field's technology gets repurposed by another (Cold War → airlines, military → academic networks). Use this whenever a question asks how history connects across domains.</p>
+        </div>
+        <div class="cs-concept-card">
+          <h4>Agendas</h4>
+          <p>Histories of computing/AI are written to defend present-day funding. McCorduck 1979 is the textbook case.</p>
+        </div>
+        <div class="cs-concept-card">
+          <h4>Defining technology (Bolter)</h4>
+          <p>Every age has one machine it uses to describe itself: clock → steam engine → computer → AI. Bolter, <em>Turing's Man</em>, 1984.</p>
+        </div>
+        <div class="cs-concept-card">
+          <h4>Three desires (Internet)</h4>
+          <p>Military, academic, and civic/commercial communities all wanted the same packet-switched infrastructure for different reasons.</p>
+        </div>
+        <div class="cs-concept-card">
+          <h4>Software crisis</h4>
+          <p>NATO conference, Garmisch, 1968. Big software projects (OS/360) kept failing. Born of OS/360 chaos. Brooks vs Dijkstra response.</p>
+        </div>
+        <div class="cs-concept-card">
+          <h4>Stored-program concept</h4>
+          <p>Von Neumann's First Draft of a Report on the EDVAC (1945). Program and data share memory — the foundational idea of the modern computer.</p>
+        </div>
+        <div class="cs-concept-card">
+          <h4>Moore School Lectures</h4>
+          <p>Summer 1946 at UPenn. Eight-week school taught stored-program design to Wilkes (EDSAC) and others — gateway to Europe.</p>
+        </div>
+        <div class="cs-concept-card">
+          <h4>Drosophila of AI</h4>
+          <p>Chess as AI's lab fruit-fly. But the analogy meant fixation, not testbed — Deep Blue 1997 won chess without delivering general intelligence.</p>
+        </div>
+        <div class="cs-concept-card">
+          <h4>AI winter</h4>
+          <p>Periods (1974–80, 1987–93) when AI funding collapsed after hype outran results. Pattern repeats; expect another.</p>
+        </div>
+        <div class="cs-concept-card">
+          <h4>Bluffing your way in (Alberts)</h4>
+          <p>How small Dutch teams (ARRA, ZEBRA) bootstrapped a national computer industry on tiny budgets.</p>
+        </div>
+        <div class="cs-concept-card">
+          <h4>Data as terra/animo nullius</h4>
+          <p>Jonnie Penn 2023: data colonialism — companies treat user data like "land that belongs to no one." Reading list item.</p>
+        </div>
+        <div class="cs-concept-card">
+          <h4>Computing for its own sake?</h4>
+          <p>Campbell-Kelly on Moore School: "computing was not performed for its own sake, but always as a means to an end." Computing is utilitarian.</p>
+        </div>
+        <div class="cs-concept-card">
+          <h4>Broadening the appeal</h4>
+          <p>The 1980s shift: PC moves from office to home through GUI, CD-ROM multimedia, then networking.</p>
+        </div>
+        <div class="cs-concept-card">
+          <h4>Electronic brain metaphor</h4>
+          <p>1949 Berkeley's <em>Giant Brains</em> + tabloid press. A sales metaphor that set unrealistic AI expectations and seeded later winters.</p>
+        </div>
+        <div class="cs-concept-card">
+          <h4>Company culture</h4>
+          <p>The prof's reminder that IBM's sales force, Xerox PARC's culture, or Apple's Jobs/Wozniak dynamic shape outcomes as much as engineering.</p>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <!-- ============ TOOLKIT VIEW ============ -->
@@ -4677,10 +5388,12 @@ function switchView(which) {
   document.getElementById("view-essentials").classList.toggle("active", which === "essentials");
   document.getElementById("view-lectures").classList.toggle("active", which === "lectures");
   document.getElementById("view-exam").classList.toggle("active", which === "exam");
+  document.getElementById("view-cheatsheet").classList.toggle("active", which === "cheatsheet");
   document.getElementById("view-toolkit").classList.toggle("active", which === "toolkit");
   document.getElementById("tab-essentials").classList.toggle("active", which === "essentials");
   document.getElementById("tab-lectures").classList.toggle("active", which === "lectures");
   document.getElementById("tab-exam").classList.toggle("active", which === "exam");
+  document.getElementById("tab-cheatsheet").classList.toggle("active", which === "cheatsheet");
   document.getElementById("tab-toolkit").classList.toggle("active", which === "toolkit");
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
